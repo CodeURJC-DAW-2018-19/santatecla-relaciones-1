@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "sass ./site/assets/scss/style.scss ./site/assets/css/style.css"
+    "sass": "sass ./site/assets/scss/style.scss ./site/assets/css/style.css && sass ./site/assets/scss/material-dashboard.scss ./site/assets/css/material-dashboard.css"
   },
   "repository": {
     "type": "git",
