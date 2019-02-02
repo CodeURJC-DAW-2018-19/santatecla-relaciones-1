@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../scss/style.scss"],"names":[],"mappings":"AAAA;EACI","file":"style.css"}
+{"version":3,"sourceRoot":"","sources":["../../../material-dashboard/assets/scss/material-dashboard/variables/_brand.scss","../scss/style.scss","../../../material-dashboard/assets/scss/material-dashboard/variables/_colors.scss"],"names":[],"mappings":"AAGA;ACDA;EACI,kBCiRO;;;AD9QX;EACI;EACA","file":"style.css"}

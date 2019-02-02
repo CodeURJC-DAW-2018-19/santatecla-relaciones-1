@@ -1,3 +1,10 @@
-body{
-    background-color: rebeccapurple;
+@import "../../../material-dashboard/assets/scss/material-dashboard/variables";
+
+body {
+    background-color: $grey-400;
+}
+
+.content {
+    margin-top: 70px;
+    padding: 30px 15px;
 }

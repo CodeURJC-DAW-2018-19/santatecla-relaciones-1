@@ -1,5 +1,11 @@
+/*     brand Colors              */
 body {
-  background-color: rebeccapurple;
+  background-color: #bdbdbd;
+}
+
+.content {
+  margin-top: 70px;
+  padding: 30px 15px;
 }
 
 /*# sourceMappingURL=style.css.map */
