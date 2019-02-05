@@ -13,67 +13,73 @@
     <div class="wrapper">
         <div class="row">
             <div class="col-12 col-md-10 m-auto">
-                <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-                    <div class="container-fluid">
-                        <div class="navbar-wrapper">
-                            <a class="navbar-brand" href="#pablo">Santatecla</a>
+                <div class="row">
+                    <div class="col-6">
+                        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+                            <div class="container-fluid">
+                                <div class="navbar-wrapper">
+                                    <a class="navbar-brand" href="#pablo">Santatecla</a>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="col-6">
+                        <div class="nav justify-content-end p-3">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <button class="btn btn-danger p-2 text-white" onclick="logOut()">
+                                        <i class="fas fa-user"></i>
+                                        <span class="my-extra-bold">LOGOUT</span>
+                                    </button>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                </nav>
-                <div class="nav justify-content-end p-3">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="btn btn-danger p-2 nav-link text-white">
-                                <i class="fas fa-user"></i>
-                                <span class="my-extra-bold">LOGOUT</span>
-                            </a>
-                        </li>
-                    </ul>
                 </div>
 
-                <div class="content">
-                    <div class="card">
-                        <div class="card-header card-header-tabs card-header-primary">
+
+
+                <div class="card">
+                    <div class="card card-nav-tabs card-plain">
+                        <div class="card-header card-header-primary">
+
                             <div class="nav-tabs-navigation">
                                 <div class="nav-tabs-wrapper">
-                                    <span class="nav-tabs-title">Unidades:</span>
                                     <ul class="nav nav-tabs" data-tabs="tabs">
                                         <li class="nav-item">
-                                            <a href="#unidad1" class="nav-link" data-toggle="tab">
-                                                <span class="my-extra-bold">
-                                                    UNIDAD 1
-                                                </span>
+                                            <a class="nav-link active" href="#list-of-units" data-toggle="tab">
+                                                <span>Unidades:</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#unidad2" class="nav-link" data-toggle="tab">
-                                                <span class="my-extra-bold">
-                                                    UNIDAD 2
-                                                </span>
+                                            <a class="nav-link" href="#unit1" data-toggle="tab">
+                                                <span>Unidad 1</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#unidad3" class="nav-link" data-toggle="tab">
-                                                <span class="my-extra-bold">
-                                                    UNIDAD 3
-                                                </span>
+                                            <a class="nav-link" href="#unit2" data-toggle="tab">
+                                                <span>Unidad 2</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#unidad4" class="nav-link" data-toggle="tab">
-                                                <span class="my-extra-bold">
-                                                    UNIDAD 4
-                                                </span>
+                                            <a class="nav-link" href="#unit3" data-toggle="tab">
+                                                <span>Unidad 3</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#unit4" data-toggle="tab">
+                                                <span>Unidad 4</span>
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <div class="tab-content">
-                                <div class="tab-pane" id="profile">
-                                    <table class="table">
+                        <div class="card-body ">
+                            <div class="tab-content text-center">
+                                <!-- List of units -->
+                                <div class="tab-pane active justify-content-start" id="list-of-units">
+                                    <table class="table my-table">
                                         <tbody>
                                             <tr>
                                                 <td>UNIDAD 1</td>
@@ -90,64 +96,101 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <div id="unidad1" class="tab-pane active">
-                                    <nav class="nav">
-                                        <a class="nav-link active" href="#context1">Contexto</a>
-                                        <a class="nav-link" href="#detail1">Detalle</a>
-                                        <div class="tab" id="context1">
-                                            <div class="row">
-                                                <div class="col-12 col-lg-4">
-                                                    <div class="card">
-                                                        <div class="card-header card-header-danger">
-                                                            <h4 class="card-title">Padres</h4>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <table class="table">
-                                                                <tbody>
-                                                                    <tr>
-                                                                    <td>Padre 1
-                                                                        <!--<div class="d-flex justify-content-end">-->
-                                                                        <button class ="btn btn-primary btn-link">
-                                                                            <i class="fas fa-trash-alt"></i>
-                                                                        </button>
-                                                                        <!--</div>-->
-                                                                    </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                    <td>Padre 2
-                                                                        <div class="d-flex justify-content-end">
-                                                                        <button class ="btn btn-primary btn-link">
-                                                                            <i class="fas fa-trash-alt"></i>
-                                                                        </button>
-                                                                        </div>
-                                                                    </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <div class="d-flex justify-content-end">
-                                                                                <button class ="btn btn-primary btn-link">
-                                                                                        <i class="fas fa-plus"></i>
-                                                                                </button>
-                                                                            </div>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-lg-4">
-                                                    <div class="card">
-                                                        <div class="card-header card-header-success">
-                                                            <h4 class="card-title">Compuestos</h4>
-                                                        </div>
-                                                        <div class="card-body">
-                                                                <div data-spy="scroll">
-                                                                <table class="table">
-                                                                        <tbody>
+                                <!-- Unit 1 -->
+                                <div class="tab-pane" id="unit1">
+                                    <ul class="nav nav-pills nav-pills-primary pb-3" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" data-toggle="tab" href="#context" role="tablist"
+                                                aria-expanded="true">
+                                                <span>
+                                                    Contexto
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="tab" href="#detail" role="tablist"
+                                                aria-expanded="false">
+                                                <span>
+                                                    Detalle
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content tab-space">
+                                        <!-- Context -->
+                                        <div class="tab-pane active" id="context" aria-expanded="true">
+                                            <div class="tab-content tab-space">
+                                                <div class="row justify-content-center">
+                                                    <div class="col-11">
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-12 col-md-6 col-lg-4">
+                                                                <div class="card">
+                                                                    <div class="card-header card-header-danger">
+                                                                        <h4 class="card-title">Padres</h4>
+                                                                    </div>
+                                                                    <div class="card-body">
+                                                                        <table class="table my-table">
+                                                                            <tbody>
                                                                                 <tr>
-                                                                                    <td>Compuesto 1
-                                                                                    <!--<div class="d-flex justify-content-end">-->
+                                                                                    <td>PADRE 1
+                                                                                        <!--<div class="d-flex justify-content-end">-->
+                                                                                        <button class ="btn btn-primary btn-link">
+                                                                                            <i class="fas fa-trash-alt"></i>
+                                                                                        </button>
+                                                                                        <!--</div>-->
+                                                                                    </td>
+                                                                                    </tr>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>PADRE 2
+                                                                                        <div class="d-flex justify-content-end">
+                                                                                            <button class ="btn btn-primary btn-link">
+                                                                                                <i class="fas fa-trash-alt"></i>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <div class="d-flex justify-content-end">
+                                                                                            <button class ="btn btn-primary btn-link">
+                                                                                                    <i class="fas fa-plus"></i>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-6 col-lg-4">
+                                                                <div class="card">
+                                                                    <div class="card-header card-header-success">
+                                                                        <h4 class="card-title">Compuestos</h4>
+                                                                    </div>
+                                                                    <div class="card-body">
+                                                                        <table class="table my-table">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>COMPUESTO 1
+                                                                                        <!--<div class="d-flex justify-content-end">-->
+                                                                                        <button class ="btn btn-primary btn-link">
+                                                                                        <i class="fas fa-trash-alt"></i>
+                                                                                        </button>
+                                                                                        <!--</div>-->
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>COMPUESTO 2
+                                                                                        <button class ="btn btn-primary btn-link">
+                                                                                            <i class="fas fa-trash-alt"></i>
+                                                                                        </button>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>COMPUESTO 3
+                                                                                        <!--<div class="d-flex justify-content-end">-->
                                                                                     <button class ="btn btn-primary btn-link">
                                                                                         <i class="fas fa-trash-alt"></i>
                                                                                     </button>
@@ -155,332 +198,282 @@
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                <td>Compuesto 2
-                                                                                    <div class="d-flex justify-content-end">
+                                                                                    <td>
+                                                                                        <div class="d-flex justify-content-end">
+                                                                                            <button class ="btn btn-primary btn-link">
+                                                                                                    <i class="fas fa-plus"></i>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-6 col-lg-4">
+                                                                <div class="card">
+                                                                    <div class="card-header card-header-info">
+                                                                        <h4 class="card-title">Usa</h4>
+                                                                    </div>
+                                                                    <div class="card-body">
+                                                                        <table class="table my-table">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>USADO 1
+                                                                                        <!--<div class="d-flex justify-content-end">-->
                                                                                         <button class ="btn btn-primary btn-link">
                                                                                             <i class="fas fa-trash-alt"></i>
                                                                                         </button>
-                                                                                    </div>
-                                                                                </td>
+                                                                                        <!--</div>-->
+                                                                                    </td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                <td>Compuesto 3
-                                                                                    <!--<div class="d-flex justify-content-end">-->
-                                                                                    <button class ="btn btn-primary btn-link">
-                                                                                        <i class="fas fa-trash-alt"></i>
-                                                                                    </button>
-                                                                                    <!--</div>-->
-                                                                                </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                <td>
-                                                                                    <div class="d-flex justify-content-end">
+                                                                                    <td>USADO 2
                                                                                         <button class ="btn btn-primary btn-link">
-                                                                                                <i class="fas fa-plus"></i>
+                                                                                            <i class="fas fa-trash-alt"></i>
                                                                                         </button>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
                                                                 </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-lg-4">
-                                                    <div class="card">
-                                                        <div class="card-header card-header-info">
-                                                            <h4 class="card-title">Usa</h4>
-                                                        </div>
-                                                        <div class="card-body">
-                                                                <table class="table">
-                                                                        <tbody>
-                                                                            <tr>
-                                                                            <td>Usado 1
-                                                                                <!--<div class="d-flex justify-content-end">-->
-                                                                                <button class ="btn btn-primary btn-link">
-                                                                                    <i class="fas fa-trash-alt"></i>
-                                                                                </button>
-                                                                                <!--</div>-->
-                                                                            </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                            <td>Usado 2
-                                                                                <div class="d-flex justify-content-end">
-                                                                                <button class ="btn btn-primary btn-link">
-                                                                                    <i class="fas fa-trash-alt"></i>
-                                                                                </button>
-                                                                                </div>
-                                                                            </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>
-                                                                                    <div class="d-flex justify-content-end">
-                                                                                        <button class ="btn btn-primary btn-link">
-                                                                                                <i class="fas fa-plus"></i>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-lg-4">
-                                                    <div class="card">
-                                                        <div class="card-header card-header-warning">
-                                                            <h4 class="card-title">Asociados a</h4>
-                                                        </div>
-                                                        <div class="card-body">
-                                                                <table class="table">
-                                                                        <tbody>
-                                                                            <tr>
-                                                                            <td>Asociado 1
-                                                                                <!--<div class="d-flex justify-content-end">-->
-                                                                                <button class ="btn btn-primary btn-link">
-                                                                                    <i class="fas fa-trash-alt"></i>
-                                                                                </button>
-                                                                                <!--</div>-->
-                                                                            </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                            <td>Asociado 2
-                                                                                <div class="d-flex justify-content-end">
-                                                                                <button class ="btn btn-primary btn-link">
-                                                                                    <i class="fas fa-trash-alt"></i>
-                                                                                </button>
-                                                                                </div>
-                                                                            </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>
-                                                                                    <div class="d-flex justify-content-end">
-                                                                                        <button class ="btn btn-primary btn-link">
-                                                                                                <i class="fas fa-plus"></i>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-lg-4">
-                                                    <div class="card">
-                                                        <div class="card-header card-header-primary">
-                                                            <h4 class="card-title">Unidad</h4>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            The place is close to Barceloneta Beach and bus stop just 2
-                                                            min
-                                                            by walk and near to "Naviglio" where you can enjoy the main
-                                                            night life in Barcelona...
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-lg-4">
-                                                    <div class="card">
-                                                        <div class="card-header card-header-secondary">
-                                                            <h4 class="card-title">Asociado a</h4>
-                                                        </div>
-                                                        <div class="card-body">
-                                                                <table class="table">
-                                                                        <tbody>
-                                                                            <tr>
-                                                                            <td>Asociado 1
-                                                                                <!--<div class="d-flex justify-content-end">-->
-                                                                                <button class ="btn btn-primary btn-link">
-                                                                                    <i class="fas fa-trash-alt"></i>
-                                                                                </button>
-                                                                                <!--</div>-->
-                                                                            </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                            <td>Asociado 2
-                                                                                <div class="d-flex justify-content-end">
-                                                                                <button class ="btn btn-primary btn-link">
-                                                                                    <i class="fas fa-trash-alt"></i>
-                                                                                </button>
-                                                                                </div>
-                                                                            </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>
-                                                                                    <div class="d-flex justify-content-end">
-                                                                                        <button class ="btn btn-primary btn-link">
-                                                                                                <i class="fas fa-plus"></i>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-lg-4">
-                                                    <div class="card">
-                                                        <div class="card-header blue">
-                                                            <h4 class="card-title">Usan</h4>
-                                                        </div>
-                                                        <div class="card-body">
-                                                                <table class="table">
-                                                                        <tbody>
-                                                                            <tr>
-                                                                            <td>Usador 1
-                                                                                <!--<div class="d-flex justify-content-end">-->
-                                                                                <button class ="btn btn-primary btn-link">
-                                                                                    <i class="fas fa-trash-alt"></i>
-                                                                                </button>
-                                                                                <!--</div>-->
-                                                                            </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                            <td>Usador 2
-                                                                                <div class="d-flex justify-content-end">
-                                                                                <button class ="btn btn-primary btn-link">
-                                                                                    <i class="fas fa-trash-alt"></i>
-                                                                                </button>
-                                                                                </div>
-                                                                            </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>
-                                                                                    <div class="d-flex justify-content-end">
-                                                                                        <button class ="btn btn-primary btn-link">
-                                                                                                <i class="fas fa-plus"></i>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-lg-4">
-                                                    <div class="card">
-                                                        <div class="card-header purple">
-                                                            <h4 class="card-title">Partes</h4>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            The place is close to Barceloneta Beach and bus stop just 2
-                                                            min
-                                                            by walk and near to "Naviglio" where you can enjoy the main
-                                                            night life in Barcelona...
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-lg-4">
-                                                    <div class="card">
-                                                        <div class="card-header card-header-danger">
-                                                            <h4 class="card-title">Hijas</h4>
-                                                        </div>
-                                                        <div class="card-body">
-                                                                <table class="table">
-                                                                        <tbody>
-                                                                            <tr>
-                                                                            <td>Hija 1
-                                                                                <!--<div class="d-flex justify-content-end">-->
-                                                                                <button class ="btn btn-primary btn-link">
-                                                                                    <i class="fas fa-trash-alt"></i>
-                                                                                </button>
-                                                                                <!--</div>-->
-                                                                            </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                            <td>Hija 2
-                                                                                <div class="d-flex justify-content-end">
-                                                                                <button class ="btn btn-primary btn-link">
-                                                                                    <i class="fas fa-trash-alt"></i>
-                                                                                </button>
-                                                                                </div>
-                                                                            </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>Hija 3
-                                                                                    <!--<div class="d-flex justify-content-end">-->
-                                                                                    <button class ="btn btn-primary btn-link">
-                                                                                        <i class="fas fa-trash-alt"></i>
-                                                                                    </button>
-                                                                                    <!--</div>-->
-                                                                                </td>
+                                                            </div>
+                                                            <div class="col-12 col-md-6 col-lg-4">
+                                                                <div class="card">
+                                                                    <div class="card-header card-header-warning">
+                                                                        <h4 class="card-title">Asociados a</h4>
+                                                                    </div>
+                                                                    <div class="card-body">
+                                                                        <table class="table my-table">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>ASOCIADO 1</td>
                                                                                 </tr>
-                                                                            <tr>
-                                                                                <td>
-                                                                                    <div class="d-flex justify-content-end">
-                                                                                        <button class ="btn btn-primary btn-link">
-                                                                                                <i class="fas fa-plus"></i>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                            
+                                                                                <tr>
+                                                                                    <td>ASOCIADO 2</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-6 col-lg-4">
+                                                                <div class="card">
+                                                                    <div class="card-header card-header-primary">
+                                                                        <h4 class="card-title">Unidad</h4>
+                                                                    </div>
+                                                                    <div class="card-body">
+                                                                        <H4>UNIDAD 1</H4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-6 col-lg-4">
+                                                                <div class="card">
+                                                                    <div class="card-header card-header-danger">
+                                                                        <h4 class="card-title">Asociado a</h4>
+                                                                    </div>
+                                                                    <div class="card-body">
+                                                                        <table class="table my-table">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>ASOCIADO 1</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>ASOCIADO 2</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>ASOCIADO 3</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-6 col-lg-4">
+                                                                <div class="card">
+                                                                    <div class="card-header card-header-success">
+                                                                        <h4 class="card-title">Usan</h4>
+                                                                    </div>
+                                                                    <div class="card-body">
+                                                                        <table class="table my-table">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>USADOR 1</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-6 col-lg-4">
+                                                                <div class="card">
+                                                                    <div class="card-header card-header-info">
+                                                                        <h4 class="card-title">Partes</h4>
+                                                                    </div>
+                                                                    <div class="card-body">
+                                                                        <table class="table my-table">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>
+
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-6 col-lg-4">
+                                                                <div class="card">
+                                                                    <div class="card-header card-header-warning">
+                                                                        <h4 class="card-title">Hijas</h4>
+                                                                    </div>
+                                                                    <div class="card-body">
+                                                                        <table class="table my-table">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>HIJA 1</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>HIJA 2</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>HIJA 3</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row" id="detail1">
-                                            <div class="col-12 card">
-                                                <div class="card-header card-header-danger">
-                                                    <h4 class="card-title">Por qué</h4>
-                                                     <div class="d-flex justify-content-end">
-                                                            <button class ="btn btn-default  btn-link">
-                                                                    <i class="fas fa-trash-alt"></i>
-                                                                </button>
-                                                                </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    The place is close to Barceloneta Beach and bus stop just 2 min by
-                                                    walk
-                                                    and
-                                                    near to "Naviglio" where you can enjoy the main night life in
-                                                    Barcelona...
-                                                </div>
-                                            </div>
-                                            <div class="col-12 card">
-                                                <div class="card-header card-header-danger">
-                                                    <h4 class="card-title">Para qué</h4>
-                                                </div>
-                                                <div class="card-body">
-                                                    The place is close to Barceloneta Beach and bus stop just 2 min by
-                                                    walk
-                                                    and
-                                                    near to "Naviglio" where you can enjoy the main night life in
-                                                    Barcelona...
-                                                </div>
-                                            </div>
-                                            <div class="col-12 card">
-                                                <div class="card-header card-header-danger">
-                                                    <h4 class="card-title">Qué</h4>
-                                                </div>
-                                                <div class="card-body">
-                                                    The place is close to Barceloneta Beach and bus stop just 2 min by
-                                                    walk
-                                                    and
-                                                    near to "Naviglio" where you can enjoy the main night life in
-                                                    Barcelona...
-                                                </div>
-                                            </div>
-                                            <div class="col-12 card">
-                                                <div class="card-header card-header-danger">
-                                                    <h4 class="card-title">Cómo</h4>
-                                                </div>
-                                                <div class="card-body">
-                                                    The place is close to Barceloneta Beach and bus stop just 2 min by
-                                                    walk
-                                                    and
-                                                    near to "Naviglio" where you can enjoy the main night life in
-                                                    Barcelona...
+                                        <!-- detail -->
+                                        <div class="tab-pane" id="detail" aria-expanded="false">
+                                            <div class="tab-content tab-space">
+                                                <div class="row justify-content-center">
+                                                    <div class="col-11">
+                                                        <div class="card">
+                                                            <div class="card-header card-header-success">
+                                                                <h4 class="card-title">Por qué</h4>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <table class="table my-table">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>##Título</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>###Subtitulo</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <span> · Elemento 1</span>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-11">
+                                                        <div class="card">
+                                                            <div class="card-header card-header-warning">
+                                                                <h4 class="card-title">Para qué</h4>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <table class="table my-table">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>
+
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-11">
+                                                        <div class="card">
+                                                            <div class="card-header card-header-info">
+                                                                <h4 class="card-title">Qué</h4>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <table class="table my-table">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>
+
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-11">
+                                                        <div class="card">
+                                                            <div class="card-header card-header-primary">
+                                                                <h4 class="card-title">Cómo</h4>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <table class="table my-table">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>
+
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </nav>
+                                    </div>
+                                </div>
+                                <!-- Unit 2 -->
+                                <div class="tab-pane" id="unit2">
+                                    <p> I think that&#x2019;s a responsibility that I have, to push possibilities, to
+                                        show people, this
+                                        is the level that things could be at. I will be the leader of a company that
+                                        ends up being
+                                        worth billions of dollars, because I got the answers. I understand culture. I
+                                        am the nucleus. I
+                                        think that&#x2019;s a responsibility that I have, to push possibilities, to
+                                        show people, this
+                                        is the level that things could be at.</p>
+                                </div>
+                                <!-- Unit 3 -->
+                                <div class="tab-pane" id="unit3">
+                                    <p> I think that&#x2019;s a responsibility that I have, to push possibilities, to
+                                        show people, this
+                                        is the level that things could be at. I will be the leader of a company that
+                                        ends up being
+                                        worth billions of dollars, because I got the answers. I understand culture. I
+                                        am the nucleus. I
+                                        think that&#x2019;s a responsibility that I have, to push possibilities, to
+                                        show people, this
+                                        is the level that things could be at.</p>
+                                </div>
+                                <!-- Unit 4 -->
+                                <div class="tab-pane" id="unit4">
+                                    <p> I think that&#x2019;s a responsibility that I have, to push possibilities, to
+                                        show people, this
+                                        is the level that things could be at. I will be the leader of a company that
+                                        ends up being
+                                        worth billions of dollars, because I got the answers. I understand culture. I
+                                        am the nucleus. I
+                                        think that&#x2019;s a responsibility that I have, to push possibilities, to
+                                        show people, this
+                                        is the level that things could be at.</p>
                                 </div>
                             </div>
                         </div>
@@ -489,10 +482,13 @@
             </div>
         </div>
     </div>
-    <script src="../assets/js/core/jquery.min.js"></script>
-    <script src="../assets/js/core/popper.min.js"></script>
-    <script src="../assets/js/core/bootstrap-material-design.min.js"></script>
-    <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!--   Core JS Files   -->
+    <script src="./assets/js/core/jquery.min.js"></script>
+    <script src="./assets/js/core/popper.min.js"></script>
+    <script src="./assets/js/core/bootstrap-material-design.min.js"></script>
+    <script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!-- Custom JS -->
+    <script type="text/javascript" src="./assets/js/login.js"></script>
 </body>
 
 </html>
