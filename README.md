@@ -13,9 +13,9 @@ Documento de requisitos:
 https://docs.google.com/document/d/1UT6LcYCy5LInWHwbaAv2Tt3kwkTyI_fXCl3HWxxQbOU/edit
 
 Screenshots:
-![index](santatecla-relaciones-1/screenshots/index.JPG?raw=true "Title")
-![logout](santatecla-relaciones-1/screenshots/logout.JPG?raw=true "Title")
-![alumn-context](santatecla-relaciones-1/screenshots/alumn-context.JPG?raw=true "Title")
-![alumn-details](santatecla-relaciones-1/screenshots/alumn-details.JPG?raw=true "Title")
-![teacher-context](santatecla-relaciones-1/screenshots/teacher-context.JPG?raw=true "Title")
-![teacher-details](santatecla-relaciones-1/screenshots/teacher-details.JPG?raw=true "Title")
+![index](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/index.JPG)
+![logout](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/logout.JPG)
+![alumn-context](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/alumn-context.JPG)
+![alumn-details](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/alumn-details.JPG)
+![teacher-context](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/teacher-context.JPG)
+![teacher-details](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/teacher-details.JPG)
