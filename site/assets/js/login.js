@@ -22,11 +22,16 @@ function checkValidation(email, password, validator) {
 
 function logIn(email, password) {
     if (checkValidation(email, password, studentValidator))
-        ;
+        window.location.href = './alumn-units.html';
     else if (checkValidation(email, password, teacherValidator))
-        ;
+        window.location.href = './teacher-units.html';
+    else
+        logOut();
+}
+
+var logOut = function () {
+    window.location.href = './index.html';
 }
 
 self.role = roles.visitor;
 
-return self;
