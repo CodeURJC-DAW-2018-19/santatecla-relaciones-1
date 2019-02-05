@@ -12,8 +12,30 @@ body {
   font-weight: 700;
 }
 
-.my-table {
+.my-table tr {
+  background-color: #ffffff;
+}
+.my-table tr:nth-child(even) {
+  background-color: #eee;
+}
+.my-table tr td {
+  text-align: right;
+}
+.my-table tr td:first-child {
   text-align: left;
+}
+
+.my-mini-card {
+  max-height: 162px;
+}
+.my-mini-card .my-scrollable-section {
+  overflow-y: scroll;
+}
+
+.my-button-circular {
+  background-color: #2196f3;
+  color: #ffffff;
+  border-radius: 50%;
 }
 
 /*# sourceMappingURL=style.css.map */

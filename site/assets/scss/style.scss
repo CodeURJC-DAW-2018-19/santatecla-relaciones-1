@@ -14,5 +14,34 @@ body {
 }
 
 .my-table {
-    text-align: left;
+    tr {
+        background-color: $white;
+
+        &:nth-child(even) {
+            background-color: $grey-200;
+        }
+
+        td {
+            text-align: right;
+
+
+            &:first-child {
+                text-align: left;
+            }
+        }
+    }
+}
+
+.my-mini-card {
+    max-height: 162px;
+
+    .my-scrollable-section{
+        overflow-y: scroll;
+    }
+}
+
+.my-button-circular {
+    background-color: $primary;
+    color: $white;
+    border-radius: 50%;
 }
