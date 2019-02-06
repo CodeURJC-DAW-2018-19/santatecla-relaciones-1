@@ -20,7 +20,10 @@ function checkValidation(email, password, validator) {
     return validator.email === email && validator.password === password;
 }
 
-function logIn(email, password) {
+function logIn() {
+    var email = document.getElementsByName('email')[0].value;
+    var password = document.getElementsByName('password')[0].value;
+
     if (checkValidation(email, password, studentValidator))
         window.location.href = './alumn-units.html';
     else if (checkValidation(email, password, teacherValidator))
