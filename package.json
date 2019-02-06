@@ -17,7 +17,9 @@
     "url": "https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/issues"
   },
   "homepage": "https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1#readme",
-  "dependencies": {
-    "sass": "^1.16.1"
+  "dependencies": {},
+  "devDependencies": {
+    "@angular/cli": "^7.3.0",
+    "sass": "^1.17.0"
   }
 }
