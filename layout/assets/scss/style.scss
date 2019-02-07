@@ -1,6 +1,11 @@
 @import "../../../material-dashboard/assets/scss/material-dashboard/variables";
-@import "../../../material-dashboard/assets/scss/material-dashboard/mixins";
-@import "../../../material-dashboard/assets/scss/material-dashboard/core-bootstrap";
+
+@import "../../../material-dashboard/assets/scss/material-dashboard/mixins/colored-shadows";
+@import "../../../material-dashboard/assets/scss/material-dashboard/mixins/vendor-prefixes";
+@import "../../../material-dashboard/assets/scss/material-dashboard/mixins/buttons";
+@import "../../../material-dashboard/assets/scss/material-dashboard/mixins/type";
+
+@import "../../../material-dashboard/assets/scss/material-dashboard/bootstrap/scss/mixins/breakpoints";
 
 @import "../../../material-dashboard/assets/scss/material-dashboard/cards";
 
