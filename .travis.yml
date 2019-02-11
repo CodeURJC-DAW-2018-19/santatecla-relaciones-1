@@ -1,6 +1,9 @@
 languaje: java
+jdk: 
+  - oraclejdk11
 
+install: true
 script: 
   - cd backend
-  - mvn install
+  - mvn clean install
 
