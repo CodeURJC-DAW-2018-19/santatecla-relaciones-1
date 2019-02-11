@@ -5,5 +5,6 @@ jdk:
 install: true
 script: 
   - cd backend
+  - cd relaciones 
   - mvn clean install
 
