@@ -1,0 +1,6 @@
+languaje: java
+
+script: 
+  - cd backend
+  - mvn install
+
