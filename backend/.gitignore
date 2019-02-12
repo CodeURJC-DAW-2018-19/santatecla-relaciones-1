@@ -1,2 +1,7 @@
 /.metadata/
+
 relaciones/target/
+relaciones/.settings/
+relaciones/.classpath/
+relaciones/.factorypath
+relaciones/.project
