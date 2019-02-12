@@ -70,8 +70,35 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-	<!-- <scope>test</scope> -->
+			<!-- <scope>test</scope> -->
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/com.github.warmuuh/libsass-maven-plugin -->
+		<dependency>
+			<groupId>com.github.warmuuh</groupId>
+			<artifactId>libsass-maven-plugin</artifactId>
+			<version>0.2.10-libsass_3.5.3</version>
+		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.github.warmuuh</groupId>
+				<artifactId>libsass-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<inputPath>${basedir}/src/main/resources/static/scss/</inputPath>
+					<outputPath>${basedir}/src/main/resources/static/css/</outputPath>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
