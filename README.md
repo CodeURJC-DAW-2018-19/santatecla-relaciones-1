@@ -14,6 +14,9 @@ Amor Antolín | David | d.amora@alumnos.urjc.es | Almendron100
 Documento de requisitos:
 https://docs.google.com/document/d/1UT6LcYCy5LInWHwbaAv2Tt3kwkTyI_fXCl3HWxxQbOU/edit
 
+Trello:
+https://trello.com/b/eijxtnDK/daw-g-16
+
 Screenshots:
 ![index](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/index.JPG)
 ![logout](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/logout.JPG)
