@@ -6,7 +6,7 @@ import java.util.Map;
 import es.santatecla.enums.Relations;
 import es.santatecla.interfaces.IRelation;
 
-public class Relation<V> implements IRelation {
+public class Relation<V> implements IRelation<V> {
 	
 	private Map<Relations, List<V>> relations;
 
@@ -17,6 +17,13 @@ public class Relation<V> implements IRelation {
 	public void addRelation(Relations key, V value) {
 		List<V> values = this.relations.get(key);
 		values.add(value);
+		this.relations.put(key, values);
+	}
+
+	@Override
+	public void deleteRelation(Relations key, V value) {
+		List<V> values = this.relations.get(key);
+		values.remove(value);
 		this.relations.put(key, values);
 	}
 }
