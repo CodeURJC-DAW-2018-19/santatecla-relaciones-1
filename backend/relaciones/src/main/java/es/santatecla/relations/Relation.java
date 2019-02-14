@@ -1,5 +1,6 @@
 package es.santatecla.relations;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -16,6 +17,8 @@ public class Relation<V> implements IRelation<V> {
 	
 	public void addRelation(Relations key, V value) {
 		List<V> values = this.relations.get(key);
+		if (values == null) {
+			values = new LinkedList<>();		}
 		values.add(value);
 		this.relations.put(key, values);
 	}
@@ -25,5 +28,10 @@ public class Relation<V> implements IRelation<V> {
 		List<V> values = this.relations.get(key);
 		values.remove(value);
 		this.relations.put(key, values);
+	}
+
+	@Override
+	public List<V> getRelation(Relations key) {
+		return this.relations.get(key);
 	}
 }
