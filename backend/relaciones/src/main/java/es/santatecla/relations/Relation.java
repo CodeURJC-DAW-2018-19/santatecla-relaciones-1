@@ -1,16 +1,16 @@
 package es.santatecla.relations;
 
-import java.util.Dictionary;
 import java.util.List;
+import java.util.Map;
 
 import es.santatecla.enums.Relations;
 import es.santatecla.interfaces.IRelation;
 
 public class Relation<V> implements IRelation {
 	
-	private Dictionary<Relations, List<V>> relations;
+	private Map<Relations, List<V>> relations;
 
-	public Relation (Dictionary<Relations, List<V>> relations) {
+	public Relation (Map<Relations, List<V>> relations) {
 		this.relations = relations;
 	}
 	
