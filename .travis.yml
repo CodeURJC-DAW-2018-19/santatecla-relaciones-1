@@ -1,10 +1,15 @@
 languaje: java
 jdk: 
-  - oraclejdk11
+  - oraclejdk8
 
 install: true
+stage: build
 script: 
   - cd backend
   - cd relaciones 
   - mvn clean install
+
+stage: test
+script:
+  - mvn test
 
