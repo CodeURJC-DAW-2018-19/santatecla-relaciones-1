@@ -61,10 +61,10 @@
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-		<!-- <dependency> -->
-		<!-- <groupId>mysql</groupId> -->
-		<!-- <artifactId>mysql-connector-java</artifactId> -->
-		<!-- </dependency> -->
+		 <dependency>
+		 <groupId>mysql</groupId>
+		 <artifactId>mysql-connector-java</artifactId>
+		 </dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
 		<dependency>
@@ -79,7 +79,8 @@
 			<artifactId>libsass-maven-plugin</artifactId>
 			<version>0.2.10-libsass_3.5.3</version>
 		</dependency>
-	</dependencies>
+
+    </dependencies>
 
 	<build>
 		<plugins>
