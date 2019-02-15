@@ -3,6 +3,7 @@ jdk:
   - oraclejdk8
 
 install: true
+
 stage: build
 script: 
   - cd backend/relaciones
