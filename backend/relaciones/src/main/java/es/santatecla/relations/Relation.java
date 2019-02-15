@@ -25,13 +25,19 @@ public class Relation<V> implements IRelation<V> {
 
 	@Override
 	public void deleteRelation(Relations key, V value) {
-		List<V> values = this.relations.get(key);
-		values.remove(value);
-		this.relations.put(key, values);
+		List<V> relations = this.relations.get(key);
+		if(relations.contains(value)) {
+			relations.remove(value);
+			this.relations.put(key, relations);
+		}		
 	}
 
 	@Override
 	public List<V> getRelation(Relations key) {
-		return this.relations.get(key);
+		List<V> relations = this.relations.get(key);
+		if (relations == null) {
+			return new LinkedList<V>();
+		}
+		return relations;
 	}
 }
