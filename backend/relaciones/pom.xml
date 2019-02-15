@@ -61,12 +61,13 @@
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-		 <dependency>
-		 <groupId>mysql</groupId>
-		 <artifactId>mysql-connector-java</artifactId>
-		 </dependency>
+		<!--<dependency> -->
+		<!-- <groupId>mysql</groupId> -->
+		<!-- <artifactId>mysql-connector-java</artifactId> -->
+		<!-- </dependency> -->
 
-		<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+
+       <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>

@@ -1,7 +1,6 @@
 package es.santatecla.security;
 
 import es.santatecla.database.services.UserService;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -16,7 +15,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter
 {
-
     private UserService userService;
 
     public WebSecurityConfiguration(UserService userService) {

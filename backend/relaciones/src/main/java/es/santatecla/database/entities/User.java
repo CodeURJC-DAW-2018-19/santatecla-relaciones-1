@@ -1,5 +1,7 @@
 package es.santatecla.database.entities;
 
+import org.springframework.context.annotation.Bean;
+
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
