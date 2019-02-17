@@ -5,3 +5,5 @@ relaciones/.settings/
 relaciones/.classpath/
 relaciones/.factorypath
 relaciones/.project
+
+!relaciones/target/classes/META-ING/MANIFEST.MF
