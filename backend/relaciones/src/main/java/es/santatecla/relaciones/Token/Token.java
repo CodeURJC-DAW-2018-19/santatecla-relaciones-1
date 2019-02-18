@@ -1,0 +1,89 @@
+package es.santatecla.relaciones.Token;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.util.List;
+
+@Entity
+public class Token {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String title;
+    private String subtitle;
+    private List<String> elements;
+    private String firstFieldForWhat;
+    private String secondFieldWhat;
+    private String thirdFieldHow;
+
+    public Token(){}
+
+    public Token(String title, String subtitle, List<String> elements, String firstFieldForWhat, String secondFieldWhat, String thirdFieldHow){
+        super();
+        this.title = title;
+        this.subtitle = subtitle;
+        this.elements = elements;
+        this.firstFieldForWhat = firstFieldForWhat;
+        this.secondFieldWhat = secondFieldWhat;
+        this.thirdFieldHow = thirdFieldHow;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getSubtitle() {
+        return subtitle;
+    }
+
+    public void setSubtitle(String subtitle) {
+        this.subtitle = subtitle;
+    }
+
+    public List<String> getElements() {
+        return elements;
+    }
+
+    public void setElements(List<String> elements) {
+        this.elements = elements;
+    }
+
+    public String getFirstFieldForWhat() {
+        return firstFieldForWhat;
+    }
+
+    public void setFirstFieldForWhat(String firstFieldForWhat) {
+        this.firstFieldForWhat = firstFieldForWhat;
+    }
+
+    public String getSecondFieldWhat() {
+        return secondFieldWhat;
+    }
+
+    public void setSecondFieldWhat(String secondFieldWhat) {
+        this.secondFieldWhat = secondFieldWhat;
+    }
+
+    public String getThirdFieldHow() {
+        return thirdFieldHow;
+    }
+
+    public void setThirdFieldHow(String thirdFieldHow) {
+        this.thirdFieldHow = thirdFieldHow;
+    }
+
+    public void addToken(){}
+
+    public void modifyToken(){}
+
+    public void deleteToken(){}
+
+
+
+}
