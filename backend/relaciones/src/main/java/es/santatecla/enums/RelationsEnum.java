@@ -1,6 +1,6 @@
 package es.santatecla.enums;
 
-public enum Relations {
+public enum RelationsEnum {
 	PARENT, 
 	CHILD,
 	COMPOSITION,
