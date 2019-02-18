@@ -1,5 +1,5 @@
 package es.santatecla.interfaces.relation;
 
-public interface IRelation {
+public interface IRelation<V> {
 
 }

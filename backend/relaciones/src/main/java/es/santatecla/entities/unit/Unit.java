@@ -20,10 +20,26 @@ public class Unit implements IUnit {
 	private long id;
 	
 	@OneToMany
-	private List<IRelation> relations;
+	private List<IRelation<String>> relations;
 	
 	@Autowired
-	public Unit(List<IRelation> relations) {
+	public Unit(List<IRelation<String>> relations) {
+		this.relations = relations;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public List<IRelation<String>> getRelations() {
+		return relations;
+	}
+
+	public void setRelations(List<IRelation<String>> relations) {
 		this.relations = relations;
 	}
 }
