@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 
 import es.santatecla.enums.RelationsEnum;
@@ -20,9 +19,32 @@ public class Relation<V> implements IRelation<V> {
 	
 	private V value;
 	
-	@Autowired
 	public Relation (RelationsEnum key, V value) {
 		this.key = key;
+		this.value = value;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public RelationsEnum getKey() {
+		return key;
+	}
+
+	public void setKey(RelationsEnum key) {
+		this.key = key;
+	}
+
+	public V getValue() {
+		return value;
+	}
+
+	public void setValue(V value) {
 		this.value = value;
 	}
 }

@@ -1,9 +1,9 @@
 package es.santatecla.interfaces.relation;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import es.santatecla.entities.relation.Relation;
-
-public interface RelationRepository extends JpaRepository<Relation<String>, Long> {
-
+public interface RelationRepository extends JpaRepository<IRelation<String>, Long> {
+	List<IRelation<String>> findById();
 }
