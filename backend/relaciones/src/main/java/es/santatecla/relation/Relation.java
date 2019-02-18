@@ -1,12 +1,15 @@
-package es.santatecla.relations;
+package es.santatecla.relation;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Component;
+
 import es.santatecla.enums.Relations;
 import es.santatecla.interfaces.IRelation;
 
+@Component
 public class Relation<V> implements IRelation<V> {
 	
 	private Map<Relations, List<V>> relations;

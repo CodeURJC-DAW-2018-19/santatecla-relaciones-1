@@ -9,6 +9,7 @@ import java.util.Map;
 import org.junit.Test;
 
 import es.santatecla.interfaces.IRelation;
+import es.santatecla.relation.Relation;
 import es.santatecla.enums.*;
 
 public class RelationTest {
