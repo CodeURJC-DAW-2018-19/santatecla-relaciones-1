@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/mamonreal/santatecla-relaciones-1.svg?branch=master)](https://travis-ci.org/mamonreal/santatecla-relaciones-1)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mamonreal_santatecla-relaciones-1&metric=alert_status)](https://sonarcloud.io/dashboard?id=mamonreal_santatecla-relaciones-1)
 
 # santatecla-relaciones-1
 
