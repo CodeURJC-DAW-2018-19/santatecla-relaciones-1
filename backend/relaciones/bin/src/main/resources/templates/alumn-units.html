@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tipo de documento</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+        crossorigin="anonymous">
+    <link href="./assets/css/material-dashboard.css" rel="stylesheet" />
+    <link href="./assets/css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-12 col-md-10 m-auto">
+                <div class="row">
+                    <div class="col-6">
+                        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+                            <div class="container-fluid">
+                                <div class="navbar-wrapper">
+                                    <a class="navbar-brand" href="#pablo">Santatecla</a>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="col-6">
+                        <div class="nav justify-content-end p-3">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <button class="btn btn-danger p-2 text-white" onclick="logOut()">
+                                        <i class="fas fa-user"></i>
+                                        <span class="my-extra-bold">LOGOUT</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="card">
+                    <div class="card card-nav-tabs card-plain">
+                        <div class="card-header card-header-primary">
+
+                            <div class="nav-tabs-navigation">
+                                <div class="nav-tabs-wrapper">
+                                    <ul class="nav nav-tabs" data-tabs="tabs">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" href="#list-of-units" data-toggle="tab">
+                                                <span>Unidades:</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#unit1" data-toggle="tab">
+                                                <span>Unidad 1</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#unit2" data-toggle="tab">
+                                                <span>Unidad 2</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#unit3" data-toggle="tab">
+                                                <span>Unidad 3</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#unit4" data-toggle="tab">
+                                                <span>Unidad 4</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body ">
+                            <div class="tab-content text-center">
+                                <!-- List of units -->
+                                <div class="tab-pane active justify-content-start" id="list-of-units">
+                                    <table class="table my-table">
+                                        <tbody>
+                                            <tr>
+                                                <td>UNIDAD 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>UNIDAD 2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>UNIDAD 3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>UNIDAD 4</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- Unit 1 -->
+                                <div class="tab-pane" id="unit1">
+                                    <ul class="nav nav-pills nav-pills-primary pb-3" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" data-toggle="tab" href="#context" role="tablist"
+                                                aria-expanded="true">
+                                                <span>
+                                                    Contexto
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="tab" href="#detail" role="tablist"
+                                                aria-expanded="false">
+                                                <span>
+                                                    Detalle
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content tab-space">
+                                        <!-- Context -->
+                                        <div class="tab-pane active" id="context" aria-expanded="true">
+                                            <div class="tab-content tab-space">
+                                                <div class="row justify-content-center">
+                                                    <div class="col-11">
+                                                        <div class="row justify-content-center my-mini-card-panel">
+                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+                                                                <div class="card my-mini-card">
+                                                                    <div class="card-header my-mini-card-header">
+                                                                        <h4 class="card-title">Padres</h4>
+                                                                    </div>
+                                                                    <div class="card-body my-mini-card-body">
+                                                                        <table class="table my-table">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>PADRE 1</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>PADRE 2</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>PADRE 1</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>PADRE 2</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>PADRE 1</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>PADRE 2</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>PADRE 1</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>PADRE 2</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>PADRE 1</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>PADRE 2</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+                                                                <div class="card my-mini-card">
+                                                                    <div class="card-header my-mini-card-header">
+                                                                        <h4 class="card-title">Compuestos</h4>
+                                                                    </div>
+                                                                    <div class="card-body my-mini-card-body">
+                                                                        <table class="table my-table">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>COMPUESTO 1</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>COMPUESTO 2</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>COMPUESTO 3</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+                                                                <div class="card my-mini-card">
+                                                                    <div class="card-header my-mini-card-header">
+                                                                        <h4 class="card-title">Usa</h4>
+                                                                    </div>
+                                                                    <div class="card-body my-mini-card-body">
+                                                                        <table class="table my-table">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>USADO 1</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>USADO 2</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+                                                                <div class="card my-mini-card">
+                                                                    <div class="card-header my-mini-card-header">
+                                                                        <h4 class="card-title">Asociados a</h4>
+                                                                    </div>
+                                                                    <div class="card-body my-mini-card-body">
+                                                                        <table class="table my-table">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>ASOCIADO 1</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>ASOCIADO 2</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+                                                                <div class="card my-mini-card">
+                                                                    <div class="card-header my-mini-card-header">
+                                                                        <h4 class="card-title">Unidad</h4>
+                                                                    </div>
+                                                                    <div class="card-body my-mini-card-body">
+                                                                        <H4>UNIDAD 1</H4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+                                                                <div class="card my-mini-card">
+                                                                    <div class="card-header my-mini-card-header">
+                                                                        <h4 class="card-title">Asociado a</h4>
+                                                                    </div>
+                                                                    <div class="card-body my-mini-card-body">
+                                                                        <table class="table my-table">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>ASOCIADO 1</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>ASOCIADO 2</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>ASOCIADO 3</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+                                                                <div class="card my-mini-card">
+                                                                    <div class="card-header my-mini-card-header">
+                                                                        <h4 class="card-title">Usan</h4>
+                                                                    </div>
+                                                                    <div class="card-body my-mini-card-body">
+                                                                        <table class="table my-table">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>USADOR 1</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+                                                                <div class="card my-mini-card">
+                                                                    <div class="card-header my-mini-card-header">
+                                                                        <h4 class="card-title">Partes</h4>
+                                                                    </div>
+                                                                    <div class="card-body my-mini-card-body">
+                                                                        <table class="table my-table">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>
+
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+                                                                <div class="card my-mini-card">
+                                                                    <div class="card-header my-mini-card-header">
+                                                                        <h4 class="card-title">Hijas</h4>
+                                                                    </div>
+                                                                    <div class="card-body my-mini-card-body">
+                                                                        <table class="table my-table">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>HIJA 1</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>HIJA 2</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>HIJA 3</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- detail -->
+                                        <div class="tab-pane" id="detail" aria-expanded="false">
+                                            <div class="tab-content tab-space">
+                                                <div class="row justify-content-center">
+                                                    <div class="col-11">
+                                                        <div class="card">
+                                                            <div class="card-header card-header-success">
+                                                                <h4 class="card-title">Por qué</h4>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <table class="table my-table">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>##Título</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>###Subtitulo</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <span> · Elemento 1</span>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-11">
+                                                        <div class="card">
+                                                            <div class="card-header card-header-warning">
+                                                                <h4 class="card-title">Para qué</h4>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <table class="table my-table">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>
+
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-11">
+                                                        <div class="card">
+                                                            <div class="card-header card-header-info">
+                                                                <h4 class="card-title">Qué</h4>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <table class="table my-table">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>
+
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-11">
+                                                        <div class="card">
+                                                            <div class="card-header card-header-primary">
+                                                                <h4 class="card-title">Cómo</h4>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <table class="table my-table">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>
+
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Unit 2 -->
+                                <div class="tab-pane" id="unit2">
+                                    <p> I think that&#x2019;s a responsibility that I have, to push possibilities, to
+                                        show people, this
+                                        is the level that things could be at. I will be the leader of a company that
+                                        ends up being
+                                        worth billions of dollars, because I got the answers. I understand culture. I
+                                        am the nucleus. I
+                                        think that&#x2019;s a responsibility that I have, to push possibilities, to
+                                        show people, this
+                                        is the level that things could be at.</p>
+                                </div>
+                                <!-- Unit 3 -->
+                                <div class="tab-pane" id="unit3">
+                                    <p> I think that&#x2019;s a responsibility that I have, to push possibilities, to
+                                        show people, this
+                                        is the level that things could be at. I will be the leader of a company that
+                                        ends up being
+                                        worth billions of dollars, because I got the answers. I understand culture. I
+                                        am the nucleus. I
+                                        think that&#x2019;s a responsibility that I have, to push possibilities, to
+                                        show people, this
+                                        is the level that things could be at.</p>
+                                </div>
+                                <!-- Unit 4 -->
+                                <div class="tab-pane" id="unit4">
+                                    <p> I think that&#x2019;s a responsibility that I have, to push possibilities, to
+                                        show people, this
+                                        is the level that things could be at. I will be the leader of a company that
+                                        ends up being
+                                        worth billions of dollars, because I got the answers. I understand culture. I
+                                        am the nucleus. I
+                                        think that&#x2019;s a responsibility that I have, to push possibilities, to
+                                        show people, this
+                                        is the level that things could be at.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--   Core JS Files   -->
+    <script src="./assets/js/core/jquery.min.js"></script>
+    <script src="./assets/js/core/popper.min.js"></script>
+    <script src="./assets/js/core/bootstrap-material-design.min.js"></script>
+    <script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!-- Custom JS -->
+    <script type="text/javascript" src="./assets/js/login.js"></script>
+</body>
+
+</html>
