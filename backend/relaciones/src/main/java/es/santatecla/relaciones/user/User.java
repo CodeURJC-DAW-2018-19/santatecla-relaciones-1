@@ -1,6 +1,7 @@
 package es.santatecla.relaciones.user;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.ElementCollection;
@@ -10,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.assertj.core.util.Arrays;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
@@ -19,7 +21,7 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	private String userName;
+	private String name;
 	private String passwordHash;
 	
 	
@@ -30,19 +32,20 @@ public class User {
 	
 	public User() {}
 	
-/*	public User(String userName, String passwordHash, List<String> roles) {
-		super();
-		this.userName= userName;
-		this.passwordHash = passwordHash;
-		this.roles = roles;
-			
-	}*/
+
 	
-	public User(String userName, String password, List<String> roles) {
+	public User(String name, String password, List<String> roles) {
 		super();
-		this.userName = userName;
+		this.name = name;
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.roles = roles;
+		
+	}
+	
+	public User(String name,String password, String... roles){
+		this.name = name;
+		this.passwordHash = new BCryptPasswordEncoder().encode(password);
+		this.roles = new ArrayList<String>();
 		
 	}
 
@@ -54,12 +57,14 @@ public class User {
 		this.id = id;
 	}
 
-	public String getUserName() {
-		return userName;
+	
+
+	public String getName() {
+		return name;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getPasswordHash() {
