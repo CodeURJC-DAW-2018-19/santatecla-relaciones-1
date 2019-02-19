@@ -17,7 +17,7 @@ public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	private long id;
 	
 	private String userName;
 	private String passwordHash;
@@ -39,17 +39,18 @@ public class User {
 	}*/
 	
 	public User(String userName, String password, List<String> roles) {
+		super();
 		this.userName = userName;
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.roles = roles;
 		
 	}
 
-	public String getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
