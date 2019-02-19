@@ -51,14 +51,26 @@
                                                 <span>Unidades:</span>
                                             </a>
                                         </li>
-                                        {{#titles}}
                                         <li class="nav-item">
-                                            <a class="nav-link" href={{.}} data-toggle="tab">
-                                                <span>{{.}}</span>
+                                            <a class="nav-link" href="#unit1" data-toggle="tab">
+                                                <span>Unidad 1</span>
                                             </a>
                                         </li>
-                                        {{/titles}}
-    
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#unit2" data-toggle="tab">
+                                                <span>Unidad 2</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#unit3" data-toggle="tab">
+                                                <span>Unidad 3</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#unit4" data-toggle="tab">
+                                                <span>Unidad 4</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -69,12 +81,18 @@
                                 <div class="tab-pane active justify-content-start" id="list-of-units">
                                     <table class="table my-table">
                                         <tbody>
-                                            {{#units}}
                                             <tr>
-                                                <td>{{.}}</td>
+                                                <td>UNIDAD 1</td>
                                             </tr>
-                                            {{/units}}
-                                            
+                                            <tr>
+                                                <td>UNIDAD 2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>UNIDAD 3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>UNIDAD 4</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -104,194 +122,193 @@
                                             <div class="tab-content tab-space">
                                                 <div class="row justify-content-center">
                                                     <div class="col-11">
-                                                        <div class="row justify-content-center">
-                                                            <div class="col-12 col-md-6 col-lg-4">
-                                                                <div class="card">
-                                                                    <div class="card-header card-header-danger">
+                                                        <div class="row justify-content-center my-mini-card-panel">
+                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+                                                                <div class="card my-mini-card">
+                                                                    <div class="card-header my-mini-card-header">
                                                                         <h4 class="card-title">Padres</h4>
                                                                     </div>
-                                                                    <div class="card-body">
+                                                                    <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
-                                                                                {{#father}}
                                                                                 <tr>
-                                                                                    <td>{{.}}
-                                                                                        <!--<div class="d-flex justify-content-end">-->
-                                                                                        <button class ="btn btn-primary btn-link">
-                                                                                            <i class="fas fa-trash-alt"></i>
-                                                                                        </button>
-                                                                                        <!--</div>-->
-                                                                                    </td>
-                                                                                    </tr>
+                                                                                    <td>PADRE 1</td>
                                                                                 </tr>
-                                                                                {{/father}}
-                                                                                
+                                                                                <tr>
+                                                                                    <td>PADRE 2</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>PADRE 1</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>PADRE 2</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>PADRE 1</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>PADRE 2</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>PADRE 1</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>PADRE 2</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>PADRE 1</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>PADRE 2</td>
+                                                                                </tr>
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12 col-md-6 col-lg-4">
-                                                                <div class="card">
-                                                                    <div class="card-header card-header-success">
+                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+                                                                <div class="card my-mini-card">
+                                                                    <div class="card-header my-mini-card-header">
                                                                         <h4 class="card-title">Compuestos</h4>
                                                                     </div>
-                                                                    <div class="card-body">
+                                                                    <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
-                                                                                {{#compound}}
                                                                                 <tr>
-                                                                                    <td>{{.}}
-                                                                                        <!--<div class="d-flex justify-content-end">-->
-                                                                                        <button class ="btn btn-primary btn-link">
-                                                                                        <i class="fas fa-trash-alt"></i>
-                                                                                        </button>
-                                                                                        <!--</div>-->
-                                                                                    </td>
+                                                                                    <td>COMPUESTO 1</td>
                                                                                 </tr>
-                                                                                {{/compound}}
-                                                                                
                                                                                 <tr>
-                                                                                    <td>
-                                                                                        <div class="d-flex justify-content-end">
-                                                                                            <button class ="btn btn-primary btn-link">
-                                                                                                    <i class="fas fa-plus"></i>
-                                                                                            </button>
-                                                                                        </div>
-                                                                                    </td>
+                                                                                    <td>COMPUESTO 2</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>COMPUESTO 3</td>
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12 col-md-6 col-lg-4">
-                                                                <div class="card">
-                                                                    <div class="card-header card-header-info">
+                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+                                                                <div class="card my-mini-card">
+                                                                    <div class="card-header my-mini-card-header">
                                                                         <h4 class="card-title">Usa</h4>
                                                                     </div>
-                                                                    <div class="card-body">
+                                                                    <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
-                                                                                {{#use}}
                                                                                 <tr>
-                                                                                    <td>{{.}}
-                                                                                        <!--<div class="d-flex justify-content-end">-->
-                                                                                        <button class ="btn btn-primary btn-link">
-                                                                                            <i class="fas fa-trash-alt"></i>
-                                                                                        </button>
-                                                                                        <!--</div>-->
-                                                                                    </td>
+                                                                                    <td>USADO 1</td>
                                                                                 </tr>
-                                                                                {{/use}}
-                                                                            
+                                                                                <tr>
+                                                                                    <td>USADO 2</td>
+                                                                                </tr>
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12 col-md-6 col-lg-4">
-                                                                <div class="card">
-                                                                    <div class="card-header card-header-warning">
+                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+                                                                <div class="card my-mini-card">
+                                                                    <div class="card-header my-mini-card-header">
                                                                         <h4 class="card-title">Asociados a</h4>
                                                                     </div>
-                                                                    <div class="card-body">
+                                                                    <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
-                                                                                {{#associated}}
                                                                                 <tr>
-                                                                                    <td>{{.}}</td>
+                                                                                    <td>ASOCIADO 1</td>
                                                                                 </tr>
-                                                                                {{/associated}}
-                                                                                
+                                                                                <tr>
+                                                                                    <td>ASOCIADO 2</td>
+                                                                                </tr>
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12 col-md-6 col-lg-4">
-                                                                <div class="card">
-                                                                    <div class="card-header card-header-primary">
+                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+                                                                <div class="card my-mini-card">
+                                                                    <div class="card-header my-mini-card-header">
                                                                         <h4 class="card-title">Unidad</h4>
                                                                     </div>
-                                                                    {{#unit}}
-                                                                    <div class="card-body">
-                                                                        <H4>{{.}}</H4>
+                                                                    <div class="card-body my-mini-card-body">
+                                                                        <H4>UNIDAD 1</H4>
                                                                     </div>
-                                                                    {{/unit}}
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12 col-md-6 col-lg-4">
-                                                                <div class="card">
-                                                                    <div class="card-header card-header-danger">
+                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+                                                                <div class="card my-mini-card">
+                                                                    <div class="card-header my-mini-card-header">
                                                                         <h4 class="card-title">Asociado a</h4>
                                                                     </div>
-                                                                    <div class="card-body">
+                                                                    <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
-                                                                                {{#associated1}}
                                                                                 <tr>
-                                                                                    <td>{{.}}</td>
+                                                                                    <td>ASOCIADO 1</td>
                                                                                 </tr>
-                                                                                {{/associated1}}
-                                                                                
+                                                                                <tr>
+                                                                                    <td>ASOCIADO 2</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>ASOCIADO 3</td>
+                                                                                </tr>
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12 col-md-6 col-lg-4">
-                                                                <div class="card">
-                                                                    <div class="card-header card-header-success">
+                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+                                                                <div class="card my-mini-card">
+                                                                    <div class="card-header my-mini-card-header">
                                                                         <h4 class="card-title">Usan</h4>
                                                                     </div>
-                                                                    <div class="card-body">
+                                                                    <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
-                                                                                {{#usedby}}
                                                                                 <tr>
-                                                                                    <td>{{.}}</td>
+                                                                                    <td>USADOR 1</td>
                                                                                 </tr>
-                                                                                {{/usedby}}
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12 col-md-6 col-lg-4">
-                                                                <div class="card">
-                                                                    <div class="card-header card-header-info">
+                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+                                                                <div class="card my-mini-card">
+                                                                    <div class="card-header my-mini-card-header">
                                                                         <h4 class="card-title">Partes</h4>
                                                                     </div>
-                                                                    <div class="card-body">
+                                                                    <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
-                                                                                {{#part}}
                                                                                 <tr>
                                                                                     <td>
-                                                                                        {{.}}
+
                                                                                     </td>
                                                                                 </tr>
-                                                                                {{/part}}
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12 col-md-6 col-lg-4">
-                                                                <div class="card">
-                                                                    <div class="card-header card-header-warning">
+                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+                                                                <div class="card my-mini-card">
+                                                                    <div class="card-header my-mini-card-header">
                                                                         <h4 class="card-title">Hijas</h4>
                                                                     </div>
-                                                                    <div class="card-body">
+                                                                    <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
-                                                                                {{#daughter}}
                                                                                 <tr>
-                                                                                    <td>{{.}}</td>
+                                                                                    <td>HIJA 1</td>
                                                                                 </tr>
-                                                                                {{/daughter}}
-                                                                                
+                                                                                <tr>
+                                                                                    <td>HIJA 2</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>HIJA 3</td>
+                                                                                </tr>
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
@@ -314,12 +331,17 @@
                                                             <div class="card-body">
                                                                 <table class="table my-table">
                                                                     <tbody>
-                                                                        {{#why}}
                                                                         <tr>
-                                                                            <td>{{.}}</td>
+                                                                            <td>##Título</td>
                                                                         </tr>
-                                                                        {{/why}}
-                                                                        
+                                                                        <tr>
+                                                                            <td>###Subtitulo</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <span> · Elemento 1</span>
+                                                                            </td>
+                                                                        </tr>
                                                                     </tbody>
                                                                 </table>
                                                             </div>
@@ -333,13 +355,11 @@
                                                             <div class="card-body">
                                                                 <table class="table my-table">
                                                                     <tbody>
-                                                                        {{#forwhat}}
                                                                         <tr>
                                                                             <td>
-                                                                                {{.}}
+
                                                                             </td>
                                                                         </tr>
-                                                                        {{/forwhat}}
                                                                     </tbody>
                                                                 </table>
                                                             </div>
@@ -353,13 +373,11 @@
                                                             <div class="card-body">
                                                                 <table class="table my-table">
                                                                     <tbody>
-                                                                        {{#what}}
                                                                         <tr>
                                                                             <td>
-                                                                                {{.}}
+
                                                                             </td>
                                                                         </tr>
-                                                                        {{/what}}
                                                                     </tbody>
                                                                 </table>
                                                             </div>
@@ -373,13 +391,11 @@
                                                             <div class="card-body">
                                                                 <table class="table my-table">
                                                                     <tbody>
-                                                                        {{#how}}
                                                                         <tr>
                                                                             <td>
-                                                                                {{.}}
+
                                                                             </td>
                                                                         </tr>
-                                                                        {{/how}}
                                                                     </tbody>
                                                                 </table>
                                                             </div>
@@ -433,85 +449,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Create unit modal -->
-    <div class="modal fade" id="createUnitModal" tabindex="-1" role="">
-        <div class="modal-dialog modal-login" role="document">
-            <div class="modal-content">
-                <div class="card card-signup card-plain">
-                    <div class="modal-header">
-                        <div class="card-header card-header-primary text-center">
-                            <h4 class="card-title">Crear unidad</h4>
-                        </div>
-                    </div>
-                    <div class="modal-body">
-                        <form class="form" method="" action="">
-                            <div class="card-body">
-
-                                <div class="form-group bmd-form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">
-                                                <i class="fas fa-signature"></i>
-                                            </div>
-                                        </div>
-                                        <select name="class" id="class-selector">
-                                            <option value=""></option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer justify-content-center">
-                        <button class="btn btn-primary btn-round">
-                            <i class="fas fa-check"></i>
-                            <span>Aceptar</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Select class modal -->
-    <div class="modal fade" id="createUnitModal" tabindex="-1" role="">
-        <div class="modal-dialog modal-login" role="document">
-            <div class="modal-content">
-                <div class="card card-signup card-plain">
-                    <div class="modal-header">
-                        <div class="card-header card-header-primary text-center">
-                            <h4 class="card-title">Selección de clase</h4>
-                        </div>
-                    </div>
-                    <div class="modal-body">
-                        <form class="form" method="" action="">
-                            <div class="card-body">
-
-                                <div class="form-group bmd-form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">
-                                                <i class="fas fa-signature"></i>
-                                            </div>
-                                        </div>
-                                        <input name="name" type="text" class="form-control" placeholder="Nombre">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer justify-content-center">
-                        <button class="btn btn-primary btn-round">
-                            <i class="fas fa-check"></i>
-                            <span>Aceptar</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!--   Core JS Files   -->
     <script src="./assets/js/core/jquery.min.js"></script>
     <script src="./assets/js/core/popper.min.js"></script>

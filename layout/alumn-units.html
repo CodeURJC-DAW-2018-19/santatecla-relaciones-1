@@ -51,26 +51,14 @@
                                                 <span>Unidades:</span>
                                             </a>
                                         </li>
+                                        {{#titles}}
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#unit1" data-toggle="tab">
-                                                <span>Unidad 1</span>
+                                            <a class="nav-link" href={{.}} data-toggle="tab">
+                                                <span>{{.}}</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#unit2" data-toggle="tab">
-                                                <span>Unidad 2</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#unit3" data-toggle="tab">
-                                                <span>Unidad 3</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#unit4" data-toggle="tab">
-                                                <span>Unidad 4</span>
-                                            </a>
-                                        </li>
+                                        {{/titles}}
+                                        
                                     </ul>
                                 </div>
                             </div>
@@ -81,18 +69,12 @@
                                 <div class="tab-pane active justify-content-start" id="list-of-units">
                                     <table class="table my-table">
                                         <tbody>
+                                        {{#units}}
                                             <tr>
-                                                <td>UNIDAD 1</td>
+                                                <td>{{.}}</td>
                                             </tr>
-                                            <tr>
-                                                <td>UNIDAD 2</td>
-                                            </tr>
-                                            <tr>
-                                                <td>UNIDAD 3</td>
-                                            </tr>
-                                            <tr>
-                                                <td>UNIDAD 4</td>
-                                            </tr>
+                                        {{/units}}
+                                            
                                         </tbody>
                                     </table>
                                 </div>
@@ -131,36 +113,12 @@
                                                                     <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
+                                                                            {{#father}}
                                                                                 <tr>
-                                                                                    <td>PADRE 1</td>
+                                                                                    <td>{{.}}</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <td>PADRE 2</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>PADRE 1</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>PADRE 2</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>PADRE 1</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>PADRE 2</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>PADRE 1</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>PADRE 2</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>PADRE 1</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>PADRE 2</td>
-                                                                                </tr>
+                                                                            {{/father}}
+                                                                                
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
@@ -174,15 +132,12 @@
                                                                     <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
+                                                                            {{#compound}}
                                                                                 <tr>
-                                                                                    <td>COMPUESTO 1</td>
+                                                                                    <td>{{.}}</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <td>COMPUESTO 2</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>COMPUESTO 3</td>
-                                                                                </tr>
+                                                                            {{/compound}}
+                                                                                
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
@@ -196,12 +151,12 @@
                                                                     <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
+                                                                            {{#use}}
                                                                                 <tr>
-                                                                                    <td>USADO 1</td>
+                                                                                    <td>{{.}}</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <td>USADO 2</td>
-                                                                                </tr>
+                                                                            {{/use}}
+                                                                            
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
@@ -215,12 +170,12 @@
                                                                     <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
+                                                                            {{#associated}}
                                                                                 <tr>
-                                                                                    <td>ASOCIADO 1</td>
+                                                                                    <td>{{.}}</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <td>ASOCIADO 2</td>
-                                                                                </tr>
+                                                                            {{/associated}}
+                                                                                
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
@@ -231,9 +186,11 @@
                                                                     <div class="card-header my-mini-card-header">
                                                                         <h4 class="card-title">Unidad</h4>
                                                                     </div>
+                                                                    {{#unit}}
                                                                     <div class="card-body my-mini-card-body">
-                                                                        <H4>UNIDAD 1</H4>
+                                                                        <H4>{{.}}</H4>
                                                                     </div>
+                                                                    {{/unit}}
                                                                 </div>
                                                             </div>
                                                             <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
@@ -244,15 +201,12 @@
                                                                     <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
+                                                                            {{#associated1}}
                                                                                 <tr>
-                                                                                    <td>ASOCIADO 1</td>
+                                                                                    <td>{{.}}</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <td>ASOCIADO 2</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>ASOCIADO 3</td>
-                                                                                </tr>
+                                                                            {{/associated1}}
+                                                                                
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
@@ -266,9 +220,11 @@
                                                                     <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
+                                                                            {{#usedby}}
                                                                                 <tr>
                                                                                     <td>USADOR 1</td>
                                                                                 </tr>
+                                                                            {{/usedby}}
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
@@ -282,11 +238,13 @@
                                                                     <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
+                                                                                {{#part}}
                                                                                 <tr>
                                                                                     <td>
-
+                                                                                        {{.}}
                                                                                     </td>
                                                                                 </tr>
+                                                                                {{/part}}
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
@@ -300,15 +258,12 @@
                                                                     <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
+                                                                            {{#daughter}}
                                                                                 <tr>
-                                                                                    <td>HIJA 1</td>
+                                                                                    <td>{{.}}</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <td>HIJA 2</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>HIJA 3</td>
-                                                                                </tr>
+                                                                            {{/daughter}}
+                                                                                
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
@@ -331,17 +286,12 @@
                                                             <div class="card-body">
                                                                 <table class="table my-table">
                                                                     <tbody>
+                                                                    {{#why}}
                                                                         <tr>
-                                                                            <td>##Título</td>
+                                                                            <td>{{.}}</td>
                                                                         </tr>
-                                                                        <tr>
-                                                                            <td>###Subtitulo</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <span> · Elemento 1</span>
-                                                                            </td>
-                                                                        </tr>
+                                                                    {{/why}}
+                                                                        
                                                                     </tbody>
                                                                 </table>
                                                             </div>
@@ -355,11 +305,13 @@
                                                             <div class="card-body">
                                                                 <table class="table my-table">
                                                                     <tbody>
+                                                                    {{#forwhat}}
                                                                         <tr>
                                                                             <td>
-
+                                                                                {{.}}
                                                                             </td>
                                                                         </tr>
+                                                                    {{/forwhat}}
                                                                     </tbody>
                                                                 </table>
                                                             </div>
@@ -373,11 +325,13 @@
                                                             <div class="card-body">
                                                                 <table class="table my-table">
                                                                     <tbody>
+                                                                    {{#what}}
                                                                         <tr>
                                                                             <td>
-
+                                                                                {{.}}
                                                                             </td>
                                                                         </tr>
+                                                                    {{/what}}
                                                                     </tbody>
                                                                 </table>
                                                             </div>
@@ -391,11 +345,13 @@
                                                             <div class="card-body">
                                                                 <table class="table my-table">
                                                                     <tbody>
+                                                                    {{#how}}
                                                                         <tr>
                                                                             <td>
-
+                                                                                {{.}}
                                                                             </td>
                                                                         </tr>
+                                                                    {{/how}}
                                                                     </tbody>
                                                                 </table>
                                                             </div>
