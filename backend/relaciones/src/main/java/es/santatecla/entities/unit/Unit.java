@@ -2,6 +2,7 @@ package es.santatecla.entities.unit;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,20 +11,19 @@ import javax.persistence.OneToMany;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import es.santatecla.interfaces.relation.IRelation;
-import es.santatecla.interfaces.unit.IUnit;
+import es.santatecla.entities.relation.Relation;
 
 @Entity
-public class Unit implements IUnit {
+public class Unit{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	@OneToMany
-	private List<IRelation<String>> relations;
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="unit")
+	private List<Relation<String>> relations;
 	
 	@Autowired
-	public Unit(List<IRelation<String>> relations) {
+	public Unit(List<Relation<String>> relations) {
 		this.relations = relations;
 	}
 
@@ -35,11 +35,11 @@ public class Unit implements IUnit {
 		this.id = id;
 	}
 
-	public List<IRelation<String>> getRelations() {
+	public List<Relation<String>> getRelations() {
 		return relations;
 	}
 
-	public void setRelations(List<IRelation<String>> relations) {
+	public void setRelations(List<Relation<String>> relations) {
 		this.relations = relations;
 	}
 }

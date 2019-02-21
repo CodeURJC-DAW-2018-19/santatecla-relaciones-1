@@ -3,17 +3,21 @@ package es.santatecla.entities.relation;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.ManyToOne;
 
 import org.springframework.data.annotation.Id;
 
+import es.santatecla.entities.unit.Unit;
 import es.santatecla.enums.RelationsEnum;
-import es.santatecla.interfaces.relation.IRelation;
 
 @Entity
-public class Relation<V> implements IRelation<V> {
+public class Relation<V>{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
+	@ManyToOne
+	private Unit unit;
 	
 	private RelationsEnum key;
 	
