@@ -54,14 +54,8 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-		<!-- <dependency> -->
+		<!--<dependency> -->
 		<!-- <groupId>mysql</groupId> -->
 		<!-- <artifactId>mysql-connector-java</artifactId> -->
 		<!-- </dependency> -->
@@ -71,6 +65,12 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<!-- <scope>test</scope> -->
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.github.warmuuh/libsass-maven-plugin -->
@@ -102,7 +102,7 @@
 					<inputPath>${basedir}/src/main/resources/static/scss/</inputPath>
 					<outputPath>${basedir}/src/main/resources/static/css/</outputPath>
 				</configuration>
-			</plugin>			
+			</plugin>
 		</plugins>
 	</build>
 </project>
