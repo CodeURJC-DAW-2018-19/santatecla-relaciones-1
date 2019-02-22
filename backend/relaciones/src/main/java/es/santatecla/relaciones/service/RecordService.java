@@ -1,6 +1,6 @@
-package es.santatecla.services;
+package es.santatecla.relaciones.service;
 
-import es.santatecla.models.Record;
+import es.santatecla.relaciones.unit.Record;
 import es.santatecla.repositories.RecordRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;

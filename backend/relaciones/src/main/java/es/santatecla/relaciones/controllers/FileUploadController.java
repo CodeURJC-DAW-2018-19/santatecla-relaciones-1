@@ -1,8 +1,8 @@
-package es.santatecla.controllers;
+package es.santatecla.relaciones.controllers;
 
 
-import es.santatecla.models.Record;
-import es.santatecla.services.RecordService;
+import es.santatecla.relaciones.unit.Record;
+import es.santatecla.relaciones.service.RecordService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

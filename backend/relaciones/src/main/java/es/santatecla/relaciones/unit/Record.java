@@ -1,4 +1,4 @@
-package es.santatecla.models;
+package es.santatecla.relaciones.unit;
 import javax.persistence.Column;
 import javax.persistence.*;
 import javax.persistence.GeneratedValue;

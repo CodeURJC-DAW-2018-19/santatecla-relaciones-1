@@ -1,6 +1,6 @@
 package es.santatecla.repositories;
 
-import es.santatecla.models.Record;
+import es.santatecla.relaciones.unit.Record;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
