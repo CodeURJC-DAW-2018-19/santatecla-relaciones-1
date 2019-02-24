@@ -24,8 +24,8 @@ public class FileUploadController {
     RecordService recordService;
 
 
-    @PostMapping("/savedEvent")
-    public String saveConcept(Model model, Record event, @RequestParam("file")MultipartFile multipartFile, RedirectAttributes redirectAttributes) {
+    @PostMapping("/savedRecord")
+    public String saveConcept(Model model, Record record, @RequestParam("file")MultipartFile multipartFile, RedirectAttributes redirectAttributes) {
         if(!multipartFile.isEmpty()){
             Path derectorioRecursos = Paths.get("src//main//resources//static//uploads");
             String rootPath = derectorioRecursos.toFile().getAbsolutePath();
@@ -34,12 +34,12 @@ public class FileUploadController {
                 Path rutaCompleta = Paths.get(rootPath + "//" + multipartFile.getOriginalFilename());
                 Files.write(rutaCompleta, bytes);
                 redirectAttributes.addFlashAttribute("Información", "Imagen subida correctamente ' " + multipartFile.getOriginalFilename() + "'");
-                event.setImage(multipartFile.getOriginalFilename());
+                record.setImage(multipartFile.getOriginalFilename());
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        recordService.addEvent(event);
+        recordService.addRecord(record);
         return "redirect:/index";
     }
 

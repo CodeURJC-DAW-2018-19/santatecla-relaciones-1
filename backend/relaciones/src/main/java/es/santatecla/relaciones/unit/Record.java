@@ -22,5 +22,14 @@ public class Record {
     public void setImage(String image) {
         Image = image;
     }
+    public long getIdRecordt() {
+        return idRecord;
+    }
+
+    public void setIdRecord(long idRecord) {
+        this.idRecord = idRecord;
+    }
+
+
 }
 
