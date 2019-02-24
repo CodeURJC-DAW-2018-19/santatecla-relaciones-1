@@ -11,8 +11,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.assertj.core.util.Arrays;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import org.assertj.core.util.Arrays;
+
 
 @Entity
 public class User {
