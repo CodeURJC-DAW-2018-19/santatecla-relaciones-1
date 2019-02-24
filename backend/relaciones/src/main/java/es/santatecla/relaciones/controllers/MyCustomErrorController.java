@@ -1,4 +1,4 @@
-package es.santatecla.controllers;
+package es.santatecla.relaciones.controllers;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
