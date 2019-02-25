@@ -47,6 +47,7 @@
 
                             <div class="nav-tabs-navigation">
                                 <div class="nav-tabs-wrapper">
+                                    {{#units}}
                                     <ul class="nav nav-tabs" data-tabs="tabs">
                                         <li class="nav-item">
                                             <a class="nav-link active" href="#list-of-units" data-toggle="tab">
@@ -54,6 +55,7 @@
                                             </a>
                                         </li>
                                     </ul>
+                                    {{/units}}
                                 </div>
                             </div>
                         </div>
@@ -63,11 +65,11 @@
                                 <div class="tab-pane active justify-content-start" id="list-of-units">
                                     <table class="table my-table">
                                         <tbody>
-                                        {{#units}}
+                                            {{#table}}
                                             <tr>
-                                                <td>{{.}}</td>
+                                                <td>{{name}}</td>
                                             </tr>
-                                        {{/units}}
+                                            {{/table}}
                                         </tbody>
                                     </table>
                                 </div>
