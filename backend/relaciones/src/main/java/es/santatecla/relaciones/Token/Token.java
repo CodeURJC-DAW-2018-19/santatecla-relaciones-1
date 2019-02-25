@@ -19,7 +19,7 @@ public class Token {
     private String firstFieldForWhat;
     private String secondFieldWhat;
     private String thirdFieldHow;
-
+//  private Image image;
     public Token(){}
 
     public Token(String title, String subtitle, /*List<String> elements,*/ String firstFieldForWhat, String secondFieldWhat, String thirdFieldHow){
@@ -30,6 +30,18 @@ public class Token {
         this.secondFieldWhat = secondFieldWhat;
         this.thirdFieldHow = thirdFieldHow;
     }
+
+    /*public Token(String title, String subtitle, String firstFieldForWhat, String secondFieldWhat, String thirdFieldHow, Image image){
+        this.title = title;
+        this.subtitle = subtitle;
+        this.elements = elements;
+        this.firstFieldForWhat = firstFieldForWhat;
+        this.secondFieldWhat = secondFieldWhat;
+        this.thirdFieldHow = thirdFieldHow;
+        this.image = image;
+    }*/
+
+
 
     public Token(Token token){
         this.title = token.title;

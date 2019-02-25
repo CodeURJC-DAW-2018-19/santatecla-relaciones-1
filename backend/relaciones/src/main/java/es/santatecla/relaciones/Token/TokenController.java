@@ -20,7 +20,7 @@ public class TokenController {
      */
     @RequestMapping("/addToken")
     public String createToken(Model model, @RequestParam String title, @RequestParam String subtitle, /*@RequestParam List<String> elements,*/ @RequestParam String firstFieldForWhat, @RequestParam String secondFieldWhat, @RequestParam String thirdFieldHow){
-        Token token = new Token(title,subtitle,/*elements,*/firstFieldForWhat,secondFieldWhat,thirdFieldHow);
+        Token token = new Token(title,subtitle,/*elements,*/firstFieldForWhat,secondFieldWhat,thirdFieldHow /*, image*/);
         tRepository.save(token);
         return "/alumn-unit";
     }

@@ -1,4 +1,4 @@
-package es.santatecla.relaciones.controllers;
+/*package es.santatecla.relaciones.controllers;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
@@ -27,3 +27,4 @@ public class MyCustomErrorController implements ErrorController {
     }
 
 }
+*/
