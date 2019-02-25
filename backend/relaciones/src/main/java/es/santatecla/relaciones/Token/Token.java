@@ -11,23 +11,40 @@ public class Token {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
     private String title;
     private String subtitle;
-    private List<String> elements;
+    //private List<String> elements;
     private String firstFieldForWhat;
     private String secondFieldWhat;
     private String thirdFieldHow;
 
     public Token(){}
 
-    public Token(String title, String subtitle, List<String> elements, String firstFieldForWhat, String secondFieldWhat, String thirdFieldHow){
-        super();
+    public Token(String title, String subtitle, /*List<String> elements,*/ String firstFieldForWhat, String secondFieldWhat, String thirdFieldHow){
         this.title = title;
         this.subtitle = subtitle;
-        this.elements = elements;
+        //this.elements = elements;
         this.firstFieldForWhat = firstFieldForWhat;
         this.secondFieldWhat = secondFieldWhat;
         this.thirdFieldHow = thirdFieldHow;
+    }
+
+    public Token(Token token){
+        this.title = token.title;
+        this.subtitle = token.subtitle;
+        this.firstFieldForWhat = token.firstFieldForWhat;
+        this.secondFieldWhat = token.secondFieldWhat;
+        this.thirdFieldHow = token.thirdFieldHow;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -46,6 +63,7 @@ public class Token {
         this.subtitle = subtitle;
     }
 
+    /*
     public List<String> getElements() {
         return elements;
     }
@@ -53,6 +71,7 @@ public class Token {
     public void setElements(List<String> elements) {
         this.elements = elements;
     }
+    */
 
     public String getFirstFieldForWhat() {
         return firstFieldForWhat;
@@ -77,13 +96,5 @@ public class Token {
     public void setThirdFieldHow(String thirdFieldHow) {
         this.thirdFieldHow = thirdFieldHow;
     }
-
-    public void addToken(){}
-
-    public void modifyToken(){}
-
-    public void deleteToken(){}
-
-
 
 }
