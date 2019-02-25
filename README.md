@@ -3,7 +3,7 @@
 
 # santatecla-relaciones-1
 
-Integrantes del grupo:
+**Integrantes del grupo:**
 
 Apellidos | Nombre | E-mail | Github 
 --- | --- | --- | --- 
@@ -13,17 +13,17 @@ Gamero Bermejo | Jorge | j.gamero@alumnos.urjc.es | theyorch11
 Amor Antolín | David | d.amora@alumnos.urjc.es | Almendron100
 Li Lu | Wu | w.lil@alumnos.urjc.es | alilu8
 
-Documento de requisitos:  
+**Documento de requisitos:**  
 https://docs.google.com/document/d/1UT6LcYCy5LInWHwbaAv2Tt3kwkTyI_fXCl3HWxxQbOU/edit
 
-Trello:  
+**Trello:**  
 https://trello.com/b/eijxtnDK/daw-g-16
 
 
-Actualización de la fase 2:  
+**Actualización de la fase 2:**  
 Para empaquetar la aplicación en un archivo *.jar* hemos añadido la configuración necesaria al archivo *pom.xml* 
 
-Screenshots:
+**Screenshots:**  
 ![index](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/index.JPG)
 ![logout](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/logout.JPG)
 ![alumn-context](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/alumn-context.JPG)
