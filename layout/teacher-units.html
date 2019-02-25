@@ -45,33 +45,21 @@
 
                             <div class="nav-tabs-navigation">
                                 <div class="nav-tabs-wrapper">
+                                    {{#units}}
                                     <ul class="nav nav-tabs" data-tabs="tabs">
                                         <li class="nav-item">
                                             <a class="nav-link active" href="#list-of-units" data-toggle="tab">
                                                 <span>Unidades:</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li id="{{id}}" class="nav-item">
                                             <a class="nav-link" href="#unit1" data-toggle="tab">
-                                                <span>Unidad 1</span>
+                                                <span>{{name}}</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#unit2" data-toggle="tab">
-                                                <span>Unidad 2</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#unit3" data-toggle="tab">
-                                                <span>Unidad 3</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#unit4" data-toggle="tab">
-                                                <span>Unidad 4</span>
-                                            </a>
-                                        </li>
+                                        
                                     </ul>
+                                    {{/units}}
                                 </div>
                             </div>
                         </div>
@@ -81,18 +69,11 @@
                                 <div class="tab-pane active justify-content-start" id="list-of-units">
                                     <table class="table my-table">
                                         <tbody>
+                                            {{#table}}
                                             <tr>
-                                                <td>UNIDAD 1</td>
+                                                <td>{{.}}</td>
                                             </tr>
-                                            <tr>
-                                                <td>UNIDAD 2</td>
-                                            </tr>
-                                            <tr>
-                                                <td>UNIDAD 3</td>
-                                            </tr>
-                                            <tr>
-                                                <td>UNIDAD 4</td>
-                                            </tr>
+                                            {{/table}}
                                         </tbody>
                                     </table>
                                 </div>
@@ -124,6 +105,7 @@
                                                     <div class="col-11">
                                                         <div class="row justify-content-center">
                                                             <div class="col-12 col-md-6 col-lg-4">
+                                                                {{#fathers}}
                                                                 <div class="card">
                                                                     <div class="card-header card-header-danger">
                                                                         <h4 class="card-title">Padres</h4>
@@ -131,40 +113,45 @@
                                                                     <div class="card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
+                                                                                {{#father}}
                                                                                 <tr>
-                                                                                    <td>PADRE 1
-                                                                                        <!--<div class="d-flex justify-content-end">-->
-                                                                                        <button class ="btn btn-primary btn-link">
-                                                                                            <i class="fas fa-trash-alt"></i>
-                                                                                        </button>
-                                                                                        <!--</div>-->
-                                                                                    </td>
-                                                                                    </tr>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>PADRE 2
-                                                                                        <div class="d-flex justify-content-end">
-                                                                                            <button class ="btn btn-primary btn-link">
-                                                                                                <i class="fas fa-trash-alt"></i>
-                                                                                            </button>
-                                                                                        </div>
+                                                                                    <td>{{name}}
+                                                                                        {{#admin}}
+                                                                                        <form method="post" action="/deleteToken{{id}}">
+                                                                                            <div class="d-flex justify-content-end">
+                                                                                                <button class ="btn btn-primary btn-link">
+                                                                                                    <i class="fas fa-trash-alt"></i>
+                                                                                                </button>
+                                                                                            </div>
+                                                                                        </form>
+                                                                                        {{/admin}}
                                                                                     </td>
                                                                                 </tr>
+                                                                                {{/father}}
+                                                                                
+                                                                                {{#admin}}
                                                                                 <tr>
                                                                                     <td>
-                                                                                        <div class="d-flex justify-content-end">
-                                                                                            <button class ="btn btn-primary btn-link">
+                                                                                        {{#new}}
+                                                                                        <form method="post" action="/addToken{{id}}">
+                                                                                            <div class="d-flex justify-content-end">
+                                                                                                <button class ="btn btn-primary btn-link">
                                                                                                     <i class="fas fa-plus"></i>
-                                                                                            </button>
-                                                                                        </div>
+                                                                                                </button>
+                                                                                            </div>
+                                                                                        </form>
+                                                                                        {{/new}}
                                                                                     </td>
                                                                                 </tr>
+                                                                                {{/admin}}
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
                                                                 </div>
+                                                            {{/fathers}}
                                                             </div>
                                                             <div class="col-12 col-md-6 col-lg-4">
+                                                                {{#compounds}}
                                                                 <div class="card">
                                                                     <div class="card-header card-header-success">
                                                                         <h4 class="card-title">Compuestos</h4>
@@ -172,46 +159,45 @@
                                                                     <div class="card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
+                                                                                {{#compound}}
                                                                                 <tr>
-                                                                                    <td>COMPUESTO 1
-                                                                                        <!--<div class="d-flex justify-content-end">-->
-                                                                                        <button class ="btn btn-primary btn-link">
-                                                                                        <i class="fas fa-trash-alt"></i>
-                                                                                        </button>
-                                                                                        <!--</div>-->
+                                                                                    <td>{{name}}
+                                                                                        {{#admin}}
+                                                                                        <form method="post" action="/deleteToken{{id}}">
+                                                                                            <div class="d-flex justify-content-end">
+                                                                                                <button class ="btn btn-primary btn-link">
+                                                                                                    <i class="fas fa-trash-alt"></i>
+                                                                                                </button>
+                                                                                            </div>
+                                                                                        </form>
+                                                                                        {{/admin}}
                                                                                     </td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <td>COMPUESTO 2
-                                                                                        <button class ="btn btn-primary btn-link">
-                                                                                            <i class="fas fa-trash-alt"></i>
-                                                                                        </button>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>COMPUESTO 3
-                                                                                        <!--<div class="d-flex justify-content-end">-->
-                                                                                    <button class ="btn btn-primary btn-link">
-                                                                                        <i class="fas fa-trash-alt"></i>
-                                                                                    </button>
-                                                                                    <!--</div>-->
-                                                                                    </td>
-                                                                                </tr>
+                                                                                {{/compound}}
+                                                                                
+                                                                                {{#admin}}
                                                                                 <tr>
                                                                                     <td>
-                                                                                        <div class="d-flex justify-content-end">
-                                                                                            <button class ="btn btn-primary btn-link">
+                                                                                        {{#new}}
+                                                                                        <form method="post" action="/addToken{{id}}">
+                                                                                            <div class="d-flex justify-content-end">
+                                                                                                <button class ="btn btn-primary btn-link">
                                                                                                     <i class="fas fa-plus"></i>
-                                                                                            </button>
-                                                                                        </div>
+                                                                                                </button>
+                                                                                            </div>
+                                                                                        </form>
+                                                                                        {{/new}}
                                                                                     </td>
                                                                                 </tr>
+                                                                                {{/admin}}
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
                                                                 </div>
+                                                                {{/compounds}}
                                                             </div>
                                                             <div class="col-12 col-md-6 col-lg-4">
+                                                                {{#uses}}
                                                                 <div class="card">
                                                                     <div class="card-header card-header-info">
                                                                         <h4 class="card-title">Usa</h4>
@@ -219,28 +205,29 @@
                                                                     <div class="card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
+                                                                                {{#use}}
                                                                                 <tr>
-                                                                                    <td>USADO 1
-                                                                                        <!--<div class="d-flex justify-content-end">-->
-                                                                                        <button class ="btn btn-primary btn-link">
-                                                                                            <i class="fas fa-trash-alt"></i>
-                                                                                        </button>
-                                                                                        <!--</div>-->
+                                                                                    <td>{{name}}
+                                                                                        {{#admin}}
+                                                                                        <form method="post" action="/deleteToken{{id}}">
+                                                                                            <div class="d-flex justify-content-end">
+                                                                                                <button class ="btn btn-primary btn-link">
+                                                                                                    <i class="fas fa-trash-alt"></i>
+                                                                                                </button>
+                                                                                            </div>
+                                                                                        </form>
+                                                                                        {{/admin}}
                                                                                     </td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <td>USADO 2
-                                                                                        <button class ="btn btn-primary btn-link">
-                                                                                            <i class="fas fa-trash-alt"></i>
-                                                                                        </button>
-                                                                                    </td>
-                                                                                </tr>
+                                                                                {{/use}}
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
                                                                 </div>
+                                                                {{/uses}}
                                                             </div>
                                                             <div class="col-12 col-md-6 col-lg-4">
+                                                                {{#associates}}
                                                                 <div class="card">
                                                                     <div class="card-header card-header-warning">
                                                                         <h4 class="card-title">Asociados a</h4>
@@ -248,28 +235,31 @@
                                                                     <div class="card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
+                                                                                {{#associated}}
                                                                                 <tr>
-                                                                                    <td>ASOCIADO 1</td>
+                                                                                    <td>{{name}}</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <td>ASOCIADO 2</td>
-                                                                                </tr>
+                                                                                {{/associated}}
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
+                                                                    {{/associates}}
                                                                 </div>
                                                             </div>
                                                             <div class="col-12 col-md-6 col-lg-4">
+                                                                {{#unit}}
                                                                 <div class="card">
                                                                     <div class="card-header card-header-primary">
                                                                         <h4 class="card-title">Unidad</h4>
                                                                     </div>
                                                                     <div class="card-body">
-                                                                        <H4>UNIDAD 1</H4>
+                                                                        <H4>{{name}}</H4>
                                                                     </div>
                                                                 </div>
+                                                                {{/unit}}
                                                             </div>
                                                             <div class="col-12 col-md-6 col-lg-4">
+                                                                {{#associatesto}}
                                                                 <div class="card">
                                                                     <div class="card-header card-header-danger">
                                                                         <h4 class="card-title">Asociado a</h4>
@@ -277,21 +267,19 @@
                                                                     <div class="card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
+                                                                                {{#associatedto}}
                                                                                 <tr>
-                                                                                    <td>ASOCIADO 1</td>
+                                                                                    <td>{{name}}</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <td>ASOCIADO 2</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>ASOCIADO 3</td>
-                                                                                </tr>
+                                                                                {{/associatedto}}
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
                                                                 </div>
+                                                                {{/associatesto}}
                                                             </div>
                                                             <div class="col-12 col-md-6 col-lg-4">
+                                                                {{#usedby}}
                                                                 <div class="card">
                                                                     <div class="card-header card-header-success">
                                                                         <h4 class="card-title">Usan</h4>
@@ -299,15 +287,19 @@
                                                                     <div class="card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
+                                                                                {{#useby}}
                                                                                 <tr>
-                                                                                    <td>USADOR 1</td>
+                                                                                    <td>{{name}}</td>
                                                                                 </tr>
+                                                                                {{/useby}}
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
                                                                 </div>
+                                                                {{/usedby}}
                                                             </div>
                                                             <div class="col-12 col-md-6 col-lg-4">
+                                                                {{#parts}}
                                                                 <div class="card">
                                                                     <div class="card-header card-header-info">
                                                                         <h4 class="card-title">Partes</h4>
@@ -315,17 +307,21 @@
                                                                     <div class="card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
+                                                                                {{#part}}
                                                                                 <tr>
                                                                                     <td>
-
+                                                                                        {{name}}
                                                                                     </td>
                                                                                 </tr>
+                                                                                {{/part}}
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
                                                                 </div>
+                                                                {{/partes}}
                                                             </div>
                                                             <div class="col-12 col-md-6 col-lg-4">
+                                                                {{#daughters}}
                                                                 <div class="card">
                                                                     <div class="card-header card-header-warning">
                                                                         <h4 class="card-title">Hijas</h4>
@@ -333,19 +329,16 @@
                                                                     <div class="card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
+                                                                                {{#daughter}}
                                                                                 <tr>
-                                                                                    <td>HIJA 1</td>
+                                                                                    <td>{{name}}</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <td>HIJA 2</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>HIJA 3</td>
-                                                                                </tr>
+                                                                                {{/daughter}}
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
                                                                 </div>
+                                                                {{/daughters}}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -357,6 +350,7 @@
                                             <div class="tab-content tab-space">
                                                 <div class="row justify-content-center">
                                                     <div class="col-11">
+                                                        {{#why}}
                                                         <div class="card">
                                                             <div class="card-header card-header-success">
                                                                 <h4 class="card-title">Por qué</h4>
@@ -365,22 +359,26 @@
                                                                 <table class="table my-table">
                                                                     <tbody>
                                                                         <tr>
-                                                                            <td>##Título</td>
+                                                                            <td>{{title}}</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>###Subtitulo</td>
+                                                                            <td>{{subtitle}}</td>
                                                                         </tr>
+                                                                        {{#elements}}
                                                                         <tr>
                                                                             <td>
-                                                                                <span> · Elemento 1</span>
+                                                                                <span>{{name}}</span>
                                                                             </td>
                                                                         </tr>
+                                                                        {{/elements}}
                                                                     </tbody>
                                                                 </table>
                                                             </div>
                                                         </div>
+                                                        {{/why}}
                                                     </div>
                                                     <div class="col-11">
+                                                        {{#forwhat}}
                                                         <div class="card">
                                                             <div class="card-header card-header-warning">
                                                                 <h4 class="card-title">Para qué</h4>
@@ -388,17 +386,21 @@
                                                             <div class="card-body">
                                                                 <table class="table my-table">
                                                                     <tbody>
+                                                                        {{#reason}}
                                                                         <tr>
                                                                             <td>
-
+                                                                                {{name}}
                                                                             </td>
                                                                         </tr>
+                                                                        {{/reason}}
                                                                     </tbody>
                                                                 </table>
                                                             </div>
                                                         </div>
+                                                        {{/forwhat}}
                                                     </div>
                                                     <div class="col-11">
+                                                        {{#what}}
                                                         <div class="card">
                                                             <div class="card-header card-header-info">
                                                                 <h4 class="card-title">Qué</h4>
@@ -406,17 +408,21 @@
                                                             <div class="card-body">
                                                                 <table class="table my-table">
                                                                     <tbody>
+                                                                        {{#thing}}
                                                                         <tr>
                                                                             <td>
-
+                                                                                {{name}}
                                                                             </td>
                                                                         </tr>
+                                                                        {{/thing}}
                                                                     </tbody>
                                                                 </table>
                                                             </div>
                                                         </div>
+                                                        {{/what}}
                                                     </div>
                                                     <div class="col-11">
+                                                        {{#how}}
                                                         <div class="card">
                                                             <div class="card-header card-header-primary">
                                                                 <h4 class="card-title">Cómo</h4>
@@ -424,15 +430,18 @@
                                                             <div class="card-body">
                                                                 <table class="table my-table">
                                                                     <tbody>
+                                                                        {{method}}
                                                                         <tr>
                                                                             <td>
-
+                                                                                {{name}}
                                                                             </td>
                                                                         </tr>
+                                                                        {{/method}}
                                                                     </tbody>
                                                                 </table>
                                                             </div>
                                                         </div>
+                                                        {{/how}}
                                                     </div>
                                                 </div>
                                             </div>

@@ -1,0 +1,183 @@
+@import "../../../../../../../material-dashboard/assets/scss/material-dashboard/variables";
+
+@import "../../../../../../../material-dashboard/assets/scss/material-dashboard/mixins/colored-shadows";
+@import "../../../../../../../material-dashboard/assets/scss/material-dashboard/mixins/vendor-prefixes";
+@import "../../../../../../../material-dashboard/assets/scss/material-dashboard/mixins/buttons";
+@import "../../../../../../../material-dashboard/assets/scss/material-dashboard/mixins/type";
+
+@import "../../../../../../../material-dashboard/assets/scss/material-dashboard/bootstrap/scss/mixins/breakpoints";
+
+@import "../../../../../../../material-dashboard/assets/scss/material-dashboard/cards";
+
+body {
+    background-color: $grey-400;
+}
+
+.content {
+    margin-top: 70px;
+    padding: 30px 15px;
+}
+
+.my-extra-bold {
+    font-weight: 700;
+}
+
+
+.my-mini-card-panel {
+    .my-mini-card-wrapper {
+        .my-mini-card {
+            .my-mini-card-header {
+                h1, h2, h3, h4, h5, h6 {
+                    color: $white;
+                }
+            }
+
+            .my-mini-card-body {
+                overflow-y: scroll;
+                max-height: 162px;
+
+                .my-table {
+                    tr {
+                        background: $white;
+
+                        
+
+                        td {
+                            text-align: right;
+
+                            &:first-child {
+                                text-align: left;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &:nth-child(5n + 1) {
+            .my-mini-card {
+                .my-mini-card-header {
+                    @extend .card-header-danger;
+                }
+
+                .my-mini-card-body {
+                    .my-table {
+                        tbody {
+                            tr {
+                                &:nth-child(even) {
+                                    background: $red-100;
+                                }
+
+                                &:hover {
+                                    background: $red-200;
+                                }
+                            }
+                        }                        
+                    }
+                }
+            }
+        }
+
+        &:nth-child(5n + 2) {
+            .my-mini-card {
+                .my-mini-card-header {
+                    @extend .card-header-success;
+                }
+
+                .my-mini-card-body {
+                    .my-table {
+                        tbody {
+                            tr {
+                                &:nth-child(even) {
+                                    background: $green-100;
+                                }
+
+                                &:hover {
+                                    background: $green-200;
+                                }
+                            }
+                        }                        
+                    }
+                }
+            }
+        }
+
+        &:nth-child(5n + 3) {
+            .my-mini-card {
+                .my-mini-card-header {
+                    @extend .card-header-info;
+                }
+
+                .my-mini-card-body {
+                    .my-table {
+                        tbody {
+                            tr {
+                                &:nth-child(even) {
+                                    background: $blue-100;
+                                }
+
+                                &:hover {
+                                    background: $blue-200;
+                                }
+                            }
+                        }                        
+                    }
+                }
+            }
+        }
+
+        &:nth-child(5n + 4) {
+            .my-mini-card {
+                .my-mini-card-header {
+                    @extend .card-header-warning;
+                }
+
+                .my-mini-card-body {
+                    .my-table {
+                        tbody {
+                            tr {
+                                &:nth-child(even) {
+                                    background: $orange-100;
+                                }
+
+                                &:hover {
+                                    background: $orange-200;
+                                }
+                            }
+                        }                        
+                    }
+                }
+            }
+        }
+
+        &:nth-child(5n) {
+            .my-mini-card {
+                .my-mini-card-header {
+                    @extend .card-header-primary;
+                }
+
+                .my-mini-card-body {
+                    .my-table {
+                        tbody {
+                            tr {
+                                &:nth-child(even) {
+                                    background: $purple-100;
+                                }
+
+                                &:hover {
+                                    background: $purple-200;
+                                }
+                            }
+                        }                        
+                    }
+                }
+            }
+        }
+    }
+}
+
+.my-button-circular {
+    background-color: $primary;
+    color: $white;
+    border-radius: 50%;
+}
