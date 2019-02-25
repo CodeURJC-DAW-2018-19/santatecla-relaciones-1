@@ -1,5 +1,7 @@
 package es.santatecla.relaciones.Token;
 
+import es.santatecla.relaciones.user.Image;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +21,7 @@ public class Token {
     private String firstFieldForWhat;
     private String secondFieldWhat;
     private String thirdFieldHow;
-//  private Image image;
+    private Image image;
     public Token(){}
 
     public Token(String title, String subtitle, /*List<String> elements,*/ String firstFieldForWhat, String secondFieldWhat, String thirdFieldHow){
@@ -30,17 +32,15 @@ public class Token {
         this.secondFieldWhat = secondFieldWhat;
         this.thirdFieldHow = thirdFieldHow;
     }
-
-    /*public Token(String title, String subtitle, String firstFieldForWhat, String secondFieldWhat, String thirdFieldHow, Image image){
+    public Token(String title, String subtitle, /*List<String> elements,*/ String firstFieldForWhat, String secondFieldWhat, String thirdFieldHow,  Image image){
         this.title = title;
         this.subtitle = subtitle;
-        this.elements = elements;
+        //this.elements = elements;
         this.firstFieldForWhat = firstFieldForWhat;
         this.secondFieldWhat = secondFieldWhat;
         this.thirdFieldHow = thirdFieldHow;
         this.image = image;
-    }*/
-
+    }
 
 
     public Token(Token token){
@@ -49,6 +49,7 @@ public class Token {
         this.firstFieldForWhat = token.firstFieldForWhat;
         this.secondFieldWhat = token.secondFieldWhat;
         this.thirdFieldHow = token.thirdFieldHow;
+        this.image=token.image;
     }
 
     public long getId() {

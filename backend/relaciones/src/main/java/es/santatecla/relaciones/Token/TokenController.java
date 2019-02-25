@@ -1,5 +1,6 @@
 package es.santatecla.relaciones.Token;
 
+import es.santatecla.relaciones.user.Image;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,8 +20,8 @@ public class TokenController {
     **Method to add the specific Token
      */
     @RequestMapping("/addToken")
-    public String createToken(Model model, @RequestParam String title, @RequestParam String subtitle, /*@RequestParam List<String> elements,*/ @RequestParam String firstFieldForWhat, @RequestParam String secondFieldWhat, @RequestParam String thirdFieldHow){
-        Token token = new Token(title,subtitle,/*elements,*/firstFieldForWhat,secondFieldWhat,thirdFieldHow /*, image*/);
+    public String createToken(Model model, @RequestParam String title, @RequestParam String subtitle, /*@RequestParam List<String> elements,*/ @RequestParam String firstFieldForWhat, @RequestParam String secondFieldWhat, @RequestParam String thirdFieldHow, @RequestParam Image image){
+        Token token = new Token(title,subtitle,/*elements,*/firstFieldForWhat,secondFieldWhat,thirdFieldHow , image);
         tRepository.save(token);
         return "/alumn-unit";
     }
