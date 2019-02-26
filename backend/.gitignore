@@ -1,5 +1,6 @@
 .metadata/
 
+relaciones/bin/
 relaciones/target/
 relaciones/.settings/
 relaciones/.classpath/
