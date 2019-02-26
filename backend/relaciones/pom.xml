@@ -43,22 +43,18 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<!--https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -91,27 +87,19 @@
 			<artifactId>libsass-maven-plugin</artifactId>
 			<version>0.2.10-libsass_3.5.3</version>
 		</dependency>
-		<!--https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools-->
+		<!--https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
 		</dependency>
 
-
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
 		</dependency>
 
-
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-            <version>5.1.4.RELEASE</version>
-        </dependency>
-
-    </dependencies>
+	</dependencies>
 
 
 	<build>
@@ -135,7 +123,6 @@
 					<inputPath>${basedir}/src/main/resources/static/scss/</inputPath>
 					<outputPath>${basedir}/src/main/resources/static/css/</outputPath>
 				</configuration>
-
 			</plugin>
 		</plugins>
 	</build>
