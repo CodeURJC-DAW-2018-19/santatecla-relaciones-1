@@ -17,12 +17,15 @@ Li Lu | Wu | w.lil@alumnos.urjc.es | alilu8
 https://docs.google.com/document/d/1UT6LcYCy5LInWHwbaAv2Tt3kwkTyI_fXCl3HWxxQbOU/edit
 
 **Trello:**  
-https://trello.com/b/eijxtnDK/daw-g-16
-
+https://trello.com/b/eijxtnDK/daw-g-16  
 
 **Actualización de la fase 2:**  
-Para empaquetar la aplicación en un archivo *.jar* hemos añadido la configuración necesaria al archivo *pom.xml* 
-
+**Extracción del archivo *.jar***   
+Para empaquetar la aplicación en un archivo *.jar* hemos añadido la configuración necesaria al archivo *pom.xml*  
+*<start-class>es.urjc.code.daw.santatecla.relaciones.App.java</start-class>* en el apartado *<properties>*  
+  A continuación, si estamos en *Eclipse*, selecionamos *Run as* -> *Maven Install*  
+  Con esto generamos el archivo *relaciones-0.0.1-SNAPSHOT.jar*.  
+  
 **Screenshots:**  
 ![index](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/index.JPG)
 ![logout](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/logout.JPG)
