@@ -21,9 +21,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 		
 		// Public pages
 		http.authorizeRequests().antMatchers("/").permitAll();
-		http.authorizeRequests().antMatchers("/login").permitAll();
-		http.authorizeRequests().antMatchers("/loginerror").permitAll();
-		http.authorizeRequests().antMatchers("/logout").permitAll();
+//		http.authorizeRequests().antMatchers("/login").permitAll();
+//		http.authorizeRequests().antMatchers("/loginerror").permitAll();
+//		http.authorizeRequests().antMatchers("/logout").permitAll();
 		
 		
 		//Private pages
@@ -31,15 +31,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 		http.authorizeRequests().antMatchers("/teacher").hasAnyRole("ADMIN");
 
 		// Login form
-        http.formLogin().loginPage("/index");
-        http.formLogin().usernameParameter("name");
-        http.formLogin().passwordParameter("password");
-        http.formLogin().defaultSuccessUrl("/index");
-        http.formLogin().failureUrl("/loginerror");
-        
+//        http.formLogin().loginPage("/login");
+//        http.formLogin().usernameParameter("name");
+//        http.formLogin().passwordParameter("password");
+//        http.formLogin().defaultSuccessUrl("/index");
+//        http.formLogin().failureUrl("/loginerror");
+//        
      // Logout
         http.logout().logoutUrl("/logout");
         http.logout().logoutSuccessUrl("/index");
+        
+        http.csrf().disable();
 	}
 
 	@Override

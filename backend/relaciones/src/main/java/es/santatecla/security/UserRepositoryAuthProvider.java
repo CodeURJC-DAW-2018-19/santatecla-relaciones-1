@@ -22,7 +22,7 @@ import es.santatecla.user.UserRepository;
 public class UserRepositoryAuthProvider implements AuthenticationProvider {
 	
 	@Autowired
-	private UserRepository uRepository;
+	private UserRepository userRepository;
 	
 	@Autowired
 	private UserComponent userComponent;
@@ -33,7 +33,7 @@ public class UserRepositoryAuthProvider implements AuthenticationProvider {
 		String name = authentication.getName();
 		String password = (String) authentication.getCredentials();
 
-		User user = uRepository.findByName(name);
+		User user = userRepository.findByName(name);
 		
 		if(user == null) {
 			throw new BadCredentialsException("User not found");
@@ -45,15 +45,13 @@ public class UserRepositoryAuthProvider implements AuthenticationProvider {
 		else {
 			userComponent.setLoggedUser(user);
 			List<GrantedAuthority> roles = new ArrayList<>();
+			
 			for(String role: user.getRoles()) {
 				roles.add(new SimpleGrantedAuthority(role));
 			}
 			
-			return new UsernamePasswordAuthenticationToken(user.getName(),password, roles);
-			
-		}
-		
-		
+			return new UsernamePasswordAuthenticationToken(user.getName(),password, roles);			
+		}		
 	}
 	
 	@Override

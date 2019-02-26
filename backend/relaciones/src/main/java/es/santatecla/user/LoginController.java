@@ -32,7 +32,7 @@ public class LoginController {
 		return "teacher-units";
 	}
 	
-	@RequestMapping("/showUser")//
+	@RequestMapping("/showUser")
 	public String show(Model model, HttpServletRequest request) {
 		model.addAttribute("logged",userComponent.isLoggedUser());
 			if (userComponent.isLoggedUser()){

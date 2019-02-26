@@ -14,21 +14,6 @@ public class RecordController {
 	@Autowired
 	private RecordRepository recordRepository;
 	
-	public RecordRepository getRecordRepository() {
-		return recordRepository;
-	}
-
-	public void setRecordRepository(RecordRepository recordRepository) {
-		this.recordRepository = recordRepository;
-	}
-	
-	public RecordController() {}
-
-	public RecordController(RecordRepository recordRepository) {
-		super();
-		this.recordRepository = recordRepository;
-	}
-
 	@RequestMapping("/addRecord")
 	public String addToken(Model model, @RequestParam RecordsEnum record, @RequestParam String value) {
 		return "";

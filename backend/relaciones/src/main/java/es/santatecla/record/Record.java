@@ -24,10 +24,25 @@ public class Record<V> {
 	private V value;
 	
 	private String image;
+
+	public Record() {
+		
+	}
 	
-	public Record (RecordsEnum key, V value) {
+	public Record(Unit unit, RecordsEnum key, V value, String image) {
+		super();
+		this.unit = unit;
 		this.key = key;
 		this.value = value;
+		this.image = image;
+	}
+
+	public Unit getUnit() {
+		return unit;
+	}
+
+	public void setUnit(Unit unit) {
+		this.unit = unit;
 	}
 
 	public RecordsEnum getKey() {
@@ -52,21 +67,5 @@ public class Record<V> {
 
 	public void setImage(String image) {
 		this.image = image;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public Unit getUnit() {
-		return unit;
-	}
-
-	public void setUnit(Unit unit) {
-		this.unit = unit;
 	}
 }
