@@ -20,44 +20,38 @@ import es.santatecla.user.UserRepository;
 
 @Component
 public class UserRepositoryAuthProvider implements AuthenticationProvider {
-	
+
 	@Autowired
-	private UserRepository userRepository;
-	
+	UserRepository repository;
+
 	@Autowired
-	private UserComponent userComponent;
-	
+	UserComponent userComponent;
+
 	@Override
-	public Authentication authenticate(Authentication authentication)throws AuthenticationException{
-		
+	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 		String name = authentication.getName();
 		String password = (String) authentication.getCredentials();
 
-		User user = userRepository.findByName(name);
-		
-		if(user == null) {
-			throw new BadCredentialsException("User not found");
+		User user = repository.findByName(name);
+
+		if (user == null) {
+			throw new BadCredentialsException("user not found");
 		}
-		
-		if (!new BCryptPasswordEncoder().matches(password,user.getPasswordHash())) {
+
+		if (!new BCryptPasswordEncoder().matches(password, user.getpassword())) {
 			throw new BadCredentialsException("Wrong password");
 		}
-		else {
-			userComponent.setLoggedUser(user);
-			List<GrantedAuthority> roles = new ArrayList<>();
-			
-			for(String role: user.getRoles()) {
-				roles.add(new SimpleGrantedAuthority(role));
-			}
-			
-			return new UsernamePasswordAuthenticationToken(user.getName(),password, roles);			
-		}		
+
+		userComponent.setLoggedUser(user);
+
+		List<GrantedAuthority> rol = new ArrayList<>();
+		rol.add(new SimpleGrantedAuthority(user.getUserType()));
+		return new UsernamePasswordAuthenticationToken(user.getName(), password, rol);
 	}
-	
+
 	@Override
-	public boolean supports(Class<?>authenticationObject) {
+	public boolean supports(Class<?> authenticationObject) {
 		return true;
 	}
-	
 
 }

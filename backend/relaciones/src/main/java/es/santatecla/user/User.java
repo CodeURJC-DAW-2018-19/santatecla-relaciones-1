@@ -4,57 +4,33 @@ package es.santatecla.user;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
-@Entity
+@Entity// This tells Hibernate to make a table out of this class
 public class User {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
-	
+	private long idUser;
+	@Column
 	private String name;
-	private String passwordHash;
-	
-	
-	
-	@ElementCollection(fetch = FetchType.EAGER)
-	private List<String> roles;
-	
-	
-	public User() {}
-	
-	public User(String name, String password, List<String> roles) {
-		super();
-		this.name = name;
-		this.passwordHash = new BCryptPasswordEncoder().encode(password);
-		this.roles = roles;
-		
-	}
-	
-	public User(String name,String password, String... roles){
-		this.name = name;
-		this.passwordHash = new BCryptPasswordEncoder().encode(password);
-		this.roles = new ArrayList<String>();
-		
-	}
+	@Column
+	private String password;
+	@Column
+	private String email;
+	@Column
+	private String userType;
 
 	public long getId() {
-		return id;
+		return idUser;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setId(Integer id) {
+		this.idUser = id;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -63,19 +39,44 @@ public class User {
 		this.name = name;
 	}
 
-	public String getPasswordHash() {
-		return passwordHash;
+	public String getpassword() {
+		return password;
 	}
 
-	public void setPasswordHash(String passwordHash) {
-		this.passwordHash = passwordHash;
+	public void setPassword(String name) {
+		this.password = name;
 	}
 
-	public List<String> getRoles() {
-		return roles;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setRoles(List<String> roles) {
-		this.roles = roles;
+	public void setEmail(String email) {
+		this.email = email;
 	}
+
+
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+
+	public User(String name, String password, String email, String userType) {
+		this.name = name;
+		this.password = new BCryptPasswordEncoder().encode(password);
+		this.email = email;
+		this.userType = userType;
+	}
+
+	public User() {
+	}
+
+	public User(String visitor) {
+		this.userType = visitor;
+	}
+
+
 }
