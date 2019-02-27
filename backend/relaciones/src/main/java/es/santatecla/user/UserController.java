@@ -19,8 +19,8 @@ public class UserController extends UserService {
 	
 	@PostConstruct
 	public void init() {
-		userRepository.save(new User("Miguel","1234", "ROLE_ADMIN"));
-		userRepository.save(new User("Carlos","pass","ROLE_USER"));
+		userRepository.save(new User("Miguel","1234", "mamonreal@gmail.com", "ROLE_ADMIN"));
+		userRepository.save(new User("Carlos","pass", "jesuscristo@gmail.com", "ROLE_USER"));
 		
 	}
 	
@@ -43,9 +43,9 @@ public class UserController extends UserService {
 		}
 	
 	@RequestMapping("addUser")
-	public String addUser(@RequestParam String name, @RequestParam String password) {
+	public String addUser(@RequestParam String name, @RequestParam String password, @RequestParam String mail) {
 		if (userRepository.findByName(name) == null){
-			User user = new User(name,password,"ROLE_USER");
+			User user = new User(name,password, mail,"ROLE_USER");
 			userRepository.save(user);
 			userComponent.setLoggedUser(user);
 			return "/alumn-unit";
