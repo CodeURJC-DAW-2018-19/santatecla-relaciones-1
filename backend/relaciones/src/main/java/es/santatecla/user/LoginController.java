@@ -14,14 +14,18 @@ public class LoginController {
 	@Autowired
 	UserComponent userComponent;
 	
-	
-	@RequestMapping(value= {"/login"})
-	public String loginController(Model model, HttpServletRequest request) {
-		model.addAttribute("loginerror",false);
+	@RequestMapping("/")
+	public String home() {
 		return"/index";
 	}
+	
+	@RequestMapping(value="/login")
+	public String login(Model model, HttpServletRequest request) {
+		model.addAttribute("loginerror",false);
+		return"/login";
+	}
 
-	@RequestMapping(value= {"/loginerror"})
+	@RequestMapping("/loginerror")
 	public String loginErrorController(Model model, HttpServletRequest request) {
 		model.addAttribute("loginerror",true);
 		return "/loginerror";//must see loginerror.html
@@ -32,12 +36,12 @@ public class LoginController {
 		return "teacher-units";
 	}
 	
-	@RequestMapping("/showUser")
-	public String show(Model model, HttpServletRequest request) {
-		model.addAttribute("logged",userComponent.isLoggedUser());
-			if (userComponent.isLoggedUser()){
-				model.addAttribute("name", userComponent.getLoggedUser().getName());
-			}
-		return "index";
-			}
+//	@RequestMapping("/showUser")
+//	public String show(Model model, HttpServletRequest request) {
+//		model.addAttribute("logged",userComponent.isLoggedUser());
+//			if (userComponent.isLoggedUser()){
+//				model.addAttribute("name", userComponent.getLoggedUser().getName());
+//			}
+//		return "index";
+//			}
 }

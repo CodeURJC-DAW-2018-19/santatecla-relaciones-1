@@ -1,10 +1,11 @@
 package es.santatecla.user;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends CrudRepository<User, Long>{
+public interface UserRepository extends JpaRepository<User, Long>{
 	
 	User getById(long id);
 	User findByName(String name);
+	User getByEmail(String email);
 
 }

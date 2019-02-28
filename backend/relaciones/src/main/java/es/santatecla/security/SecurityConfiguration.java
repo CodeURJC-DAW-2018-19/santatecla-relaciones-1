@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 
+
 	@Autowired
 	public UserRepositoryAuthProvider authenticationProvider;
 	
@@ -21,31 +22,31 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 		
 		// Public pages
 		http.authorizeRequests().antMatchers("/").permitAll();
-//		http.authorizeRequests().antMatchers("/login").permitAll();
-//		http.authorizeRequests().antMatchers("/loginerror").permitAll();
-//		http.authorizeRequests().antMatchers("/logout").permitAll();
+		//http.authorizeRequests().antMatchers("/login").permitAll();
+		//http.authorizeRequests().antMatchers("/loginerror").permitAll();
+		//http.authorizeRequests().antMatchers("/logout").permitAll();
 		
 		
 		//Private pages
-		http.authorizeRequests().antMatchers("/alumn").hasAnyRole("USER");
-		http.authorizeRequests().antMatchers("/teacher").hasAnyRole("ADMIN");
+		//http.authorizeRequests().antMatchers("/alumn-units").hasAnyRole("USER");
+		//http.authorizeRequests().antMatchers("/teacher-units").hasAnyRole("ADMIN");
 
 		// Login form
-//        http.formLogin().loginPage("/login");
-//        http.formLogin().usernameParameter("name");
-//        http.formLogin().passwordParameter("password");
-//        http.formLogin().defaultSuccessUrl("/index");
-//        http.formLogin().failureUrl("/loginerror");
-//        
+        http.formLogin().loginPage("/");
+        http.formLogin().usernameParameter("name");
+        http.formLogin().passwordParameter("password");
+        http.formLogin().defaultSuccessUrl("/");
+        http.formLogin().failureUrl("/loginerror");
+        
      // Logout
         http.logout().logoutUrl("/logout");
-        http.logout().logoutSuccessUrl("/index");
+        http.logout().logoutSuccessUrl("/");
         
-        http.csrf().disable();
 	}
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.authenticationProvider(authenticationProvider);
+//	auth.inMemoryAuthentication().withUser("user").password("pass").roles("USER");
 	}
 }

@@ -2,6 +2,7 @@ package es.santatecla.user;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.*;
@@ -13,22 +14,41 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long idUser;
-	@Column
+	private long id;
+	
+	
 	private String name;
-	@Column
-	private String password;
-	@Column
-	private String email;
-	@Column
-	private String userType;
+	private String passwordHash;
+	
+	@ElementCollection(fetch = FetchType.EAGER)
+	private List<String> roles;
 
-	public long getId() {
-		return idUser;
+
+	public User() {}
+	
+	
+
+	public User(String name, String passwordHash, List<String> roles) {
+		super();
+		this.name = name;
+		this.passwordHash = passwordHash;
+		this.roles = roles;
 	}
 
-	public void setId(Integer id) {
-		this.idUser = id;
+
+
+	public User(String name, String password, String... roles) {
+		this.name = name;
+		this.passwordHash = new BCryptPasswordEncoder().encode(passwordHash);
+		this.roles = new ArrayList<>(Arrays.asList(roles));
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -39,44 +59,24 @@ public class User {
 		this.name = name;
 	}
 
-	public String getpassword() {
-		return password;
+	public String getPasswordHash() {
+		return passwordHash;
 	}
 
-	public void setPassword(String name) {
-		this.password = name;
+	public void setPassword(String passwordHash) {
+		this.passwordHash = passwordHash;
 	}
 
-	public String getEmail() {
-		return email;
+	public List<String> getRoles() {
+		return roles;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
 	}
 
+	
 
-	public String getUserType() {
-		return userType;
-	}
-
-	public void setUserType(String userType) {
-		this.userType = userType;
-	}
-
-	public User(String name, String password, String email, String userType) {
-		this.name = name;
-		this.password = new BCryptPasswordEncoder().encode(password);
-		this.email = email;
-		this.userType = userType;
-	}
-
-	public User() {
-	}
-
-	public User(String visitor) {
-		this.userType = visitor;
-	}
-
+	
 
 }

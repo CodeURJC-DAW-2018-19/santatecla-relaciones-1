@@ -19,8 +19,8 @@ public class UserController extends UserService {
 	
 	@PostConstruct
 	public void init() {
-		userRepository.save(new User("Miguel","1234", "mamonreal@gmail.com", "ROLE_ADMIN"));
-		userRepository.save(new User("Carlos","pass", "jesuscristo@gmail.com", "ROLE_USER"));
+		userRepository.save(new User("Miguel","1234", "ROLE_ADMIN","ROLE_USER"));
+		userRepository.save(new User("Carlos","pass", "ROLE_USER"));
 		
 	}
 	
@@ -32,29 +32,30 @@ public class UserController extends UserService {
 	@RequestMapping("/user")//Request to show the user's name 
 	public String user(Model model) {
 		Boolean b = userComponent.isLoggedUser();
+		model.addAttribute("logged",b);
 		if (b) {
 			User user = userComponent.getLoggedUser();
 			user = userRepository.getById(user.getId());
 			model.addAttribute(user.getName());
 		}
 			
-		return "/alumn-unit";		
+		return "/index";		
 			
 		}
 	
-	@RequestMapping("addUser")
-	public String addUser(@RequestParam String name, @RequestParam String password, @RequestParam String mail) {
-		if (userRepository.findByName(name) == null){
-			User user = new User(name,password, mail,"ROLE_USER");
-			userRepository.save(user);
-			userComponent.setLoggedUser(user);
-			return "/alumn-unit";
-		}
-		else {
-			return "error";//Custom error page
-		}
-	
-	}
+//	@RequestMapping("addUser")
+//	public String addUser(@RequestParam String name, @RequestParam String password, @RequestParam String mail) {
+//		if (userRepository.findByName(name) == null){
+//			User user = new User(name,password, mail,"ROLE_USER");
+//			userRepository.save(user);
+//			userComponent.setLoggedUser(user);
+//			return "/alumn-unit";
+//		}
+//		else {
+//			return "error";//Custom error page
+//		}
+//	
+//	}
 	
 	
 	
