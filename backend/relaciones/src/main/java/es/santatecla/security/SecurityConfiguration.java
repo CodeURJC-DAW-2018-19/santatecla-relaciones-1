@@ -8,7 +8,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Configuration
-@EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 
 
@@ -22,18 +21,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 		
 		// Public pages
 		http.authorizeRequests().antMatchers("/").permitAll();
-		//http.authorizeRequests().antMatchers("/login").permitAll();
-		//http.authorizeRequests().antMatchers("/loginerror").permitAll();
-		//http.authorizeRequests().antMatchers("/logout").permitAll();
+		http.authorizeRequests().antMatchers("/login").permitAll();
+		http.authorizeRequests().antMatchers("/loginerror").permitAll();
+		http.authorizeRequests().antMatchers("/logout").permitAll();
 		
 		
 		//Private pages
-		//http.authorizeRequests().antMatchers("/alumn-units").hasAnyRole("USER");
-		//http.authorizeRequests().antMatchers("/teacher-units").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers("/alumn-units").hasAnyRole("USER");
+		http.authorizeRequests().antMatchers("/teacher-units").hasAnyRole("ADMIN");
 
 		// Login form
-        http.formLogin().loginPage("/");
-        http.formLogin().usernameParameter("name");
+        http.formLogin().loginPage("/login");
+        http.formLogin().usernameParameter("username");
         http.formLogin().passwordParameter("password");
         http.formLogin().defaultSuccessUrl("/");
         http.formLogin().failureUrl("/loginerror");

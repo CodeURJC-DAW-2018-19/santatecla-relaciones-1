@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class UserController extends UserService {
+public class UserController{ //extends UserService {
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -39,7 +39,7 @@ public class UserController extends UserService {
 			model.addAttribute(user.getName());
 		}
 			
-		return "/index";		
+		return "/";//Have to create	user template to show the user	
 			
 		}
 	
