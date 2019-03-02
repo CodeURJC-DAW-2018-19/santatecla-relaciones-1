@@ -7,7 +7,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 @Entity// This tells Hibernate to make a table out of this class
@@ -39,7 +39,7 @@ public class User {
 
 	public User(String name, String password, String... roles) {
 		this.name = name;
-		this.passwordHash = new BCryptPasswordEncoder().encode(passwordHash);
+//		this.passwordHash = new BCryptPasswordEncoder().encode(passwordHash);
 		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
 
