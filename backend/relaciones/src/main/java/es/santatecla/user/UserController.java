@@ -24,11 +24,6 @@ public class UserController extends UserService {
 		
 	}
 	
-	@RequestMapping("/") 
-	public String index(Model model){
-		return "index";
-	}
-	
 	@RequestMapping("/user")//Request to show the user's name 
 	public String user(Model model) {
 		Boolean b = userComponent.isLoggedUser();
