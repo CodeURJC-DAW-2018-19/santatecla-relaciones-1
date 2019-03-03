@@ -43,12 +43,12 @@ public class UploadController {
         }
     }
 
-    @RequestMapping("/imageUpload")
+    @RequestMapping("/image-upload")
     public String index(Model model) {
 
         model.addAttribute("images", images.values());
 
-        return "imageUpload";
+        return "image-upload";
     }
 
     @RequestMapping(value = "/image/upload", method = RequestMethod.POST)
@@ -67,7 +67,7 @@ public class UploadController {
 
                 images.put(id, new Image(id, imageTitle));
 
-                return "uploaded";
+                return "upload-status";
 
             } catch (Exception e) {
 
@@ -79,7 +79,7 @@ public class UploadController {
 
             model.addAttribute("error", "The file is empty");
 
-            return "uploaded";
+            return "upload-status";
         }
     }
 

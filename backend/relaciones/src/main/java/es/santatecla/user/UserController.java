@@ -19,6 +19,7 @@ public class UserController extends UserService {
 	
 	@PostConstruct
 	public void init() {
+
 		userRepository.save(new User("Miguel","1234", "ROLE_ADMIN","ROLE_USER"));
 		userRepository.save(new User("Carlos","pass", "ROLE_USER"));
 		
