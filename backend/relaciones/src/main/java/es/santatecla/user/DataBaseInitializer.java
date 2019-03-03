@@ -6,6 +6,7 @@ import es.santatecla.record.RecordRepository;
 import es.santatecla.relation.Relation;
 import es.santatecla.relation.RelationRepository;
 import es.santatecla.unit.Unit;
+import es.santatecla.enums.RelationsEnum;
 import es.santatecla.unit.UnitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -30,11 +31,10 @@ public class DataBaseInitializer {
         userRepository.save(new User("Carlos","pass", "ROLE_USER"));
 
         //Units
-     //   Unit html = unitRepository.save(new Unit (""));
 
         //Units relations
-        //relationRepository.save(new Relation<>("USE",));
+
         //Records
-      //  recordRepository.save(new Record<>(""));
+
     }
 }
