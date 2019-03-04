@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import es.santatecla.unit.UnitRepository;
+
 @Controller
 public class UserController{ //extends UserService {
 	@Autowired
@@ -17,32 +19,36 @@ public class UserController{ //extends UserService {
 	@Autowired
 	private UserComponent userComponent;
 	
+	@Autowired
+	private UnitRepository unitRepository;
 	
-	@PostConstruct
-	public void init() {
-		userRepository.save(new User("Miguel","1234", "ROLE_ADMIN","ROLE_USER"));
-		userRepository.save(new User("Carlos","pass", "ROLE_USER"));
-		
+	
+//	@PostConstruct
+//	public void init() {
+//		userRepository.save(new User("Miguel","1234", "ROLE_ADMIN","ROLE_USER"));
+//		userRepository.save(new User("Carlos","pass", "ROLE_USER"));
+//		
+//	}
+	
+	@GetMapping("/")
+	public String showUnits(Model model) {
+		model.addAttribute("unit",unitRepository.findAll());
+		return "/index";
 	}
 	
-//	@GetMapping("/") 
-//	public String index(Model model){
-//		return "/index";
-//	}
-//	
-//	@RequestMapping("/user")//Request to show the user's name 
-//	public String user(Model model) {
-//		Boolean b = userComponent.isLoggedUser();
-//		model.addAttribute("logged",b);
-//		if (b) {
-//			User user = userComponent.getLoggedUser();
-//			user = userRepository.getById(user.getId());
-//			model.addAttribute(user.getName());
-//		}
-//			
-//		return "/index";//Have to create	user template to show the user	
-//			
-//		}
+	@RequestMapping("/user")//Request to show the user's name 
+	public String user(Model model) {
+		Boolean b = userComponent.isLoggedUser();
+		model.addAttribute("logged",b);
+		if (b) {
+			User user = userComponent.getLoggedUser();
+			user = userRepository.getById(user.getId());
+			model.addAttribute(user.getName());
+		}
+			
+		return "/index";//Have to create	user template to show the user	
+			
+		}
 //	
 //	@RequestMapping("addUser")
 //	public String addUser(@RequestParam String name, @RequestParam String password, @RequestParam String mail) {
