@@ -31,7 +31,19 @@ public class DataBaseInitializer {
         userRepository.save(new User("Carlos","pass", "ROLE_USER"));
 
         //Units
+        Unit html = new Unit();
+        Unit css = new Unit();
+        Unit js= new Unit();
+        Unit spring = new Unit();
+        Unit xml = new Unit();
 
+
+
+        unitRepository.save(html);
+        unitRepository.save(css);
+        unitRepository.save(js);
+        unitRepository.save(spring);
+        unitRepository.save(xml);
         //Units relations
 
         //Records
