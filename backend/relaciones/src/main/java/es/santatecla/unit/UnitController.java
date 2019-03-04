@@ -14,18 +14,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import es.santatecla.enums.RelationsEnum;
-import es.santatecla.record.RecordRepository;
-import es.santatecla.relation.RelationRepository;
+//import es.santatecla.record.RecordRepository;
+//import es.santatecla.relation.RelationRepository;
 import es.santatecla.user.UserComponent;
 
 
 @Controller
 public class UnitController {
-	@Autowired
-	private RecordRepository recordRepository;
-	
-	@Autowired
-	private RelationRepository relationRepository;
+//	@Autowired
+//	private RecordRepository recordRepository;
+//	
+//	@Autowired
+//	private RelationRepository relationRepository;
 	
 	@Autowired
 	private UnitRepository unitRepository;
