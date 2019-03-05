@@ -23,12 +23,12 @@ public class UserController{ //extends UserService {
 	private UnitRepository unitRepository;
 	
 	
-//	@PostConstruct
-//	public void init() {
-//		userRepository.save(new User("Miguel","1234", "ROLE_ADMIN","ROLE_USER"));
-//		userRepository.save(new User("Carlos","pass", "ROLE_USER"));
-//		
-//	}
+	@PostConstruct
+	public void init() {
+		userRepository.save(new User("Miguel","1234", "ROLE_ADMIN","ROLE_USER"));
+		userRepository.save(new User("Carlos","pass", "ROLE_USER"));
+		
+	}
 	
 	@GetMapping("/")
 	public String showUnits(Model model) {
