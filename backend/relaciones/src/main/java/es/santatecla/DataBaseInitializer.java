@@ -1,13 +1,16 @@
-package es.santatecla.user;
+package es.santatecla;
 
 
-import es.santatecla.record.Record;
-import es.santatecla.record.RecordRepository;
-import es.santatecla.relation.Relation;
-import es.santatecla.relation.RelationRepository;
+//import es.santatecla.record.Record;
+//import es.santatecla.record.RecordRepository;
+//import es.santatecla.relation.Relation;
+//import es.santatecla.relation.RelationRepository;
 import es.santatecla.unit.Unit;
 import es.santatecla.enums.RelationsEnum;
 import es.santatecla.unit.UnitRepository;
+import es.santatecla.user.User;
+import es.santatecla.user.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,15 +22,15 @@ public class DataBaseInitializer {
     private UserRepository userRepository;
     @Autowired
     private UnitRepository unitRepository;
-    @Autowired
-    private RelationRepository relationRepository;
-    @Autowired
-    private RecordRepository recordRepository;
+//    @Autowired
+//    private RelationRepository relationRepository;
+//    @Autowired
+//    private RecordRepository recordRepository;
 
     @PostConstruct
     public void init() {
         //Users
-        userRepository.save(new User("Miguel","1234", "ROLE_ADMIN","ROLE_USER"));
+        userRepository.save(new User("Miguel","pass", "ROLE_ADMIN","ROLE_USER"));
         userRepository.save(new User("Carlos","pass", "ROLE_USER"));
 
         //Units

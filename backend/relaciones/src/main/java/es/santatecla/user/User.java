@@ -7,7 +7,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 @Entity
