@@ -1,4 +1,4 @@
-package es.santatecla.relaciones;
+package es.santatecla;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

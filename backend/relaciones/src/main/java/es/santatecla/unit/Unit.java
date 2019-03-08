@@ -11,8 +11,8 @@ import javax.persistence.OneToMany;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import es.santatecla.record.Record;
-import es.santatecla.relation.Relation;
+//import es.santatecla.record.Record;
+//import es.santatecla.relation.Relation;
 
 @Entity
 public class Unit{
@@ -20,19 +20,27 @@ public class Unit{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="unit")
-	private List<Relation<String>> relations;
+	private String name;
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="unit")
-	private List<Record<String>> records;
+//	@OneToMany(cascade=CascadeType.ALL, mappedBy="unit")
+//	private List<Relation<String>> relations;
+//	
+//	@OneToMany(cascade=CascadeType.ALL, mappedBy="unit")
+//	private List<Record<String>> records;
 	
 	public Unit() {}
-
-	public Unit(List<Relation<String>> relations, List<Record<String>> records) {
+	
+	public Unit(String name){
 		super();
-		this.relations = relations;
-		this.records = records;
+		this.name = name;
 	}
+
+
+//	public Unit(List<Relation<String>> relations, List<Record<String>> records) {
+//		super();
+//		this.relations = relations;
+//		this.records = records;
+//	}
 
 	public long getId() {
 		return id;
@@ -42,19 +50,19 @@ public class Unit{
 		this.id = id;
 	}
 
-	public List<Relation<String>> getRelations() {
-		return relations;
-	}
-
-	public void setRelations(List<Relation<String>> relations) {
-		this.relations = relations;
-	}
-
-	public List<Record<String>> getRecords() {
-		return records;
-	}
-
-	public void setRecords(List<Record<String>> records) {
-		this.records = records;
-	}
+//	public List<Relation<String>> getRelations() {
+//		return relations;
+//	}
+//
+//	public void setRelations(List<Relation<String>> relations) {
+//		this.relations = relations;
+//	}
+//
+//	public List<Record<String>> getRecords() {
+//		return records;
+//	}
+//
+//	public void setRecords(List<Record<String>> records) {
+//		this.records = records;
+//	}
 }

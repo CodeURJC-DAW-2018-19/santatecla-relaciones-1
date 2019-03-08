@@ -29,11 +29,37 @@
 					<div class="col-6">
 						<div class="nav justify-content-end p-3">
 							<ul class="navbar-nav">
-								<li class="nav-item">
-									<button class="btn btn-info p-2 text-white" data-toggle="modal"
-										data-target="#loginModal">
-										<i class="fas fa-user"></i> <span class="my-extra-bold">LOGIN</span>
-									</button>
+								<li class="nav-item"> {{^logged}}
+									<form action="/login" method="post"
+										class="navbar-form navbar-right" role="search">
+
+										<div class="form-group">
+											<input type="text" class="form-control" name="username"
+												placeholder="Username">
+										</div>
+
+										<div class="form-group">
+											<input type="password" class="form-control" name="password"
+												placeholder="Password">
+										</div>
+
+										<button type="submit" class="btn btn-default">Sign In</button>
+
+										<input type="hidden" name="_csrf" value="{{token}}" />
+
+									</form> {{/logged}} {{#logged}}
+									<div class="nav navbar-nav navbar-right">
+
+										<ul class="nav navbar-nav">
+											<li>{{userName}}</li>
+											<li><form action="/logout" method="post">
+													<button class="btn btn-default navbar-btn" type="submit">Log
+														Out</button>
+													<input type="hidden" name="_csrf" value="{{token}}" />
+												</form></li>
+										</ul>
+
+									</div> {{/logged}} 
 
 
 								</li>
@@ -60,7 +86,7 @@
 						</div>
 						<div class="card-body ">
 							<div class="tab-content text-center">
-								<!-- List of units -->
+								List of units
 								<div class="tab-pane active justify-content-start"
 									id="list-of-units">
 									<table class="table my-table">

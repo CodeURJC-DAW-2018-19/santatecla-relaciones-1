@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletResponse;
 
-import es.santatecla.record.RecordService;
+//import es.santatecla.record.RecordService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,8 +27,8 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 public class UploadController {
 
-    @Autowired
-    RecordService recordService;
+//    @Autowired
+//    RecordService recordService;
 
     private static final Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "images");
 
