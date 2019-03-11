@@ -1,12 +1,7 @@
 package es.santatecla;
 
 
-//import es.santatecla.record.Record;
-//import es.santatecla.record.RecordRepository;
-//import es.santatecla.relation.Relation;
-//import es.santatecla.relation.RelationRepository;
 import es.santatecla.unit.Unit;
-import es.santatecla.enums.RelationsEnum;
 import es.santatecla.unit.UnitRepository;
 import es.santatecla.user.User;
 import es.santatecla.user.UserRepository;

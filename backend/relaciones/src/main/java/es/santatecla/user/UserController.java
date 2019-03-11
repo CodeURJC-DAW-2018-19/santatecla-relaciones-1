@@ -1,26 +1,17 @@
 package es.santatecla.user;
 
-import javax.annotation.PostConstruct;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import es.santatecla.unit.UnitRepository;
 
 @Controller
 public class UserController extends UserService {
-	@Autowired
-	private UserRepository userRepository;
-	
-	@Autowired
-	private UserComponent userComponent;
-	
-	@Autowired
-	private UnitRepository unitRepository;
+//	@Autowired
+//	private UserRepository userRepository;
+//	
+//	@Autowired
+//	private UserComponent userComponent;
+//	
+//	@Autowired
+//	private UnitRepository unitRepository;
 	
 	
 //	@PostConstruct
@@ -48,21 +39,7 @@ public class UserController extends UserService {
 //			
 //		return "/index";//Have to create	user template to show the user	
 			
-		}
-//	
-//	@RequestMapping("addUser")
-//	public String addUser(@RequestParam String name, @RequestParam String password, @RequestParam String mail) {
-//		if (userRepository.findByName(name) == null){
-//			User user = new User(name,password, mail,"ROLE_USER");
-//			userRepository.save(user);
-//			userComponent.setLoggedUser(user);
-//			return "/alumn-unit";
-//		}
-//		else {
-//			return "error";//Custom error page
-//		}
-//	
-//	}
+}
 	
 	
 
