@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import es.santatecla.enums.RelationsEnum;
+import es.santatecla.unit.Unit;
 
 @Entity
 public class Relation {
@@ -16,7 +17,7 @@ public class Relation {
 	private long id;
 	
 	@ManyToOne
-	private long unit;
+	private Unit unit;
 	
 	private RelationsEnum type;
 	
@@ -52,11 +53,11 @@ public class Relation {
 	public void setValue(long value) {
 		this.unitId = value;
 	}
-	public long getUnit() {
+	public Unit getUnit() {
 		return unit;
 	}
 
-	public void setUnit(long unit) {
+	public void setUnit(Unit unit) {
 		this.unit = unit;
 	}
 
