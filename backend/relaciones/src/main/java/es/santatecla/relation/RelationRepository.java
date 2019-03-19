@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RelationRepository extends JpaRepository<Relation, Long> {
-	List<Relation> findById();
+	
 }
