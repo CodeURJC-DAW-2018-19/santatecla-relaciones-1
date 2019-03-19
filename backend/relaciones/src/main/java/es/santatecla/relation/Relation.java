@@ -1,56 +1,70 @@
-//package es.santatecla.relation;
-//
-//import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-//import javax.persistence.ManyToOne;
-//
-//import org.springframework.data.annotation.Id;
-//
-//import es.santatecla.enums.RelationsEnum;
-//import es.santatecla.unit.Unit;
-//
-//@Entity
-//public class Relation<V>{
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
-//	private long id;
-//	
-//	@ManyToOne
-//	private Unit unit;
-//	
-//	private RelationsEnum key;
-//	
-//	private V value;
-//	
-//	public Relation () {}
-//	
-//	public Relation (RelationsEnum key, V value) {
-//		this.key = key;
-//		this.value = value;
-//	}
-//
-//	public long getId() {
-//		return id;
-//	}
-//
-//	public void setId(long id) {
-//		this.id = id;
-//	}
-//
-//	public RelationsEnum getKey() {
-//		return key;
-//	}
-//
-//	public void setKey(RelationsEnum key) {
-//		this.key = key;
-//	}
-//
-//	public V getValue() {
-//		return value;
-//	}
-//
-//	public void setValue(V value) {
-//		this.value = value;
-//	}
-//}
+package es.santatecla.relation;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import es.santatecla.enums.RelationsEnum;
+
+@Entity
+public class Relation {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	
+	@ManyToOne
+	private long unit;
+	
+	private RelationsEnum type;
+	
+	private long unitId;
+	
+	public Relation () {}
+	
+	public Relation (RelationsEnum key, long value) {
+		this.type = key;
+		this.unitId = value;
+	}
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public RelationsEnum getKey() {
+		return type;
+	}
+
+	public void setKey(RelationsEnum key) {
+		this.type = key;
+	}
+
+	public long getValue() {
+		return unitId;
+	}
+
+	public void setValue(long value) {
+		this.unitId = value;
+	}
+	public long getUnit() {
+		return unit;
+	}
+
+	public void setUnit(long unit) {
+		this.unit = unit;
+	}
+
+	public RelationsEnum getType() {
+		return type;
+	}
+
+	public void setType(RelationsEnum type) {
+		this.type = type;
+	}
+}

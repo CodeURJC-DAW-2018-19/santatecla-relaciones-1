@@ -1,9 +1,15 @@
 package es.santatecla.unit;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import es.santatecla.relation.Relation;
 
 //import es.santatecla.record.Record;
 //import es.santatecla.relation.Relation;
@@ -16,8 +22,8 @@ public class Unit{
 	
 	private String name;
 	
-//	@OneToMany(cascade=CascadeType.ALL, mappedBy="unit")
-//	private List<Relation<String>> relations;
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="unit")
+	private List<Relation> relations;
 //	
 //	@OneToMany(cascade=CascadeType.ALL, mappedBy="unit")
 //	private List<Record<String>> records;
