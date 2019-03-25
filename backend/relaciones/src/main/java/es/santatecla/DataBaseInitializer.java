@@ -1,10 +1,14 @@
 package es.santatecla;
 
 
+import es.santatecla.relation.Relation;
+import es.santatecla.relation.RelationRepository;
+import es.santatecla.enums.RelationsEnum;
 import es.santatecla.unit.Unit;
 import es.santatecla.unit.UnitRepository;
 import es.santatecla.user.User;
 import es.santatecla.user.UserRepository;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,8 +21,8 @@ public class DataBaseInitializer {
     private UserRepository userRepository;
     @Autowired
     private UnitRepository unitRepository;
-//    @Autowired
-//    private RelationRepository relationRepository;
+    @Autowired
+    private RelationRepository relationRepository;
 //    @Autowired
 //    private RecordRepository recordRepository;
 
@@ -43,6 +47,10 @@ public class DataBaseInitializer {
         unitRepository.save(spring);
         unitRepository.save(xml);
         //Units relations
+        RelationsEnum e = RelationsEnum.PARENT;
+        Long t = 80L;
+        Relation r = new Relation(e,t);
+        
 
         //Records
 

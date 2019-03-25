@@ -58,13 +58,13 @@ public class Unit{
 		this.name = name;
 	}
 
-//	public List<Relation<String>> getRelations() {
-//		return relations;
-//	}
-//
-//	public void setRelations(List<Relation<String>> relations) {
-//		this.relations = relations;
-//	}
+	public List<Relation> getRelations() {
+		return relations;
+	}
+
+	public void setRelations(List<Relation> relations) {
+		this.relations = relations;
+	}
 //
 //	public List<Record<String>> getRecords() {
 //		return records;

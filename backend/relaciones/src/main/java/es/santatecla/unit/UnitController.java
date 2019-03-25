@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import es.santatecla.enums.RelationsEnum;
+import es.santatecla.relation.RelationRepository;
 //import es.santatecla.record.RecordRepository;
 //import es.santatecla.relation.RelationRepository;
 import es.santatecla.user.UserComponent;
@@ -23,8 +24,8 @@ public class UnitController {
 //	@Autowired
 //	private RecordRepository recordRepository;
 //	
-//	@Autowired
-//	private RelationRepository relationRepository;
+	@Autowired
+	private RelationRepository relationRepository;
 	
 	@Autowired
 	private UnitRepository unitRepository;
@@ -57,7 +58,7 @@ public class UnitController {
 	}
 	
 	@GetMapping("/unit/{id}/add-relation")
-	public String addRelationToUnit(Model model, @PathVariable long id, @RequestParam RelationsEnum relation, @RequestParam String value) {
+	public String addRelationToUnit(Model model, @RequestParam RelationsEnum relation, @RequestParam String value) {
 		return "/teacher-units";
 	}
 	
