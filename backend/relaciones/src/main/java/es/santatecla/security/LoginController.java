@@ -53,7 +53,7 @@ public class LoginController {
 	
 	@RequestMapping("/")
 	public String home() {
-		return"/index";
+		return"/";
 	}
 	
 	@RequestMapping("/login")

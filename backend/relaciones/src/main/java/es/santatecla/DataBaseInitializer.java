@@ -34,10 +34,10 @@ public class DataBaseInitializer {
 
         //Units
         Unit html = new Unit("Html");
-        Unit css = new Unit();
-        Unit js= new Unit();
-        Unit spring = new Unit();
-        Unit xml = new Unit();
+        Unit css = new Unit("css");
+        Unit js= new Unit("js");
+        Unit spring = new Unit("spring");
+        Unit xml = new Unit("xml");
 
 
 
@@ -50,6 +50,8 @@ public class DataBaseInitializer {
         RelationsEnum e = RelationsEnum.PARENT;
         Long t = 80L;
         Relation r = new Relation(e,t);
+        
+        relationRepository.save(r);
         
 
         //Records

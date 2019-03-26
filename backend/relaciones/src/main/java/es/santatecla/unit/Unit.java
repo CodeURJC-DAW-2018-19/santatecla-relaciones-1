@@ -11,8 +11,7 @@ import javax.persistence.OneToMany;
 
 import es.santatecla.relation.Relation;
 
-//import es.santatecla.record.Record;
-//import es.santatecla.relation.Relation;
+
 
 @Entity
 public class Unit{
@@ -24,9 +23,9 @@ public class Unit{
 	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="unit")
 	private List<Relation> relations;
-//	
+	
 //	@OneToMany(cascade=CascadeType.ALL, mappedBy="unit")
-//	private List<Record<String>> records;
+//	private List<Record> records;
 	
 	public Unit() {}
 	
@@ -36,11 +35,11 @@ public class Unit{
 	}
 
 
-//	public Unit(List<Relation<String>> relations, List<Record<String>> records) {
-//		super();
-//		this.relations = relations;
-//		this.records = records;
-//	}
+	public Unit(List<Relation> relations) { //List<Record> records) {
+		super();
+		this.relations = relations;
+		//this.records = records;
+	}
 
 	public long getId() {
 		return id;
@@ -65,12 +64,12 @@ public class Unit{
 	public void setRelations(List<Relation> relations) {
 		this.relations = relations;
 	}
-//
-//	public List<Record<String>> getRecords() {
+
+//	public List<Record> getRecords() {
 //		return records;
 //	}
 //
-//	public void setRecords(List<Record<String>> records) {
+//	public void setRecords(List<Record> records) {
 //		this.records = records;
 //	}
 }
