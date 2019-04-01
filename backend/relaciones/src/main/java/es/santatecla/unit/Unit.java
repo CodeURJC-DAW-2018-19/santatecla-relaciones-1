@@ -40,6 +40,13 @@ public class Unit{
 		this.relations = relations;
 		//this.records = records;
 	}
+	
+	public Unit(String name,List<Relation> relations) { //List<Record> records) {
+		super();
+		this.name = name;
+		this.relations = relations;
+		//this.records = records;
+	}
 
 	public long getId() {
 		return id;

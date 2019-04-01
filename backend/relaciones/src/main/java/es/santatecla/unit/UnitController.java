@@ -2,6 +2,7 @@ package es.santatecla.unit;
 
 
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import es.santatecla.enums.RelationsEnum;
+import es.santatecla.relation.Relation;
 import es.santatecla.relation.RelationRepository;
 //import es.santatecla.record.RecordRepository;
 //import es.santatecla.relation.RelationRepository;
@@ -57,13 +59,17 @@ public class UnitController {
 		return "/alumn-units";
 	}
 	
-	@GetMapping("/unit/{id}/add-relation")
-	public String addRelationToUnit(Model model, @RequestParam RelationsEnum relation, @RequestParam String value) {
+	@GetMapping("/unit/add-unit")
+	public String addUnit(Model model, @RequestParam String name, @RequestParam List<Relation> relation) {//, @RequestParam Record record ) {
+		Unit unit = new Unit(name,relation);
+		unitRepository.save(unit);
+		
 		return "/teacher-units";
 	}
 	
-	@GetMapping("/unit/{id}/add-record")
-	public String addRecordToUnit(Model model, @PathVariable long id) {
+	@GetMapping("/unit/delete-unit/{id}")
+	public String deleteUnit(Model model, @PathVariable long id) {
+		unitRepository.deleteById(id);
 		return "/teacher-units";
 	}
 	

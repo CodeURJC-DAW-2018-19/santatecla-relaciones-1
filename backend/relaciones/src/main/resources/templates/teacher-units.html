@@ -83,7 +83,15 @@
                                         <tbody>
                                             <tr>
                                                 <td>UNIDAD 1</td>
-                                            </tr>
+												{{#admin}}
+												<form method="post" action="unit/delete-unit/{{id}}">
+
+													<div id="info" class="flex-w flex-b m-b-3">
+														<button class="btn btn-danger my-cart-btn" id="{{id}}">Eliminar</button>
+													</div>
+												</form>
+												{{/admin}}
+											</tr>
                                             <tr>
                                                 <td>UNIDAD 2</td>
                                             </tr>
