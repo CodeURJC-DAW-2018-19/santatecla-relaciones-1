@@ -58,14 +58,17 @@
 							<div class="tab-content text-center">
 								<!-- List of units -->
 								<div class="tab-pane active justify-content-start"
-									id="list-of-units">
+									id="unit">
 									<table class="table my-table">
 										<tbody>
-											{{#units}}
+											{{#unit}}
 											<td>
-												<a href="/unit/{{id}}">{{id}}</a>
+											{{name}}
+											{{#logged}}
+												<a href="/unit/{{id}}">{{name}}</a>
+											{{/logged}}
 											</td>
-											{{/units}}
+											{{/unit}}
 										</tbody>
 									</table>
 								</div>
@@ -87,7 +90,7 @@
 						</div>
 					</div>
 					<div class="modal-body">
-						<form class="form" method="post" action="/index">
+						<form class="form" method="post" action="/login">
 							<div class="card-body">
 
 								<div class="form-group bmd-form-group">

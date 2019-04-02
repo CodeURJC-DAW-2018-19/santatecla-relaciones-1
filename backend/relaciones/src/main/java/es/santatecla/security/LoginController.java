@@ -51,18 +51,18 @@ public class LoginController {
 	@Autowired
 	UserComponent userComponent;
 	
-	@RequestMapping("/")
-	public String home() {
-		return"/";
-	}
+//	@RequestMapping("/")
+//	public String home() {
+//		return"/";
+//	}
 	
-	@RequestMapping("/login")
+	@RequestMapping(value={"/login"})
 	public String login(Model model, HttpServletRequest request) {
 		model.addAttribute("loginerror",false);
-		return"/login";
+		return"/index";
 	}
 
-	@RequestMapping("/loginerror")
+	@RequestMapping(value= {"/loginerror"})
 	public String loginErrorController(Model model, HttpServletRequest request) {
 		model.addAttribute("loginerror",true);
 		return "/loginerror";//must see loginerror.html
