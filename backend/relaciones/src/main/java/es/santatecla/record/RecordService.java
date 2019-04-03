@@ -1,11 +1,11 @@
-//package es.santatecla.record;
-//
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Service;
-//
-//@Service
-//public class RecordService
-//{
+package es.santatecla.record;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class RecordService
+{
 //    @Autowired
 //    private RecordRepository recordRepository;
 //
@@ -22,4 +22,4 @@
 //    public Optional<Record> findByOneId(Long id) {
 //        return repository.findById(id);
 //    }
-//}
+}
