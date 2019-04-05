@@ -63,10 +63,17 @@
 										<tbody>
 											{{#unit}}
 											<td>
-											{{name}}
-											{{#logged}}
-												<a href="/unit/{{id}}">{{name}}</a>
-											{{/logged}}
+											  {{name}}
+											  	{{#user}}
+												<a href="/unit/{{id}}">{{name}}</a> {{#admin}}
+												<form method="post" action="unit/delete-unit/{{id}}">
+
+													<div id="info" class="flex-w flex-b m-b-3">
+														<button class="btn btn-danger my-cart-btn" id="{{id}}">Eliminar</button>
+													</div>
+												</form> {{/admin}} {{/user}}
+
+
 											</td>
 											{{/unit}}
 										</tbody>
@@ -90,7 +97,7 @@
 						</div>
 					</div>
 					<div class="modal-body">
-						<form class="form" method="post" action="/login">
+						<form class="form" method="post" action="/">
 							<div class="card-body">
 
 								<div class="form-group bmd-form-group">

@@ -51,28 +51,32 @@ public class LoginController {
 	@Autowired
 	UserComponent userComponent;
 	
-//	@RequestMapping("/")
-//	public String home() {
-//		return"/";
-//	}
+	@RequestMapping("/")
+	public String home() {
+		return"/";
+	}
 	
-	@RequestMapping(value={"/login"})
+	@RequestMapping("/login")
 	public String login(Model model, HttpServletRequest request) {
 		model.addAttribute("loginerror",false);
-		return"/index";
+		
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("user", request.isUserInRole("USER"));
+		
+		return"/";
 	}
 
-	@RequestMapping(value= {"/loginerror"})
+	@RequestMapping("/loginerror")
 	public String loginErrorController(Model model, HttpServletRequest request) {
 		model.addAttribute("loginerror",true);
 		return "/loginerror";//must see loginerror.html
 	}
 	
-	@RequestMapping("/admin")
-	public String admin() {
-		return "teacher-units";
-	}
-	
+//	@RequestMapping("/admin")
+//	public String admin() {
+//		return "teacher-units";
+//	}
+//	
 //	@RequestMapping("/showUser")
 //	public String show(Model model, HttpServletRequest request) {
 //		model.addAttribute("logged",userComponent.isLoggedUser());
