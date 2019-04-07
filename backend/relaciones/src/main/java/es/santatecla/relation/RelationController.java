@@ -24,14 +24,14 @@ public class RelationController {
 		return "/teacher-units";
 	}
 	
-	@GetMapping("unit/{id}/add-relation")
-	public String addRelationFromUnit(Model model, @PathVariable long id, @RequestParam long value, @RequestParam RelationsEnum relation){
-		Unit unit = new Unit();
-		unit = unitRepository.findByName(unit.getName());
-		Relation r = new Relation(relation,value); 
-		relationRepository.save(r);
-	return "/teacher-units";
-	}
+//	@GetMapping("unit/{id}/add-relation")
+//	public String addRelationFromUnit(Model model, @PathVariable long id, @RequestParam long value, @RequestParam RelationsEnum relation){
+//		Unit unit = new Unit();
+//		unit = unitRepository.findByName(unit.getName());
+//		Relation relation = new Relation(relation,value); 
+//		relationRepository.save(relation);
+//	return "/teacher-units";
+//	}
 	
 	@GetMapping("unit/{id}/delete-relation")
 	public String deleteRelationFromUnit(Model model, @PathVariable long id, @RequestParam long value, @RequestParam RelationsEnum relation){

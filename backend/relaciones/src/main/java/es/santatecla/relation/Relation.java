@@ -21,13 +21,9 @@ public class Relation {
 	
 	private RelationsEnum type;
 	
-	private long relatedUnitId;
-	
-	public Relation () {}
-	
-	public Relation (RelationsEnum key, long value) {
-		this.type = key;
-		this.relatedUnitId = value;
+	public Relation (RelationsEnum type, Unit unit) {
+		this.type = type;
+		this.unit = unit;
 	}
 	
 	public long getId() {
@@ -46,13 +42,6 @@ public class Relation {
 		this.type = key;
 	}
 
-	public long getValue() {
-		return relatedUnitId;
-	}
-
-	public void setValue(long value) {
-		this.relatedUnitId = value;
-	}
 	public Unit getUnit() {
 		return unit;
 	}

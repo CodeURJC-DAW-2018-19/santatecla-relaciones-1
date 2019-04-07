@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import es.santatecla.record.Record;
 import es.santatecla.relation.Relation;
 
 
@@ -24,24 +25,12 @@ public class Unit{
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="unit")
 	private List<Relation> relations;
 	
-//	@OneToMany(cascade=CascadeType.ALL, mappedBy="unit")
-//	private List<Record> records;
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="unit")
+	private List<Record> records;
 	
 	public Unit() {}
 	
-	public Unit(String name){
-		super();
-		this.setName(name);
-	}
-
-
-	public Unit(List<Relation> relations) { //List<Record> records) {
-		super();
-		this.relations = relations;
-		//this.records = records;
-	}
-	
-	public Unit(String name,List<Relation> relations) { //List<Record> records) {
+	public Unit(String name, List<Relation> relations) { //List<Record> records) {
 		super();
 		this.name = name;
 		this.relations = relations;
