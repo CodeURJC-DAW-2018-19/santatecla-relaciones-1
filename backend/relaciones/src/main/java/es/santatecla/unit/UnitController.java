@@ -67,7 +67,7 @@ public class UnitController {
 		Unit unit = new Unit(name,relation);
 		unitRepository.save(unit);
 		
-		return "/teacher-units";
+		return "/alumn-units";
 	}
 	
 	@GetMapping("/unit/delete-unit/{id}")
