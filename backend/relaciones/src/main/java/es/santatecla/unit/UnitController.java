@@ -73,7 +73,7 @@ public class UnitController {
 	@GetMapping("/unit/delete-unit/{id}")
 	public String deleteUnit(Model model, @PathVariable long id) {
 		unitRepository.deleteById(id);
-		return "/teacher-units";
+		return "/alumn-units";
 	}
 	
 //	@GetMapping("/login")

@@ -64,14 +64,16 @@
 											{{#unit}}
 											<td>
 											  {{name}}
-											  	{{#user}}
-												<a href="/unit/{{id}}">{{name}}</a> {{#admin}}
+											  	{{#logged}}
+												<a href="/unit/{{id}}"></a> {{#admin}}
 												<form method="post" action="unit/delete-unit/{{id}}">
 
 													<div id="info" class="flex-w flex-b m-b-3">
-														<button class="btn btn-danger my-cart-btn" id="{{id}}">Eliminar</button>
+														<button class="btn btn-primary btn-link">
+															<i class="fas fa-trash-alt"></i>
+														</button>
 													</div>
-												</form> {{/admin}} {{/user}}
+												</form> {{/admin}} {{/logged}}
 
 
 											</td>
@@ -99,36 +101,16 @@
 					<div class="modal-body">
 						<form class="form" method="post" action="/">
 							<div class="card-body">
-
-								<div class="form-group bmd-form-group">
-									<div class="input-group">
-										<div class="input-group-prepend">
-											<div class="input-group-text">
-												<i class="fas fa-envelope"></i>
-											</div>
-										</div>
-										<input name="name" type="text" class="form-control"
-											placeholder="Name">
-									</div>
+								<div class="form-group">
+									<label for="username">User name</label> <input type="text"
+										id="username" name="username" class="form-control" />
 								</div>
-
-								<div class="form-group bmd-form-group">
-									<div class="input-group">
-										<div class="input-group-prepend">
-											<div class="input-group-text">
-												<i class="fas fa-key"></i> <input type="password"
-													id="password" name="password" class="form-control"
-													placeholder="Password" />
-
-											</div>
-										</div>
-									</div>
+								<div class="form-group">
+									<label for="password">Password</label> <input type="password"
+										id="password" name="password" class="form-control" /><br>
 								</div>
-							</div>
-							<div class="modal-footer justify-content-center">
-								<button type="submit" class="btn btn-primary btn-round">
-									<i class="fas fa-check"></i> <span>Enviar</span>
-								</button>
+								<button type="submit" class="btn btn-primary">Sign In</button>
+								<input type="hidden" name="_csrf" value="{{token}}" />
 							</div>
 						</form>
 					</div>
