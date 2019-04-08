@@ -21,7 +21,7 @@
 							class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
 							<div class="container-fluid">
 								<div class="navbar-wrapper">
-									<a class="navbar-brand" href="#pablo">Santatecla</a>
+									<a class="navbar-brand" href="/">Santatecla</a>
 								</div>
 							</div>
 						</nav>
@@ -30,10 +30,19 @@
 						<div class="nav justify-content-end p-3">
 							<ul class="navbar-nav">
 								<li class="nav-item">
+									{{^hideLogin}}{{^logged}}
 									<button class="btn btn-info p-2 text-white" data-toggle="modal"
 										data-target="#loginModal">
 										<i class="fas fa-user"></i> <span class="my-extra-bold">LOGIN</span>
 									</button>
+									{{/logged}}
+
+									{{#logged}}
+									<button class="btn btn-danger p-2 text-white" onclick="logOut()">
+										<i class="fas fa-user"></i>
+										<span class="my-extra-bold">LOGOUT</span>
+									</button>
+									{{/logged}}{{/hideLogin}}
 								</li>
 							</ul>
 						</div>
@@ -63,9 +72,12 @@
 										<tbody>
 											{{#unit}}
 											<td>
-											  {{name}}
+												{{^logged}}
+												{{name}}
+												{{/logged}}
+
 											  	{{#logged}}
-												<a href="/unit/{{id}}"></a> {{#admin}}
+												<a href="/unit/{{id}}">{{name}}</a> {{#admin}}
 												<form method="post" action="unit/delete-unit/{{id}}">
 
 													<div id="info" class="flex-w flex-b m-b-3">
