@@ -18,6 +18,9 @@ public class RelationController {
 	@Autowired
 	private UnitRepository unitRepository;
 	
+	@Autowired
+	private RelationService relationService;
+	
 	@GetMapping("unit/{id}")
 	public String ShowRelation(Model model){
 		model.addAttribute("relation",relationRepository.findAll());
@@ -26,10 +29,7 @@ public class RelationController {
 	
 	@GetMapping("unit/{id}/add-relation")
 	public String addRelationFromUnit(Model model, @PathVariable long id, @RequestParam long value, @RequestParam RelationsEnum relation){
-		Unit unit = new Unit();
-		unit = unitRepository.findByName(unit.getName());
-		Relation r = new Relation(relation,value); 
-		relationRepository.save(r);
+		this.relationService.AddRelations(id, value, relation);
 	return "/teacher-units";
 	}
 	
