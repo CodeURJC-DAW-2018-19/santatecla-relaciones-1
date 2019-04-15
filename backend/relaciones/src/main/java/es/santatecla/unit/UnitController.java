@@ -3,8 +3,6 @@ package es.santatecla.unit;
 
 
 import java.util.List;
-import java.util.Optional;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,22 +13,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import es.santatecla.enums.RelationsEnum;
 import es.santatecla.relation.Relation;
-import es.santatecla.relation.RelationRepository;
-//import es.santatecla.record.RecordRepository;
-//import es.santatecla.relation.RelationRepository;
 import es.santatecla.user.UserComponent;
 
 
 @Controller
 public class UnitController {
-//	@Autowired
-//	private RecordRepository recordRepository;
-//	
-	@Autowired
-	private RelationRepository relationRepository;
-	
 	@Autowired
 	private UnitRepository unitRepository;
 	
@@ -57,8 +45,8 @@ public class UnitController {
 	
 	@GetMapping("/unit/{id}")
 	public String getUnit(Model model, @PathVariable long id) {
-		Optional<Unit> unit = unitRepository.findById(id);
-		model.addAttribute("unit", unit.get());
+		Unit unit = unitRepository.findById(id);
+		model.addAttribute("unit", unit);
 		return "/alumn-units";
 	}
 	
@@ -75,15 +63,4 @@ public class UnitController {
 		unitRepository.deleteById(id);
 		return "/alumn-units";
 	}
-	
-//	@GetMapping("/login")
-//	public String login(Model model) {
-//		model.addAttribute("hideLogin", true);
-//		return "/login";
-//	}
-//	
-//	@GetMapping("/loginerror")
-//	public String loginError() {
-//		return "/loginerror";
-//	}
 }

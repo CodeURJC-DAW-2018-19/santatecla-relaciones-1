@@ -3,7 +3,9 @@ package es.santatecla.unit;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,6 +25,7 @@ public class Unit{
 	private String name;
 	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="unit")
+	@ElementCollection(fetch = FetchType.EAGER)
 	private List<Relation> relations;
 	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="unit")

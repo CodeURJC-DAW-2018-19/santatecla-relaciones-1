@@ -1,7 +1,6 @@
 package es.santatecla.relation;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,27 +25,32 @@ public class RelationService {
 		putOpositeRelations();
 	}
 	
-	public void AddRelations(long idUnit, long idUnitRelated, RelationsEnum relationType) {
-		Unit unit = this.unitRepository.getOne(idUnit);
-		Unit unitRelated = this.unitRepository.getOne(idUnitRelated);
+	public Relation AddRelations(long idUnit, long idUnitRelated, RelationsEnum relationType) {
+		Unit unit = this.unitRepository.findById(idUnit);
+		Unit unitRelated = this.unitRepository.findById(idUnitRelated);
 		RelationsEnum opositeRelationType = this.opositeRelation.get(relationType);
 		
-		Relation relation = new Relation(relationType, unit.getId());
-		Relation opositeRelation = new Relation(opositeRelationType, unitRelated.getId());
-		relationRepository.save(relation);
+		Relation relation = new Relation(relationType, unit, unitRelated.getId());
+		Relation opositeRelation = new Relation(opositeRelationType, unitRelated, unit.getId());
 		relationRepository.save(opositeRelation);
-		
-		addRelationToUnit(unit, relation);
-		addRelationToUnit(unitRelated, opositeRelation);
-		
-		this.unitRepository.save(unit);
-		this.unitRepository.save(unitRelated);
+		return relationRepository.save(relation);
+	}
+	
+	public void deleteRelation(long idUnit, long idRelation) {
+		Relation relation = this.relationRepository.findById(idRelation);
+		if (relation != null) {
+			deleteOpositeRelations(idUnit, relation);
+			this.relationRepository.delete(relation);
+		}
 	}
 
-	private void addRelationToUnit(Unit unit, Relation relation) {
-		List<Relation> newRelations = unit.getRelations();
-		newRelations.add(relation);
-		unit.setRelations(newRelations);
+	private void deleteOpositeRelations(long idUnit, Relation relation) {
+		Unit opositeUnit = this.unitRepository.findById(relation.getUnit().getId());
+		opositeUnit.getRelations().forEach((rel) -> {
+			if (rel.getUnit().getId() == idUnit && this.opositeRelation.get(relation) == rel.getType()) {
+				this.relationRepository.delete(rel);
+			}
+		});
 	}
 
 	private void putOpositeRelations() {

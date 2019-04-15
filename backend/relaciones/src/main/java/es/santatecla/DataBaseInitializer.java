@@ -1,14 +1,13 @@
 package es.santatecla;
 
 
-import es.santatecla.relation.Relation;
 import es.santatecla.relation.RelationRepository;
-import es.santatecla.enums.RecordsEnum;
+import es.santatecla.relation.RelationService;
 import es.santatecla.enums.RelationsEnum;
-import es.santatecla.record.Record;
 import es.santatecla.record.RecordRepository;
 import es.santatecla.unit.Unit;
 import es.santatecla.unit.UnitRepository;
+import es.santatecla.unit.UnitService;
 import es.santatecla.user.User;
 import es.santatecla.user.UserRepository;
 
@@ -23,12 +22,9 @@ public class DataBaseInitializer {
     @Autowired
     private UserRepository userRepository;
     @Autowired
-    private UnitRepository unitRepository;
+    private UnitService unitService;
     @Autowired
-    private RelationRepository relationRepository;
-    @Autowired
-    private RecordRepository recordRepository;
-
+    private RelationService relationService;
     @PostConstruct
     public void init() {
         //Users
@@ -36,32 +32,16 @@ public class DataBaseInitializer {
         userRepository.save(new User("jorge","pass", "ROLE_USER"));
 
         //Units
-        Unit html = new Unit("Html");
-        Unit css = new Unit("css");
-        Unit js= new Unit("js");
-        Unit spring = new Unit("spring");
-        Unit xml = new Unit("xml");
+        Unit html = this.unitService.addUnit("HTML");
+        Unit css = this.unitService.addUnit("CSS");
+        Unit scss = this.unitService.addUnit("SCSS");
+        Unit javaScript = this.unitService.addUnit("JavaScript");
+        Unit spring = this.unitService.addUnit("Spring");
+        Unit xml = this.unitService.addUnit("XML");
+        Unit java = this.unitService.addUnit("Java");
 
-
-
-        unitRepository.save(html);
-        unitRepository.save(css);
-        unitRepository.save(js);
-        unitRepository.save(spring);
-        unitRepository.save(xml);
         //Units relations
-        RelationsEnum e = RelationsEnum.PARENT;
-        Long t = 80L;
-        Relation r = new Relation(e,t);
-        
-        relationRepository.save(r);
-        
-
-        //Records
-        RecordsEnum re = RecordsEnum.HOW;
-        Record r1 = new Record(html,re,"como aprender html","imagen");
-        
-        
-        recordRepository.save(r1);
+        this.relationService.AddRelations(css.getId(), scss.getId(), RelationsEnum.PARENT);
+        this.relationService.AddRelations(spring.getId(), java.getId(), RelationsEnum.USE);
     }
 }

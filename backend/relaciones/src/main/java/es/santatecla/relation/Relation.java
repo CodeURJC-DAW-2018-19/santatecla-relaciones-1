@@ -20,12 +20,22 @@ public class Relation {
 	private Unit unit;
 	
 	private RelationsEnum type;
+	private long opositeUnitId;
 	
-	public Relation (RelationsEnum type, Unit unit) {
+	public Relation (RelationsEnum type, Unit unit, long opositeUnitId) {
 		this.type = type;
 		this.unit = unit;
+		this.opositeUnitId = opositeUnitId;
 	}
 	
+	public long getOpositeUnitId() {
+		return opositeUnitId;
+	}
+
+	public void setOpositeUnitId(long opositeUnitId) {
+		this.opositeUnitId = opositeUnitId;
+	}
+
 	public long getId() {
 		return id;
 	}

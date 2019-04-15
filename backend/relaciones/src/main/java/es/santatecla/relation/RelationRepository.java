@@ -8,4 +8,5 @@ import es.santatecla.enums.RelationsEnum;
 @Repository
 public interface RelationRepository extends JpaRepository<Relation, Long> {
 	Relation findByType(RelationsEnum type);
+	Relation findById(long id);
 }
