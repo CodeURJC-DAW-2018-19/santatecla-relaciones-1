@@ -5,6 +5,8 @@ package es.santatecla.unit;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,8 +48,9 @@ public class UnitController {
 	}
 	
 	@GetMapping("/")
-	public String showUnits(Model model) {
+	public String showUnits(Model model, HttpServletRequest request) {
 		model.addAttribute("unit",unitRepository.findAll());
+		
 		return "/index";
 	}
 
@@ -64,23 +67,23 @@ public class UnitController {
 		Unit unit = new Unit(name,relation);
 		unitRepository.save(unit);
 		
-		return "/teacher-units";
+		return "/alumn-units";
 	}
 	
 	@GetMapping("/unit/delete-unit/{id}")
 	public String deleteUnit(Model model, @PathVariable long id) {
 		unitRepository.deleteById(id);
-		return "/teacher-units";
+		return "/alumn-units";
 	}
 	
-	@GetMapping("/login")
-	public String login(Model model) {
-		model.addAttribute("hideLogin", true);
-		return "/login";
-	}
-	
-	@GetMapping("/loginerror")
-	public String loginError() {
-		return "/loginerror";
-	}
+//	@GetMapping("/login")
+//	public String login(Model model) {
+//		model.addAttribute("hideLogin", true);
+//		return "/login";
+//	}
+//	
+//	@GetMapping("/loginerror")
+//	public String loginError() {
+//		return "/loginerror";
+//	}
 }

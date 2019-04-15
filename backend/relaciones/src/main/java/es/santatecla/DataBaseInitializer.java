@@ -3,7 +3,10 @@ package es.santatecla;
 
 import es.santatecla.relation.Relation;
 import es.santatecla.relation.RelationRepository;
+import es.santatecla.enums.RecordsEnum;
 import es.santatecla.enums.RelationsEnum;
+import es.santatecla.record.Record;
+import es.santatecla.record.RecordRepository;
 import es.santatecla.unit.Unit;
 import es.santatecla.unit.UnitRepository;
 import es.santatecla.user.User;
@@ -23,14 +26,14 @@ public class DataBaseInitializer {
     private UnitRepository unitRepository;
     @Autowired
     private RelationRepository relationRepository;
-//    @Autowired
-//    private RecordRepository recordRepository;
+    @Autowired
+    private RecordRepository recordRepository;
 
     @PostConstruct
     public void init() {
         //Users
         userRepository.save(new User("Miguel","pass", "ROLE_ADMIN","ROLE_USER"));
-        userRepository.save(new User("Carlos","pass", "ROLE_USER"));
+        userRepository.save(new User("jorge","pass", "ROLE_USER"));
 
         //Units
         Unit html = new Unit("Html");
@@ -55,6 +58,10 @@ public class DataBaseInitializer {
         
 
         //Records
-
+        RecordsEnum re = RecordsEnum.HOW;
+        Record r1 = new Record(html,re,"como aprender html","imagen");
+        
+        
+        recordRepository.save(r1);
     }
 }

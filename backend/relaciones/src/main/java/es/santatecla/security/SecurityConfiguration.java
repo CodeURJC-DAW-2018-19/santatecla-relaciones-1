@@ -25,16 +25,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 		http.authorizeRequests().antMatchers("/loginerror").permitAll();
 		http.authorizeRequests().antMatchers("/logout").permitAll();
 		
+
 		
 		//Private pages
-		http.authorizeRequests().antMatchers("/alumn-units").hasAnyRole("USER");
+		http.authorizeRequests().antMatchers("/alumn-units").hasAnyRole("USER","ADMIN");
 		http.authorizeRequests().antMatchers("/teacher-units").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers("/unit/add-unit/*").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers("/unit/delete-unit/*").hasAnyRole("ADMIN");
+		
 
 		// Login form
-        http.formLogin().loginPage("/login");
+        http.formLogin().loginPage("/");
         http.formLogin().usernameParameter("username");
         http.formLogin().passwordParameter("password");
-        http.formLogin().defaultSuccessUrl("/index");
+        http.formLogin().defaultSuccessUrl("/");
         http.formLogin().failureUrl("/loginerror");
         
      // Logout

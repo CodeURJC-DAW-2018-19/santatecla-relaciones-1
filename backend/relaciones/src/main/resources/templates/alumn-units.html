@@ -18,7 +18,7 @@
                         <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
                             <div class="container-fluid">
                                 <div class="navbar-wrapper">
-                                    <a class="navbar-brand" href="#pablo">Santatecla</a>
+                                    <a class="navbar-brand" href="/">Santatecla</a>
                                 </div>
                             </div>
                         </nav>
@@ -51,26 +51,13 @@
                                                 <span>Unidades:</span>
                                             </a>
                                         </li>
+                                        {{#unit}}
                                         <li class="nav-item">
                                             <a class="nav-link" href="#unit1" data-toggle="tab">
-                                                <span>Unidad 1</span>
+                                                <span>{{name}}</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#unit2" data-toggle="tab">
-                                                <span>Unidad 2</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#unit3" data-toggle="tab">
-                                                <span>Unidad 3</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#unit4" data-toggle="tab">
-                                                <span>Unidad 4</span>
-                                            </a>
-                                        </li>
+                                        {{/unit}}
                                     </ul>
                                 </div>
                             </div>
@@ -229,10 +216,12 @@
                                                             <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
                                                                 <div class="card my-mini-card">
                                                                     <div class="card-header my-mini-card-header">
+                                                                        {{#unit}}
                                                                         <h4 class="card-title">Unidad</h4>
                                                                     </div>
                                                                     <div class="card-body my-mini-card-body">
-                                                                        <H4>UNIDAD 1</H4>
+                                                                        <H4>{{name}}</H4>
+                                                                        {{/unit}}
                                                                     </div>
                                                                 </div>
                                                             </div>
