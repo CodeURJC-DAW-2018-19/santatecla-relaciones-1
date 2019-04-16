@@ -25,7 +25,6 @@ public class Unit{
 	private String name;
 	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="unit")
-	@ElementCollection(fetch = FetchType.EAGER)
 	private List<Relation> relations;
 	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="unit")

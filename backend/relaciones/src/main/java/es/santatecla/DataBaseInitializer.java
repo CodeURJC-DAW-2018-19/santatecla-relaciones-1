@@ -1,6 +1,7 @@
 package es.santatecla;
 
 
+import es.santatecla.relation.Relation;
 import es.santatecla.relation.RelationRepository;
 import es.santatecla.relation.RelationService;
 import es.santatecla.enums.RelationsEnum;
@@ -15,6 +16,8 @@ import es.santatecla.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 
 @Component
@@ -25,6 +28,10 @@ public class DataBaseInitializer {
     private UnitService unitService;
     @Autowired
     private RelationService relationService;
+    
+    @Autowired
+    private RelationRepository relationRepository;
+    
     @PostConstruct
     public void init() {
         //Users

@@ -22,6 +22,8 @@ public class Relation {
 	private RelationsEnum type;
 	private long opositeUnitId;
 	
+	public Relation() {}
+	
 	public Relation (RelationsEnum type, Unit unit, long opositeUnitId) {
 		this.type = type;
 		this.unit = unit;
