@@ -78,14 +78,18 @@
 
 											  	{{#logged}}
 												<a href="/unit/{{id}}">{{name}}</a> {{#admin}}
-												<form method="post" action="unit/delete-unit/{{id}}">
+												<form method="post" action="delete-unit/{{id}}">
 
 													<div id="info" class="flex-w flex-b m-b-3">
 														<button class="btn btn-primary btn-link">
 															<i class="fas fa-trash-alt"></i>
+				
 														</button>
 													</div>
-												</form> {{/admin}} {{/logged}}
+												<input type="hidden" name="_csrf" value="{{token}}" />
+												</form>	
+												<form method="post" action="unit/add-unit"></form>
+												{{/admin}} {{/logged}}
 
 
 											</td>
