@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import es.santatecla.record.Record;
 import es.santatecla.relation.Relation;
 import es.santatecla.relation.RelationService;
 
@@ -22,7 +23,8 @@ public class UnitService {
 	
 	public Unit addUnit(String name)  {
 		List<Relation> relations = new ArrayList<>();
-		Unit unit = new Unit(name, relations);
+		List<Record> record = new ArrayList<>();
+		Unit unit = new Unit(name, relations,record);
 		return this.unitRepository.save(unit);
 	}
 	

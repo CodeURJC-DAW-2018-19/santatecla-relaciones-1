@@ -32,11 +32,11 @@ public class Unit{
 	
 	public Unit() {}
 	
-	public Unit(String name, List<Relation> relations) { //List<Record> records) {
+	public Unit(String name, List<Relation> relations, List<Record> records) {
 		super();
 		this.name = name;
 		this.relations = relations;
-		//this.records = records;
+		this.records = records;
 	}
 
 	public long getId() {
@@ -63,11 +63,11 @@ public class Unit{
 		this.relations = relations;
 	}
 
-//	public List<Record> getRecords() {
-//		return records;
-//	}
-//
-//	public void setRecords(List<Record> records) {
-//		this.records = records;
-//	}
+	public List<Record> getRecords() {
+		return records;
+	}
+
+	public void setRecords(List<Record> records) {
+		this.records = records;
+	}
 }

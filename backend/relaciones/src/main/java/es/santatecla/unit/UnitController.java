@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import es.santatecla.record.Record;
 import es.santatecla.relation.Relation;
 import es.santatecla.user.UserComponent;
 
@@ -41,7 +42,7 @@ public class UnitController {
 	}
 	
 	@RequestMapping("/")
-	public String showUnits(Model model, HttpServletRequest request) {
+	public String showUnits(Model model) {
 		model.addAttribute("unit",unitRepository.findAll());
 		
 		return "/index";
@@ -56,11 +57,10 @@ public class UnitController {
 	}
 	
 	@RequestMapping("/add-unit")
-	public String addUnit(Model model, @RequestParam String name, @RequestParam List<Relation> relation) {//, @RequestParam Record record ) {
-		Unit unit = new Unit(name,relation);
-		unitRepository.save(unit);
+	public String addUnit(Model model, @RequestParam String name) {
+		this.unitService.addUnit(name);
 		
-		return "/alumn-units";
+		return this.showUnits(model);
 	}
 	
 	@RequestMapping("/delete-unit/{id}")
@@ -68,6 +68,6 @@ public class UnitController {
 			unitService.deleteUnit(id);
 		
 		
-		return "/index";
+			return this.showUnits(model);
 	}
 }

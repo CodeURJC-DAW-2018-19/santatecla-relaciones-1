@@ -88,7 +88,11 @@
 													</div>
 												<input type="hidden" name="_csrf" value="{{token}}" />
 												</form>	
-												<form method="post" action="unit/add-unit"></form>
+												<form method="post" action="add-unit"></form>
+												<button class="btn btn-primary" data-toggle="modal"
+												data-target=#addUnitModal>
+												
+											</button>
 												{{/admin}} {{/logged}}
 
 
@@ -127,6 +131,31 @@
 								</div>
 								<button type="submit" class="btn btn-primary">Sign In</button>
 								<input type="hidden" name="_csrf" value="{{token}}" />
+							</div>
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal fade" id="addUnitModal" tabindex="-1" role="">
+		<div class="modal-dialog modal-addUnit" role="document">
+			<div class="modal-content">
+				<div class="card card-signup card-plain">
+					<div class="modal-header">
+						<div class="card-header card-header-primary text-center">
+							<h4 class="card-title">Nueva Unidad</h4>
+						</div>
+					</div>
+					<div class="modal-body">
+						<form class="form" method="post" action="/add-unit">
+							<div class="card-body">
+								<p>Nombre:</p>
+                                <input type='text' name='name'required/>
+                                <input type='submit' class="btn btn-primary" value='Enviar'/>
+                                <input type="hidden" name="_csrf" value="{{token}}" />
 							</div>
 						</form>
 					</div>
