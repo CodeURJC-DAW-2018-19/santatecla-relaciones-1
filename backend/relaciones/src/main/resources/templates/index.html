@@ -88,18 +88,26 @@
 													</div>
 												<input type="hidden" name="_csrf" value="{{token}}" />
 												</form>	
-												<form method="post" action="add-unit"></form>
-												<button class="btn btn-primary" data-toggle="modal"
-												data-target=#addUnitModal>
+												{{/admin}}
 												
-											</button>
-												{{/admin}} {{/logged}}
+											{{/logged}}
 
-
+					
 											</td>
 											{{/unit}}
 										</tbody>
 									</table>
+									{{#admin}}
+									<div class="content text-left">
+										<p>
+										<form method="post" action="add-unit"></form>
+										<button class="btn btn-primary btn-round" data-toggle="modal"
+											data-target=#addUnitModal>
+											<i class="material-icons">add</i>
+										</button>
+										</p>
+									</div>
+									{{/admin}}
 								</div>
 							</div>
 						</div>
