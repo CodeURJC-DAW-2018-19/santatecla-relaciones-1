@@ -49,6 +49,7 @@ public class DataBaseInitializer {
 
         //Units relations
         this.relationService.AddRelations(css.getId(), scss.getId(), RelationsEnum.PARENT);
+        this.relationService.AddRelations(css.getId(), spring.getId(), RelationsEnum.CHILD);
         this.relationService.AddRelations(spring.getId(), java.getId(), RelationsEnum.USE);
     }
 }

@@ -44,7 +44,6 @@ public class UnitController {
 	@RequestMapping("/")
 	public String showUnits(Model model) {
 		model.addAttribute("unit",unitRepository.findAll());
-		
 		return "/index";
 	}
 
@@ -53,8 +52,10 @@ public class UnitController {
 	public String getUnit(Model model, @PathVariable long id) {
 		Unit unit = unitRepository.findById(id);
 		model.addAttribute("unit", unit);
+		model.addAttribute("units", unitRepository.findAll());
 		return "/alumn-units";
 	}
+
 	
 	@RequestMapping("/add-unit")
 	public String addUnit(Model model, @RequestParam String name) {

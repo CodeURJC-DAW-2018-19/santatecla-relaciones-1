@@ -68,18 +68,13 @@
                                 <div class="tab-pane active justify-content-start" id="list-of-units">
                                     <table class="table my-table">
                                         <tbody>
+                                        {{#units}}
                                             <tr>
-                                                <td>UNIDAD 1</td>
+                                                <td>
+                                                    <a href="/unit/{{id}}">{{name}}</a>
+                                                </td>
                                             </tr>
-                                            <tr>
-                                                <td>UNIDAD 2</td>
-                                            </tr>
-                                            <tr>
-                                                <td>UNIDAD 3</td>
-                                            </tr>
-                                            <tr>
-                                                <td>UNIDAD 4</td>
-                                            </tr>
+                                        {{/units}}
                                         </tbody>
                                     </table>
                                 </div>
@@ -150,6 +145,11 @@
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>
+                                                                        <div>
+                                                                            <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success">
+                                                                                <i class="material-icons">+</i>
+                                                                            </button>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -172,6 +172,9 @@
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>
+                                                                        <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success">
+                                                                            <i class="material-icons">+</i>
+                                                                        </button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -191,6 +194,9 @@
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>
+                                                                        <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success">
+                                                                            <i class="material-icons">+</i>
+                                                                        </button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -210,6 +216,9 @@
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>
+                                                                        <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success">
+                                                                            <i class="material-icons">+</i>
+                                                                        </button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -244,6 +253,9 @@
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>
+                                                                        <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success">
+                                                                            <i class="material-icons">+</i>
+                                                                        </button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -260,6 +272,9 @@
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>
+                                                                        <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success">
+                                                                            <i class="material-icons">+</i>
+                                                                        </button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -278,6 +293,9 @@
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>
+                                                                        <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success">
+                                                                            <i class="material-icons">+</i>
+                                                                        </button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -289,17 +307,22 @@
                                                                     <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
+                                                                            {{#units}}
+                                                                            {{#relation}}
                                                                                 <tr>
-                                                                                    <td>HIJA 1</td>
+                                                                                    <td>{{unit.name}}</td>
+                                                                                    <td>{{id}}</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <td>HIJA 2</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>HIJA 3</td>
-                                                                                </tr>
+                                                                            {{/relation}}
+                                                                            {{/units}}
                                                                             </tbody>
                                                                         </table>
+                                                                        <div>
+                                                                            <form method="post" action="add-relation"></form>
+                                                                            <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success" data-toggle="modal" data-target=#addRelationModal>
+                                                                                <i class="material-icons">+</i>
+                                                                            </button>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -438,6 +461,41 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="addRelationModal" tabindex="-1" role="">
+        <div class="modal-dialog modal-addUnit" role="document">
+            <div class="modal-content">
+                <div class="card card-signup card-plain">
+                    <div class="modal-header">
+                        <div class="card-header card-header-primary text-center">
+                            <h4 class="card-title">Nueva Relación</h4>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form" method="post" action="add-relation">
+                            <div class="card-body">
+                                <p>Unidad:</p>
+                                <input type="text" value={{unit.id}} name={{unit.name}} readonly />
+
+                                <div class="form-group">
+                                    <label for="exampleSelect1">Seleccionar</label>
+                                    <select class="form-control" id="exampleSelect1">
+                                        {{#units}}
+                                        <option value={{id}}>{{name}}</option>
+                                        {{/units}}
+                                    </select>
+                                </div>
+                                <input type='submit' class="btn btn-primary" value='Enviar'/>
+                                <input type="hidden" name="_csrf" value="{{token}}" />
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!--   Core JS Files   -->
     <script src="/js/core/jquery.min.js"></script>
     <script src="/js/core/popper.min.js"></script>

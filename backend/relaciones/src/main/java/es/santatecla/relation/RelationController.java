@@ -21,16 +21,16 @@ public class RelationController {
 	@Autowired
 	private RelationService relationService;
 	
-	@GetMapping("unit/{id}")
+	@GetMapping("/unit/{id}")
 	public String ShowRelation(Model model){
 		model.addAttribute("relation",relationRepository.findAll());
-		return "/teacher-units";
+		return "/alumn-units";
 	}
 	
-	@GetMapping("unit/{id}/add-relation")
-	public String addRelationFromUnit(Model model, @PathVariable long id, @RequestParam long value, @RequestParam RelationsEnum relation){
-		this.relationService.AddRelations(id, value, relation);
-	return "/teacher-units";
+	@GetMapping("/unit/{id}/add-relation")
+	public String addRelationFromUnit(Model model, @PathVariable long id, @RequestParam long value){
+		this.relationService.AddRelations(id, value, RelationsEnum.CHILD);
+	return "/alumn-units";
 	}
 	
 	@GetMapping("unit/{id}/delete-relation")
@@ -39,7 +39,7 @@ public class RelationController {
 		unit = unitRepository.findByName(unit.getName());
 		Relation r = relationRepository.findByType(relation);
 		relationRepository.delete(r);
-	return "/teacher-units";	
+	return "/alumn-units";
 	}
 	
 }
