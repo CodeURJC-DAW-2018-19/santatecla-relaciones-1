@@ -68,18 +68,7 @@
                                 <div class="tab-pane active justify-content-start" id="list-of-units">
                                     <table class="table my-table">
                                         <tbody>
-                                            <tr>
-                                                <td>UNIDAD 1</td>
-                                            </tr>
-                                            <tr>
-                                                <td>UNIDAD 2</td>
-                                            </tr>
-                                            <tr>
-                                                <td>UNIDAD 3</td>
-                                            </tr>
-                                            <tr>
-                                                <td>UNIDAD 4</td>
-                                            </tr>
+                                            <a href= "/">Volver a la lista de Unidades</a>
                                         </tbody>
                                     </table>
                                 </div>
@@ -118,36 +107,11 @@
                                                                     <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
+                                                                                {{#relation}}
                                                                                 <tr>
-                                                                                    <td>PADRE 1</td>
+                                                                                	<td>{{unit}}</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <td>PADRE 2</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>PADRE 1</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>PADRE 2</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>PADRE 1</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>PADRE 2</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>PADRE 1</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>PADRE 2</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>PADRE 1</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>PADRE 2</td>
-                                                                                </tr>
+                                                                                {{/relation}}
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
