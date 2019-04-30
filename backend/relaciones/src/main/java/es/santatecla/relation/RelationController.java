@@ -27,12 +27,50 @@ public class RelationController {
 		return "/alumn-units";
 	}
 	
-	@GetMapping("/unit/{id}/add-relation")
-	public String addRelationFromUnit(Model model, @PathVariable long id, @RequestParam long value){
-		this.relationService.AddRelations(id, value, RelationsEnum.CHILD);
+	@GetMapping("unit/{id}/add-parent")
+	public String addParentFromUnit(Model model, @PathVariable long id, @RequestParam long value){
+		this.relationService.AddRelations(id, value, RelationsEnum.PARENT );
 	return "/alumn-units";
 	}
 	
+	@GetMapping("unit/{id}/add-child")
+	public String addChildFromUnit(Model model, @PathVariable long id, @RequestParam long value){
+		this.relationService.AddRelations(id, value, RelationsEnum.CHILD );
+	return "/alumn-units";
+	}
+	
+	@GetMapping("unit/{id}/add-composition")
+	public String addCompositionFromUnit(Model model, @PathVariable long id, @RequestParam long value){
+		this.relationService.AddRelations(id, value, RelationsEnum.COMPOSITION );
+	return "/alumn-units";
+	}
+	
+	@GetMapping("unit/{id}/add-use")
+	public String addUseFromUnit(Model model, @PathVariable long id, @RequestParam long value){
+		this.relationService.AddRelations(id, value, RelationsEnum.USE );
+	return "/alumn-units";
+	}
+	
+	@GetMapping("unit/{id}/add-useBy")
+	public String addUseBYFromUnit(Model model, @PathVariable long id, @RequestParam long value){
+		this.relationService.AddRelations(id, value, RelationsEnum.USE_BY );
+	return "/alumn-units";
+	}
+	
+	@GetMapping("unit/{id}/add-associatedTo")
+	public String addAssociatedToFromUnit(Model model, @PathVariable long id, @RequestParam long value){
+		this.relationService.AddRelations(id, value, RelationsEnum.ASSOCIATED_TO );
+	return "/alumn-units";
+	}
+	
+	@GetMapping("unit/{id}/add-associatedBy")
+	public String addAssociatedByFromUnit(Model model, @PathVariable long id, @RequestParam long value){
+		this.relationService.AddRelations(id, value, RelationsEnum.ASSOCIATED_BY );
+	return "/alumn-units";
+	}
+	
+
+
 	@GetMapping("unit/{id}/delete-relation")
 	public String deleteRelationFromUnit(Model model, @PathVariable long id, @RequestParam long value, @RequestParam RelationsEnum relation){
 		Unit unit = new Unit();

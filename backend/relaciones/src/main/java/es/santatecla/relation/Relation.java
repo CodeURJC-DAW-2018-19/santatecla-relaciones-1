@@ -1,4 +1,4 @@
-package es.santatecla.relation;
+ package es.santatecla.relation;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
