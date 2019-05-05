@@ -7,5 +7,7 @@ public enum RecordsEnum {
 	WHERE,
 	WHO,
 	WHY,
-	WHEN
+	WHEN,
+	
+	IMAGE
 }
