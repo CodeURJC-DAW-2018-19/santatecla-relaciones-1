@@ -531,4 +531,17 @@ body {
   color: #ffffff;
   border-radius: 50%; }
 
+.positioner-wrapper {
+  position: relative; }
+  .positioner-wrapper .positioner-content {
+    position: absolute; }
+    .positioner-wrapper .positioner-content .middle-pos {
+      top: 50%;
+      transform: translateY(-50%); }
+    .positioner-wrapper .positioner-content .center-pos {
+      left: 50%;
+      transform: translateX(-50%); }
+    .positioner-wrapper .positioner-content .left-pos {
+      left: 0%; }
+
 /*# sourceMappingURL=../../../../../target/style.css.map */

@@ -181,3 +181,25 @@ body {
     color: $white;
     border-radius: 50%;
 }
+
+.positioner-wrapper {
+    position: relative;
+
+    .positioner-content {
+        position: absolute;
+
+        .middle-pos {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .center-pos {
+            left: 50%;
+            transform: translateX(-50%)
+        }
+
+        .left-pos {
+            left: 0%;
+        }
+    }
+}
