@@ -1,11 +1,9 @@
 package es.santatecla;
 
 
-import es.santatecla.relation.Relation;
 import es.santatecla.relation.RelationRepository;
 import es.santatecla.relation.RelationService;
 import es.santatecla.enums.RelationsEnum;
-import es.santatecla.record.RecordRepository;
 import es.santatecla.unit.Unit;
 import es.santatecla.unit.UnitRepository;
 import es.santatecla.unit.UnitService;
@@ -15,8 +13,6 @@ import es.santatecla.user.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 import javax.annotation.PostConstruct;
 
