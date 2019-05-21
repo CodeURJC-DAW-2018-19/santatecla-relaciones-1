@@ -9,25 +9,26 @@ import org.springframework.stereotype.Service;
 
 import es.santatecla.enums.RelationsEnum;
 import es.santatecla.unit.Unit;
+import es.santatecla.unit.UnitRepository;
 import es.santatecla.unit.UnitService;
 
 @Service
 public class RelationService {
 	private RelationRepository relationRepository;
-	private UnitService unitService;
+	private UnitRepository unitRepository;
 	private Map<RelationsEnum, RelationsEnum> opositeRelation;
 	
 	@Autowired
 	public RelationService (RelationRepository relationRepository,
-			UnitService unitService) {
+			UnitRepository unitRepository) {
 		this.relationRepository = relationRepository;
-		this.unitService = unitService;
+		this.unitRepository = unitRepository;
 		this.opositeRelation = new HashMap<>();
 		putOpositeRelations();
 	}
 	
 	public List<Relation> getRelationsByUnitId(long unitId) {
-		Unit unit = this.unitService.getUnit(unitId);
+		Unit unit = this.unitRepository.findById(unitId);
 		if (unit != null) {
 			return this.relationRepository.findByUnit(unit);
 		}
@@ -35,8 +36,8 @@ public class RelationService {
 	}
 	
 	public Relation AddRelations(long idUnit, long idUnitRelated, RelationsEnum relationType) {
-		Unit unit = this.unitService.getUnit(idUnit);
-		Unit unitRelated = this.unitService.getUnit(idUnitRelated);
+		Unit unit = this.unitRepository.findById(idUnit);
+		Unit unitRelated = this.unitRepository.findById(idUnitRelated);
 		RelationsEnum opositeRelationType = this.opositeRelation.get(relationType);
 		
 		Relation relation = new Relation(relationType, unit, unitRelated.getId());
@@ -54,7 +55,7 @@ public class RelationService {
 	}
 
 	private void deleteOpositeRelations(long idUnit, Relation relation) {
-		Unit opositeUnit = this.unitService.getUnit(relation.getUnit().getId());
+		Unit opositeUnit = this.unitRepository.findById(relation.getUnit().getId());
 		opositeUnit.getRelations().forEach((rel) -> {
 			if (rel.getUnit().getId() == idUnit && this.opositeRelation.get(relation) == rel.getType()) {
 				this.relationRepository.delete(rel);

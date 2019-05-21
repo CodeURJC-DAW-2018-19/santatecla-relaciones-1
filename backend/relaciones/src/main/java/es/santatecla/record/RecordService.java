@@ -7,23 +7,24 @@ import org.springframework.stereotype.Service;
 
 import es.santatecla.enums.RecordsEnum;
 import es.santatecla.unit.Unit;
+import es.santatecla.unit.UnitRepository;
 import es.santatecla.unit.UnitService;
 
 @Service
 public class RecordService
 {
     private RecordRepository recordRepository;
-	private UnitService unitService;
+	private UnitRepository unitRepository;
 	
 	@Autowired
 	public RecordService(RecordRepository recordRepository,
-			UnitService unitService) {
+			UnitRepository unitRepository) {
     	this.recordRepository = recordRepository;
-    	this.unitService = unitService;
+    	this.unitRepository = unitRepository;
     }
 	
 	public List<Record> getRecordsByUnitId(long unitId) {
-		Unit unit = this.unitService.getUnit(unitId);
+		Unit unit = this.unitRepository.findById(unitId);
 		if (unit != null) {
 			this.recordRepository.findByUnit(unit);
 		}
