@@ -114,11 +114,11 @@
                                                                     <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
-                                                                                {{#relation}}
+                                                                                {{#parents}}
                                                                                 <tr>
-                                                                                	<td>{{unit}}</td>
+                                                                                	<td>{{name}}</td>
                                                                                 </tr>
-                                                                                {{/relation}}
+                                                                                {{/parents}}
                                                                             </tbody>
                                                                         </table>
                                                                         <div>
@@ -137,15 +137,11 @@
                                                                     <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
+                                                                                {{#compositions}}
                                                                                 <tr>
-                                                                                    <td>COMPUESTO 1</td>
+                                                                                    <td>{{name}}</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <td>COMPUESTO 2</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>COMPUESTO 3</td>
-                                                                                </tr>
+                                                                                {{/compositions}}
                                                                             </tbody>
                                                                         </table>
                                                                         <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success">
@@ -157,17 +153,16 @@
                                                             <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
                                                                 <div class="card my-mini-card">
                                                                     <div class="card-header my-mini-card-header">
-                                                                        <h4 class="card-title">Usa</h4>
+                                                                        <h4 class="card-title">Usado por</h4>
                                                                     </div>
                                                                     <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
+                                                                                {{#used-by}}
                                                                                 <tr>
-                                                                                    <td>USADO 1</td>
+                                                                                    <td>{{name}}</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <td>USADO 2</td>
-                                                                                </tr>
+                                                                                {{/used-by}}
                                                                             </tbody>
                                                                         </table>
                                                                         <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success">
@@ -179,17 +174,16 @@
                                                             <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
                                                                 <div class="card my-mini-card">
                                                                     <div class="card-header my-mini-card-header">
-                                                                        <h4 class="card-title">Asociados a</h4>
+                                                                        <h4 class="card-title">Asociados por</h4>
                                                                     </div>
                                                                     <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
+                                                                                {{#associated-by}}
                                                                                 <tr>
-                                                                                    <td>ASOCIADO 1</td>
+                                                                                    <td>{{name}}</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <td>ASOCIADO 2</td>
-                                                                                </tr>
+                                                                                {{/associated-by}}
                                                                             </tbody>
                                                                         </table>
                                                                         <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success">
@@ -218,15 +212,11 @@
                                                                     <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
+                                                                                {{#associated-to}}
                                                                                 <tr>
-                                                                                    <td>ASOCIADO 1</td>
+                                                                                    <td>{{name}}</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <td>ASOCIADO 2</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>ASOCIADO 3</td>
-                                                                                </tr>
+                                                                                {{/associated-to}}
                                                                             </tbody>
                                                                         </table>
                                                                         <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success">
@@ -243,9 +233,11 @@
                                                                     <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
+                                                                                {{#uses}}
                                                                                 <tr>
-                                                                                    <td>USADOR 1</td>
+                                                                                    <td>{{name}}</td>
                                                                                 </tr>
+                                                                                {{/uses}}
                                                                             </tbody>
                                                                         </table>
                                                                         <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success">
@@ -262,11 +254,13 @@
                                                                     <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
+                                                                                {{#parts}}
                                                                                 <tr>
                                                                                     <td>
-
+                                                                                        {{name}}
                                                                                     </td>
                                                                                 </tr>
+                                                                                {{/parts}}
                                                                             </tbody>
                                                                         </table>
                                                                         <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success">
@@ -283,14 +277,11 @@
                                                                     <div class="card-body my-mini-card-body">
                                                                         <table class="table my-table">
                                                                             <tbody>
-                                                                            {{#units}}
-                                                                            {{#relation}}
+                                                                                {{#children}}
                                                                                 <tr>
-                                                                                    <td>{{unit.name}}</td>
-                                                                                    <td>{{id}}</td>
+                                                                                    <td>{{name}}</td>
                                                                                 </tr>
-                                                                            {{/relation}}
-                                                                            {{/units}}
+                                                                                {{/children}}
                                                                             </tbody>
                                                                         </table>
                                                                         <div>

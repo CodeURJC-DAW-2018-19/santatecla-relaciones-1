@@ -1,11 +1,13 @@
 package es.santatecla.unit;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import es.santatecla.enums.RelationsEnum;
 import es.santatecla.record.Record;
 import es.santatecla.record.RecordService;
 import es.santatecla.relation.Relation;
@@ -49,6 +51,18 @@ public class UnitService {
 			
 			this.unitRepository.delete(unit);
 		}
+	}
+	
+	public List<Unit> getRelatedUnit(long unitId, RelationsEnum relationType) {
+		List<Unit> units = new LinkedList<Unit>();
+		List<Relation> relations = relationService.getRelationsByUnitId(unitId);
+		for (Relation relation: relations) {
+			if (relation.getType() == relationType) {
+				Unit related = this.unitRepository.findById(relation.getOpositeUnitId());
+				units.add(related);
+			}
+		}
+		return units;
 	}
 
 	private void deleteRelations(Unit unit) {

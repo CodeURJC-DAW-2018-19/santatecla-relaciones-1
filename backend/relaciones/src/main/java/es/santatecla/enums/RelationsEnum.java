@@ -7,5 +7,6 @@ public enum RelationsEnum {
 	USE,
 	USE_BY,
 	ASSOCIATED_TO,
-	ASSOCIATED_BY
+	ASSOCIATED_BY,
+	PART
 }
