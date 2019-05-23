@@ -122,13 +122,52 @@
                                                                             </tbody>
                                                                         </table>
                                                                         <div>
-                                                                            <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success">
+                                                                            <form method="post" action="add-parent"></form>
+                                                                            <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success" data-toggle="modal" data-target=#addParentModal>
                                                                                 <i class="material-icons">+</i>
                                                                             </button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+															<div class="modal fade" id="addParentModal"
+																tabindex="-1" role="">
+																<div class="modal-dialog modal-addUnit" role="document">
+																	<div class="modal-content">
+																		<div class="card card-signup card-plain">
+																			<div class="modal-header">
+																				<div
+																					class="card-header card-header-primary text-center">
+																					<h4 class="card-title">Nueva Relación</h4>
+																				</div>
+																			</div>
+																			<div class="modal-body">
+																				<form class="form" method="post"
+																					action="add-parent">
+																					<div class="card-body">
+																						<p>Unidad:</p>
+																						<input type="text" value={{unit.id}}
+																							name={{unit.name}} readonly />
+
+																						<div class="form-group">
+																							<label for="exampleSelect1">Seleccionar</label> <select
+																								class="form-control" id="exampleSelect1">
+																								{{#units}}
+																								<option value={{id}}>{{name}}</option>
+																								{{/units}}
+																							</select>
+																						</div>
+																						<input type='submit' class="btn btn-primary"
+																							value='Enviar' /> <input type="hidden"
+																							name="_csrf" value="{{token}}" />
+																					</div>
+																				</form>
+																			</div>
+
+																		</div>
+																	</div>
+																</div>
+															</div>
                                                             <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
                                                                 <div class="card my-mini-card">
                                                                     <div class="card-header my-mini-card-header">
@@ -144,12 +183,53 @@
                                                                                 {{/compositions}}
                                                                             </tbody>
                                                                         </table>
-                                                                        <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success">
-                                                                            <i class="material-icons">+</i>
-                                                                        </button>
+                                                                       <div>
+                                                                            <form method="post" action="add-composition"></form>
+                                                                            <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success" data-toggle="modal" data-target=#addCompositionModal>
+                                                                                <i class="material-icons">+</i>
+                                                                            </button>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+															<div class="modal fade" id="addCompositionModal"
+																tabindex="-1" role="">
+																<div class="modal-dialog modal-addUnit" role="document">
+																	<div class="modal-content">
+																		<div class="card card-signup card-plain">
+																			<div class="modal-header">
+																				<div
+																					class="card-header card-header-primary text-center">
+																					<h4 class="card-title">Nueva Relación</h4>
+																				</div>
+																			</div>
+																			<div class="modal-body">
+																				<form class="form" method="post"
+																					action="add-composition">
+																					<div class="card-body">
+																						<p>Unidad:</p>
+																						<input type="text" value={{unit.id}}
+																							name={{unit.name}} readonly />
+
+																						<div class="form-group">
+																							<label for="exampleSelect1">Seleccionar</label> <select
+																								class="form-control" id="exampleSelect1">
+																								{{#units}}
+																								<option value={{id}}>{{name}}</option>
+																								{{/units}}
+																							</select>
+																						</div>
+																						<input type='submit' class="btn btn-primary"
+																							value='Enviar' /> <input type="hidden"
+																							name="_csrf" value="{{token}}" />
+																					</div>
+																				</form>
+																			</div>
+
+																		</div>
+																	</div>
+																</div>
+															</div>
                                                             <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
                                                                 <div class="card my-mini-card">
                                                                     <div class="card-header my-mini-card-header">
@@ -165,13 +245,53 @@
                                                                                 {{/used-by}}
                                                                             </tbody>
                                                                         </table>
-                                                                        <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success">
-                                                                            <i class="material-icons">+</i>
-                                                                        </button>
+                                                                        <div>
+                                                                            <form method="post" action="add-usedBy"></form>
+                                                                            <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success" data-toggle="modal" data-target=#addUsedByModal>
+                                                                                <i class="material-icons">+</i>
+                                                                            </button>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+															<div class="modal fade" id="addUsedByModal"
+																tabindex="-1" role="">
+																<div class="modal-dialog modal-addUnit" role="document">
+																	<div class="modal-content">
+																		<div class="card card-signup card-plain">
+																			<div class="modal-header">
+																				<div
+																					class="card-header card-header-primary text-center">
+																					<h4 class="card-title">Nueva Relación</h4>
+																				</div>
+																			</div>
+																			<div class="modal-body">
+																				<form class="form" method="post"
+																					action="add-usedBy">
+																					<div class="card-body">
+																						<p>Unidad:</p>
+																						<input type="text" value={{unit.id}}
+																							name={{unit.name}} readonly />
+
+																						<div class="form-group">
+																							<label for="exampleSelect1">Seleccionar</label> <select
+																								class="form-control" id="exampleSelect1">
+																								{{#units}}
+																								<option value={{id}}>{{name}}</option>
+																								{{/units}}
+																							</select>
+																						</div>
+																						<input type='submit' class="btn btn-primary"
+																							value='Enviar' /> <input type="hidden"
+																							name="_csrf" value="{{token}}" />
+																					</div>
+																				</form>
+																			</div>
+
+																		</div>
+																	</div>
+																</div>
+															</div>                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
                                                                 <div class="card my-mini-card">
                                                                     <div class="card-header my-mini-card-header">
                                                                         <h4 class="card-title">Asociados por</h4>
@@ -186,12 +306,53 @@
                                                                                 {{/associated-by}}
                                                                             </tbody>
                                                                         </table>
-                                                                        <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success">
-                                                                            <i class="material-icons">+</i>
-                                                                        </button>
+                                                                        <div>
+                                                                            <form method="post" action="add-associatedBy"></form>
+                                                                            <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success" data-toggle="modal" data-target=#addAsspciatedByModal>
+                                                                                <i class="material-icons">+</i>
+                                                                            </button>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+															<div class="modal fade" id="addAssociatedByModal"
+																tabindex="-1" role="">
+																<div class="modal-dialog modal-addUnit" role="document">
+																	<div class="modal-content">
+																		<div class="card card-signup card-plain">
+																			<div class="modal-header">
+																				<div
+																					class="card-header card-header-primary text-center">
+																					<h4 class="card-title">Nueva Relación</h4>
+																				</div>
+																			</div>
+																			<div class="modal-body">
+																				<form class="form" method="post"
+																					action="add-associatedBy">
+																					<div class="card-body">
+																						<p>Unidad:</p>
+																						<input type="text" value={{unit.id}}
+																							name={{unit.name}} readonly />
+
+																						<div class="form-group">
+																							<label for="exampleSelect1">Seleccionar</label> <select
+																								class="form-control" id="exampleSelect1">
+																								{{#units}}
+																								<option value={{id}}>{{name}}</option>
+																								{{/units}}
+																							</select>
+																						</div>
+																						<input type='submit' class="btn btn-primary"
+																							value='Enviar' /> <input type="hidden"
+																							name="_csrf" value="{{token}}" />
+																					</div>
+																				</form>
+																			</div>
+
+																		</div>
+																	</div>
+																</div>
+															</div>
                                                             <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
                                                                 <div class="card my-mini-card">
                                                                     <div class="card-header my-mini-card-header">
@@ -219,12 +380,53 @@
                                                                                 {{/associated-to}}
                                                                             </tbody>
                                                                         </table>
-                                                                        <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success">
-                                                                            <i class="material-icons">+</i>
-                                                                        </button>
+                                                                        <div>
+                                                                            <form method="post" action="add-asociatedTo"></form>
+                                                                            <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success" data-toggle="modal" data-target=#addAssociatedToModal>
+                                                                                <i class="material-icons">+</i>
+                                                                            </button>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+															<div class="modal fade" id="addAssociatedToModal"
+																tabindex="-1" role="">
+																<div class="modal-dialog modal-addUnit" role="document">
+																	<div class="modal-content">
+																		<div class="card card-signup card-plain">
+																			<div class="modal-header">
+																				<div
+																					class="card-header card-header-primary text-center">
+																					<h4 class="card-title">Nueva Relación</h4>
+																				</div>
+																			</div>
+																			<div class="modal-body">
+																				<form class="form" method="post"
+																					action="add-associatedTo">
+																					<div class="card-body">
+																						<p>Unidad:</p>
+																						<input type="text" value={{unit.id}}
+																							name={{unit.name}} readonly />
+
+																						<div class="form-group">
+																							<label for="exampleSelect1">Seleccionar</label> <select
+																								class="form-control" id="exampleSelect1">
+																								{{#units}}
+																								<option value={{id}}>{{name}}</option>
+																								{{/units}}
+																							</select>
+																						</div>
+																						<input type='submit' class="btn btn-primary"
+																							value='Enviar' /> <input type="hidden"
+																							name="_csrf" value="{{token}}" />
+																					</div>
+																				</form>
+																			</div>
+
+																		</div>
+																	</div>
+																</div>
+															</div>
                                                             <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
                                                                 <div class="card my-mini-card">
                                                                     <div class="card-header my-mini-card-header">
@@ -240,12 +442,53 @@
                                                                                 {{/uses}}
                                                                             </tbody>
                                                                         </table>
-                                                                        <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success">
-                                                                            <i class="material-icons">+</i>
-                                                                        </button>
+                                                                        <div>
+                                                                            <form method="post" action="add-use"></form>
+                                                                            <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success" data-toggle="modal" data-target=#addUseModal>
+                                                                                <i class="material-icons">+</i>
+                                                                            </button>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+															<div class="modal fade" id="addUseModal"
+																tabindex="-1" role="">
+																<div class="modal-dialog modal-addUnit" role="document">
+																	<div class="modal-content">
+																		<div class="card card-signup card-plain">
+																			<div class="modal-header">
+																				<div
+																					class="card-header card-header-primary text-center">
+																					<h4 class="card-title">Nueva Relación</h4>
+																				</div>
+																			</div>
+																			<div class="modal-body">
+																				<form class="form" method="post"
+																					action="add-use">
+																					<div class="card-body">
+																						<p>Unidad:</p>
+																						<input type="text" value={{unit.id}}
+																							name={{unit.name}} readonly />
+
+																						<div class="form-group">
+																							<label for="exampleSelect1">Seleccionar</label> <select
+																								class="form-control" id="exampleSelect1">
+																								{{#units}}
+																								<option value={{id}}>{{name}}</option>
+																								{{/units}}
+																							</select>
+																						</div>
+																						<input type='submit' class="btn btn-primary"
+																							value='Enviar' /> <input type="hidden"
+																							name="_csrf" value="{{token}}" />
+																					</div>
+																				</form>
+																			</div>
+
+																		</div>
+																	</div>
+																</div>
+															</div>
                                                             <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
                                                                 <div class="card my-mini-card">
                                                                     <div class="card-header my-mini-card-header">
@@ -263,12 +506,53 @@
                                                                                 {{/parts}}
                                                                             </tbody>
                                                                         </table>
-                                                                        <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success">
-                                                                            <i class="material-icons">+</i>
-                                                                        </button>
+                                                                       <div>
+                                                                            <form method="post" action="add-part"></form>
+                                                                            <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success" data-toggle="modal" data-target=#addPartModal>
+                                                                                <i class="material-icons">+</i>
+                                                                            </button>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+															<div class="modal fade" id="addPartModal"
+																tabindex="-1" role="">
+																<div class="modal-dialog modal-addUnit" role="document">
+																	<div class="modal-content">
+																		<div class="card card-signup card-plain">
+																			<div class="modal-header">
+																				<div
+																					class="card-header card-header-primary text-center">
+																					<h4 class="card-title">Nueva Relación</h4>
+																				</div>
+																			</div>
+																			<div class="modal-body">
+																				<form class="form" method="post"
+																					action="add-part">
+																					<div class="card-body">
+																						<p>Unidad:</p>
+																						<input type="text" value={{unit.id}}
+																							name={{unit.name}} readonly />
+
+																						<div class="form-group">
+																							<label for="exampleSelect1">Seleccionar</label> <select
+																								class="form-control" id="exampleSelect1">
+																								{{#units}}
+																								<option value={{id}}>{{name}}</option>
+																								{{/units}}
+																							</select>
+																						</div>
+																						<input type='submit' class="btn btn-primary"
+																							value='Enviar' /> <input type="hidden"
+																							name="_csrf" value="{{token}}" />
+																					</div>
+																				</form>
+																			</div>
+
+																		</div>
+																	</div>
+																</div>
+															</div>
                                                             <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
                                                                 <div class="card my-mini-card">
                                                                     <div class="card-header my-mini-card-header">
@@ -285,15 +569,54 @@
                                                                             </tbody>
                                                                         </table>
                                                                         <div>
-                                                                            <form method="post" action="add-relation"></form>
-                                                                            <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success" data-toggle="modal" data-target=#addRelationModal>
+                                                                            <form method="post" action="add-child"></form>
+                                                                            <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success" data-toggle="modal" data-target=#addChildModal>
                                                                                 <i class="material-icons">+</i>
                                                                             </button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
+															<div class="modal fade" id="addChildModal"
+																tabindex="-1" role="">
+																<div class="modal-dialog modal-addUnit" role="document">
+																	<div class="modal-content">
+																		<div class="card card-signup card-plain">
+																			<div class="modal-header">
+																				<div
+																					class="card-header card-header-primary text-center">
+																					<h4 class="card-title">Nueva Relación</h4>
+																				</div>
+																			</div>
+																			<div class="modal-body">
+																				<form class="form" method="post"
+																					action="add-child">
+																					<div class="card-body">
+																						<p>Unidad:</p>
+																						<input type="text" value={{unit.id}}
+																							name={{unit.name}} readonly />
+
+																						<div class="form-group">
+																							<label for="exampleSelect1">Seleccionar</label> <select
+																								class="form-control" id="exampleSelect1">
+																								{{#units}}
+																								<option value={{id}}>{{name}}</option>
+																								{{/units}}
+																							</select>
+																						</div>
+																						<input type='submit' class="btn btn-primary"
+																							value='Enviar' /> <input type="hidden"
+																							name="_csrf" value="{{token}}" />
+																					</div>
+																				</form>
+																			</div>
+
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+														</div>
                                                     </div>
                                                 </div>
                                             </div>

@@ -69,6 +69,11 @@ public class RelationController {
 	return "/alumn-units";
 	}
 	
+	@GetMapping("unit/{id}/add-part")
+	public String addPartFromUnit(Model model, @PathVariable long id, @RequestParam long value){
+		this.relationService.AddRelations(id, value, RelationsEnum.PART );
+	return "/alumn-units";
+	}
 
 
 	@GetMapping("unit/{id}/delete-relation")
