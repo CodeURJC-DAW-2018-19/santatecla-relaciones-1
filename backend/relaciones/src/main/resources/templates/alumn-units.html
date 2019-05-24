@@ -569,10 +569,8 @@
                                                                             </tbody>
                                                                         </table>
                                                                         <div>
-                                                                            <form method="post" action="add-child"></form>
-                                                                            <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success" data-toggle="modal" data-target=#addChildModal>
-                                                                                <i class="material-icons">+</i>
-                                                                            </button>
+                                                                            <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success" data-toggle="modal" data-target=#addRelationModal>
+                                                                            <i class="material-icons">+</i>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -762,14 +760,19 @@
                         </div>
                     </div>
                     <div class="modal-body">
-                        <form class="form" method="post" action="add-relation">
+                        <form class="form" action="/add-child" >
                             <div class="card-body">
-                                <p>Unidad:</p>
-                                <input type="text" value={{unit.id}} name={{unit.name}} readonly />
+                                <div class="col-12">
+                                    <div class="row">
+                                        <p>Unidad:</p>
+                                        <span class="ml-1">{{unit.name}}</span>
+                                    </div>
+                                </div>
+                                <input type="text" value={{unit.id}} name=id />
 
                                 <div class="form-group">
                                     <label for="exampleSelect1">Seleccionar</label>
-                                    <select class="form-control" id="exampleSelect1">
+                                    <select class="form-control" id="relatedId" name="relatedId">
                                         {{#units}}
                                         <option value={{id}}>{{name}}</option>
                                         {{/units}}
