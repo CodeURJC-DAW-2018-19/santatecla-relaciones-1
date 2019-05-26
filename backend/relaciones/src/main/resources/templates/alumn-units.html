@@ -454,11 +454,11 @@
 																	<div class="card-body my-mini-card-body">
 																		<table class="table my-table">
 																			<tbody>
-																				{{#use}}
+																				{{#used}}
 																				<tr>
 																					<td>{{name}}</td>
 																				</tr>
-																				{{/use}}
+																				{{/used}}
 																			</tbody>
 																		</table>
 																		<div>
@@ -590,7 +590,15 @@
 																			<tbody>
 																				{{#children}}
 																				<tr>
-																					<td>{{name}}</td>
+																					<td>{{name}}
+																					{{#admin}}
+																							<form method="post" action="delete-relation/{{id}}">
+																							<button class="btn btn-primary btn-link">
+																								<i class="fas fa-trash-alt"></i>
+																							</button>
+																							<input type="hidden" name="_csrf"
+																								value="{{token}}" />
+																						</form> {{/admin}}</td>
 																				</tr>
 																				{{/children}}
 																			</tbody>

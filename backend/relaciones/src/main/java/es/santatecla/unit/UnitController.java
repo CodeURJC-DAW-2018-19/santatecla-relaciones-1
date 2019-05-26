@@ -139,8 +139,12 @@ public class UnitController {
 	return this.getUnit(model, unitId);
 	}
 	
-	
-
+	@RequestMapping("/delete-relation/{id}")
+	public String deleteRelationFromUnit(Model model, @PathVariable long id, @PathVariable long relatedId) {
+		relationService.deleteRelation(id, relatedId);
+		
+		return this.getUnit(model, id);
+	}
 	
 	@RequestMapping("/add-unit")
 	public String addUnit(Model model, @RequestParam String name) {
