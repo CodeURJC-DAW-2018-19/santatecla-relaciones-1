@@ -332,6 +332,11 @@
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
+                                                                {{#logged}}
+                                                                <div class="container text-right">
+                                                                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target=#addWhy>Editar</button>
+                                                                </div>
+                                                                {{/logged}}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -350,6 +355,11 @@
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
+                                                                {{#logged}}
+                                                                <div class="container text-right">
+                                                                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target=#addForWhat>Editar</button>
+                                                                </div>
+                                                                {{/logged}}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -368,6 +378,11 @@
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
+                                                                {{#logged}}
+                                                                <div class="container text-right">
+                                                                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target=#addWhat>Editar</button>
+                                                                </div>
+                                                                {{/logged}}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -386,6 +401,11 @@
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
+                                                                {{#logged}}
+                                                                <div class="container text-right">
+                                                                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target=#addHow>Editar</button>
+                                                                </div>
+                                                                {{/logged}}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -467,6 +487,100 @@
                         </form>
                     </div>
 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addWhy" tabindex="-1" role="">
+        <div class="modal-dialog modal-addUnit" role="document">
+            <div class="modal-content">
+                <div class="card card-signup card-plain">
+                    <div class="modal-header">
+                        <div class="card-header card-header-primary text-center">
+                            <h4 class="card-title">Por qué</h4>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form" method="post" action="/unit/{{id}}/add-record">
+                            <input type="hidden" value={{this.unit}} name={{this.unit}}/>
+                            <input type="hidden" value="WHY" name="WHY"/>
+                            <textarea class="form-control" name="value" rows="5"></textarea>
+                            <div class="card-body">
+                                <input type='submit' class="btn btn-primary" value='Guardar'/>
+                                <input type="hidden" name="_csrf" value="{{token}}" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addForWhat" tabindex="-1" role="">
+        <div class="modal-dialog modal-addUnit" role="document">
+            <div class="modal-content">
+                <div class="card card-signup card-plain">
+                    <div class="modal-header">
+                        <div class="card-header card-header-primary text-center">
+                            <h4 class="card-title">Para qué</h4>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form" method="post" action="/unit/{{id}}/add-record">
+                            <textarea class="form-control" name="texto" rows="5"></textarea>
+                            <div class="card-body">
+                                <input type='submit' class="btn btn-primary" value='Guardar'/>
+                                <input type="hidden" name="_csrf" value="{{token}}" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addWhat" tabindex="-1" role="">
+        <div class="modal-dialog modal-addUnit" role="document">
+            <div class="modal-content">
+                <div class="card card-signup card-plain">
+                    <div class="modal-header">
+                        <div class="card-header card-header-primary text-center">
+                            <h4 class="card-title">Qué</h4>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form" method="post" action="/unit/{{id}}/add-record">
+                            <textarea class="form-control" name="texto" rows="5"></textarea>
+                            <div class="card-body">
+                                <input type='submit' class="btn btn-primary" value='Guardar'/>
+                                <input type="hidden" name="_csrf" value="{{token}}" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addHow" tabindex="-1" role="">
+        <div class="modal-dialog modal-addUnit" role="document">
+            <div class="modal-content">
+                <div class="card card-signup card-plain">
+                    <div class="modal-header">
+                        <div class="card-header card-header-primary text-center">
+                            <h4 class="card-title">Cómo</h4>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form" method="post" action="/unit/{{id}}/add-recordn">
+                            <textarea class="form-control" name="texto" rows="5"></textarea>
+                            <div class="card-body">
+                                <input type='submit' class="btn btn-primary" value='Guardar'/>
+                                <input type="hidden" name="_csrf" value="{{token}}" />
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
