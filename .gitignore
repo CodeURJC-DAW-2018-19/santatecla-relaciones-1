@@ -22,5 +22,8 @@ dist/
 nbdist/
 .nb-gradle/
 
+###VSCode###
+.vscode
+
 ### MAC ##
 .DS_Store
