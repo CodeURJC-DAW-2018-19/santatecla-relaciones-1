@@ -2,136 +2,126 @@
 <html>
 
 <head>
-    <title>Tipo de documento</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-        crossorigin="anonymous">
-    <link href="/css/material-dashboard.css" rel="stylesheet" />
-    <link href="/css/style.css" rel="stylesheet" />
+<title>Tipo de documento</title>
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+	crossorigin="anonymous">
+<link href="/css/material-dashboard.css" rel="stylesheet" />
+<link href="/css/style.css" rel="stylesheet" />
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="row">
-            <div class="col-12 col-md-10 m-auto">
-                <div class="row">
-                    <div class="col-6">
-                        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-                            <div class="container-fluid">
-                                <div class="navbar-wrapper">
-                                    <a class="navbar-brand" href="/">Santatecla</a>
-                                </div>
-                            </div>
-                        </nav>
-                    </div>
-                    <div class="col-6">
-                        <div class="nav justify-content-end p-3">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <button class="btn btn-danger p-2 text-white" onclick="logOut()">
-                                        <i class="fas fa-user"></i>
-                                        <span class="my-extra-bold">LOGOUT</span>
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+	<div class="wrapper">
+		<div class="row">
+			<div class="col-12 col-md-10 m-auto">
+				<div class="row">
+					<div class="col-6">
+						<nav
+							class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+							<div class="container-fluid">
+								<div class="navbar-wrapper">
+									<a class="navbar-brand" href="/">Santatecla</a>
+								</div>
+							</div>
+						</nav>
+					</div>
+					<div class="col-6">
+						<div class="nav justify-content-end p-3">
+							<ul class="navbar-nav">
+								<li class="nav-item">
+									<button class="btn btn-danger p-2 text-white"
+										onclick="logOut()">
+										<i class="fas fa-user"></i> <span class="my-extra-bold">LOGOUT</span>
+									</button>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
 
 
 
-                <div class="card">
-                    <div class="card card-nav-tabs card-plain">
-                        <div class="card-header card-header-primary">
+				<div class="card">
+					<div class="card card-nav-tabs card-plain">
+						<div class="card-header card-header-primary">
 
-                            <div class="nav-tabs-navigation">
-                                <div class="nav-tabs-wrapper">
-                                    <ul class="nav nav-tabs" data-tabs="tabs">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" href="#list-of-units" data-toggle="tab">
-                                                <span>Unidades:</span>
-                                            </a>
-                                        </li>
-                                        {{#unit}}
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#unit1" data-toggle="tab">
-                                                <span>{{name}}</span>
-                                            </a>
-                                        </li>
-                                        {{/unit}}
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body ">
-                            <div class="tab-content text-center">
-                                <!-- List of units -->
-                                <div class="tab-pane active justify-content-start" id="list-of-units">
-                                    <table class="table my-table">
-                                        <tbody>
-                                        {{#units}}
-                                            <tr>
-                                                <td>
-                                                    <a href="/unit/{{id}}">{{name}}</a>
-                                                </td>
-                                            </tr>
-                                        {{/units}}
-                                            <a href= "/">Volver a la lista de Unidades</a>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- Unit 1 -->
-                                <div class="tab-pane" id="unit1">
-                                    <ul class="nav nav-pills nav-pills-primary pb-3" role="tablist">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" data-toggle="tab" href="#context" role="tablist"
-                                                aria-expanded="true">
-                                                <span>
-                                                    Contexto
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-toggle="tab" href="#detail" role="tablist"
-                                                aria-expanded="false">
-                                                <span>
-                                                    Detalle
-                                                </span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <div class="tab-content tab-space">
-                                        <!-- Context -->
-                                        <div class="tab-pane active" id="context" aria-expanded="true">
-                                            <div class="tab-content tab-space">
-                                                <div class="row justify-content-center">
-                                                    <div class="col-11">
-                                                        <div class="row justify-content-center my-mini-card-panel">
-                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
-                                                                <div class="card my-mini-card">
-                                                                    <div class="card-header my-mini-card-header">
-                                                                        <h4 class="card-title">Padres</h4>
-                                                                    </div>
-                                                                    <div class="card-body my-mini-card-body">
-                                                                        <table class="table my-table">
-                                                                            <tbody>
-                                                                                {{#parents}}
-                                                                                <tr>
-                                                                                	<td>{{name}}</td>
-                                                                                </tr>
-                                                                                {{/parents}}
-                                                                            </tbody>
-                                                                        </table>
-                                                                        <div>
-                                                                            <form method="post" action="add-parent"></form>
-                                                                            <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success" data-toggle="modal" data-target=#addParentModal>
-                                                                                <i class="material-icons">+</i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-															<div class="modal fade" id="addParentModal"
-																tabindex="-1" role="">
+							<div class="nav-tabs-navigation">
+								<div class="nav-tabs-wrapper">
+									<ul class="nav nav-tabs" data-tabs="tabs">
+										<li class="nav-item"><a class="nav-link active"
+											href="#list-of-units" data-toggle="tab"> <span>Unidades:</span>
+										</a></li> {{#unit}}
+										<li class="nav-item"><a class="nav-link" href="#unit1"
+											data-toggle="tab"> <span>{{name}}</span>
+										</a></li> {{/unit}}
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="card-body ">
+							<div class="tab-content text-center">
+								<!-- List of units -->
+								<div class="tab-pane active justify-content-start"
+									id="list-of-units">
+									<table class="table my-table">
+										<tbody>
+											{{#units}}
+											<tr>
+												<td><a href="/unit/{{id}}">{{name}}</a></td>
+											</tr>
+											{{/units}}
+											<a href="/">Volver a la lista de Unidades</a>
+										</tbody>
+									</table>
+								</div>
+								<!-- Unit 1 -->
+								<div class="tab-pane" id="unit1">
+									<ul class="nav nav-pills nav-pills-primary pb-3" role="tablist">
+										<li class="nav-item"><a class="nav-link active"
+											data-toggle="tab" href="#context" role="tablist"
+											aria-expanded="true"> <span> Contexto </span>
+										</a></li>
+										<li class="nav-item"><a class="nav-link"
+											data-toggle="tab" href="#detail" role="tablist"
+											aria-expanded="false"> <span> Detalle </span>
+										</a></li>
+									</ul>
+									<div class="tab-content tab-space">
+										<!-- Context -->
+										<div class="tab-pane active" id="context" aria-expanded="true">
+											<div class="tab-content tab-space">
+												<div class="row justify-content-center">
+													<div class="col-11">
+														<div class="row justify-content-center my-mini-card-panel">
+															<div
+																class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+																<div class="card my-mini-card">
+																	<div class="card-header my-mini-card-header">
+																		<h4 class="card-title">Padres</h4>
+																	</div>
+																	<div class="card-body my-mini-card-body">
+																		<table class="table my-table">
+																			<tbody>
+																				{{#parent}}
+																				<tr>
+																					<td>{{name}}</td>
+																				</tr>
+																				{{/parent}}
+																			</tbody>
+																		</table>
+																		<div>
+																			<button
+																				class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success"
+																				data-toggle="modal" data-target=#addParentModal>
+																				<i class="material-icons">+</i>
+																			</button>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="modal fade" id="addParentModal" tabindex="-1"
+																role="">
 																<div class="modal-dialog modal-addUnit" role="document">
 																	<div class="modal-content">
 																		<div class="card card-signup card-plain">
@@ -142,17 +132,20 @@
 																				</div>
 																			</div>
 																			<div class="modal-body">
-																				<form class="form" method="post"
-																					action="add-parent">
+																				<form class="form" action="/add-parent">
 																					<div class="card-body">
-																						<p>Unidad:</p>
-																						<input type="text" value={{unit.id}}
-																							name={{unit.name}} readonly />
+																						<div class="col-12">
+																							<div class="row">
+																								<p>Unidad:</p>
+																								<span class="ml-1">{{unit.name}}</span>
+																							</div>
+																						</div>
+																						<input type="text" value={{unit.id}} name=id />
 
 																						<div class="form-group">
 																							<label for="exampleSelect1">Seleccionar</label> <select
-																								class="form-control" id="exampleSelect1">
-																								{{#units}}
+																								class="form-control" id="relatedId"
+																								name="relatedId"> {{#units}}
 																								<option value={{id}}>{{name}}</option>
 																								{{/units}}
 																							</select>
@@ -168,30 +161,33 @@
 																	</div>
 																</div>
 															</div>
-                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
-                                                                <div class="card my-mini-card">
-                                                                    <div class="card-header my-mini-card-header">
-                                                                        <h4 class="card-title">Compuestos</h4>
-                                                                    </div>
-                                                                    <div class="card-body my-mini-card-body">
-                                                                        <table class="table my-table">
-                                                                            <tbody>
-                                                                                {{#compositions}}
-                                                                                <tr>
-                                                                                    <td>{{name}}</td>
-                                                                                </tr>
-                                                                                {{/compositions}}
-                                                                            </tbody>
-                                                                        </table>
-                                                                       <div>
-                                                                            <form method="post" action="add-composition"></form>
-                                                                            <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success" data-toggle="modal" data-target=#addCompositionModal>
-                                                                                <i class="material-icons">+</i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+															<div
+																class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+																<div class="card my-mini-card">
+																	<div class="card-header my-mini-card-header">
+																		<h4 class="card-title">Compuestos</h4>
+																	</div>
+																	<div class="card-body my-mini-card-body">
+																		<table class="table my-table">
+																			<tbody>
+																				{{#composition}}
+																				<tr>
+																					<td>{{name}}</td>
+																				</tr>
+																				{{/composition}}
+																			</tbody>
+																		</table>
+																		<div>
+
+																			<button
+																				class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success"
+																				data-toggle="modal" data-target=#addCompositionModal>
+																				<i class="material-icons">+</i>
+																			</button>
+																		</div>
+																	</div>
+																</div>
+															</div>
 															<div class="modal fade" id="addCompositionModal"
 																tabindex="-1" role="">
 																<div class="modal-dialog modal-addUnit" role="document">
@@ -204,17 +200,20 @@
 																				</div>
 																			</div>
 																			<div class="modal-body">
-																				<form class="form" method="post"
-																					action="add-composition">
+																				<form class="form" action="/add-composition">
 																					<div class="card-body">
-																						<p>Unidad:</p>
-																						<input type="text" value={{unit.id}}
-																							name={{unit.name}} readonly />
+																						<div class="col-12">
+																							<div class="row">
+																								<p>Unidad:</p>
+																								<span class="ml-1">{{unit.name}}</span>
+																							</div>
+																						</div>
+																						<input type="text" value={{unit.id}} name=id />
 
 																						<div class="form-group">
 																							<label for="exampleSelect1">Seleccionar</label> <select
-																								class="form-control" id="exampleSelect1">
-																								{{#units}}
+																								class="form-control" id="relatedId"
+																								name="relatedId"> {{#units}}
 																								<option value={{id}}>{{name}}</option>
 																								{{/units}}
 																							</select>
@@ -230,32 +229,34 @@
 																	</div>
 																</div>
 															</div>
-                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
-                                                                <div class="card my-mini-card">
-                                                                    <div class="card-header my-mini-card-header">
-                                                                        <h4 class="card-title">Usado por</h4>
-                                                                    </div>
-                                                                    <div class="card-body my-mini-card-body">
-                                                                        <table class="table my-table">
-                                                                            <tbody>
-                                                                                {{#used-by}}
-                                                                                <tr>
-                                                                                    <td>{{name}}</td>
-                                                                                </tr>
-                                                                                {{/used-by}}
-                                                                            </tbody>
-                                                                        </table>
-                                                                        <div>
-                                                                            <form method="post" action="add-usedBy"></form>
-                                                                            <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success" data-toggle="modal" data-target=#addUsedByModal>
-                                                                                <i class="material-icons">+</i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-															<div class="modal fade" id="addUsedByModal"
-																tabindex="-1" role="">
+															<div
+																class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+																<div class="card my-mini-card">
+																	<div class="card-header my-mini-card-header">
+																		<h4 class="card-title">Usado por</h4>
+																	</div>
+																	<div class="card-body my-mini-card-body">
+																		<table class="table my-table">
+																			<tbody>
+																				{{#used-by}}
+																				<tr>
+																					<td>{{name}}</td>
+																				</tr>
+																				{{/used-by}}
+																			</tbody>
+																		</table>
+																		<div>
+																			<button
+																				class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success"
+																				data-toggle="modal" data-target=#addUseByModal>
+																				<i class="material-icons">+</i>
+																			</button>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="modal fade" id="addUseByModal" tabindex="-1"
+																role="">
 																<div class="modal-dialog modal-addUnit" role="document">
 																	<div class="modal-content">
 																		<div class="card card-signup card-plain">
@@ -266,17 +267,20 @@
 																				</div>
 																			</div>
 																			<div class="modal-body">
-																				<form class="form" method="post"
-																					action="add-usedBy">
+																				<form class="form" action="/add-useBy">
 																					<div class="card-body">
-																						<p>Unidad:</p>
-																						<input type="text" value={{unit.id}}
-																							name={{unit.name}} readonly />
+																						<div class="col-12">
+																							<div class="row">
+																								<p>Unidad:</p>
+																								<span class="ml-1">{{unit.name}}</span>
+																							</div>
+																						</div>
+																						<input type="text" value={{unit.id}} name=id />
 
 																						<div class="form-group">
 																							<label for="exampleSelect1">Seleccionar</label> <select
-																								class="form-control" id="exampleSelect1">
-																								{{#units}}
+																								class="form-control" id="relatedId"
+																								name="relatedId"> {{#units}}
 																								<option value={{id}}>{{name}}</option>
 																								{{/units}}
 																							</select>
@@ -291,30 +295,34 @@
 																		</div>
 																	</div>
 																</div>
-															</div>                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
-                                                                <div class="card my-mini-card">
-                                                                    <div class="card-header my-mini-card-header">
-                                                                        <h4 class="card-title">Asociados por</h4>
-                                                                    </div>
-                                                                    <div class="card-body my-mini-card-body">
-                                                                        <table class="table my-table">
-                                                                            <tbody>
-                                                                                {{#associated-by}}
-                                                                                <tr>
-                                                                                    <td>{{name}}</td>
-                                                                                </tr>
-                                                                                {{/associated-by}}
-                                                                            </tbody>
-                                                                        </table>
-                                                                        <div>
-                                                                            <form method="post" action="add-associatedBy"></form>
-                                                                            <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success" data-toggle="modal" data-target=#addAsspciatedByModal>
-                                                                                <i class="material-icons">+</i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+															</div>
+															<div
+																class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+																<div class="card my-mini-card">
+																	<div class="card-header my-mini-card-header">
+																		<h4 class="card-title">Asociados por</h4>
+																	</div>
+																	<div class="card-body my-mini-card-body">
+																		<table class="table my-table">
+																			<tbody>
+																				{{#associated-by}}
+																				<tr>
+																					<td>{{name}}</td>
+																				</tr>
+																				{{/associated-by}}
+																			</tbody>
+																		</table>
+																		<div>
+																			<button
+																				class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success"
+																				data-toggle="modal"
+																				data-target=#addAssociatedByModal>
+																				<i class="material-icons">+</i>
+																			</button>
+																		</div>
+																	</div>
+																</div>
+															</div>
 															<div class="modal fade" id="addAssociatedByModal"
 																tabindex="-1" role="">
 																<div class="modal-dialog modal-addUnit" role="document">
@@ -327,17 +335,20 @@
 																				</div>
 																			</div>
 																			<div class="modal-body">
-																				<form class="form" method="post"
-																					action="add-associatedBy">
+																				<form class="form" action="/add-associatedBy">
 																					<div class="card-body">
-																						<p>Unidad:</p>
-																						<input type="text" value={{unit.id}}
-																							name={{unit.name}} readonly />
+																						<div class="col-12">
+																							<div class="row">
+																								<p>Unidad:</p>
+																								<span class="ml-1">{{unit.name}}</span>
+																							</div>
+																						</div>
+																						<input type="text" value={{unit.id}} name=id />
 
 																						<div class="form-group">
 																							<label for="exampleSelect1">Seleccionar</label> <select
-																								class="form-control" id="exampleSelect1">
-																								{{#units}}
+																								class="form-control" id="relatedId"
+																								name="relatedId"> {{#units}}
 																								<option value={{id}}>{{name}}</option>
 																								{{/units}}
 																							</select>
@@ -353,42 +364,46 @@
 																	</div>
 																</div>
 															</div>
-                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
-                                                                <div class="card my-mini-card">
-                                                                    <div class="card-header my-mini-card-header">
-                                                                        {{#unit}}
-                                                                        <h4 class="card-title">Unidad</h4>
-                                                                    </div>
-                                                                    <div class="card-body my-mini-card-body">
-                                                                        <H4>{{name}}</H4>
-                                                                        {{/unit}}
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
-                                                                <div class="card my-mini-card">
-                                                                    <div class="card-header my-mini-card-header">
-                                                                        <h4 class="card-title">Asociado a</h4>
-                                                                    </div>
-                                                                    <div class="card-body my-mini-card-body">
-                                                                        <table class="table my-table">
-                                                                            <tbody>
-                                                                                {{#associated-to}}
-                                                                                <tr>
-                                                                                    <td>{{name}}</td>
-                                                                                </tr>
-                                                                                {{/associated-to}}
-                                                                            </tbody>
-                                                                        </table>
-                                                                        <div>
-                                                                            <form method="post" action="add-asociatedTo"></form>
-                                                                            <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success" data-toggle="modal" data-target=#addAssociatedToModal>
-                                                                                <i class="material-icons">+</i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+															<div
+																class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+																<div class="card my-mini-card">
+																	<div class="card-header my-mini-card-header">
+																		{{#unit}}
+																		<h4 class="card-title">Unidad</h4>
+																	</div>
+																	<div class="card-body my-mini-card-body">
+																		<H4>{{name}}</H4>
+																		{{/unit}}
+																	</div>
+																</div>
+															</div>
+															<div
+																class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+																<div class="card my-mini-card">
+																	<div class="card-header my-mini-card-header">
+																		<h4 class="card-title">Asociado a</h4>
+																	</div>
+																	<div class="card-body my-mini-card-body">
+																		<table class="table my-table">
+																			<tbody>
+																				{{#associated-to}}
+																				<tr>
+																					<td>{{name}}</td>
+																				</tr>
+																				{{/associated-to}}
+																			</tbody>
+																		</table>
+																		<div>
+																			<button
+																				class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success"
+																				data-toggle="modal"
+																				data-target=#addAssociatedToModal>
+																				<i class="material-icons">+</i>
+																			</button>
+																		</div>
+																	</div>
+																</div>
+															</div>
 															<div class="modal fade" id="addAssociatedToModal"
 																tabindex="-1" role="">
 																<div class="modal-dialog modal-addUnit" role="document">
@@ -401,17 +416,20 @@
 																				</div>
 																			</div>
 																			<div class="modal-body">
-																				<form class="form" method="post"
-																					action="add-associatedTo">
+																				<form class="form" action="/add-associatedTo">
 																					<div class="card-body">
-																						<p>Unidad:</p>
-																						<input type="text" value={{unit.id}}
-																							name={{unit.name}} readonly />
+																						<div class="col-12">
+																							<div class="row">
+																								<p>Unidad:</p>
+																								<span class="ml-1">{{unit.name}}</span>
+																							</div>
+																						</div>
+																						<input type="text" value={{unit.id}} name=id />
 
 																						<div class="form-group">
 																							<label for="exampleSelect1">Seleccionar</label> <select
-																								class="form-control" id="exampleSelect1">
-																								{{#units}}
+																								class="form-control" id="relatedId"
+																								name="relatedId"> {{#units}}
 																								<option value={{id}}>{{name}}</option>
 																								{{/units}}
 																							</select>
@@ -427,32 +445,34 @@
 																	</div>
 																</div>
 															</div>
-                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
-                                                                <div class="card my-mini-card">
-                                                                    <div class="card-header my-mini-card-header">
-                                                                        <h4 class="card-title">Usan</h4>
-                                                                    </div>
-                                                                    <div class="card-body my-mini-card-body">
-                                                                        <table class="table my-table">
-                                                                            <tbody>
-                                                                                {{#uses}}
-                                                                                <tr>
-                                                                                    <td>{{name}}</td>
-                                                                                </tr>
-                                                                                {{/uses}}
-                                                                            </tbody>
-                                                                        </table>
-                                                                        <div>
-                                                                            <form method="post" action="add-use"></form>
-                                                                            <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success" data-toggle="modal" data-target=#addUseModal>
-                                                                                <i class="material-icons">+</i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-															<div class="modal fade" id="addUseModal"
-																tabindex="-1" role="">
+															<div
+																class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+																<div class="card my-mini-card">
+																	<div class="card-header my-mini-card-header">
+																		<h4 class="card-title">Usan</h4>
+																	</div>
+																	<div class="card-body my-mini-card-body">
+																		<table class="table my-table">
+																			<tbody>
+																				{{#use}}
+																				<tr>
+																					<td>{{name}}</td>
+																				</tr>
+																				{{/use}}
+																			</tbody>
+																		</table>
+																		<div>
+																			<button
+																				class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success"
+																				data-toggle="modal" data-target=#addUseModal>
+																				<i class="material-icons">+</i>
+																			</button>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="modal fade" id="addUseModal" tabindex="-1"
+																role="">
 																<div class="modal-dialog modal-addUnit" role="document">
 																	<div class="modal-content">
 																		<div class="card card-signup card-plain">
@@ -463,17 +483,20 @@
 																				</div>
 																			</div>
 																			<div class="modal-body">
-																				<form class="form" method="post"
-																					action="add-use">
+																				<form class="form" action="/add-use">
 																					<div class="card-body">
-																						<p>Unidad:</p>
-																						<input type="text" value={{unit.id}}
-																							name={{unit.name}} readonly />
+																						<div class="col-12">
+																							<div class="row">
+																								<p>Unidad:</p>
+																								<span class="ml-1">{{unit.name}}</span>
+																							</div>
+																						</div>
+																						<input type="text" value={{unit.id}} name=id />
 
 																						<div class="form-group">
 																							<label for="exampleSelect1">Seleccionar</label> <select
-																								class="form-control" id="exampleSelect1">
-																								{{#units}}
+																								class="form-control" id="relatedId"
+																								name="relatedId"> {{#units}}
 																								<option value={{id}}>{{name}}</option>
 																								{{/units}}
 																							</select>
@@ -489,34 +512,34 @@
 																	</div>
 																</div>
 															</div>
-                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
-                                                                <div class="card my-mini-card">
-                                                                    <div class="card-header my-mini-card-header">
-                                                                        <h4 class="card-title">Partes</h4>
-                                                                    </div>
-                                                                    <div class="card-body my-mini-card-body">
-                                                                        <table class="table my-table">
-                                                                            <tbody>
-                                                                                {{#parts}}
-                                                                                <tr>
-                                                                                    <td>
-                                                                                        {{name}}
-                                                                                    </td>
-                                                                                </tr>
-                                                                                {{/parts}}
-                                                                            </tbody>
-                                                                        </table>
-                                                                       <div>
-                                                                            <form method="post" action="add-part"></form>
-                                                                            <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success" data-toggle="modal" data-target=#addPartModal>
-                                                                                <i class="material-icons">+</i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-															<div class="modal fade" id="addPartModal"
-																tabindex="-1" role="">
+															<div
+																class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+																<div class="card my-mini-card">
+																	<div class="card-header my-mini-card-header">
+																		<h4 class="card-title">Partes</h4>
+																	</div>
+																	<div class="card-body my-mini-card-body">
+																		<table class="table my-table">
+																			<tbody>
+																				{{#part}}
+																				<tr>
+																					<td>{{name}}</td>
+																				</tr>
+																				{{/part}}
+																			</tbody>
+																		</table>
+																		<div>
+																			<button
+																				class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success"
+																				data-toggle="modal" data-target=#addPartModal>
+																				<i class="material-icons">+</i>
+																			</button>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="modal fade" id="addPartModal" tabindex="-1"
+																role="">
 																<div class="modal-dialog modal-addUnit" role="document">
 																	<div class="modal-content">
 																		<div class="card card-signup card-plain">
@@ -527,17 +550,20 @@
 																				</div>
 																			</div>
 																			<div class="modal-body">
-																				<form class="form" method="post"
-																					action="add-part">
+																				<form class="form" action="/add-part">
 																					<div class="card-body">
-																						<p>Unidad:</p>
-																						<input type="text" value={{unit.id}}
-																							name={{unit.name}} readonly />
+																						<div class="col-12">
+																							<div class="row">
+																								<p>Unidad:</p>
+																								<span class="ml-1">{{unit.name}}</span>
+																							</div>
+																						</div>
+																						<input type="text" value={{unit.id}} name=id />
 
 																						<div class="form-group">
 																							<label for="exampleSelect1">Seleccionar</label> <select
-																								class="form-control" id="exampleSelect1">
-																								{{#units}}
+																								class="form-control" id="relatedId"
+																								name="relatedId"> {{#units}}
 																								<option value={{id}}>{{name}}</option>
 																								{{/units}}
 																							</select>
@@ -553,30 +579,33 @@
 																	</div>
 																</div>
 															</div>
-                                                            <div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
-                                                                <div class="card my-mini-card">
-                                                                    <div class="card-header my-mini-card-header">
-                                                                        <h4 class="card-title">Hijas</h4>
-                                                                    </div>
-                                                                    <div class="card-body my-mini-card-body">
-                                                                        <table class="table my-table">
-                                                                            <tbody>
-                                                                                {{#children}}
-                                                                                <tr>
-                                                                                    <td>{{name}}</td>
-                                                                                </tr>
-                                                                                {{/children}}
-                                                                            </tbody>
-                                                                        </table>
-                                                                        <div>
-                                                                            <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success" data-toggle="modal" data-target=#addRelationModal>
-                                                                            <i class="material-icons">+</i>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-															<div class="modal fade" id="addChildModal"
-																tabindex="-1" role="">
+															<div
+																class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+																<div class="card my-mini-card">
+																	<div class="card-header my-mini-card-header">
+																		<h4 class="card-title">Hijas</h4>
+																	</div>
+																	<div class="card-body my-mini-card-body">
+																		<table class="table my-table">
+																			<tbody>
+																				{{#children}}
+																				<tr>
+																					<td>{{name}}</td>
+																				</tr>
+																				{{/children}}
+																			</tbody>
+																		</table>
+																		<div>
+																			<button
+																				class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success"
+																				data-toggle="modal" data-target=#addChildModal>
+																				<i class="material-icons">+</i>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="modal fade" id="addChildModal" tabindex="-1"
+																role="">
 																<div class="modal-dialog modal-addUnit" role="document">
 																	<div class="modal-content">
 																		<div class="card card-signup card-plain">
@@ -587,17 +616,20 @@
 																				</div>
 																			</div>
 																			<div class="modal-body">
-																				<form class="form" method="post"
-																					action="add-child">
+																				<form class="form" action="/add-child">
 																					<div class="card-body">
-																						<p>Unidad:</p>
-																						<input type="text" value={{unit.id}}
-																							name={{unit.name}} readonly />
+																						<div class="col-12">
+																							<div class="row">
+																								<p>Unidad:</p>
+																								<span class="ml-1">{{unit.name}}</span>
+																							</div>
+																						</div>
+																						<input type="text" value={{unit.id}} name=id />
 
 																						<div class="form-group">
 																							<label for="exampleSelect1">Seleccionar</label> <select
-																								class="form-control" id="exampleSelect1">
-																								{{#units}}
+																								class="form-control" id="relatedId"
+																								name="relatedId"> {{#units}}
 																								<option value={{id}}>{{name}}</option>
 																								{{/units}}
 																							</select>
@@ -615,185 +647,137 @@
 															</div>
 
 														</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- detail -->
-                                        <div class="tab-pane" id="detail" aria-expanded="false">
-                                            <div class="tab-content tab-space">
-                                                <div class="row justify-content-center">
-                                                    <div class="col-11">
-                                                        <div class="card">
-                                                            <div class="card-header card-header-success">
-                                                                <h4 class="card-title">Por qué</h4>
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <table class="table my-table">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td>##Título</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>###Subtitulo</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <span> · Elemento 1</span>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-11">
-                                                        <div class="card">
-                                                            <div class="card-header card-header-warning">
-                                                                <h4 class="card-title">Para qué</h4>
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <table class="table my-table">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- detail -->
+										<div class="tab-pane" id="detail" aria-expanded="false">
+											<div class="tab-content tab-space">
+												<div class="row justify-content-center">
+													<div class="col-11">
+														<div class="card">
+															<div class="card-header card-header-success">
+																<h4 class="card-title">Por qué</h4>
+															</div>
+															<div class="card-body">
+																<table class="table my-table">
+																	<tbody>
+																		<tr>
+																			<td>##Título</td>
+																		</tr>
+																		<tr>
+																			<td>###Subtitulo</td>
+																		</tr>
+																		<tr>
+																			<td><span> · Elemento 1</span></td>
+																		</tr>
+																	</tbody>
+																</table>
+															</div>
+														</div>
+													</div>
+													<div class="col-11">
+														<div class="card">
+															<div class="card-header card-header-warning">
+																<h4 class="card-title">Para qué</h4>
+															</div>
+															<div class="card-body">
+																<table class="table my-table">
+																	<tbody>
+																		<tr>
+																			<td></td>
+																		</tr>
+																	</tbody>
+																</table>
+															</div>
+														</div>
+													</div>
+													<div class="col-11">
+														<div class="card">
+															<div class="card-header card-header-info">
+																<h4 class="card-title">Qué</h4>
+															</div>
+															<div class="card-body">
+																<table class="table my-table">
+																	<tbody>
+																		<tr>
+																			<td></td>
+																		</tr>
+																	</tbody>
+																</table>
+															</div>
+														</div>
+													</div>
+													<div class="col-11">
+														<div class="card">
+															<div class="card-header card-header-primary">
+																<h4 class="card-title">Cómo</h4>
+															</div>
+															<div class="card-body">
+																<table class="table my-table">
+																	<tbody>
+																		<tr>
+																			<td></td>
+																		</tr>
+																	</tbody>
+																</table>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- Unit 2 -->
+								<div class="tab-pane" id="unit2">
+									<p>I think that&#x2019;s a responsibility that I have, to
+										push possibilities, to show people, this is the level that
+										things could be at. I will be the leader of a company that
+										ends up being worth billions of dollars, because I got the
+										answers. I understand culture. I am the nucleus. I think
+										that&#x2019;s a responsibility that I have, to push
+										possibilities, to show people, this is the level that things
+										could be at.</p>
+								</div>
+								<!-- Unit 3 -->
+								<div class="tab-pane" id="unit3">
+									<p>I think that&#x2019;s a responsibility that I have, to
+										push possibilities, to show people, this is the level that
+										things could be at. I will be the leader of a company that
+										ends up being worth billions of dollars, because I got the
+										answers. I understand culture. I am the nucleus. I think
+										that&#x2019;s a responsibility that I have, to push
+										possibilities, to show people, this is the level that things
+										could be at.</p>
+								</div>
+								<!-- Unit 4 -->
+								<div class="tab-pane" id="unit4">
+									<p>I think that&#x2019;s a responsibility that I have, to
+										push possibilities, to show people, this is the level that
+										things could be at. I will be the leader of a company that
+										ends up being worth billions of dollars, because I got the
+										answers. I understand culture. I am the nucleus. I think
+										that&#x2019;s a responsibility that I have, to push
+										possibilities, to show people, this is the level that things
+										could be at.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-11">
-                                                        <div class="card">
-                                                            <div class="card-header card-header-info">
-                                                                <h4 class="card-title">Qué</h4>
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <table class="table my-table">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td>
 
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-11">
-                                                        <div class="card">
-                                                            <div class="card-header card-header-primary">
-                                                                <h4 class="card-title">Cómo</h4>
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <table class="table my-table">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td>
 
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Unit 2 -->
-                                <div class="tab-pane" id="unit2">
-                                    <p> I think that&#x2019;s a responsibility that I have, to push possibilities, to
-                                        show people, this
-                                        is the level that things could be at. I will be the leader of a company that
-                                        ends up being
-                                        worth billions of dollars, because I got the answers. I understand culture. I
-                                        am the nucleus. I
-                                        think that&#x2019;s a responsibility that I have, to push possibilities, to
-                                        show people, this
-                                        is the level that things could be at.</p>
-                                </div>
-                                <!-- Unit 3 -->
-                                <div class="tab-pane" id="unit3">
-                                    <p> I think that&#x2019;s a responsibility that I have, to push possibilities, to
-                                        show people, this
-                                        is the level that things could be at. I will be the leader of a company that
-                                        ends up being
-                                        worth billions of dollars, because I got the answers. I understand culture. I
-                                        am the nucleus. I
-                                        think that&#x2019;s a responsibility that I have, to push possibilities, to
-                                        show people, this
-                                        is the level that things could be at.</p>
-                                </div>
-                                <!-- Unit 4 -->
-                                <div class="tab-pane" id="unit4">
-                                    <p> I think that&#x2019;s a responsibility that I have, to push possibilities, to
-                                        show people, this
-                                        is the level that things could be at. I will be the leader of a company that
-                                        ends up being
-                                        worth billions of dollars, because I got the answers. I understand culture. I
-                                        am the nucleus. I
-                                        think that&#x2019;s a responsibility that I have, to push possibilities, to
-                                        show people, this
-                                        is the level that things could be at.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="addRelationModal" tabindex="-1" role="">
-        <div class="modal-dialog modal-addUnit" role="document">
-            <div class="modal-content">
-                <div class="card card-signup card-plain">
-                    <div class="modal-header">
-                        <div class="card-header card-header-primary text-center">
-                            <h4 class="card-title">Nueva Relación</h4>
-                        </div>
-                    </div>
-                    <div class="modal-body">
-                        <form class="form" action="/add-child" >
-                            <div class="card-body">
-                                <div class="col-12">
-                                    <div class="row">
-                                        <p>Unidad:</p>
-                                        <span class="ml-1">{{unit.name}}</span>
-                                    </div>
-                                </div>
-                                <input type="text" value={{unit.id}} name=id />
-
-                                <div class="form-group">
-                                    <label for="exampleSelect1">Seleccionar</label>
-                                    <select class="form-control" id="relatedId" name="relatedId">
-                                        {{#units}}
-                                        <option value={{id}}>{{name}}</option>
-                                        {{/units}}
-                                    </select>
-                                </div>
-                                <input type='submit' class="btn btn-primary" value='Enviar'/>
-                                <input type="hidden" name="_csrf" value="{{token}}" />
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--   Core JS Files   -->
-    <script src="/js/core/jquery.min.js"></script>
-    <script src="/js/core/popper.min.js"></script>
-    <script src="/js/core/bootstrap-material-design.min.js"></script>
-    <script src="/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+	<!--   Core JS Files   -->
+	<script src="/js/core/jquery.min.js"></script>
+	<script src="/js/core/popper.min.js"></script>
+	<script src="/js/core/bootstrap-material-design.min.js"></script>
+	<script src="/js/plugins/perfect-scrollbar.jquery.min.js"></script>
 </body>
 
 </html>

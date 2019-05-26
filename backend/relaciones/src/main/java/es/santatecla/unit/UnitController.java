@@ -74,6 +74,14 @@ public class UnitController {
 		
 		return "/alumn-units";
 	}
+	
+	@RequestMapping("/add-parent")
+	public String addParentFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
+		int unitId = Integer.parseInt(id);
+		int relatedUnitId = Integer.parseInt(relatedId);
+		this.relationService.AddRelations(unitId, relatedUnitId, RelationsEnum.PARENT);
+	return this.getUnit(model, unitId);
+	}
 
 	@RequestMapping("/add-child")
 	public String addChildFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
@@ -82,6 +90,56 @@ public class UnitController {
 		this.relationService.AddRelations(unitId, relatedUnitId, RelationsEnum.CHILD );
 	return this.getUnit(model, unitId);
 	}
+	
+	@RequestMapping("/add-composition")
+	public String addCompositionFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
+		int unitId = Integer.parseInt(id);
+		int relatedUnitId = Integer.parseInt(relatedId);
+		this.relationService.AddRelations(unitId, relatedUnitId, RelationsEnum.COMPOSITION);
+	return this.getUnit(model, unitId);
+	}
+	
+	@RequestMapping("/add-part")
+	public String addPartFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
+		int unitId = Integer.parseInt(id);
+		int relatedUnitId = Integer.parseInt(relatedId);
+		this.relationService.AddRelations(unitId, relatedUnitId, RelationsEnum.PART);
+	return this.getUnit(model, unitId);
+	}
+	
+	@RequestMapping("/add-use")
+	public String addUseFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
+		int unitId = Integer.parseInt(id);
+		int relatedUnitId = Integer.parseInt(relatedId);
+		this.relationService.AddRelations(unitId, relatedUnitId, RelationsEnum.USE);
+	return this.getUnit(model, unitId);
+	}
+	
+	@RequestMapping("/add-useBy")
+	public String addUseByFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
+		int unitId = Integer.parseInt(id);
+		int relatedUnitId = Integer.parseInt(relatedId);
+		this.relationService.AddRelations(unitId, relatedUnitId, RelationsEnum.USE_BY);
+	return this.getUnit(model, unitId);
+	}
+	
+	@RequestMapping("/add-associatedBy")
+	public String addAssociatedByFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
+		int unitId = Integer.parseInt(id);
+		int relatedUnitId = Integer.parseInt(relatedId);
+		this.relationService.AddRelations(unitId, relatedUnitId, RelationsEnum.ASSOCIATED_BY);
+	return this.getUnit(model, unitId);
+	}
+	
+	@RequestMapping("/add-associatedTo")
+	public String addAssociatedToFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
+		int unitId = Integer.parseInt(id);
+		int relatedUnitId = Integer.parseInt(relatedId);
+		this.relationService.AddRelations(unitId, relatedUnitId, RelationsEnum.ASSOCIATED_TO);
+	return this.getUnit(model, unitId);
+	}
+	
+	
 
 	
 	@RequestMapping("/add-unit")
