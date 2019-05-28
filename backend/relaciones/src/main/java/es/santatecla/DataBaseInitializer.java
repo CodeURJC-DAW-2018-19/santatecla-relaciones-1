@@ -1,11 +1,9 @@
 package es.santatecla;
 
 
-import es.santatecla.relation.RelationRepository;
 import es.santatecla.relation.RelationService;
 import es.santatecla.enums.RelationsEnum;
 import es.santatecla.unit.Unit;
-import es.santatecla.unit.UnitRepository;
 import es.santatecla.unit.UnitService;
 import es.santatecla.user.User;
 import es.santatecla.user.UserRepository;
@@ -24,9 +22,6 @@ public class DataBaseInitializer {
     private UnitService unitService;
     @Autowired
     private RelationService relationService;
-    
-    @Autowired
-    private RelationRepository relationRepository;
     
     @PostConstruct
     public void init() {
