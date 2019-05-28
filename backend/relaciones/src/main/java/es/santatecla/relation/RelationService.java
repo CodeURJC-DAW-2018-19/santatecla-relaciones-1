@@ -45,8 +45,26 @@ public class RelationService {
 		relationRepository.save(opositeRelation);
 		return relationRepository.save(relation);
 	}
+
+	public void deleteRelation(long idUnit, long idRelatedUnit) {
+		Unit unit = this.unitRepository.findById(idUnit);
+		if (unit == null) return;
+		List<Relation> relations = this.relationRepository.findByUnit(unit);
+		if (relations == null) return;
+		Relation relation = null;
+
+		for (Relation rel : relations) {
+			if (rel.getOpositeUnitId() == idRelatedUnit) {
+				relation = rel;
+			}
+		}
+
+		if (relation != null) {
+			this.deleteRelationAndOposite(idUnit, relation.getId());
+		}
+	}
 	
-	public void deleteRelation(long idUnit, long idRelation) {
+	private void deleteRelationAndOposite(long idUnit, long idRelation) {
 		Relation relation = this.relationRepository.findById(idRelation);
 		if (relation != null) {
 			deleteOpositeRelations(idUnit, relation);
@@ -55,12 +73,16 @@ public class RelationService {
 	}
 
 	private void deleteOpositeRelations(long idUnit, Relation relation) {
-		Unit opositeUnit = this.unitRepository.findById(relation.getUnit().getId());
-		opositeUnit.getRelations().forEach((rel) -> {
-			if (rel.getUnit().getId() == idUnit && this.opositeRelation.get(relation) == rel.getType()) {
+		Unit opositeUnit = this.unitRepository.findById(relation.getOpositeUnitId());
+		if (opositeUnit == null) return;
+		List<Relation> relations = this.relationRepository.findByUnit(opositeUnit);
+		if (relations == null) return;
+
+		for (Relation rel : relations) {
+			if (rel.getOpositeUnitId() == idUnit) {
 				this.relationRepository.delete(rel);
 			}
-		});
+		}
 	}
 
 	private void putOpositeRelations() {
