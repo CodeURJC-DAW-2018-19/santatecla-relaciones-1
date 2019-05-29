@@ -994,16 +994,11 @@
 															<div class="card-body">
 																<table class="table my-table">
                                                                     <tbody>
-                                                                    {{#what}}
+                                                                    {{#for_what}}
                                                                     <tr>
                                                                         <td>{{value}}</td>
-																	</tr>
-																	<tr>
-																		<td>
-																			<img src="{{image}}">
-																		</td>
-																	</tr>
-                                                                    {{/what}}
+                                                                    </tr>
+                                                                    {{/for_what}}
                                                                     </tbody>
 																</table>
                                                                 <div class="container text-right">
@@ -1025,6 +1020,30 @@
 														</div>
 													</div>
 
+                                                    <div class="modal fade" id="addForWhat" tabindex="-1" role="">
+                                                        <div class="modal-dialog modal-addUnit" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="card card-signup card-plain">
+                                                                    <div class="modal-header">
+                                                                        <div class="card-header card-header-primary text-center">
+                                                                            <h4 class="card-title">Para qué</h4>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <form class="form" method="post" action="/add-forWhat">
+                                                                            <input type="hidden" value={{unit.id}} name=id readonly/>
+                                                                            <textarea class="form-control" name="value" rows="5"></textarea>
+                                                                            <div class="card-body">
+                                                                                <input type='submit' class="btn btn-primary" value='Guardar'/>
+                                                                                <input type="hidden" name="_csrf" value="{{token}}" />
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
 													<div class="col-11">
 														<div class="card">
 															<div class="card-header card-header-info">
@@ -1032,11 +1051,13 @@
 															</div>
 															<div class="card-body">
 																<table class="table my-table">
-																	<tbody>
-																		<tr>
-																			<td></td>
-																		</tr>
-																	</tbody>
+                                                                    <tbody>
+                                                                    {{#what}}
+                                                                    <tr>
+                                                                        <td>{{value}}</td>
+                                                                    </tr>
+                                                                    {{/what}}
+                                                                    </tbody>
 																</table>
                                                                 {{#logged}}
                                                                 <div class="container text-right">
@@ -1047,6 +1068,30 @@
 														</div>
 													</div>
 
+                                                    <div class="modal fade" id="addWhat" tabindex="-1" role="">
+                                                        <div class="modal-dialog modal-addUnit" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="card card-signup card-plain">
+                                                                    <div class="modal-header">
+                                                                        <div class="card-header card-header-primary text-center">
+                                                                            <h4 class="card-title">Qué</h4>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <form class="form" method="post" action="/add-what">
+                                                                            <input type="hidden" value={{unit.id}} name=id readonly/>
+                                                                            <textarea class="form-control" name="value" rows="5"></textarea>
+                                                                            <div class="card-body">
+                                                                                <input type='submit' class="btn btn-primary" value='Guardar'/>
+                                                                                <input type="hidden" name="_csrf" value="{{token}}" />
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
 													<div class="col-11">
 														<div class="card">
 															<div class="card-header card-header-primary">
@@ -1054,11 +1099,13 @@
 															</div>
 															<div class="card-body">
 																<table class="table my-table">
-																	<tbody>
-																		<tr>
-																			<td></td>
-																		</tr>
-																	</tbody>
+                                                                    <tbody>
+                                                                    {{#how}}
+                                                                    <tr>
+                                                                        <td>{{value}}</td>
+                                                                    </tr>
+                                                                    {{/how}}
+                                                                    </tbody>
 																</table>
                                                                 {{#logged}}
                                                                 <div class="container text-right">
@@ -1068,6 +1115,31 @@
 															</div>
 														</div>
 													</div>
+
+                                                    <div class="modal fade" id="addHow" tabindex="-1" role="">
+                                                        <div class="modal-dialog modal-addUnit" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="card card-signup card-plain">
+                                                                    <div class="modal-header">
+                                                                        <div class="card-header card-header-primary text-center">
+                                                                            <h4 class="card-title">Cómo</h4>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <form class="form" method="post" action="/add-how">
+                                                                            <input type="hidden" value={{unit.id}} name=id readonly/>
+                                                                            <textarea class="form-control" name="value" rows="5"></textarea>
+                                                                            <div class="card-body">
+                                                                                <input type='submit' class="btn btn-primary" value='Guardar'/>
+                                                                                <input type="hidden" name="_csrf" value="{{token}}" />
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
 												</div>
 											</div>
 										</div>
