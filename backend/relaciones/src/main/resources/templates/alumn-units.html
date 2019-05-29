@@ -98,18 +98,42 @@
 																			<tbody>
 																				{{#parents}}
 																				<tr>
-																					<td>{{name}}</td>
+																					<td>																						
+																						<span>{{name}}</span>
+																						{{#admin}}
+																						<form method="post"
+																							action="/delete-relation">
+																							<input type="hidden"
+																								name="id"
+																								value="{{unit.id}}" />
+																							<input type="hidden"
+																								name="relatedId"
+																								value="{{id}}" />
+																							<button type="submit"
+																								class="btn btn-primary btn-link">
+																								<i
+																									class="fas fa-trash-alt"></i>
+																							</button>
+																							<input type="hidden"
+																								name="_csrf"
+																								value="{{token}}" />
+																						</form>
+																						{{/admin}}
+																					</td>
 																				</tr>
+
 																				{{/parents}}
 																			</tbody>
 																		</table>
 																		<div>
+																			{{#admin}}
 																			<button
 																				class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success"
 																				data-toggle="modal"
 																				data-target=#addParentModal>
 																				<i class="material-icons">+</i>
 																			</button>
+																			{{/admin}}
 																		</div>
 																	</div>
 																</div>
@@ -174,19 +198,42 @@
 																			<tbody>
 																				{{#compositions}}
 																				<tr>
-																					<td>{{name}}</td>
+																					<td>																						
+																						<span>{{name}}</span>
+																						{{#admin}}
+																						<form method="post"
+																							action="/delete-relation">
+																							<input type="hidden"
+																								name="id"
+																								value="{{unit.id}}" />
+																							<input type="hidden"
+																								name="relatedId"
+																								value="{{id}}" />
+																							<button type="submit"
+																								class="btn btn-primary btn-link">
+																								<i
+																									class="fas fa-trash-alt"></i>
+																							</button>
+																							<input type="hidden"
+																								name="_csrf"
+																								value="{{token}}" />
+																						</form>
+																						{{/admin}}
+																					</td>
 																				</tr>
+
 																				{{/compositions}}
 																			</tbody>
 																		</table>
 																		<div>
-
+																			{{#admin}}
 																			<button
 																				class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success"
 																				data-toggle="modal"
 																				data-target=#addCompositionModal>
 																				<i class="material-icons">+</i>
 																			</button>
+																			{{/admin}}
 																		</div>
 																	</div>
 																</div>
@@ -252,18 +299,42 @@
 																			<tbody>
 																				{{#used-by}}
 																				<tr>
-																					<td>{{name}}</td>
+																					<td>																						
+																						<span>{{name}}</span>
+																						{{#admin}}
+																						<form method="post"
+																							action="/delete-relation">
+																							<input type="hidden"
+																								name="id"
+																								value="{{unit.id}}" />
+																							<input type="hidden"
+																								name="relatedId"
+																								value="{{id}}" />
+																							<button type="submit"
+																								class="btn btn-primary btn-link">
+																								<i
+																									class="fas fa-trash-alt"></i>
+																							</button>
+																							<input type="hidden"
+																								name="_csrf"
+																								value="{{token}}" />
+																						</form>
+																						{{/admin}}
+																					</td>
 																				</tr>
+
 																				{{/used-by}}
 																			</tbody>
 																		</table>
 																		<div>
+																			{{#admin}}
 																			<button
 																				class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success"
 																				data-toggle="modal"
 																				data-target=#addUseByModal>
 																				<i class="material-icons">+</i>
 																			</button>
+																			{{/admin}}
 																		</div>
 																	</div>
 																</div>
@@ -328,18 +399,42 @@
 																			<tbody>
 																				{{#associated-by}}
 																				<tr>
-																					<td>{{name}}</td>
+																					<td>																						
+																						<span>{{name}}</span>
+																						{{#admin}}
+																						<form method="post"
+																							action="/delete-relation">
+																							<input type="hidden"
+																								name="id"
+																								value="{{unit.id}}" />
+																							<input type="hidden"
+																								name="relatedId"
+																								value="{{id}}" />
+																							<button type="submit"
+																								class="btn btn-primary btn-link">
+																								<i
+																									class="fas fa-trash-alt"></i>
+																							</button>
+																							<input type="hidden"
+																								name="_csrf"
+																								value="{{token}}" />
+																						</form>
+																						{{/admin}}
+																					</td>
 																				</tr>
+
 																				{{/associated-by}}
 																			</tbody>
 																		</table>
 																		<div>
+																			{{#admin}}
 																			<button
 																				class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success"
 																				data-toggle="modal"
 																				data-target=#addAssociatedByModal>
 																				<i class="material-icons">+</i>
 																			</button>
+																			{{/admin}}
 																		</div>
 																	</div>
 																</div>
@@ -417,18 +512,42 @@
 																			<tbody>
 																				{{#associated-to}}
 																				<tr>
-																					<td>{{name}}</td>
+																					<td>																						
+																						<span>{{name}}</span>
+																						{{#admin}}
+																						<form method="post"
+																							action="/delete-relation">
+																							<input type="hidden"
+																								name="id"
+																								value="{{unit.id}}" />
+																							<input type="hidden"
+																								name="relatedId"
+																								value="{{id}}" />
+																							<button type="submit"
+																								class="btn btn-primary btn-link">
+																								<i
+																									class="fas fa-trash-alt"></i>
+																							</button>
+																							<input type="hidden"
+																								name="_csrf"
+																								value="{{token}}" />
+																						</form>
+																						{{/admin}}
+																					</td>
 																				</tr>
+
 																				{{/associated-to}}
 																			</tbody>
 																		</table>
 																		<div>
+																			{{#admin}}
 																			<button
 																				class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success"
 																				data-toggle="modal"
 																				data-target=#addAssociatedToModal>
 																				<i class="material-icons">+</i>
 																			</button>
+																			{{/admin}}
 																		</div>
 																	</div>
 																</div>
@@ -494,18 +613,42 @@
 																			<tbody>
 																				{{#uses}}
 																				<tr>
-																					<td>{{name}}</td>
+																					<td>																						
+																						<span>{{name}}</span>
+																						{{#admin}}
+																						<form method="post"
+																							action="/delete-relation">
+																							<input type="hidden"
+																								name="id"
+																								value="{{unit.id}}" />
+																							<input type="hidden"
+																								name="relatedId"
+																								value="{{id}}" />
+																							<button type="submit"
+																								class="btn btn-primary btn-link">
+																								<i
+																									class="fas fa-trash-alt"></i>
+																							</button>
+																							<input type="hidden"
+																								name="_csrf"
+																								value="{{token}}" />
+																						</form>
+																						{{/admin}}
+																					</td>
 																				</tr>
+
 																				{{/uses}}
 																			</tbody>
 																		</table>
 																		<div>
+																			{{#admin}}
 																			<button
 																				class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success"
 																				data-toggle="modal"
 																				data-target=#addUseModal>
 																				<i class="material-icons">+</i>
 																			</button>
+																			{{/admin}}
 																		</div>
 																	</div>
 																</div>
@@ -570,18 +713,42 @@
 																			<tbody>
 																				{{#part}}
 																				<tr>
-																					<td>{{name}}</td>
+																					<td>																						
+																						<span>{{name}}</span>
+																						{{#admin}}
+																						<form method="post"
+																							action="/delete-relation">
+																							<input type="hidden"
+																								name="id"
+																								value="{{unit.id}}" />
+																							<input type="hidden"
+																								name="relatedId"
+																								value="{{id}}" />
+																							<button type="submit"
+																								class="btn btn-primary btn-link">
+																								<i
+																									class="fas fa-trash-alt"></i>
+																							</button>
+																							<input type="hidden"
+																								name="_csrf"
+																								value="{{token}}" />
+																						</form>
+																						{{/admin}}
+																					</td>
 																				</tr>
+
 																				{{/part}}
 																			</tbody>
 																		</table>
 																		<div>
+																			{{#admin}}
 																			<button
 																				class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success"
 																				data-toggle="modal"
 																				data-target=#addPartModal>
 																				<i class="material-icons">+</i>
 																			</button>
+																			{{/admin}}
 																		</div>
 																	</div>
 																</div>
@@ -646,8 +813,9 @@
 																			<tbody>
 																				{{#children}}
 																				<tr>
-																					<td>
+																					<td>																						
 																						<span>{{name}}</span>
+																						{{#admin}}
 																						<form method="post"
 																							action="/delete-relation">
 																							<input type="hidden"
@@ -665,17 +833,20 @@
 																								name="_csrf"
 																								value="{{token}}" />
 																						</form>
+																						{{/admin}}
 																					</td>
 																				</tr>
 																				{{/children}}
 																			</tbody>
 																		</table>
 																		<div>
+																			{{#admin}}
 																			<button
 																				class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success"
 																				data-toggle="modal"
 																				data-target=#addChildModal>
 																				<i class="material-icons">+</i>
+																			{{/admin}}
 																		</div>
 																	</div>
 																</div>
