@@ -21,6 +21,8 @@ import es.santatecla.user.UserComponent;
 @Controller
 public class LoginController {
 	
+	private static final Logger log = LoggerFactory.getLogger(LoginController.class);
+	
 	@Autowired
 	UserComponent userComponent;
 	
@@ -39,4 +41,18 @@ public class LoginController {
 		model.addAttribute("loginerror",true);
 		return "/loginerror";//must see loginerror.html
 	}
+	
+	@RequestMapping("/logout")
+	public ResponseEntity<Boolean> logOut(HttpSession session) {
+
+		if (!userComponent.isLoggedUser()) {
+			log.info("No user logged");
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		} else {
+			session.invalidate();
+			log.info("Logged out");
+			return new ResponseEntity<>(true, HttpStatus.OK);
+		}
+	}
+
 }
