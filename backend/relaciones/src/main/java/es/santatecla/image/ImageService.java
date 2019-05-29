@@ -5,14 +5,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -20,7 +17,6 @@ import org.springframework.web.multipart.MultipartFile;
 public class ImageService {
 
 	private AtomicInteger imageId = new AtomicInteger();
-	private Map<Integer, Image> images = new ConcurrentHashMap<>();
 	private static final Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "images");
 	
 	public String uploadPhoto(MultipartFile file) {
