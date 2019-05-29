@@ -2,13 +2,11 @@
 <html>
 
 <head>
-<title>Tipo de documento</title>
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
-	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-	crossorigin="anonymous">
-<link href="/css/material-dashboard.css" rel="stylesheet" />
-<link href="/css/style.css" rel="stylesheet" />
+	<title>Tipo de documento</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link href="/css/material-dashboard.css" rel="stylesheet" />
+	<link href="/css/style.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -17,8 +15,7 @@
 			<div class="col-12 col-md-10 m-auto">
 				<div class="row">
 					<div class="col-6">
-						<nav
-							class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+						<nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
 							<div class="container-fluid">
 								<div class="navbar-wrapper">
 									<a class="navbar-brand" href="/">Santatecla</a>
@@ -30,10 +27,12 @@
 						<div class="nav justify-content-end p-3">
 							<ul class="navbar-nav">
 								<li class="nav-item">
-									<button class="btn btn-danger p-2 text-white"
-										onclick="logOut()">
+									<form method="POST" action="/logout">
+									<button class="btn btn-danger p-2 text-white">
 										<i class="fas fa-user"></i> <span class="my-extra-bold">LOGOUT</span>
 									</button>
+									<input type="hidden" name="_csrf" value="{{token}}" />
+									</form>
 								</li>
 							</ul>
 						</div>
@@ -49,12 +48,12 @@
 							<div class="nav-tabs-navigation">
 								<div class="nav-tabs-wrapper">
 									<ul class="nav nav-tabs" data-tabs="tabs">
-										<li class="nav-item"><a class="nav-link active"
-											href="#list-of-units" data-toggle="tab"> <span>Unidades:</span>
-										</a></li> {{#unit}}
-										<li class="nav-item"><a class="nav-link" href="#unit1"
-											data-toggle="tab"> <span>{{name}}</span>
-										</a></li> {{/unit}}
+										<li class="nav-item"><a class="nav-link active" href="#list-of-units"
+												data-toggle="tab"> <span>Unidades:</span>
+											</a></li> {{#unit}}
+										<li class="nav-item"><a class="nav-link" href="#unit1" data-toggle="tab">
+												<span>{{name}}</span>
+											</a></li> {{/unit}}
 									</ul>
 								</div>
 							</div>
@@ -62,8 +61,7 @@
 						<div class="card-body ">
 							<div class="tab-content text-center">
 								<!-- List of units -->
-								<div class="tab-pane active justify-content-start"
-									id="list-of-units">
+								<div class="tab-pane active justify-content-start" id="list-of-units">
 									<table class="table my-table">
 										<tbody>
 											{{#units}}
@@ -78,14 +76,13 @@
 								<!-- Unit 1 -->
 								<div class="tab-pane" id="unit1">
 									<ul class="nav nav-pills nav-pills-primary pb-3" role="tablist">
-										<li class="nav-item"><a class="nav-link active"
-											data-toggle="tab" href="#context" role="tablist"
-											aria-expanded="true"> <span> Contexto </span>
-										</a></li>
-										<li class="nav-item"><a class="nav-link"
-											data-toggle="tab" href="#detail" role="tablist"
-											aria-expanded="false"> <span> Detalle </span>
-										</a></li>
+										<li class="nav-item"><a class="nav-link active" data-toggle="tab"
+												href="#context" role="tablist" aria-expanded="true"> <span> Contexto
+												</span>
+											</a></li>
+										<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#detail"
+												role="tablist" aria-expanded="false"> <span> Detalle </span>
+											</a></li>
 									</ul>
 									<div class="tab-content tab-space">
 										<!-- Context -->
@@ -94,8 +91,7 @@
 												<div class="row justify-content-center">
 													<div class="col-11">
 														<div class="row justify-content-center my-mini-card-panel">
-															<div
-																class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+															<div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
 																<div class="card my-mini-card">
 																	<div class="card-header my-mini-card-header">
 																		<h4 class="card-title">Padres</h4>
@@ -103,19 +99,44 @@
 																	<div class="card-body my-mini-card-body">
 																		<table class="table my-table">
 																			<tbody>
-																				{{#parent}}
+																				{{#parents}}
 																				<tr>
-																					<td>{{name}}</td>
+																					<td>																						
+																						<span>{{name}}</span>
+																						{{#admin}}
+																						<form method="post"
+																							action="/delete-relation">
+																							<input type="hidden"
+																								name="id"
+																								value="{{unit.id}}" />
+																							<input type="hidden"
+																								name="relatedId"
+																								value="{{id}}" />
+																							<button type="submit"
+																								class="btn btn-primary btn-link">
+																								<i
+																									class="fas fa-trash-alt"></i>
+																							</button>
+																							<input type="hidden"
+																								name="_csrf"
+																								value="{{token}}" />
+																						</form>
+																						{{/admin}}
+																					</td>
 																				</tr>
-																				{{/parent}}
+
+																				{{/parents}}
 																			</tbody>
 																		</table>
 																		<div>
+																			{{#admin}}
 																			<button
 																				class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success"
-																				data-toggle="modal" data-target=#addParentModal>
+																				data-toggle="modal"
+																				data-target=#addParentModal>
 																				<i class="material-icons">+</i>
 																			</button>
+																			{{/admin}}
 																		</div>
 																	</div>
 																</div>
@@ -128,7 +149,8 @@
 																			<div class="modal-header">
 																				<div
 																					class="card-header card-header-primary text-center">
-																					<h4 class="card-title">Nueva Relación</h4>
+																					<h4 class="card-title">Nueva
+																						Relación</h4>
 																				</div>
 																			</div>
 																			<div class="modal-body">
@@ -137,22 +159,30 @@
 																						<div class="col-12">
 																							<div class="row">
 																								<p>Unidad:</p>
-																								<span class="ml-1">{{unit.name}}</span>
+																								<span
+																									class="ml-1">{{unit.name}}</span>
 																							</div>
 																						</div>
-																						<input type="text" value={{unit.id}} name=id />
+																						<input type="text"
+																							value={{unit.id}} name=id />
 
 																						<div class="form-group">
-																							<label form="exampleSelect1">Seleccionar</label> <select
-																								class="form-control" id="relatedId"
-																								name="relatedId"> {{#units}}
-																								<option value={{id}}>{{name}}</option>
+																							<label
+																								for="exampleSelect1">Seleccionar</label>
+																							<select class="form-control"
+																								id="relatedId"
+																								name="relatedId">
+																								{{#units}}
+																								<option value={{id}}>
+																									{{name}}</option>
 																								{{/units}}
 																							</select>
 																						</div>
-																						<input type='submit' class="btn btn-primary"
-																							value='Enviar' /> <input type="hidden"
-																							name="_csrf" value="{{token}}" />
+																						<input type='submit'
+																							class="btn btn-primary"
+																							value='Enviar' /> <input
+																							type="hidden" name="_csrf"
+																							value="{{token}}" />
 																					</div>
 																				</form>
 																			</div>
@@ -161,8 +191,7 @@
 																	</div>
 																</div>
 															</div>
-															<div
-																class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+															<div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
 																<div class="card my-mini-card">
 																	<div class="card-header my-mini-card-header">
 																		<h4 class="card-title">Compuestos</h4>
@@ -170,20 +199,44 @@
 																	<div class="card-body my-mini-card-body">
 																		<table class="table my-table">
 																			<tbody>
-																				{{#composition}}
+																				{{#compositions}}
 																				<tr>
-																					<td>{{name}}</td>
+																					<td>																						
+																						<span>{{name}}</span>
+																						{{#admin}}
+																						<form method="post"
+																							action="/delete-relation">
+																							<input type="hidden"
+																								name="id"
+																								value="{{unit.id}}" />
+																							<input type="hidden"
+																								name="relatedId"
+																								value="{{id}}" />
+																							<button type="submit"
+																								class="btn btn-primary btn-link">
+																								<i
+																									class="fas fa-trash-alt"></i>
+																							</button>
+																							<input type="hidden"
+																								name="_csrf"
+																								value="{{token}}" />
+																						</form>
+																						{{/admin}}
+																					</td>
 																				</tr>
-																				{{/composition}}
+
+																				{{/compositions}}
 																			</tbody>
 																		</table>
 																		<div>
-
+																			{{#admin}}
 																			<button
 																				class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success"
-																				data-toggle="modal" data-target=#addCompositionModal>
+																				data-toggle="modal"
+																				data-target=#addCompositionModal>
 																				<i class="material-icons">+</i>
 																			</button>
+																			{{/admin}}
 																		</div>
 																	</div>
 																</div>
@@ -196,31 +249,41 @@
 																			<div class="modal-header">
 																				<div
 																					class="card-header card-header-primary text-center">
-																					<h4 class="card-title">Nueva Relación</h4>
+																					<h4 class="card-title">Nueva
+																						Relación</h4>
 																				</div>
 																			</div>
 																			<div class="modal-body">
-																				<form class="form" action="/add-composition">
+																				<form class="form"
+																					action="/add-composition">
 																					<div class="card-body">
 																						<div class="col-12">
 																							<div class="row">
 																								<p>Unidad:</p>
-																								<span class="ml-1">{{unit.name}}</span>
+																								<span
+																									class="ml-1">{{unit.name}}</span>
 																							</div>
 																						</div>
-																						<input type="text" value={{unit.id}} name=id />
+																						<input type="text"
+																							value={{unit.id}} name=id />
 
 																						<div class="form-group">
-																							<label form="exampleSelect1">Seleccionar</label> <select
-																								class="form-control" id="relatedId"
-																								name="relatedId"> {{#units}}
-																								<option value={{id}}>{{name}}</option>
+																							<label
+																								for="exampleSelect1">Seleccionar</label>
+																							<select class="form-control"
+																								id="relatedId"
+																								name="relatedId">
+																								{{#units}}
+																								<option value={{id}}>
+																									{{name}}</option>
 																								{{/units}}
 																							</select>
 																						</div>
-																						<input type='submit' class="btn btn-primary"
-																							value='Enviar' /> <input type="hidden"
-																							name="_csrf" value="{{token}}" />
+																						<input type='submit'
+																							class="btn btn-primary"
+																							value='Enviar' /> <input
+																							type="hidden" name="_csrf"
+																							value="{{token}}" />
 																					</div>
 																				</form>
 																			</div>
@@ -229,8 +292,7 @@
 																	</div>
 																</div>
 															</div>
-															<div
-																class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+															<div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
 																<div class="card my-mini-card">
 																	<div class="card-header my-mini-card-header">
 																		<h4 class="card-title">Usado por</h4>
@@ -240,17 +302,42 @@
 																			<tbody>
 																				{{#used-by}}
 																				<tr>
-																					<td>{{name}}</td>
+																					<td>																						
+																						<span>{{name}}</span>
+																						{{#admin}}
+																						<form method="post"
+																							action="/delete-relation">
+																							<input type="hidden"
+																								name="id"
+																								value="{{unit.id}}" />
+																							<input type="hidden"
+																								name="relatedId"
+																								value="{{id}}" />
+																							<button type="submit"
+																								class="btn btn-primary btn-link">
+																								<i
+																									class="fas fa-trash-alt"></i>
+																							</button>
+																							<input type="hidden"
+																								name="_csrf"
+																								value="{{token}}" />
+																						</form>
+																						{{/admin}}
+																					</td>
 																				</tr>
+
 																				{{/used-by}}
 																			</tbody>
 																		</table>
 																		<div>
+																			{{#admin}}
 																			<button
 																				class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success"
-																				data-toggle="modal" data-target=#addUseByModal>
+																				data-toggle="modal"
+																				data-target=#addUseByModal>
 																				<i class="material-icons">+</i>
 																			</button>
+																			{{/admin}}
 																		</div>
 																	</div>
 																</div>
@@ -263,7 +350,8 @@
 																			<div class="modal-header">
 																				<div
 																					class="card-header card-header-primary text-center">
-																					<h4 class="card-title">Nueva Relación</h4>
+																					<h4 class="card-title">Nueva
+																						Relación</h4>
 																				</div>
 																			</div>
 																			<div class="modal-body">
@@ -272,22 +360,30 @@
 																						<div class="col-12">
 																							<div class="row">
 																								<p>Unidad:</p>
-																								<span class="ml-1">{{unit.name}}</span>
+																								<span
+																									class="ml-1">{{unit.name}}</span>
 																							</div>
 																						</div>
-																						<input type="text" value={{unit.id}} name=id />
+																						<input type="text"
+																							value={{unit.id}} name=id />
 
 																						<div class="form-group">
-																							<label form="exampleSelect1">Seleccionar</label> <select
-																								class="form-control" id="relatedId"
-																								name="relatedId"> {{#units}}
-																								<option value={{id}}>{{name}}</option>
+																							<label
+																								for="exampleSelect1">Seleccionar</label>
+																							<select class="form-control"
+																								id="relatedId"
+																								name="relatedId">
+																								{{#units}}
+																								<option value={{id}}>
+																									{{name}}</option>
 																								{{/units}}
 																							</select>
 																						</div>
-																						<input type='submit' class="btn btn-primary"
-																							value='Enviar' /> <input type="hidden"
-																							name="_csrf" value="{{token}}" />
+																						<input type='submit'
+																							class="btn btn-primary"
+																							value='Enviar' /> <input
+																							type="hidden" name="_csrf"
+																							value="{{token}}" />
 																					</div>
 																				</form>
 																			</div>
@@ -296,8 +392,7 @@
 																	</div>
 																</div>
 															</div>
-															<div
-																class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+															<div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
 																<div class="card my-mini-card">
 																	<div class="card-header my-mini-card-header">
 																		<h4 class="card-title">Asociados por</h4>
@@ -307,18 +402,42 @@
 																			<tbody>
 																				{{#associated-by}}
 																				<tr>
-																					<td>{{name}}</td>
+																					<td>																						
+																						<span>{{name}}</span>
+																						{{#admin}}
+																						<form method="post"
+																							action="/delete-relation">
+																							<input type="hidden"
+																								name="id"
+																								value="{{unit.id}}" />
+																							<input type="hidden"
+																								name="relatedId"
+																								value="{{id}}" />
+																							<button type="submit"
+																								class="btn btn-primary btn-link">
+																								<i
+																									class="fas fa-trash-alt"></i>
+																							</button>
+																							<input type="hidden"
+																								name="_csrf"
+																								value="{{token}}" />
+																						</form>
+																						{{/admin}}
+																					</td>
 																				</tr>
+
 																				{{/associated-by}}
 																			</tbody>
 																		</table>
 																		<div>
+																			{{#admin}}
 																			<button
 																				class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success"
 																				data-toggle="modal"
 																				data-target=#addAssociatedByModal>
 																				<i class="material-icons">+</i>
 																			</button>
+																			{{/admin}}
 																		</div>
 																	</div>
 																</div>
@@ -331,31 +450,41 @@
 																			<div class="modal-header">
 																				<div
 																					class="card-header card-header-primary text-center">
-																					<h4 class="card-title">Nueva Relación</h4>
+																					<h4 class="card-title">Nueva
+																						Relación</h4>
 																				</div>
 																			</div>
 																			<div class="modal-body">
-																				<form class="form" action="/add-associatedBy">
+																				<form class="form"
+																					action="/add-associatedBy">
 																					<div class="card-body">
 																						<div class="col-12">
 																							<div class="row">
 																								<p>Unidad:</p>
-																								<span class="ml-1">{{unit.name}}</span>
+																								<span
+																									class="ml-1">{{unit.name}}</span>
 																							</div>
 																						</div>
-																						<input type="text" value={{unit.id}} name=id />
+																						<input type="text"
+																							value={{unit.id}} name=id />
 
 																						<div class="form-group">
-																							<label form="exampleSelect1">Seleccionar</label> <select
-																								class="form-control" id="relatedId"
-																								name="relatedId"> {{#units}}
-																								<option value={{id}}>{{name}}</option>
+																							<label
+																								for="exampleSelect1">Seleccionar</label>
+																							<select class="form-control"
+																								id="relatedId"
+																								name="relatedId">
+																								{{#units}}
+																								<option value={{id}}>
+																									{{name}}</option>
 																								{{/units}}
 																							</select>
 																						</div>
-																						<input type='submit' class="btn btn-primary"
-																							value='Enviar' /> <input type="hidden"
-																							name="_csrf" value="{{token}}" />
+																						<input type='submit'
+																							class="btn btn-primary"
+																							value='Enviar' /> <input
+																							type="hidden" name="_csrf"
+																							value="{{token}}" />
 																					</div>
 																				</form>
 																			</div>
@@ -364,8 +493,7 @@
 																	</div>
 																</div>
 															</div>
-															<div
-																class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+															<div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
 																<div class="card my-mini-card">
 																	<div class="card-header my-mini-card-header">
 																		{{#unit}}
@@ -377,8 +505,7 @@
 																	</div>
 																</div>
 															</div>
-															<div
-																class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+															<div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
 																<div class="card my-mini-card">
 																	<div class="card-header my-mini-card-header">
 																		<h4 class="card-title">Asociado a</h4>
@@ -388,18 +515,42 @@
 																			<tbody>
 																				{{#associated-to}}
 																				<tr>
-																					<td>{{name}}</td>
+																					<td>																						
+																						<span>{{name}}</span>
+																						{{#admin}}
+																						<form method="post"
+																							action="/delete-relation">
+																							<input type="hidden"
+																								name="id"
+																								value="{{unit.id}}" />
+																							<input type="hidden"
+																								name="relatedId"
+																								value="{{id}}" />
+																							<button type="submit"
+																								class="btn btn-primary btn-link">
+																								<i
+																									class="fas fa-trash-alt"></i>
+																							</button>
+																							<input type="hidden"
+																								name="_csrf"
+																								value="{{token}}" />
+																						</form>
+																						{{/admin}}
+																					</td>
 																				</tr>
+
 																				{{/associated-to}}
 																			</tbody>
 																		</table>
 																		<div>
+																			{{#admin}}
 																			<button
 																				class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success"
 																				data-toggle="modal"
 																				data-target=#addAssociatedToModal>
 																				<i class="material-icons">+</i>
 																			</button>
+																			{{/admin}}
 																		</div>
 																	</div>
 																</div>
@@ -412,31 +563,41 @@
 																			<div class="modal-header">
 																				<div
 																					class="card-header card-header-primary text-center">
-																					<h4 class="card-title">Nueva Relación</h4>
+																					<h4 class="card-title">Nueva
+																						Relación</h4>
 																				</div>
 																			</div>
 																			<div class="modal-body">
-																				<form class="form" action="/add-associatedTo">
+																				<form class="form"
+																					action="/add-associatedTo">
 																					<div class="card-body">
 																						<div class="col-12">
 																							<div class="row">
 																								<p>Unidad:</p>
-																								<span class="ml-1">{{unit.name}}</span>
+																								<span
+																									class="ml-1">{{unit.name}}</span>
 																							</div>
 																						</div>
-																						<input type="text" value={{unit.id}} name=id />
+																						<input type="text"
+																							value={{unit.id}} name=id />
 
 																						<div class="form-group">
-																							<label form="exampleSelect1">Seleccionar</label> <select
-																								class="form-control" id="relatedId"
-																								name="relatedId"> {{#units}}
-																								<option value={{id}}>{{name}}</option>
+																							<label
+																								for="exampleSelect1">Seleccionar</label>
+																							<select class="form-control"
+																								id="relatedId"
+																								name="relatedId">
+																								{{#units}}
+																								<option value={{id}}>
+																									{{name}}</option>
 																								{{/units}}
 																							</select>
 																						</div>
-																						<input type='submit' class="btn btn-primary"
-																							value='Enviar' /> <input type="hidden"
-																							name="_csrf" value="{{token}}" />
+																						<input type='submit'
+																							class="btn btn-primary"
+																							value='Enviar' /> <input
+																							type="hidden" name="_csrf"
+																							value="{{token}}" />
 																					</div>
 																				</form>
 																			</div>
@@ -445,8 +606,7 @@
 																	</div>
 																</div>
 															</div>
-															<div
-																class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+															<div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
 																<div class="card my-mini-card">
 																	<div class="card-header my-mini-card-header">
 																		<h4 class="card-title">Usan</h4>
@@ -454,19 +614,44 @@
 																	<div class="card-body my-mini-card-body">
 																		<table class="table my-table">
 																			<tbody>
-																				{{#use}}
+																				{{#uses}}
 																				<tr>
-																					<td>{{name}}</td>
+																					<td>																						
+																						<span>{{name}}</span>
+																						{{#admin}}
+																						<form method="post"
+																							action="/delete-relation">
+																							<input type="hidden"
+																								name="id"
+																								value="{{unit.id}}" />
+																							<input type="hidden"
+																								name="relatedId"
+																								value="{{id}}" />
+																							<button type="submit"
+																								class="btn btn-primary btn-link">
+																								<i
+																									class="fas fa-trash-alt"></i>
+																							</button>
+																							<input type="hidden"
+																								name="_csrf"
+																								value="{{token}}" />
+																						</form>
+																						{{/admin}}
+																					</td>
 																				</tr>
-																				{{/use}}
+
+																				{{/uses}}
 																			</tbody>
 																		</table>
 																		<div>
+																			{{#admin}}
 																			<button
 																				class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success"
-																				data-toggle="modal" data-target=#addUseModal>
+																				data-toggle="modal"
+																				data-target=#addUseModal>
 																				<i class="material-icons">+</i>
 																			</button>
+																			{{/admin}}
 																		</div>
 																	</div>
 																</div>
@@ -479,7 +664,8 @@
 																			<div class="modal-header">
 																				<div
 																					class="card-header card-header-primary text-center">
-																					<h4 class="card-title">Nueva Relación</h4>
+																					<h4 class="card-title">Nueva
+																						Relación</h4>
 																				</div>
 																			</div>
 																			<div class="modal-body">
@@ -488,22 +674,30 @@
 																						<div class="col-12">
 																							<div class="row">
 																								<p>Unidad:</p>
-																								<span class="ml-1">{{unit.name}}</span>
+																								<span
+																									class="ml-1">{{unit.name}}</span>
 																							</div>
 																						</div>
-																						<input type="text" value={{unit.id}} name=id />
+																						<input type="text"
+																							value={{unit.id}} name=id />
 
 																						<div class="form-group">
-																							<label form="exampleSelect1">Seleccionar</label> <select
-																								class="form-control" id="relatedId"
-																								name="relatedId"> {{#units}}
-																								<option value={{id}}>{{name}}</option>
+																							<label
+																								for="exampleSelect1">Seleccionar</label>
+																							<select class="form-control"
+																								id="relatedId"
+																								name="relatedId">
+																								{{#units}}
+																								<option value={{id}}>
+																									{{name}}</option>
 																								{{/units}}
 																							</select>
 																						</div>
-																						<input type='submit' class="btn btn-primary"
-																							value='Enviar' /> <input type="hidden"
-																							name="_csrf" value="{{token}}" />
+																						<input type='submit'
+																							class="btn btn-primary"
+																							value='Enviar' /> <input
+																							type="hidden" name="_csrf"
+																							value="{{token}}" />
 																					</div>
 																				</form>
 																			</div>
@@ -512,8 +706,7 @@
 																	</div>
 																</div>
 															</div>
-															<div
-																class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+															<div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
 																<div class="card my-mini-card">
 																	<div class="card-header my-mini-card-header">
 																		<h4 class="card-title">Partes</h4>
@@ -523,17 +716,42 @@
 																			<tbody>
 																				{{#part}}
 																				<tr>
-																					<td>{{name}}</td>
+																					<td>																						
+																						<span>{{name}}</span>
+																						{{#admin}}
+																						<form method="post"
+																							action="/delete-relation">
+																							<input type="hidden"
+																								name="id"
+																								value="{{unit.id}}" />
+																							<input type="hidden"
+																								name="relatedId"
+																								value="{{id}}" />
+																							<button type="submit"
+																								class="btn btn-primary btn-link">
+																								<i
+																									class="fas fa-trash-alt"></i>
+																							</button>
+																							<input type="hidden"
+																								name="_csrf"
+																								value="{{token}}" />
+																						</form>
+																						{{/admin}}
+																					</td>
 																				</tr>
+
 																				{{/part}}
 																			</tbody>
 																		</table>
 																		<div>
+																			{{#admin}}
 																			<button
 																				class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success"
-																				data-toggle="modal" data-target=#addPartModal>
+																				data-toggle="modal"
+																				data-target=#addPartModal>
 																				<i class="material-icons">+</i>
 																			</button>
+																			{{/admin}}
 																		</div>
 																	</div>
 																</div>
@@ -546,7 +764,8 @@
 																			<div class="modal-header">
 																				<div
 																					class="card-header card-header-primary text-center">
-																					<h4 class="card-title">Nueva Relación</h4>
+																					<h4 class="card-title">Nueva
+																						Relación</h4>
 																				</div>
 																			</div>
 																			<div class="modal-body">
@@ -555,22 +774,30 @@
 																						<div class="col-12">
 																							<div class="row">
 																								<p>Unidad:</p>
-																								<span class="ml-1">{{unit.name}}</span>
+																								<span
+																									class="ml-1">{{unit.name}}</span>
 																							</div>
 																						</div>
-																						<input type="text" value={{unit.id}} name=id />
+																						<input type="text"
+																							value={{unit.id}} name=id />
 
 																						<div class="form-group">
-																							<label form="exampleSelect1">Seleccionar</label> <select
-																								class="form-control" id="relatedId"
-																								name="relatedId"> {{#units}}
-																								<option value={{id}}>{{name}}</option>
+																							<label
+																								for="exampleSelect1">Seleccionar</label>
+																							<select class="form-control"
+																								id="relatedId"
+																								name="relatedId">
+																								{{#units}}
+																								<option value={{id}}>
+																									{{name}}</option>
 																								{{/units}}
 																							</select>
 																						</div>
-																						<input type='submit' class="btn btn-primary"
-																							value='Enviar' /> <input type="hidden"
-																							name="_csrf" value="{{token}}" />
+																						<input type='submit'
+																							class="btn btn-primary"
+																							value='Enviar' /> <input
+																							type="hidden" name="_csrf"
+																							value="{{token}}" />
 																					</div>
 																				</form>
 																			</div>
@@ -579,8 +806,7 @@
 																	</div>
 																</div>
 															</div>
-															<div
-																class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
+															<div class="col-12 col-md-6 col-lg-4 my-mini-card-wrapper">
 																<div class="card my-mini-card">
 																	<div class="card-header my-mini-card-header">
 																		<h4 class="card-title">Hijas</h4>
@@ -590,16 +816,40 @@
 																			<tbody>
 																				{{#children}}
 																				<tr>
-																					<td>{{name}}</td>
+																					<td>																						
+																						<span>{{name}}</span>
+																						{{#admin}}
+																						<form method="post"
+																							action="/delete-relation">
+																							<input type="hidden"
+																								name="id"
+																								value="{{unit.id}}" />
+																							<input type="hidden"
+																								name="relatedId"
+																								value="{{id}}" />
+																							<button type="submit"
+																								class="btn btn-primary btn-link">
+																								<i
+																									class="fas fa-trash-alt"></i>
+																							</button>
+																							<input type="hidden"
+																								name="_csrf"
+																								value="{{token}}" />
+																						</form>
+																						{{/admin}}
+																					</td>
 																				</tr>
 																				{{/children}}
 																			</tbody>
 																		</table>
 																		<div>
+																			{{#admin}}
 																			<button
 																				class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success"
-																				data-toggle="modal" data-target=#addChildModal>
+																				data-toggle="modal"
+																				data-target=#addChildModal>
 																				<i class="material-icons">+</i>
+																			{{/admin}}
 																		</div>
 																	</div>
 																</div>
@@ -612,7 +862,8 @@
 																			<div class="modal-header">
 																				<div
 																					class="card-header card-header-primary text-center">
-																					<h4 class="card-title">Nueva Relación</h4>
+																					<h4 class="card-title">Nueva
+																						Relación</h4>
 																				</div>
 																			</div>
 																			<div class="modal-body">
@@ -621,22 +872,30 @@
 																						<div class="col-12">
 																							<div class="row">
 																								<p>Unidad:</p>
-																								<span class="ml-1">{{unit.name}}</span>
+																								<span
+																									class="ml-1">{{unit.name}}</span>
 																							</div>
 																						</div>
-																						<input type="text" value={{unit.id}} name=id />
+																						<input type="text"
+																							value={{unit.id}} name=id />
 
 																						<div class="form-group">
-																							<label form="exampleSelect1">Seleccionar</label> <select
-																								class="form-control" id="relatedId"
-																								name="relatedId"> {{#units}}
-																								<option value={{id}}>{{name}}</option>
+																							<label
+																								for="exampleSelect1">Seleccionar</label>
+																							<select class="form-control"
+																								id="relatedId"
+																								name="relatedId">
+																								{{#units}}
+																								<option value={{id}}>
+																									{{name}}</option>
 																								{{/units}}
 																							</select>
 																						</div>
-																						<input type='submit' class="btn btn-primary"
-																							value='Enviar' /> <input type="hidden"
-																							name="_csrf" value="{{token}}" />
+																						<input type='submit'
+																							class="btn btn-primary"
+																							value='Enviar' /> <input
+																							type="hidden" name="_csrf"
+																							value="{{token}}" />
 																					</div>
 																				</form>
 																			</div>

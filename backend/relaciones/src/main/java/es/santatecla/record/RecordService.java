@@ -31,6 +31,8 @@ public class RecordService
 	}
 	
 	public Record addRecord(Unit unit, RecordsEnum type, String value) {
+		List<Record> records = this.recordRepository.findByUnit(unit);
+		deleteOldRecord(type, records);
 		Record record = new Record(unit, type, value, null);
 		return this.recordRepository.save(record);
 	}
@@ -56,4 +58,14 @@ public class RecordService
 			this.recordRepository.delete(record);
 		}
 	}*/
+	
+	private void deleteOldRecord(RecordsEnum type, List<Record> records) {
+		if (records != null) {
+			for (Record rec : records) {
+				if (rec.getKey() == type) {
+					this.recordRepository.delete(rec);
+				}
+			}
+		}
+	}
 }
