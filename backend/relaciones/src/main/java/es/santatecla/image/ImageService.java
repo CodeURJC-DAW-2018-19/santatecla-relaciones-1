@@ -23,7 +23,7 @@ public class ImageService {
 	private Map<Integer, Image> images = new ConcurrentHashMap<>();
 	private static final Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "images");
 	
-	public String uploadPhoto(Model model, String imageTitle, MultipartFile file) {
+	public String uploadPhoto(MultipartFile file) {
 		int id = imageId.getAndIncrement();
 
         String fileName = "image-" + id + ".jpg";
@@ -34,22 +34,13 @@ public class ImageService {
                 File uploadedFile = new File(FILES_FOLDER.toFile(), fileName);
                 file.transferTo(uploadedFile);
 
-                images.put(id, new Image(id, imageTitle));
-
-                return "upload-status";
+                return FILES_FOLDER.toString() + "/" + fileName;
 
             } catch (Exception e) {
-
-                model.addAttribute("error", e.getClass().getName() + ":" + e.getMessage());
-
                 return "uploaded";
             }
-        } else {
-
-            model.addAttribute("error", "The file is empty");
-
-            return "upload-status";
         }
+        return null;
 	}
 	
 	public void getPhoto(String id, HttpServletResponse res) throws IOException {

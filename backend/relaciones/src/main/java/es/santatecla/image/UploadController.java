@@ -31,12 +31,11 @@ public class UploadController {
 //        return "image-upload";
 //    }
 //
-    @RequestMapping(value = "/image/upload", method = RequestMethod.POST)
-    public String handleFileUpload(Model model, @RequestParam(value ="imageTitle") String imageTitle,
-                                   @RequestParam(value ="file") MultipartFile file) {
+    // @RequestMapping("/upload-image")
+    // public String handleFileUpload(@RequestParam MultipartFile file) {
 
-        return this.imageService.uploadPhoto(model, imageTitle, file);
-    }
+    //     return this.imageService.uploadPhoto(file);
+    // }
 
 	@RequestMapping("/image/{id}")
     public void handleFileDownload(@PathVariable String id, HttpServletResponse res)

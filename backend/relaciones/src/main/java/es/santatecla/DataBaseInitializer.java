@@ -3,7 +3,6 @@ package es.santatecla;
 
 import es.santatecla.enums.RecordsEnum;
 import es.santatecla.record.RecordService;
-import es.santatecla.relation.RelationRepository;
 import es.santatecla.relation.RelationService;
 import es.santatecla.enums.RelationsEnum;
 import es.santatecla.unit.Unit;
@@ -19,18 +18,24 @@ import javax.annotation.PostConstruct;
 
 @Component
 public class DataBaseInitializer {
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private UnitService unitService;
-    @Autowired
-    private RelationService relationService;
     
-    @Autowired
-    private RelationRepository relationRepository;
+    private UserRepository userRepository;
+    private UnitService unitService;
+    private RelationService relationService;
+    private RecordService recordService;
 
     @Autowired
-    private RecordService recordService;
+    public DataBaseInitializer(
+        UserRepository userRepository,
+        UnitService unitService,
+        RelationService relationService,
+        RecordService recordService
+    ) {
+        this.userRepository = userRepository;
+        this.unitService = unitService;
+        this.relationService = relationService;
+        this.recordService = recordService;
+    }
     
     @PostConstruct
     public void init() {
@@ -47,11 +52,12 @@ public class DataBaseInitializer {
         Unit xml = this.unitService.addUnit("XML");
         Unit java = this.unitService.addUnit("Java");
 
-        //Units relations
+        //Relations
         this.relationService.AddRelations(css.getId(), scss.getId(), RelationsEnum.PARENT);
         this.relationService.AddRelations(css.getId(), spring.getId(), RelationsEnum.CHILD);
         this.relationService.AddRelations(spring.getId(), java.getId(), RelationsEnum.USE);
-
+        
+        //Records
         this.recordService.addRecord(html, RecordsEnum.WHY, "Que pasa tío");
         this.recordService.addRecord(css, RecordsEnum.WHY, "Hola Migue");
         this.recordService.addRecord(html, RecordsEnum.WHAT, "Que Dios te bendiga");

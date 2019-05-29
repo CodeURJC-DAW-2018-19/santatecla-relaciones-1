@@ -1,7 +1,5 @@
 package es.santatecla.unit;
 
-
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,8 +14,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import es.santatecla.enums.RelationsEnum;
+import es.santatecla.image.ImageService;
 import es.santatecla.relation.RelationService;
 import es.santatecla.user.UserComponent;
 
@@ -25,23 +25,31 @@ import es.santatecla.user.UserComponent;
 @Controller
 public class UnitController {
 	
-	@Autowired
 	private UnitRepository unitRepository;
-	
-	@Autowired
 	private UnitService unitService;
-	
-	@Autowired
 	private UserComponent userComponent;
-
-	@Autowired
 	private RelationService relationService;
+	private RecordRepository recordRepository;
+	private RecordService recordService;
+	private ImageService imageService;
 
-	@Autowired
-    private RecordRepository recordRepository;
-
-	@Autowired
-    private RecordService recordService;
+	public UnitController(
+		UnitRepository unitRepository,
+		UnitService unitService,
+		UserComponent userComponent,
+		RecordService recordService,
+		RecordRepository recordRepository,
+		RelationService relationService,
+		ImageService imageService
+	) {
+		this.unitRepository = unitRepository;
+		this.unitService = unitService;
+		this.userComponent = userComponent;
+		this.relationService = relationService;
+		this.recordRepository = recordRepository;
+		this.recordService = recordService;
+		this.imageService = imageService;
+	}
 	
 	@ModelAttribute
 	public void addUserToModel(Model model) {
@@ -266,9 +274,15 @@ public class UnitController {
 	
 	@RequestMapping("/delete-unit/{id}")
 	public String deleteUnit(Model model, @PathVariable long id)  {
-			unitService.deleteUnit(id);
-		
-		
-			return this.showUnits(model);
+		unitService.deleteUnit(id);
+	
+		return this.showUnits(model);
 	}
+
+	@RequestMapping("/upload-image")
+    public String handleFileUpload(Model model, @RequestParam String recordId, @RequestParam("file") MultipartFile multipartFile) {
+		this.imageService.uploadPhoto(multipartFile);
+		
+		return this.showUnits(model);
+    }
 }

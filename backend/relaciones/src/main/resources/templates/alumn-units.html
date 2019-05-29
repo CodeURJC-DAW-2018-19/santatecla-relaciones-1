@@ -931,7 +931,27 @@
 																</table>
                                                                 {{#logged}}
                                                                 <div class="container text-right">
-                                                                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target=#addWhy>Editar</button>
+																	<div class="col-12">
+																		<div class="row">
+																			<div class="col">
+																				<button type="submit" class="btn btn-primary" data-toggle="modal" data-target=#addWhy>Editar</button>
+																			</div>
+																			<div class="col">
+																					{{#why}}
+																					<form action="/upload-image" method="POST">
+																						<input type="file" id="{{id}}-{{type}}" name="file" style="display: none">
+																						<input type="hidden" name="recordId" value="{{id}}">
+																						<button type="button" class="btn btn-primary" onclick="clickFileInput('{{id}}-{{type}}')">
+																							<span>Subir nueva imagen</span>
+																						</button>
+																						<button type="submit" class="btn btn-primary">
+																							<span>Guardar foto</span>
+																						</button>
+																					</form>
+																					{{/why}}
+																			</div>
+																		</div>
+																	</div>
                                                                 </div>
                                                                 {{/logged}}
 															</div>
@@ -973,15 +993,30 @@
                                                                     {{#what}}
                                                                     <tr>
                                                                         <td>{{value}}</td>
-                                                                    </tr>
+																	</tr>
+																	<tr>
+																		<td>
+																			<img src="{{image}}">
+																		</td>
+																	</tr>
                                                                     {{/what}}
                                                                     </tbody>
 																</table>
-                                                                {{#logged}}
                                                                 <div class="container text-right">
-                                                                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target=#addForWhat>Editar</button>
+																	<button type="submit" class="btn btn-primary" data-toggle="modal" data-target=#addForWhat>Editar</button>
+																	{{#what}}
+																	<form action="">
+																		<input type="file" id="{{id}}-{{type}}" style="display: none">
+																		<button type="button" onclick="clickFileInput('{{id}}-{{type}}')">
+																			<span>Subir nueva imagen</span>
+																		</button>
+																		<button type="submit">
+																			<span>Guardar foto</span>
+																		</button>
+																	</form>
+																	{{/what}}
                                                                 </div>
-                                                                {{/logged}}
+                                                                
 															</div>
 														</div>
 													</div>
@@ -1034,39 +1069,6 @@
 										</div>
 									</div>
 								</div>
-								<!-- Unit 2 -->
-								<div class="tab-pane" id="unit2">
-									<p>I think that&#x2019;s a responsibility that I have, to
-										push possibilities, to show people, this is the level that
-										things could be at. I will be the leader of a company that
-										ends up being worth billions of dollars, because I got the
-										answers. I understand culture. I am the nucleus. I think
-										that&#x2019;s a responsibility that I have, to push
-										possibilities, to show people, this is the level that things
-										could be at.</p>
-								</div>
-								<!-- Unit 3 -->
-								<div class="tab-pane" id="unit3">
-									<p>I think that&#x2019;s a responsibility that I have, to
-										push possibilities, to show people, this is the level that
-										things could be at. I will be the leader of a company that
-										ends up being worth billions of dollars, because I got the
-										answers. I understand culture. I am the nucleus. I think
-										that&#x2019;s a responsibility that I have, to push
-										possibilities, to show people, this is the level that things
-										could be at.</p>
-								</div>
-								<!-- Unit 4 -->
-								<div class="tab-pane" id="unit4">
-									<p>I think that&#x2019;s a responsibility that I have, to
-										push possibilities, to show people, this is the level that
-										things could be at. I will be the leader of a company that
-										ends up being worth billions of dollars, because I got the
-										answers. I understand culture. I am the nucleus. I think
-										that&#x2019;s a responsibility that I have, to push
-										possibilities, to show people, this is the level that things
-										could be at.</p>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -1082,6 +1084,14 @@
 	<script src="/js/core/popper.min.js"></script>
 	<script src="/js/core/bootstrap-material-design.min.js"></script>
 	<script src="/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+	
+	<script type="text/javascript">
+		function clickFileInput(id)
+		{
+			let input = document.getElementById(id);
+			input.click();
+		}
+	</script>
 </body>
 
 </html>
