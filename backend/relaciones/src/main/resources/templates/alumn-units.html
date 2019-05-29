@@ -893,7 +893,8 @@
 																						</div>
 																						<input type='submit'
 																							class="btn btn-primary"
-																							value='Enviar' /> <input
+																							value='Enviar' />
+																						<input
 																							type="hidden" name="_csrf"
 																							value="{{token}}" />
 																					</div>
@@ -938,9 +939,12 @@
 																			</div>
 																			<div class="col">
 																					{{#why}}
-																					<form action="/upload-image" method="POST">
+																					<form action="/upload-image" method="POST" enctype="multipart/form-data">
 																						<input type="file" id="{{id}}-{{type}}" name="file" style="display: none">
 																						<input type="hidden" name="recordId" value="{{id}}">
+																						<input
+																							type="hidden" name="_csrf"
+																							value="{{token}}" />
 																						<button type="button" class="btn btn-primary" onclick="clickFileInput('{{id}}-{{type}}')">
 																							<span>Subir nueva imagen</span>
 																						</button>
