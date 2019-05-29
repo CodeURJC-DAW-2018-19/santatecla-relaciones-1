@@ -25,7 +25,7 @@ public class RecordService
 	public List<Record> getRecordsByUnitId(long unitId) {
 		Unit unit = this.unitRepository.findById(unitId);
 		if (unit != null) {
-			this.recordRepository.findByUnit(unit);
+			return this.recordRepository.findByUnit(unit);
 		}
 		return null;
 	}
@@ -34,6 +34,12 @@ public class RecordService
 		Record record = new Record(unit, type, value, null);
 		return this.recordRepository.save(record);
 	}
+
+	public Record editRecord(long id, String value){
+	    Record record = recordRepository.getById(id);
+	    record.setValue(value);
+	    return record;
+    }
 
 	public Record addImage(Unit unit, RecordsEnum type, String image) {
 		Record record = new Record(unit, RecordsEnum.IMAGE, null, image);
@@ -44,10 +50,10 @@ public class RecordService
 	 * Delete a record (or image) from the database.
 	 * @param recordId
 	 */
-	public void deleteRecord(long recordId) {
+	/*public void deleteRecord(long recordId) {
 		Record record = this.recordRepository.findById(recordId);
 		if (record != null) {
 			this.recordRepository.delete(record);
 		}
-	}
+	}*/
 }

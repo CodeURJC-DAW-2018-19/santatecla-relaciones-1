@@ -143,7 +143,7 @@
 																						<input type="text" value={{unit.id}} name=id />
 
 																						<div class="form-group">
-																							<label for="exampleSelect1">Seleccionar</label> <select
+																							<label form="exampleSelect1">Seleccionar</label> <select
 																								class="form-control" id="relatedId"
 																								name="relatedId"> {{#units}}
 																								<option value={{id}}>{{name}}</option>
@@ -211,7 +211,7 @@
 																						<input type="text" value={{unit.id}} name=id />
 
 																						<div class="form-group">
-																							<label for="exampleSelect1">Seleccionar</label> <select
+																							<label form="exampleSelect1">Seleccionar</label> <select
 																								class="form-control" id="relatedId"
 																								name="relatedId"> {{#units}}
 																								<option value={{id}}>{{name}}</option>
@@ -278,7 +278,7 @@
 																						<input type="text" value={{unit.id}} name=id />
 
 																						<div class="form-group">
-																							<label for="exampleSelect1">Seleccionar</label> <select
+																							<label form="exampleSelect1">Seleccionar</label> <select
 																								class="form-control" id="relatedId"
 																								name="relatedId"> {{#units}}
 																								<option value={{id}}>{{name}}</option>
@@ -346,7 +346,7 @@
 																						<input type="text" value={{unit.id}} name=id />
 
 																						<div class="form-group">
-																							<label for="exampleSelect1">Seleccionar</label> <select
+																							<label form="exampleSelect1">Seleccionar</label> <select
 																								class="form-control" id="relatedId"
 																								name="relatedId"> {{#units}}
 																								<option value={{id}}>{{name}}</option>
@@ -427,7 +427,7 @@
 																						<input type="text" value={{unit.id}} name=id />
 
 																						<div class="form-group">
-																							<label for="exampleSelect1">Seleccionar</label> <select
+																							<label form="exampleSelect1">Seleccionar</label> <select
 																								class="form-control" id="relatedId"
 																								name="relatedId"> {{#units}}
 																								<option value={{id}}>{{name}}</option>
@@ -494,7 +494,7 @@
 																						<input type="text" value={{unit.id}} name=id />
 
 																						<div class="form-group">
-																							<label for="exampleSelect1">Seleccionar</label> <select
+																							<label form="exampleSelect1">Seleccionar</label> <select
 																								class="form-control" id="relatedId"
 																								name="relatedId"> {{#units}}
 																								<option value={{id}}>{{name}}</option>
@@ -561,7 +561,7 @@
 																						<input type="text" value={{unit.id}} name=id />
 
 																						<div class="form-group">
-																							<label for="exampleSelect1">Seleccionar</label> <select
+																							<label form="exampleSelect1">Seleccionar</label> <select
 																								class="form-control" id="relatedId"
 																								name="relatedId"> {{#units}}
 																								<option value={{id}}>{{name}}</option>
@@ -627,7 +627,7 @@
 																						<input type="text" value={{unit.id}} name=id />
 
 																						<div class="form-group">
-																							<label for="exampleSelect1">Seleccionar</label> <select
+																							<label form="exampleSelect1">Seleccionar</label> <select
 																								class="form-control" id="relatedId"
 																								name="relatedId"> {{#units}}
 																								<option value={{id}}>{{name}}</option>
@@ -663,20 +663,46 @@
 															<div class="card-body">
 																<table class="table my-table">
 																	<tbody>
-																		<tr>
-																			<td>##Título</td>
-																		</tr>
-																		<tr>
-																			<td>###Subtitulo</td>
-																		</tr>
-																		<tr>
-																			<td><span> · Elemento 1</span></td>
-																		</tr>
+                                                                    {{#why}}
+                                                                    <tr>
+                                                                        <td>{{value}}</td>
+                                                                    </tr>
+                                                                    {{/why}}
 																	</tbody>
 																</table>
+                                                                {{#logged}}
+                                                                <div class="container text-right">
+                                                                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target=#addWhy>Editar</button>
+                                                                </div>
+                                                                {{/logged}}
 															</div>
 														</div>
 													</div>
+
+                                                    <div class="modal fade" id="addWhy" tabindex="-1" role="">
+                                                        <div class="modal-dialog modal-addUnit" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="card card-signup card-plain">
+                                                                    <div class="modal-header">
+                                                                        <div class="card-header card-header-primary text-center">
+                                                                            <h4 class="card-title">Por qué</h4>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <form class="form" method="post" action="/add-why">
+                                                                            <input type="hidden" value={{unit.id}} name=id readonly/>
+                                                                            <textarea class="form-control" name="value" rows="5"></textarea>
+                                                                            <div class="card-body">
+                                                                                <input type='submit' class="btn btn-primary" value='Guardar'/>
+                                                                                <input type="hidden" name="_csrf" value="{{token}}" />
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
 													<div class="col-11">
 														<div class="card">
 															<div class="card-header card-header-warning">
@@ -684,15 +710,23 @@
 															</div>
 															<div class="card-body">
 																<table class="table my-table">
-																	<tbody>
-																		<tr>
-																			<td></td>
-																		</tr>
-																	</tbody>
+                                                                    <tbody>
+                                                                    {{#what}}
+                                                                    <tr>
+                                                                        <td>{{value}}</td>
+                                                                    </tr>
+                                                                    {{/what}}
+                                                                    </tbody>
 																</table>
+                                                                {{#logged}}
+                                                                <div class="container text-right">
+                                                                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target=#addForWhat>Editar</button>
+                                                                </div>
+                                                                {{/logged}}
 															</div>
 														</div>
 													</div>
+
 													<div class="col-11">
 														<div class="card">
 															<div class="card-header card-header-info">
@@ -706,9 +740,15 @@
 																		</tr>
 																	</tbody>
 																</table>
+                                                                {{#logged}}
+                                                                <div class="container text-right">
+                                                                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target=#addWhat>Editar</button>
+                                                                </div>
+                                                                {{/logged}}
 															</div>
 														</div>
 													</div>
+
 													<div class="col-11">
 														<div class="card">
 															<div class="card-header card-header-primary">
@@ -722,6 +762,11 @@
 																		</tr>
 																	</tbody>
 																</table>
+                                                                {{#logged}}
+                                                                <div class="container text-right">
+                                                                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target=#addHow>Editar</button>
+                                                                </div>
+                                                                {{/logged}}
 															</div>
 														</div>
 													</div>

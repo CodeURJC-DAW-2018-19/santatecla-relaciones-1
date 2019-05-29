@@ -2,8 +2,13 @@ package es.santatecla.unit;
 
 
 
+import java.util.ArrayList;
 import java.util.List;
 
+import es.santatecla.enums.RecordsEnum;
+import es.santatecla.record.Record;
+import es.santatecla.record.RecordRepository;
+import es.santatecla.record.RecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,6 +36,12 @@ public class UnitController {
 
 	@Autowired
 	private RelationService relationService;
+
+	@Autowired
+    private RecordRepository recordRepository;
+
+	@Autowired
+    private RecordService recordService;
 	
 	@ModelAttribute
 	public void addUserToModel(Model model) {
@@ -60,6 +71,35 @@ public class UnitController {
 		List<Unit> uses = unitService.getRelatedUnit(id, RelationsEnum.USE);
 		List<Unit> usedBy = unitService.getRelatedUnit(id, RelationsEnum.USE_BY);
 		List<Unit> parts = unitService.getRelatedUnit(id, RelationsEnum.PART);
+		List<Record> records = recordService.getRecordsByUnitId(id);
+        List<Record> why = new ArrayList<>();
+        List<Record> what = new ArrayList<>();
+        List<Record> how = new ArrayList<>();
+        List<Record> forwhat = new ArrayList<>();
+        for (Record record: records
+             ) {
+            if (record.getKey()==RecordsEnum.WHY){
+                why.add(record);
+            }
+        }
+        for (Record record: records
+        ) {
+            if (record.getKey()==RecordsEnum.WHAT){
+                what.add(record);
+            }
+        }
+        for (Record record: records
+        ) {
+            if (record.getKey()==RecordsEnum.HOW){
+                how.add(record);
+            }
+        }
+        for (Record record: records
+        ) {
+            if (record.getKey()==RecordsEnum.FOR_WHAT){
+                forwhat.add(record);
+            }
+        }
 		
 		model.addAttribute("unit", unit);
 		model.addAttribute("units", unitRepository.findAll());
@@ -71,6 +111,9 @@ public class UnitController {
 		model.addAttribute("uses", uses);
 		model.addAttribute("used-by", usedBy);
 		model.addAttribute("part", parts);
+		model.addAttribute("records", recordRepository.findAll());
+		model.addAttribute("why", why);
+        model.addAttribute("what", what);
 		
 		return "/alumn-units";
 	}
@@ -138,9 +181,71 @@ public class UnitController {
 		this.relationService.AddRelations(unitId, relatedUnitId, RelationsEnum.ASSOCIATED_TO);
 	return this.getUnit(model, unitId);
 	}
-	
-	
 
+    @RequestMapping("/add-why")
+    public String addWhyRecord(Model model, @RequestParam String id, @RequestParam String value){
+	    long unitId = Long.parseLong(id);
+        Unit u = unitRepository.findById(unitId);
+        if (recordRepository.getById(unitId)!=null)
+            this.recordService.editRecord(unitId, value);
+        else
+            this.recordService.addRecord(u, RecordsEnum.WHY, value);
+        return this.getUnit(model, u.getId());
+    }
+
+    @RequestMapping("/add-what")
+    public String addWhatRecord(Model model, @RequestParam String id, @RequestParam String type, @RequestParam String value){
+        long unitId = Long.parseLong(id);
+        Unit u = unitRepository.findById(unitId);
+        if (type=="WHAT")
+            this.recordService.addRecord(u, RecordsEnum.WHY, value);
+        return this.getUnit(model, u.getId());
+    }
+
+    @RequestMapping("/add-forWhat")
+    public String addForWhatRecord(Model model, @RequestParam String id, @RequestParam String type, @RequestParam String value){
+        long unitId = Long.parseLong(id);
+        Unit u = unitRepository.findById(unitId);
+        if (type=="FOR_WHAT")
+            this.recordService.addRecord(u, RecordsEnum.WHY, value);
+        return this.getUnit(model, u.getId());
+    }
+
+    @RequestMapping("/add-where")
+    public String addWhereRecord(Model model, @RequestParam String id, @RequestParam String type, @RequestParam String value){
+        long unitId = Long.parseLong(id);
+        Unit u = unitRepository.findById(unitId);
+        if (type=="WHERE")
+            this.recordService.addRecord(u, RecordsEnum.WHY, value);
+        return this.getUnit(model, u.getId());
+    }
+
+    @RequestMapping("/add-who")
+    public String addWhoRecord(Model model, @RequestParam String id, @RequestParam String type, @RequestParam String value){
+        long unitId = Long.parseLong(id);
+        Unit u = unitRepository.findById(unitId);
+        if (type=="WHO")
+            this.recordService.addRecord(u, RecordsEnum.WHY, value);
+        return this.getUnit(model, u.getId());
+    }
+
+    @RequestMapping("/add-how")
+    public String addHowRecord(Model model, @RequestParam String id, @RequestParam String type, @RequestParam String value){
+        long unitId = Long.parseLong(id);
+        Unit u = unitRepository.findById(unitId);
+        if (type=="HOW")
+            this.recordService.addRecord(u, RecordsEnum.WHY, value);
+        return this.getUnit(model, u.getId());
+    }
+
+    @RequestMapping("/add-when")
+    public String addWhenRecord(Model model, @RequestParam String id, @RequestParam String type, @RequestParam String value){
+        long unitId = Long.parseLong(id);
+        Unit u = unitRepository.findById(unitId);
+        if (type=="WHEN")
+            this.recordService.addRecord(u, RecordsEnum.WHY, value);
+        return this.getUnit(model, u.getId());
+    }
 	
 	@RequestMapping("/add-unit")
 	public String addUnit(Model model, @RequestParam String name) {
