@@ -10,7 +10,7 @@ import es.santatecla.unit.Unit;
 
 @Repository
 public interface RecordRepository extends JpaRepository<Record, Long> {
-	List<Record> findById(long id);
+	Record findById(long id);
 	List<Record> findByUnit(Unit unit);
 	Record getById(long id);
 	List<Record> findByType(RecordsEnum type);

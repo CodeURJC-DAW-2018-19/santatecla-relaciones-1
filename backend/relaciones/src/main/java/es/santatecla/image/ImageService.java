@@ -30,6 +30,8 @@ public class ImageService {
                 File uploadedFile = new File(FILES_FOLDER.toFile(), fileName);
                 file.transferTo(uploadedFile);
 
+                imageId.addAndGet(1);
+
                 return FILES_FOLDER.toString() + "/" + fileName;
 
             } catch (Exception e) {

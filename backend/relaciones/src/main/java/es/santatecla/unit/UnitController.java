@@ -315,7 +315,9 @@ public class UnitController {
 
 	@RequestMapping("/upload-image")
     public String handleFileUpload(Model model, @RequestParam String recordId, @RequestParam("file") MultipartFile multipartFile) {
-		this.imageService.uploadPhoto(multipartFile);
+		long id = Long.parseLong(recordId);
+		String imageDir = this.imageService.uploadPhoto(multipartFile);
+		this.recordService.addImage(id, imageDir);
 		
 		return this.showUnits(model);
     }

@@ -47,17 +47,12 @@ public class RecordService
 		Record record = new Record(unit, RecordsEnum.IMAGE, null, image);
 		return this.recordRepository.save(record);
 	}
-	
-	/**
-	 * Delete a record (or image) from the database.
-	 * @param recordId
-	 */
-	/*public void deleteRecord(long recordId) {
+
+	public void addImage(long recordId, String image) {
 		Record record = this.recordRepository.findById(recordId);
-		if (record != null) {
-			this.recordRepository.delete(record);
-		}
-	}*/
+		record.setImage(image);
+		this.recordRepository.save(record);
+	}
 	
 	private void deleteOldRecord(RecordsEnum type, List<Record> records) {
 		if (records != null) {
