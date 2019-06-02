@@ -110,8 +110,12 @@
 							<div id="loading" class="side-middle minHeight">
 								<!-- Here the spinner will be shown -->
 							</div>
-							<button id="showMore" class="btn btn-primary mt-3">Cargar
+							<form method ="get" action="/showMore">
+							<input type="hidden" name="page" value={{page}}>
+							<button id="showMore" class="btn btn-primary mt-3" type="submit">Cargar
 								mas</button>
+<!-- 							<input type="hidden" name="_csrf" value="{{token}}" /> -->
+							</form>
 						</div>
 					</div>
 				</div>

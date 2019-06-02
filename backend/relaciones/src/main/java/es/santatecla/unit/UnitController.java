@@ -64,18 +64,18 @@ public class UnitController {
 	@RequestMapping("/")
 	public String showUnits(Model model) {
 		model.addAttribute("unit",unitRepository.findAll().subList(0, Math.min(unitRepository.findAll().size(),10)));
+		model.addAttribute("page", 0);
 		return "/index";
 	}
 
 	
-	@RequestMapping(value={"showMore/{page}"})
-	public String indexScrollPosts(Model model, @PathVariable int page){
+	@RequestMapping("/showMore")
+	public String indexScrollPosts(Model model, @RequestParam int page){
     	List<Unit> showMore = null;
     	List<Unit> units = new ArrayList<>();
-    	String u = null;
     	
     	units = unitRepository.findAll();
-    	u = "units";
+    	
     	
     	if (page*10 < units.size()){
 			if ((page+1)*10 <= units.size()){
@@ -85,7 +85,7 @@ public class UnitController {
 			}
 		}
     	
-    	model.addAttribute(u,showMore);
+    	model.addAttribute("unit",showMore);
     	
     return "/showmore";
 	}
