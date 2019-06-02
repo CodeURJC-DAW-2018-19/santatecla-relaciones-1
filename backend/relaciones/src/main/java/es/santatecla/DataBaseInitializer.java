@@ -51,7 +51,18 @@ public class DataBaseInitializer {
         Unit spring = this.unitService.addUnit("Spring");
         Unit xml = this.unitService.addUnit("XML");
         Unit java = this.unitService.addUnit("Java");
+        Unit C = this.unitService.addUnit("C");
+        Unit angular = this.unitService.addUnit("Angular");
+        Unit haskel = this.unitService.addUnit("Haskel");
+        Unit python = this.unitService.addUnit("Python");
+        Unit html5 = this.unitService.addUnit("Html5");
+        Unit ensamblador = this.unitService.addUnit("Ensamblador");
+        Unit photoshop = this.unitService.addUnit("Photoshop");
+        Unit pascal = this.unitService.addUnit("Pascal");
 
+        
+        
+        
         //Relations
         this.relationService.AddRelations(css.getId(), scss.getId(), RelationsEnum.PARENT);
         this.relationService.AddRelations(css.getId(), spring.getId(), RelationsEnum.CHILD);
