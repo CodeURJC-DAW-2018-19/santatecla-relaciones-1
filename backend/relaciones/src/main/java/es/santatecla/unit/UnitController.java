@@ -85,6 +85,7 @@ public class UnitController {
 			}
 		}
     	
+    	model.addAttribute("page", page);
     	model.addAttribute("unit",showMore);
     	
     return "/showmore";

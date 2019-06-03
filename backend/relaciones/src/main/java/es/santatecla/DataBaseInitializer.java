@@ -59,6 +59,12 @@ public class DataBaseInitializer {
         Unit ensamblador = this.unitService.addUnit("Ensamblador");
         Unit photoshop = this.unitService.addUnit("Photoshop");
         Unit pascal = this.unitService.addUnit("Pascal");
+        Unit cola = this.unitService.addUnit("Cola");
+        Unit lista = this.unitService.addUnit("Lista");
+        Unit pila = this.unitService.addUnit("Pila");
+        Unit grafo = this.unitService.addUnit("Grafo");
+        Unit awl = this.unitService.addUnit("AWL");
+        Unit docker = this.unitService.addUnit("Docker");
 
         
         
