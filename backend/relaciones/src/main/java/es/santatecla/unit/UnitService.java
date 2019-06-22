@@ -29,6 +29,10 @@ public class UnitService {
 		this.recordService = recordService;
 	}
 	
+	public List<Unit> getUnits(){
+		return unitRepository.findAll();
+	}
+	
 	public Unit getUnit(long unitId) {
 		Unit unit = this.unitRepository.findById(unitId);
 		List<Relation> relations = this.relationService.getRelationsByUnitId(unitId);

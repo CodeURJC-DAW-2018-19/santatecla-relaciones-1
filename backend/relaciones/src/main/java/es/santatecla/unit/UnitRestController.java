@@ -66,37 +66,37 @@ public class UnitRestController {
 	}
 	
 	@GetMapping("/")
-	public String showUnits(Model model) {
+	public List<Unit> showUnits(Model model) {
 		model.addAttribute("unit",unitRepository.findAll().subList(0, Math.min(unitRepository.findAll().size(),10)));
 		model.addAttribute("page", 0);
-		return "/index";
+		return unitService.getUnits();
 	}
 
 	
-	@GetMapping("/showMore")
-	public String indexScrollPosts(Model model, @RequestParam int page){
-    	List<Unit> showMore = null;
-    	List<Unit> units = new ArrayList<>();
-    	
-    	units = unitRepository.findAll();
-    	
-    	
-    	if (page*10 < units.size()){
-			if ((page+1)*10 <= units.size()){
-				showMore = units.subList(page*10, (page+1)*10);
-			} else {
-				showMore = units.subList(page*10,units.size());
-			}
-		}
-    	
-    	model.addAttribute("page", page);
-    	model.addAttribute("unit",showMore);
-    	
-    return "/showmore";
-	}
+//	@GetMapping("/showMore")
+//	public String indexScrollPosts(Model model, @RequestParam int page){
+//    	List<Unit> showMore = null;
+//    	List<Unit> units = new ArrayList<>();
+//    	
+//    	units = unitRepository.findAll();
+//    	
+//    	
+//    	if (page*10 < units.size()){
+//			if ((page+1)*10 <= units.size()){
+//				showMore = units.subList(page*10, (page+1)*10);
+//			} else {
+//				showMore = units.subList(page*10,units.size());
+//			}
+//		}
+//    	
+//    	model.addAttribute("page", page);
+//    	model.addAttribute("unit",showMore);
+//    	
+//    return "/showmore";
+//	}
 	
 	@GetMapping("/unit/{id}")
-	public String getUnit(Model model, @PathVariable long id) {
+	public Unit getUnit(Model model, @PathVariable long id) {
 		Unit unit = unitRepository.findById(id);
 		List<Unit> parents = unitService.getRelatedUnit(id, RelationsEnum.PARENT);
 		List<Unit> associatedBy = unitService.getRelatedUnit(id, RelationsEnum.ASSOCIATED_BY);
@@ -175,12 +175,12 @@ public class UnitRestController {
         model.addAttribute("who", who);
         model.addAttribute("when", when);
 		
-		return "/alumn-units";
+		return unit;
 	}
 	
 	@PostMapping("/add-parent")
 	@ResponseStatus(HttpStatus.CREATED)
-	public String addParentFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
+	public Unit addParentFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
 		int unitId = Integer.parseInt(id);
 		int relatedUnitId = Integer.parseInt(relatedId);
 		this.relationService.AddRelations(unitId, relatedUnitId, RelationsEnum.PARENT);
@@ -189,7 +189,7 @@ public class UnitRestController {
 
 	@PostMapping("/add-child")
 	@ResponseStatus(HttpStatus.CREATED)
-	public String addChildFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
+	public Unit addChildFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
 		int unitId = Integer.parseInt(id);
 		int relatedUnitId = Integer.parseInt(relatedId);
 		this.relationService.AddRelations(unitId, relatedUnitId, RelationsEnum.CHILD );
@@ -198,7 +198,7 @@ public class UnitRestController {
 	
 	@PostMapping("/add-composition")
 	@ResponseStatus(HttpStatus.CREATED)
-	public String addCompositionFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
+	public Unit addCompositionFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
 		int unitId = Integer.parseInt(id);
 		int relatedUnitId = Integer.parseInt(relatedId);
 		this.relationService.AddRelations(unitId, relatedUnitId, RelationsEnum.COMPOSITION);
@@ -207,7 +207,7 @@ public class UnitRestController {
 	
 	@PostMapping("/add-part")
 	@ResponseStatus(HttpStatus.CREATED)
-	public String addPartFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
+	public Unit addPartFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
 		int unitId = Integer.parseInt(id);
 		int relatedUnitId = Integer.parseInt(relatedId);
 		this.relationService.AddRelations(unitId, relatedUnitId, RelationsEnum.PART);
@@ -216,7 +216,7 @@ public class UnitRestController {
 	
 	@PostMapping("/add-use")
 	@ResponseStatus(HttpStatus.CREATED)
-	public String addUseFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
+	public Unit addUseFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
 		int unitId = Integer.parseInt(id);
 		int relatedUnitId = Integer.parseInt(relatedId);
 		this.relationService.AddRelations(unitId, relatedUnitId, RelationsEnum.USE);
@@ -225,7 +225,7 @@ public class UnitRestController {
 	
 	@PostMapping("/add-useBy")
 	@ResponseStatus(HttpStatus.CREATED)
-	public String addUseByFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
+	public Unit addUseByFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
 		int unitId = Integer.parseInt(id);
 		int relatedUnitId = Integer.parseInt(relatedId);
 		this.relationService.AddRelations(unitId, relatedUnitId, RelationsEnum.USE_BY);
@@ -234,7 +234,7 @@ public class UnitRestController {
 	
 	@PostMapping("/add-associatedBy")
 	@ResponseStatus(HttpStatus.CREATED)
-	public String addAssociatedByFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
+	public Unit addAssociatedByFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
 		int unitId = Integer.parseInt(id);
 		int relatedUnitId = Integer.parseInt(relatedId);
 		this.relationService.AddRelations(unitId, relatedUnitId, RelationsEnum.ASSOCIATED_BY);
@@ -243,7 +243,7 @@ public class UnitRestController {
 	
 	@PostMapping("/add-associatedTo")
 	@ResponseStatus(HttpStatus.CREATED)
-	public String addAssociatedToFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
+	public Unit addAssociatedToFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
 		int unitId = Integer.parseInt(id);
 		int relatedUnitId = Integer.parseInt(relatedId);
 		this.relationService.AddRelations(unitId, relatedUnitId, RelationsEnum.ASSOCIATED_TO);
@@ -252,7 +252,7 @@ public class UnitRestController {
 
     @PostMapping("/add-why")
     @ResponseStatus(HttpStatus.CREATED)
-    public String addWhyRecord(Model model, @RequestParam String id, @RequestParam String value){
+    public Unit addWhyRecord(Model model, @RequestParam String id, @RequestParam String value){
 	    long unitId = Long.parseLong(id);
         Unit u = unitRepository.findById(unitId);
         if (recordRepository.getById(unitId)!=null)
@@ -264,7 +264,7 @@ public class UnitRestController {
 
     @PostMapping("/add-what")
     @ResponseStatus(HttpStatus.CREATED)
-    public String addWhatRecord(Model model, @RequestParam String id, @RequestParam String value){
+    public Unit addWhatRecord(Model model, @RequestParam String id, @RequestParam String value){
         long unitId = Long.parseLong(id);
         Unit u = unitRepository.findById(unitId);
         if (recordRepository.getById(unitId)!=null)
@@ -276,7 +276,7 @@ public class UnitRestController {
 
     @PostMapping("/add-forWhat")
     @ResponseStatus(HttpStatus.CREATED)
-    public String addForWhatRecord(Model model, @RequestParam String id, @RequestParam String value){
+    public Unit addForWhatRecord(Model model, @RequestParam String id, @RequestParam String value){
         long unitId = Long.parseLong(id);
         Unit u = unitRepository.findById(unitId);
         if (recordRepository.getById(unitId)!=null)
@@ -288,7 +288,7 @@ public class UnitRestController {
 
     @PostMapping("/add-where")
     @ResponseStatus(HttpStatus.CREATED)
-    public String addWhereRecord(Model model, @RequestParam String id, @RequestParam String value){
+    public Unit addWhereRecord(Model model, @RequestParam String id, @RequestParam String value){
         long unitId = Long.parseLong(id);
         Unit u = unitRepository.findById(unitId);
         if (recordRepository.getById(unitId)!=null)
@@ -300,7 +300,7 @@ public class UnitRestController {
 
     @PostMapping("/add-who")
     @ResponseStatus(HttpStatus.CREATED)
-    public String addWhoRecord(Model model, @RequestParam String id, @RequestParam String value){
+    public Unit addWhoRecord(Model model, @RequestParam String id, @RequestParam String value){
         long unitId = Long.parseLong(id);
         Unit u = unitRepository.findById(unitId);
         if (recordRepository.getById(unitId)!=null)
@@ -312,7 +312,7 @@ public class UnitRestController {
 
     @PostMapping("/add-how")
     @ResponseStatus(HttpStatus.CREATED)
-    public String addHowRecord(Model model, @RequestParam String id, @RequestParam String value){
+    public Unit addHowRecord(Model model, @RequestParam String id, @RequestParam String value){
         long unitId = Long.parseLong(id);
         Unit u = unitRepository.findById(unitId);
         if (recordRepository.getById(unitId)!=null)
@@ -324,7 +324,7 @@ public class UnitRestController {
 
     @PostMapping("/add-when")
     @ResponseStatus(HttpStatus.CREATED)
-    public String addWhenRecord(Model model, @RequestParam String id, @RequestParam String value){
+    public Unit addWhenRecord(Model model, @RequestParam String id, @RequestParam String value){
         long unitId = Long.parseLong(id);
         Unit u = unitRepository.findById(unitId);
         if (recordRepository.getById(unitId)!=null)
@@ -335,7 +335,7 @@ public class UnitRestController {
     }
 	
 	@DeleteMapping("/delete-relation")
-	public String deleteRelationFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId) {
+	public Unit deleteRelationFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId) {
 		long unitId = Integer.parseInt(id);
 		long relatedUnitId = Integer.parseInt(relatedId);
 		relationService.deleteRelation(unitId, relatedUnitId);
@@ -344,26 +344,25 @@ public class UnitRestController {
 	
 	@PostMapping("/add-unit")
 	@ResponseStatus(HttpStatus.CREATED)
-	public String addUnit(Model model, @RequestParam String name) {
+	public List<Unit> addUnit(Model model, @RequestParam String name) {
 		this.unitService.addUnit(name);
 		return this.showUnits(model);
 	}
 	
 	@DeleteMapping("/delete-unit/{id}")
-	public String deleteUnit(Model model, @PathVariable long id)  {
+	public List<Unit> deleteUnit(Model model, @PathVariable long id)  {
 		unitService.deleteUnit(id);
 	
 		return this.showUnits(model);
 	}
 
 	@PostMapping("/upload-image")
-	@ResponseStatus(HttpStatus.CREATED)
-    public String handleFileUpload(Model model, @RequestParam String recordId, @RequestParam("file") MultipartFile multipartFile) {
+    public List<String> handleFileUpload(Model model, @RequestParam String recordId, @RequestParam("file") MultipartFile multipartFile) {
 		long id = Long.parseLong(recordId);
 		String imageDir = this.imageService.uploadPhoto(multipartFile);
 		this.recordService.addImage(id, imageDir);
 		
-		return this.showUnits(model);
+		return this.handleFileUpload(model, recordId, multipartFile);
     }
 }
 
