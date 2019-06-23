@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.ui.Model;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,46 +31,29 @@ public class UnitRestController {
 	
 	private UnitRepository unitRepository;
 	private UnitService unitService;
-	private UserComponent userComponent;
-	private RelationService relationService;
 	private RecordRepository recordRepository;
 	private RecordService recordService;
 	private ImageService imageService;
 	
-	
+	@Autowired
 	public UnitRestController(
 			UnitRepository unitRepository,
 			UnitService unitService,
-			UserComponent userComponent,
 			RecordService recordService,
 			RecordRepository recordRepository,
-			RelationService relationService,
 			ImageService imageService
 		) {
 			this.unitRepository = unitRepository;
 			this.unitService = unitService;
-			this.userComponent = userComponent;
-			this.relationService = relationService;
 			this.recordRepository = recordRepository;
 			this.recordService = recordService;
 			this.imageService = imageService;
 		}
 	
-	@ModelAttribute
-	public void addUserToModel(Model model) {
-		boolean logged = userComponent.getLoggedUser() != null;
-		model.addAttribute("logged", logged);
-		if(logged) {
-			model.addAttribute("admin", userComponent.getLoggedUser().getRoles().contains("ROLE_ADMIN"));
-			model.addAttribute("userName",userComponent.getLoggedUser().getName());
-		}
-	}
-	
 	@GetMapping("/")
 	public List<Unit> showUnits(Model model) {
-		model.addAttribute("unit",unitRepository.findAll().subList(0, Math.min(unitRepository.findAll().size(),10)));
-		model.addAttribute("page", 0);
-		return unitService.getUnits();
+		List<Unit> units = unitService.getUnits();
+		return units;
 	}
 
 	
@@ -178,169 +162,6 @@ public class UnitRestController {
 		return unit;
 	}
 	
-	@PostMapping("/add-parent")
-	@ResponseStatus(HttpStatus.CREATED)
-	public Unit addParentFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
-		int unitId = Integer.parseInt(id);
-		int relatedUnitId = Integer.parseInt(relatedId);
-		this.relationService.AddRelations(unitId, relatedUnitId, RelationsEnum.PARENT);
-	return this.getUnit(model, unitId);
-	}
-
-	@PostMapping("/add-child")
-	@ResponseStatus(HttpStatus.CREATED)
-	public Unit addChildFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
-		int unitId = Integer.parseInt(id);
-		int relatedUnitId = Integer.parseInt(relatedId);
-		this.relationService.AddRelations(unitId, relatedUnitId, RelationsEnum.CHILD );
-	return this.getUnit(model, unitId);
-	}
-	
-	@PostMapping("/add-composition")
-	@ResponseStatus(HttpStatus.CREATED)
-	public Unit addCompositionFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
-		int unitId = Integer.parseInt(id);
-		int relatedUnitId = Integer.parseInt(relatedId);
-		this.relationService.AddRelations(unitId, relatedUnitId, RelationsEnum.COMPOSITION);
-	return this.getUnit(model, unitId);
-	}
-	
-	@PostMapping("/add-part")
-	@ResponseStatus(HttpStatus.CREATED)
-	public Unit addPartFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
-		int unitId = Integer.parseInt(id);
-		int relatedUnitId = Integer.parseInt(relatedId);
-		this.relationService.AddRelations(unitId, relatedUnitId, RelationsEnum.PART);
-	return this.getUnit(model, unitId);
-	}
-	
-	@PostMapping("/add-use")
-	@ResponseStatus(HttpStatus.CREATED)
-	public Unit addUseFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
-		int unitId = Integer.parseInt(id);
-		int relatedUnitId = Integer.parseInt(relatedId);
-		this.relationService.AddRelations(unitId, relatedUnitId, RelationsEnum.USE);
-	return this.getUnit(model, unitId);
-	}
-	
-	@PostMapping("/add-useBy")
-	@ResponseStatus(HttpStatus.CREATED)
-	public Unit addUseByFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
-		int unitId = Integer.parseInt(id);
-		int relatedUnitId = Integer.parseInt(relatedId);
-		this.relationService.AddRelations(unitId, relatedUnitId, RelationsEnum.USE_BY);
-	return this.getUnit(model, unitId);
-	}
-	
-	@PostMapping("/add-associatedBy")
-	@ResponseStatus(HttpStatus.CREATED)
-	public Unit addAssociatedByFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
-		int unitId = Integer.parseInt(id);
-		int relatedUnitId = Integer.parseInt(relatedId);
-		this.relationService.AddRelations(unitId, relatedUnitId, RelationsEnum.ASSOCIATED_BY);
-	return this.getUnit(model, unitId);
-	}
-	
-	@PostMapping("/add-associatedTo")
-	@ResponseStatus(HttpStatus.CREATED)
-	public Unit addAssociatedToFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId){
-		int unitId = Integer.parseInt(id);
-		int relatedUnitId = Integer.parseInt(relatedId);
-		this.relationService.AddRelations(unitId, relatedUnitId, RelationsEnum.ASSOCIATED_TO);
-	return this.getUnit(model, unitId);
-	}
-
-    @PostMapping("/add-why")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Unit addWhyRecord(Model model, @RequestParam String id, @RequestParam String value){
-	    long unitId = Long.parseLong(id);
-        Unit u = unitRepository.findById(unitId);
-        if (recordRepository.getById(unitId)!=null)
-            this.recordService.editRecord(unitId, value);
-        else
-            this.recordService.addRecord(u, RecordsEnum.WHY, value);
-        return this.getUnit(model, u.getId());
-    }
-
-    @PostMapping("/add-what")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Unit addWhatRecord(Model model, @RequestParam String id, @RequestParam String value){
-        long unitId = Long.parseLong(id);
-        Unit u = unitRepository.findById(unitId);
-        if (recordRepository.getById(unitId)!=null)
-            this.recordService.editRecord(unitId, value);
-        else
-            this.recordService.addRecord(u, RecordsEnum.WHAT, value);
-        return this.getUnit(model, u.getId());
-    }
-
-    @PostMapping("/add-forWhat")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Unit addForWhatRecord(Model model, @RequestParam String id, @RequestParam String value){
-        long unitId = Long.parseLong(id);
-        Unit u = unitRepository.findById(unitId);
-        if (recordRepository.getById(unitId)!=null)
-            this.recordService.editRecord(unitId, value);
-        else
-            this.recordService.addRecord(u, RecordsEnum.FOR_WHAT, value);
-        return this.getUnit(model, u.getId());
-    }
-
-    @PostMapping("/add-where")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Unit addWhereRecord(Model model, @RequestParam String id, @RequestParam String value){
-        long unitId = Long.parseLong(id);
-        Unit u = unitRepository.findById(unitId);
-        if (recordRepository.getById(unitId)!=null)
-            this.recordService.editRecord(unitId, value);
-        else
-            this.recordService.addRecord(u, RecordsEnum.WHERE, value);
-        return this.getUnit(model, u.getId());
-    }
-
-    @PostMapping("/add-who")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Unit addWhoRecord(Model model, @RequestParam String id, @RequestParam String value){
-        long unitId = Long.parseLong(id);
-        Unit u = unitRepository.findById(unitId);
-        if (recordRepository.getById(unitId)!=null)
-            this.recordService.editRecord(unitId, value);
-        else
-            this.recordService.addRecord(u, RecordsEnum.WHO, value);
-        return this.getUnit(model, u.getId());
-    }
-
-    @PostMapping("/add-how")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Unit addHowRecord(Model model, @RequestParam String id, @RequestParam String value){
-        long unitId = Long.parseLong(id);
-        Unit u = unitRepository.findById(unitId);
-        if (recordRepository.getById(unitId)!=null)
-            this.recordService.editRecord(unitId, value);
-        else
-            this.recordService.addRecord(u, RecordsEnum.HOW, value);
-        return this.getUnit(model, u.getId());
-    }
-
-    @PostMapping("/add-when")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Unit addWhenRecord(Model model, @RequestParam String id, @RequestParam String value){
-        long unitId = Long.parseLong(id);
-        Unit u = unitRepository.findById(unitId);
-        if (recordRepository.getById(unitId)!=null)
-            this.recordService.editRecord(unitId, value);
-        else
-            this.recordService.addRecord(u, RecordsEnum.WHEN, value);
-        return this.getUnit(model, u.getId());
-    }
-	
-	@DeleteMapping("/delete-relation")
-	public Unit deleteRelationFromUnit(Model model, @RequestParam String id, @RequestParam String relatedId) {
-		long unitId = Integer.parseInt(id);
-		long relatedUnitId = Integer.parseInt(relatedId);
-		relationService.deleteRelation(unitId, relatedUnitId);
-		return this.getUnit(model, unitId);
-	}
 	
 	@PostMapping("/add-unit")
 	@ResponseStatus(HttpStatus.CREATED)
@@ -357,6 +178,7 @@ public class UnitRestController {
 	}
 
 	@PostMapping("/upload-image")
+	@ResponseStatus(HttpStatus.CREATED)
     public List<String> handleFileUpload(Model model, @RequestParam String recordId, @RequestParam("file") MultipartFile multipartFile) {
 		long id = Long.parseLong(recordId);
 		String imageDir = this.imageService.uploadPhoto(multipartFile);

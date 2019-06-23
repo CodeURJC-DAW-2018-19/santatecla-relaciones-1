@@ -18,7 +18,7 @@ import es.santatecla.user.User;
 import es.santatecla.user.UserComponent;
 
 
-@Controller
+@RestController
 public class LoginController {
 	
 	private static final Logger log = LoggerFactory.getLogger(LoginController.class);
@@ -27,13 +27,16 @@ public class LoginController {
 	UserComponent userComponent;
 	
 	@RequestMapping("/login")
-	public String login(Model model, HttpServletRequest request) {
-		model.addAttribute("loginerror",false);
-		
-		model.addAttribute("admin", request.isUserInRole("ADMIN"));
-		model.addAttribute("user", request.isUserInRole("USER"));
-		
-		return"/";
+		public ResponseEntity<User> login() {
+			
+			if (!userComponent.isLoggedUser()) {
+				log.info("Not user logged");
+				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			} else {
+				User loggedUser = userComponent.getLoggedUser();
+				log.info("Logged as " + loggedUser.getName());
+				return new ResponseEntity<>(loggedUser, HttpStatus.OK);
+			}
 	}
 
 	@RequestMapping("/loginerror")
