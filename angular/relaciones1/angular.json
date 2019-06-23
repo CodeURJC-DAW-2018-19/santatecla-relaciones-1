@@ -28,9 +28,29 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/material-dashboard/assets/scss/material-dashboard.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/brands.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/regular.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/solid.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/v4-shims.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/material-dashboard/assets/js/material-dashboard.min.js",
+              "node_modules/material-dashboard/assets/js/core/bootstrap-material-design.min.js",
+              "node_modules/material-dashboard/assets/js/core/jquery.min.js",
+              "node_modules/material-dashboard/assets/js/core/popper.min.js",
+              "node_modules/material-dashboard/assets/js/plugins/bootstrap-notify.js",
+              "node_modules/material-dashboard/assets/js/plugins/chartist.min.js",
+              "node_modules/material-dashboard/assets/js/plugins/perfect-scrollbar.jquery.min.js",
+              "node_modules/@fortawesome/fontawesome-free/js/all.min.js",
+              "node_modules/@fortawesome/fontawesome-free/js/brands.min.js",
+              "node_modules/@fortawesome/fontawesome-free/js/fontawesome.min.js",
+              "node_modules/@fortawesome/fontawesome-free/js/regular.min.js",
+              "node_modules/@fortawesome/fontawesome-free/js/solid.min.js",
+              "node_modules/@fortawesome/fontawesome-free/js/v4-shims.min.js"
+            ]
           },
           "configurations": {
             "production": {
