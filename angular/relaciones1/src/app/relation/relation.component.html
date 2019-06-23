@@ -1,0 +1,39 @@
+<p>
+  relation works!
+</p>
+<div class="row">
+  <div class="col-md-9">
+    <div class="card">
+      <div class="card-header card-header-text card-header-primary">
+        <div class="card-text">
+            <h4 class="card-title">Hijas</h4>
+        </div>
+      </div>
+      <div class="card-body">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <span>Nombre</span>
+                <form method="post" action="/delete-relation">
+                  <input type="hidden" name="id" />
+                  <input type="hidden" name="relatedId" />
+                  <button type="submit" class="btn btn-primary btn-link">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                  <input type="hidden" name="_csrf" />
+                </form>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div>
+          <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success" data-toggle="modal"
+            data-target=#addChildModal>
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
