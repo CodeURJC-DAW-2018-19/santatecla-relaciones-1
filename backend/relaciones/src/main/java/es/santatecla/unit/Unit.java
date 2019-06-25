@@ -9,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import es.santatecla.record.Record;
 import es.santatecla.relation.Relation;
 
@@ -16,11 +19,13 @@ import es.santatecla.relation.Relation;
 
 @Entity
 public class Unit{
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
 	private String name;
+	
 	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="unit")
 	private List<Relation> relations;
