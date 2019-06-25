@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RelationInfo } from '../dtos/relation-info';
 
 @Component({
   selector: 'app-unit',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./unit.component.scss']
 })
 export class UnitComponent implements OnInit {
+
+  id: number;
+  name: string;
+  relations: RelationInfo[];
 
   constructor() { }
 
