@@ -10,9 +10,9 @@ import { UnitService } from '../unit.service';
 })
 export class RelationComponent implements OnInit {
 
-  @Input() id: number;
+  @Input() unitId: number;
   @Input() name: string;
-  // @Input() relations: RelationInfo[];
+  @Input() relations: RelationInfo[];
 
   relatedUnits: UnitInfo[];
   
@@ -21,15 +21,10 @@ export class RelationComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.relations.forEach(relation => {
-    //   this.unitService.getUnit(relation.opositeUnitId)
-    //     .subscribe(unitInfo => this.relatedUnits.push(unitInfo));
-    // });
-
-    this.unitService.getUnit(this.id)
-      .subscribe(res => {
-        console.log(res)
-      })
+    this.relations.forEach(relation => {
+      this.unitService.getUnit(relation.opositeUnitId)
+        .subscribe(unitInfo => this.relatedUnits.push(unitInfo));
+    });
   }
 
 }
