@@ -2,7 +2,6 @@ package es.santatecla.relation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,13 +9,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import es.santatecla.enums.RelationsEnum;
-import es.santatecla.image.ImageService;
-import es.santatecla.record.RecordRepository;
-import es.santatecla.record.RecordService;
 import es.santatecla.unit.Unit;
-import es.santatecla.unit.UnitRepository;
 import es.santatecla.unit.UnitService;
-import es.santatecla.user.UserComponent;
 
 @RestController
 public class RelationRestController {
