@@ -2,6 +2,7 @@ package es.santatecla.relation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,6 +13,7 @@ import es.santatecla.enums.RelationsEnum;
 import es.santatecla.unit.Unit;
 import es.santatecla.unit.UnitService;
 
+@CrossOrigin
 @RestController
 public class RelationRestController {
 	

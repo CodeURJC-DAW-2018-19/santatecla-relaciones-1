@@ -2,6 +2,7 @@ package es.santatecla.record;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -14,6 +15,7 @@ import es.santatecla.unit.Unit;
 import es.santatecla.unit.UnitRepository;
 import es.santatecla.unit.UnitService;
 
+@CrossOrigin
 @RestController
 public class RecordRestController {
 	
