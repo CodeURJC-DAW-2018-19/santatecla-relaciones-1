@@ -37,10 +37,10 @@
               "node_modules/@fortawesome/fontawesome-free/scss/v4-shims.scss"
             ],
             "scripts": [
-              "node_modules/material-dashboard/assets/js/material-dashboard.min.js",
-              "node_modules/material-dashboard/assets/js/core/bootstrap-material-design.min.js",
               "node_modules/material-dashboard/assets/js/core/jquery.min.js",
               "node_modules/material-dashboard/assets/js/core/popper.min.js",
+              "node_modules/material-dashboard/assets/js/material-dashboard.min.js",
+              "node_modules/material-dashboard/assets/js/core/bootstrap-material-design.min.js",
               "node_modules/material-dashboard/assets/js/plugins/bootstrap-notify.js",
               "node_modules/material-dashboard/assets/js/plugins/chartist.min.js",
               "node_modules/material-dashboard/assets/js/plugins/perfect-scrollbar.jquery.min.js",

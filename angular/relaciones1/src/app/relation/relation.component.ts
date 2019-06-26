@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { RelationInfo } from '../dtos/relation-info';
 import { UnitInfo } from '../dtos/unit-info';
 import { UnitService } from '../unit.service';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-relation',
@@ -12,19 +13,12 @@ export class RelationComponent implements OnInit {
 
   @Input() unitId: number;
   @Input() name: string;
-  @Input() relations: RelationInfo[];
-
-  relatedUnits: UnitInfo[];
+  @Input() relatedUnits: UnitInfo[];
   
   constructor(
-    private unitService: UnitService
   ) { }
 
   ngOnInit() {
-    this.relations.forEach(relation => {
-      this.unitService.getUnit(relation.opositeUnitId)
-        .subscribe(unitInfo => this.relatedUnits.push(unitInfo));
-    });
   }
 
 }

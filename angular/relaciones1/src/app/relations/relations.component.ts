@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { RelationInfo } from '../dtos/relation-info';
+import { UnitInfo } from '../dtos/unit-info';
 
 @Component({
   selector: 'app-relations',
@@ -7,9 +9,16 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RelationsComponent implements OnInit {
 
+  @Input() unitId: number;
   @Input() unitName: string;
+
+  @Input() children: UnitInfo[];
+  @Input() parents: UnitInfo[];
+
   
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

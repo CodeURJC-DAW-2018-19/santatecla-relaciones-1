@@ -28,9 +28,9 @@ public class RestSecurityConfiguration extends WebSecurityConfigurerAdapter{
 				
 				
 		// Private pages
-				http.authorizeRequests().antMatchers(HttpMethod.GET, "/unit/**" ).hasAnyRole("USER");
-				http.authorizeRequests().antMatchers(HttpMethod.POST,"/unit/**").hasRole("ADMIN");
-				http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/unit/**").hasAnyRole("ADMIN");
+				http.authorizeRequests().antMatchers(HttpMethod.GET, "/unit/**" ).permitAll();
+				http.authorizeRequests().antMatchers(HttpMethod.POST,"/unit/**").permitAll();
+				http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/unit/**").permitAll();
 				
 		// Disabled csrf in api rest		
 				http.csrf().disable();

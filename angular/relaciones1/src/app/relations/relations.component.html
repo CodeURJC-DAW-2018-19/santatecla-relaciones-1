@@ -1,19 +1,16 @@
-<p>
-  relations works!
-</p>
 <div class="row">
   <div class="col-sm-12 col-lg-6 col-xl-4">
-    <app-relation [id]="3" [name]="'Hija'"></app-relation>
+    <app-relation [unitId]="unitId" [name]="'Hija'" [relatedUnits]="children"></app-relation>
   </div>
   <div class="col-sm-12 col-lg-6 col-xl-4">
-    <app-relation [id]="3" [name]="'Padre'"></app-relation>
+    <app-relation [unitId]="unitId" [name]="'Padre'" [relatedUnits]="parents"></app-relation>
   </div>
-  <div class="col-sm-12 col-lg-6 col-xl-4">
+  <!--<div class="col-sm-12 col-lg-6 col-xl-4">
     <app-relation [id]="3" [name]="'Asociado a'"></app-relation>
   </div>
   <div class="col-sm-12 col-lg-6 col-xl-4">
     <app-relation [id]="3" [name]="'Asociado por'"></app-relation>
-  </div>
+  </div> -->
   <div class="col-sm-12 col-lg-6 col-xl-4">
     <div class="card">
       <div class="card-header card-header-text card-header-primary">
@@ -26,7 +23,7 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-12 col-lg-6 col-xl-4">
+  <!-- <div class="col-sm-12 col-lg-6 col-xl-4">
     <app-relation [id]="3" [name]="'Usa'"></app-relation>
   </div>
   <div class="col-sm-12 col-lg-6 col-xl-4">
@@ -37,5 +34,5 @@
   </div>
   <div class="col-sm-12 col-lg-6 col-xl-4">
     <app-relation [id]="3" [name]="'Hija'"></app-relation>
-  </div>
+  </div> -->
 </div>
