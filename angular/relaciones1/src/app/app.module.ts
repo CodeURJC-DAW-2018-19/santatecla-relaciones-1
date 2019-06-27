@@ -9,10 +9,6 @@ import { RecordComponent } from './record/record.component';
 import { RelationsComponent } from './relations/relations.component';
 import { RecordsComponent } from './records/records.component';
 import { UnitComponent } from './unit/unit.component';
-import { LoginComponent } from './login/login.component';
-import { LoginService } from './login.service';
-import { BasicAuthInterceptor } from './login/auth.interceptor';
-import { ErrorInterceptor } from './login/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -21,17 +17,14 @@ import { ErrorInterceptor } from './login/error.interceptor';
     RecordComponent,
     RelationsComponent,
     RecordsComponent,
-    UnitComponent,
-    LoginComponent
+    UnitComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [LoginService,
-    { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi:true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi:true }
+  providers: [
   ],
   bootstrap: [AppComponent]
 })
