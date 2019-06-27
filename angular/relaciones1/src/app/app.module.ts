@@ -9,6 +9,7 @@ import { RecordComponent } from './record/record.component';
 import { RelationsComponent } from './relations/relations.component';
 import { RecordsComponent } from './records/records.component';
 import { UnitComponent } from './unit/unit.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { UnitComponent } from './unit/unit.component';
     RecordComponent,
     RelationsComponent,
     RecordsComponent,
-    UnitComponent
+    UnitComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
