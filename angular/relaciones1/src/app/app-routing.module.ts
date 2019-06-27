@@ -4,6 +4,7 @@ import { UnitComponent } from './unit/unit.component';
 
 const routes: Routes = [
   { path: 'unit/:id', component: UnitComponent }
+  
 ];
 
 @NgModule({
