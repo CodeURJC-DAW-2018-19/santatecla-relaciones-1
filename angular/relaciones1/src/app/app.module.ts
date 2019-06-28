@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,7 +9,6 @@ import { RecordComponent } from './record/record.component';
 import { RelationsComponent } from './relations/relations.component';
 import { RecordsComponent } from './records/records.component';
 import { UnitComponent } from './unit/unit.component';
-import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -18,15 +17,15 @@ import { LoginComponent } from './login/login.component';
     RecordComponent,
     RelationsComponent,
     RecordsComponent,
-    UnitComponent,
-    LoginComponent
+    UnitComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

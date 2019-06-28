@@ -30,7 +30,6 @@ export class UnitComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    const observableRelations = of(this.relations);
 
     this.relations = [];
     this.children = [];
