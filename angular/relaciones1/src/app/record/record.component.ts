@@ -9,9 +9,8 @@ import { RecordInfo } from '../dtos/record-info'
 export class RecordComponent implements OnInit {
 
   @Input() unitId: number;
-  @Input() name: string;
+  @Input() key: string;
   @Input() value: string;
-  records: RecordInfo[];
 
   constructor(
   ) { }

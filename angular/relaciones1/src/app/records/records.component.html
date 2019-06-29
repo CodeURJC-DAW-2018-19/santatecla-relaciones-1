@@ -1,17 +1,9 @@
-<p>
-  records works!
-</p>
 <div class="row">
-  <div class="col-12">
-    <app-record></app-record>
-  </div>  
-  <div class="col-12">
-    <app-record></app-record>
-  </div>
-  <div class="col-12">
-    <app-record></app-record>
-  </div>
-  <div class="col-12">
-    <app-record></app-record>
-  </div>
+  <tr *ngFor="let record of records">
+    <div class="col-12">
+      <div class="col-sm-12 col-lg-20 col-xl-30">
+        <app-record [unitId]="unitId" [key]="record.key" [value]="record.value"></app-record>
+      </div>
+    </div>  
+  </tr>
 </div>
