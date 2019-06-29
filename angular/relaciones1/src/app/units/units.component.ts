@@ -10,15 +10,18 @@ import { UnitInfo } from '../dtos/unit-info';
 export class UnitsComponent implements OnInit {
 
   units: UnitInfo[];
+  loading: boolean;
   
   constructor(
     private unitService: UnitService
   ) { }
 
   ngOnInit() {
+    this.loading = true;
     this.unitService.getUnits()
       .subscribe(response => {
         this.units = response;
+        this.loading = false;
       });
   }
 

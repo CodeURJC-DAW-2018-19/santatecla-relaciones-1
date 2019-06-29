@@ -18,7 +18,7 @@ export class UnitComponent implements OnInit {
   children: UnitInfo[];
   parents: UnitInfo[];
   records: RecordInfo[];
-
+  loading: boolean;
   activeTab: string = 'relations';
 
   constructor(
@@ -37,6 +37,7 @@ export class UnitComponent implements OnInit {
       this.id = parseInt(id);
     }
     
+    this.loading = true;
     this.unitService.getUnit(this.id)
       .subscribe(res => {
         this.name = res.name;
@@ -58,6 +59,8 @@ export class UnitComponent implements OnInit {
                 }
               })
         });
+
+        this.loading = false;
       });
   }
 

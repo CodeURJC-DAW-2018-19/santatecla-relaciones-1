@@ -41,6 +41,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginService } from './login.service';
 import { BasicAuthInterceptor } from './login/auth.interceptor';
 import { ErrorInterceptor } from './login/error.interceptor';
+import { LoadingComponent } from './loading/loading.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { ErrorInterceptor } from './login/error.interceptor';
     RecordsComponent,
     UnitComponent,
     UnitsComponent,
-    LoginComponent
+    LoginComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

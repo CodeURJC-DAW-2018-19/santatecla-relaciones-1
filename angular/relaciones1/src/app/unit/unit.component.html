@@ -21,7 +21,8 @@
     <div class="card-body ">
         <div class="unit-body-wrapper">
             <div class="unit-body-content">
-                <div class="tab-content">
+                <app-loading *ngIf="loading"></app-loading>
+                <div class="tab-content" *ngIf="!loading">
                     <div class="tab-pane" [class.active]="isInRelations()">
                         <div class="row">
                             <div class="col-sm-12">
@@ -30,7 +31,11 @@
                         </div>
                     </div>
                     <div class="tab-pane" [class.active]="isInRecords()">
-                            <app-records [unitId]="id" [records]="records"></app-records>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <app-records [unitId]="id" [records]="records"></app-records>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
