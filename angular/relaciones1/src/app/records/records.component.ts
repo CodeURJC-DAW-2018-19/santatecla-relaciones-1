@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { UnitComponent } from '../unit/unit.component';
+import { RecordInfo } from '../dtos/record-info';
 
 @Component({
   selector: 'app-records',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecordsComponent implements OnInit {
 
-  constructor() { }
+  @Input() unitId: number;
+  @Input() records: RecordInfo[];
+
+  constructor(
+  ) { }
 
   ngOnInit() {
+    
   }
 
 }
