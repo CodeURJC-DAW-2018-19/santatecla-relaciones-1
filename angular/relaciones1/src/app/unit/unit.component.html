@@ -4,12 +4,12 @@
             <div class="nav-tabs-wrapper">
                 <ul class="nav nav-tabs" data-tabs="tabs">
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="units">
+                        <a class="nav-link" routerLink="/">
                             <strong>Unidades</strong>
                         </a>
                     </li>
                     <li class="nav-item" (click)="setTab('relations')">
-                        <a class="nav-link"  [class.active]="isInRelations()">Relaciones</a>
+                        <a class="nav-link" [class.active]="isInRelations()">Relaciones</a>
                     </li>
                     <li class="nav-item" (click)="setTab('records')">
                         <a class="nav-link" [class.active]="isInRecords()">Ficha</a>
@@ -19,20 +19,27 @@
         </div>
     </div>
     <div class="card-body ">
-        <div class="tab-content">
-            <div class="tab-pane" [class.active]="isInRelations()">
-                <div class="row">
-                    <div class="col-sm-12">
-                            <app-relations [unitId]="id" [unitName]="name" [children]="children"></app-relations>
+        <div class="unit-body-wrapper">
+            <div class="unit-body-content">
+                <div class="tab-content">
+                    <div class="tab-pane" [class.active]="isInRelations()">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <app-relations [unitId]="id" [unitName]="name" [children]="children"></app-relations>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" [class.active]="isInRecords()">
+                        <p> I will be the leader of a company that ends up being worth billions of dollars, because I
+                            got the
+                            answers. I understand culture. I am the nucleus. I think that&#x2019;s a responsibility that
+                            I have,
+                            to push possibilities, to show people, this is the level that things could be at. I think
+                            that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is
+                            the level
+                            that things could be at. </p>
                     </div>
                 </div>
-            </div>
-            <div class="tab-pane"  [class.active]="isInRecords()">
-                <p> I will be the leader of a company that ends up being worth billions of dollars, because I got the
-                    answers. I understand culture. I am the nucleus. I think that&#x2019;s a responsibility that I have,
-                    to push possibilities, to show people, this is the level that things could be at. I think
-                    that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level
-                    that things could be at. </p>
             </div>
         </div>
     </div>

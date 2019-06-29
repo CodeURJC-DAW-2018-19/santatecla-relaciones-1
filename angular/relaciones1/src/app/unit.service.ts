@@ -17,4 +17,8 @@ export class UnitService {
   getUnit (id: number): Observable<UnitInfo> {
     return this.http.get<UnitInfo>(this.baseUrl + '/unit/' + id);
   }
+
+  getUnits (): Observable<UnitInfo[]> {
+    return this.http.get<UnitInfo[]>(this.baseUrl + '/units')
+  }
 }

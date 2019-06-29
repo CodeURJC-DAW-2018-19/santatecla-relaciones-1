@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { RecordService } from '../record.service'
 
 @Component({
   selector: 'app-records',
