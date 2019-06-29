@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
-const URL = '/';
+const URL = 'https://localhost:8443';
 
 export interface User {
   id?:number;
@@ -39,7 +39,7 @@ export class LoginService {
       Authorization: 'Basic ' + auth,
       'X-Requested-With': 'XMLHttpRequest',
     });
-    return this.http.get<User>('/login', { headers })
+    return this.http.get<User>(URL + '/login', { headers })
       .pipe(map(user => {
           if (user) {
               this.setCurrentUser(user);
@@ -52,7 +52,7 @@ export class LoginService {
   }
 
   logOut() {
-    return this.http.get(URL + '/logOut').pipe(
+    return this.http.get(URL + '/logout').pipe(
       map(response => {
         this.removeCurrentUser();
         return response;
