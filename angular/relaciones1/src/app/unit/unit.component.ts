@@ -5,7 +5,6 @@ import { UnitService } from '../unit.service';
 import { ActivatedRoute } from '@angular/router';
 import { UnitInfo } from '../dtos/unit-info';
 import { Observable, of } from 'rxjs';
-import { RecordService } from '../record.service';
 
 @Component({
   selector: 'app-unit',
