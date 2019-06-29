@@ -4,7 +4,6 @@ import { RecordInfo } from '../dtos/record-info'
 import { UnitService } from '../unit.service';
 import { ActivatedRoute } from '@angular/router';
 import { UnitInfo } from '../dtos/unit-info';
-import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-unit',
@@ -19,12 +18,12 @@ export class UnitComponent implements OnInit {
   children: UnitInfo[];
   parents: UnitInfo[];
   records: RecordInfo[];
-
+  loading: boolean;
   activeTab: string = 'relations';
 
   constructor(
     private route: ActivatedRoute,
-    private unitService: UnitService){}
+    private unitService: UnitService) {}
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -38,6 +37,7 @@ export class UnitComponent implements OnInit {
       this.id = parseInt(id);
     }
     
+    this.loading = true;
     this.unitService.getUnit(this.id)
       .subscribe(res => {
         this.name = res.name;
@@ -59,6 +59,8 @@ export class UnitComponent implements OnInit {
                 }
               })
         });
+
+        this.loading = false;
       });
   }
 

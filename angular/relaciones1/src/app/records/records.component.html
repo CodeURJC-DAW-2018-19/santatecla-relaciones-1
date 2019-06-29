@@ -1,9 +1,7 @@
-<div class="row">
-  <tr *ngFor="let record of records">
+<div *ngFor="let record of records">
+  <div class="row">
     <div class="col-12">
-      <div class="col-sm-12 col-lg-20 col-xl-30">
         <app-record [unitId]="unitId" [key]="record.key" [value]="record.value"></app-record>
-      </div>
-    </div>  
-  </tr>
+    </div>
+  </div>
 </div>

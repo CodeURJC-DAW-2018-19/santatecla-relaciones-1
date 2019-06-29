@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="card-header card-header-text card-header-primary">
+    <div class="card-text">
+      <h3 class="card-title">Unidades</h3>
+    </div>
+  </div>
+  <div class="card-body">
+    <div *ngIf="loading">
+      <app-loading></app-loading>
+    </div>
+    <div *ngIf="loading === false">
+      <div class="row">
+        <div class="col-12">
+          <table class="table">
+            <thead>
+              <th>Nombre</th>
+              <th class="text-right">Acciones</th>
+            </thead>
+            <tbody *ngFor="let unit of units">
+              <td>
+                <a routerLink="/unit/{{unit.id}}">{{unit.name}}</a>
+              </td>
+              <td class="td-actions text-right">
+                <button type="button" class="btn btn-danger">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </td>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 text-right">
+          <button type="button" class="btn btn-success">
+            Añadir unidad
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

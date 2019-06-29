@@ -9,8 +9,9 @@ import { RecordComponent } from './record/record.component';
 import { RelationsComponent } from './relations/relations.component';
 import { RecordsComponent } from './records/records.component';
 import { UnitComponent } from './unit/unit.component';
+import { UnitsComponent } from './units/units.component';
 import { LoginComponent } from './login/login.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
   MatListModule,
@@ -34,13 +35,13 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   MatSliderModule,
-  MatAutocompleteModule,
-  MatIconRegistry,
+  MatAutocompleteModule
 } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { LoginService } from './login.service';
 import { BasicAuthInterceptor } from './login/auth.interceptor';
 import { ErrorInterceptor } from './login/error.interceptor';
+import { LoadingComponent } from './loading/loading.component';
 
 
 @NgModule({
@@ -51,7 +52,9 @@ import { ErrorInterceptor } from './login/error.interceptor';
     RelationsComponent,
     RecordsComponent,
     UnitComponent,
-    LoginComponent
+    UnitsComponent,
+    LoginComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
