@@ -72,4 +72,23 @@ public class Record {
 	public void setImage(String image) {
 		this.image = image;
 	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public RecordsEnum getType() {
+		return type;
+	}
+
+	public void setType(RecordsEnum type) {
+		this.type = type;
+	}
+
+
+	
 }

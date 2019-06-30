@@ -31,7 +31,7 @@ public class RecordRestController {
 	 @Autowired 
 	 	private RecordRepository recordRepository;
 
-	    @PostMapping("/add-record")
+	    @PostMapping("/addRecord")
 	    public  Unit addRecord(@RequestBody RecordInfo recordInfo) {
 			Unit u = unitRepository.findById(recordInfo.getId());
 	        this.recordService.addRecord(u,recordInfo.getRecord().getKey(),recordInfo.getRecord().getValue());
@@ -43,97 +43,11 @@ public class RecordRestController {
 	        this.recordService.addImage(unit,type,image);
 	        return this.unitService.getUnit(id);
 	    }
-
-
-	    @PostMapping("/add-why")
-	    @ResponseStatus(HttpStatus.CREATED)
-	    public Unit addWhyRecord(@RequestParam String id, @RequestParam String value){
-		    long unitId = Long.parseLong(id);
-	        Unit u = unitRepository.findById(unitId);
-	        if (recordRepository.getById(unitId)!=null)
-	            this.recordService.editRecord(unitId, value);
-	        else
-	            this.recordService.addRecord(u, RecordsEnum.WHY, value);
-	        return this.unitService.getUnit(unitId);
-	    }
-
-	    @PostMapping("/add-what")
-	    @ResponseStatus(HttpStatus.CREATED)
-	    public Unit addWhatRecord(@RequestParam String id, @RequestParam String value){
-	        long unitId = Long.parseLong(id);
-	        Unit u = unitRepository.findById(unitId);
-	        if (recordRepository.getById(unitId)!=null)
-	            this.recordService.editRecord(unitId, value);
-	        else
-	            this.recordService.addRecord(u, RecordsEnum.WHAT, value);
-	        return this.unitService.getUnit(unitId);
-	    }
-
-	    @PostMapping("/add-forWhat")
-	    @ResponseStatus(HttpStatus.CREATED)
-	    public Unit addForWhatRecord(@RequestParam String id, @RequestParam String value){
-	        long unitId = Long.parseLong(id);
-	        Unit u = unitRepository.findById(unitId);
-	        if (recordRepository.getById(unitId)!=null)
-	            this.recordService.editRecord(unitId, value);
-	        else
-	            this.recordService.addRecord(u, RecordsEnum.FOR_WHAT, value);
-	        return this.unitService.getUnit(unitId);
-	    }
-
-	    @PostMapping("/add-where")
-	    @ResponseStatus(HttpStatus.CREATED)
-	    public Unit addWhereRecord(@RequestParam String id, @RequestParam String value){
-	        long unitId = Long.parseLong(id);
-	        Unit u = unitRepository.findById(unitId);
-	        if (recordRepository.getById(unitId)!=null)
-	            this.recordService.editRecord(unitId, value);
-	        else
-	            this.recordService.addRecord(u, RecordsEnum.WHERE, value);
-	        return this.unitService.getUnit(unitId);
-	    }
-
-	    @PostMapping("/add-who")
-	    @ResponseStatus(HttpStatus.CREATED)
-	    public Unit addWhoRecord(@RequestParam String id, @RequestParam String value){
-	        long unitId = Long.parseLong(id);
-	        Unit u = unitRepository.findById(unitId);
-	        if (recordRepository.getById(unitId)!=null)
-	            this.recordService.editRecord(unitId, value);
-	        else
-	            this.recordService.addRecord(u, RecordsEnum.WHO, value);
-	        return this.unitService.getUnit(unitId);
-	    }
-
-	    @PostMapping("/add-how")
-	    @ResponseStatus(HttpStatus.CREATED)
-	    public Unit addHowRecord(@RequestParam String id, @RequestParam String value){
-	        long unitId = Long.parseLong(id);
-	        Unit u = unitRepository.findById(unitId);
-	        if (recordRepository.getById(unitId)!=null)
-	            this.recordService.editRecord(unitId, value);
-	        else
-	            this.recordService.addRecord(u, RecordsEnum.HOW, value);
-	        return this.unitService.getUnit(unitId);
-	    }
-
-	    @PostMapping("/add-when")
-	    @ResponseStatus(HttpStatus.CREATED)
-	    public Unit addWhenRecord(@RequestParam String id, @RequestParam String value){
-	        long unitId = Long.parseLong(id);
-	        Unit u = unitRepository.findById(unitId);
-	        if (recordRepository.getById(unitId)!=null)
-	            this.recordService.editRecord(unitId, value);
-	        else
-	            this.recordService.addRecord(u, RecordsEnum.WHEN, value);
-	        return this.unitService.getUnit(unitId);
-	    }
 	    
-	    @PutMapping("/edit-record")
-	    public Unit editRecord(@RequestParam String id, @RequestParam String value) {
-	    	long recordId = Long.parseLong(id);
-	    	this.recordService.editRecord(recordId, value);
-	    	return this.unitService.getUnit(recordId); 	
+	    @PutMapping("/editRecord")
+	    public Unit editRecord(@RequestBody EditInfo recordInfo) {
+	    	this.recordService.editRecord(recordInfo.getId(), recordInfo.getValue());
+	    	return this.unitService.getUnit(recordInfo.getUnitId()); 	
 		}
 		
 		
