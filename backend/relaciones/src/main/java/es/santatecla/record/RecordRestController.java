@@ -29,8 +29,9 @@ public class RecordRestController {
 	 	private RecordRepository recordRepository;
 
 	    @PostMapping("/unit/{id}/add-record")
-	    public  Unit addRecord(@PathVariable long id, @RequestParam Unit unit, @RequestParam RecordsEnum type, @RequestParam String value) {
-	        this.recordService.addRecord(unit,type,value);
+	    public  Unit addRecord(@PathVariable long id, @PathVariable Record record) {
+			Unit u = unitRepository.findById(id);
+	        this.recordService.addRecord(u,record.getKey(),record.getValue());
 	        return this.unitService.getUnit(id);
 	    }
 
