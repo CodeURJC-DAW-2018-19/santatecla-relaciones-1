@@ -17,6 +17,12 @@ export class UnitComponent implements OnInit {
   relations: RelationInfo[];
   children: UnitInfo[];
   parents: UnitInfo[];
+  compositions: UnitInfo[];
+  uses: UnitInfo[];
+  usedBy: UnitInfo[];
+  associatedTo: UnitInfo[];
+  associatedBy: UnitInfo[];
+  parts: UnitInfo[];
   records: RecordInfo[];
   loading: boolean;
   activeTab: string = 'relations';
@@ -54,6 +60,30 @@ export class UnitComponent implements OnInit {
                   }
                   case 'PARENT': {
                     this.parents.push(unit);
+                    break;
+                  }
+                  case 'COMPOSITION': {
+                    this.compositions.push(unit);
+                    break;
+                  }
+                  case 'USE': {
+                    this.uses.push(unit);
+                    break;
+                  }
+                  case 'USE_BY': {
+                    this.usedBy.push(unit);
+                    break;
+                  }
+                  case 'ASSOCIATED_TO': {
+                    this.associatedTo.push(unit);
+                    break;
+                  }
+                  case 'ASSOCIATED_BY': {
+                    this.associatedBy.push(unit);
+                    break;
+                  }
+                  case 'PART': {
+                    this.parts.push(unit);
                     break;
                   }
                 }

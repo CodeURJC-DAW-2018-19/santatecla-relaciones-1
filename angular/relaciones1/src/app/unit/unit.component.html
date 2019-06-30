@@ -26,7 +26,16 @@
                     <div class="tab-pane" [class.active]="isInRelations()">
                         <div class="row">
                             <div class="col-sm-12">
-                                <app-relations [unitId]="id" [unitName]="name" [children]="children"></app-relations>
+                                <app-relations [unitId]="id" [unitName]="name"
+                                    [children]="children"
+                                    [associatedBy]="associatedBy"
+                                    [associatedTo]="associatedTo"
+                                    [uses]="uses"
+                                    [usedBy]="usedBy"
+                                    [parts]="parts"
+                                    [compositions]="compositions"
+                                    [parents]="parents">
+                                </app-relations>
                             </div>
                         </div>
                     </div>

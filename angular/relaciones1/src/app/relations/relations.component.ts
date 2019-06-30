@@ -14,6 +14,12 @@ export class RelationsComponent implements OnInit {
 
   @Input() children: UnitInfo[];
   @Input() parents: UnitInfo[];
+  @Input() compositions: UnitInfo[];
+  @Input() uses: UnitInfo[];
+  @Input() usedBy: UnitInfo[];
+  @Input() associatedTo: UnitInfo[];
+  @Input() associatedBy: UnitInfo[];
+  @Input() parts: UnitInfo[];
 
   
 

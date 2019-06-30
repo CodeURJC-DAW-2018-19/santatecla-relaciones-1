@@ -5,12 +5,12 @@
   <div class="col-sm-12 col-lg-6 col-xl-4">
     <app-relation [unitId]="unitId" [name]="'Padre'" [relatedUnits]="parents"></app-relation>
   </div>
-  <!--<div class="col-sm-12 col-lg-6 col-xl-4">
-    <app-relation [id]="3" [name]="'Asociado a'"></app-relation>
+  <div class="col-sm-12 col-lg-6 col-xl-4">
+    <app-relation [id]="3" [name]="'Asociado a'" [relatedUnits]="associatedTo"></app-relation>
   </div>
   <div class="col-sm-12 col-lg-6 col-xl-4">
-    <app-relation [id]="3" [name]="'Asociado por'"></app-relation>
-  </div> -->
+    <app-relation [id]="3" [name]="'Asociado por'" [relatedUnits]="associatedBy"></app-relation>
+  </div>
   <div class="col-sm-12 col-lg-6 col-xl-4">
     <div class="card">
       <div class="card-header card-header-text card-header-primary">
@@ -23,16 +23,16 @@
       </div>
     </div>
   </div>
-  <!-- <div class="col-sm-12 col-lg-6 col-xl-4">
-    <app-relation [id]="3" [name]="'Usa'"></app-relation>
+  <div class="col-sm-12 col-lg-6 col-xl-4">
+    <app-relation [id]="3" [name]="'Usa'" [relatedUnits]="uses"></app-relation>
   </div>
   <div class="col-sm-12 col-lg-6 col-xl-4">
-    <app-relation [id]="3" [name]="'Usado por'"></app-relation>
+    <app-relation [id]="3" [name]="'Usado por'" [relatedUnits]="usedBy"></app-relation>
   </div>
   <div class="col-sm-12 col-lg-6 col-xl-4">
-    <app-relation [id]="3" [name]="'Hija'"></app-relation>
+    <app-relation [id]="3" [name]="'Partes'" [relatedUnits]="parts"></app-relation>
   </div>
   <div class="col-sm-12 col-lg-6 col-xl-4">
-    <app-relation [id]="3" [name]="'Hija'"></app-relation>
-  </div> -->
+      <app-relation [id]="3" [name]="'Compuesto por'" [relatedUnits]="compositions"></app-relation>
+    </div>
 </div>
