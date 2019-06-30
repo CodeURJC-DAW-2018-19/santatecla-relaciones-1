@@ -11,6 +11,8 @@ export class UnitsComponent implements OnInit {
 
   units: UnitInfo[];
   loading: boolean;
+  showAddUnitForm: boolean;
+  newUnit: string;
   
   constructor(
     private unitService: UnitService
@@ -18,6 +20,7 @@ export class UnitsComponent implements OnInit {
 
   ngOnInit() {
     this.loading = true;
+    this.showAddUnitForm = false;
     this.unitService.getUnits()
       .subscribe(response => {
         this.units = response;
@@ -25,4 +28,30 @@ export class UnitsComponent implements OnInit {
       });
   }
 
+  OnSubmit() {
+    this.addUnit();
+  }
+
+  deleteUnit(id: number) {
+    this.loading = true;
+    this.unitService.deleteUnit(id)
+      .subscribe(response => {
+        this.units = response;
+        this.loading = false;
+      });
+  }
+
+  addUnit () {
+    this.loading = true;
+    let unit: UnitInfo;
+    unit = new UnitInfo();
+    unit.name = this.newUnit;
+    this.unitService.addUnit(unit)
+      .subscribe(units => {
+        this.newUnit = '';
+        this.showAddUnitForm = false;
+        this.units = units;
+        this.loading = false;
+      });
+  }
 }

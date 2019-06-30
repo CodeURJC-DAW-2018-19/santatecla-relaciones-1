@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import es.santatecla.enums.RelationsEnum;
 import es.santatecla.unit.Unit;
 import es.santatecla.unit.UnitRepository;
-import es.santatecla.unit.UnitService;
 
 @Service
 public class RelationService {

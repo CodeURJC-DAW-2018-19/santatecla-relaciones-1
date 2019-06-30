@@ -16,25 +16,38 @@
               <th>Nombre</th>
               <th class="text-right">Acciones</th>
             </thead>
-            <tbody *ngFor="let unit of units">
-              <td>
-                <a routerLink="/unit/{{unit.id}}">{{unit.name}}</a>
-              </td>
-              <td class="td-actions text-right">
-                <button type="button" class="btn btn-danger">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-              </td>
+            <tbody>
+              <tr *ngFor="let unit of units">
+                <td>
+                  <a routerLink="/unit/{{unit.id}}">{{unit.name}} </a>
+                </td>
+                <td class="td-actions text-right">
+                  <button type="button" class="btn btn-danger" (click)="deleteUnit(unit.id)">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12 text-right">
-          <button type="button" class="btn btn-success">
+      <div class="row" *ngIf="showAddUnitForm === false">
+        <div class="col-12">
+          <button type="button" class="btn btn-success" (click)="showAddUnitForm = true">
             Añadir unidad
           </button>
         </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="showAddUnitForm">
+      <div class="col">
+        <form>
+          <div class="form-group">
+            <label for="newUnit">Nombre</label>
+            <input type="text" class="form-control" id="newUnit" name="newUnit" [(ngModel)]="newUnit" required>
+          </div>
+          <button type="submit" class="btn btn-success" (click)="addUnit()">Añadir</button>
+        </form>
       </div>
     </div>
   </div>

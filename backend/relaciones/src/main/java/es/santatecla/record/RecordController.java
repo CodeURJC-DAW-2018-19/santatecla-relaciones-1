@@ -2,7 +2,6 @@ package es.santatecla.record;
 
 import es.santatecla.enums.RecordsEnum;
 import es.santatecla.unit.Unit;
-import es.santatecla.unit.UnitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

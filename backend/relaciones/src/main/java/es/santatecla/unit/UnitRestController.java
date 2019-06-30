@@ -1,6 +1,5 @@
 package es.santatecla.unit;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.ui.Model;
@@ -11,15 +10,13 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import es.santatecla.enums.RecordsEnum;
-import es.santatecla.enums.RelationsEnum;
 import es.santatecla.image.ImageService;
-import es.santatecla.record.Record;
 import es.santatecla.record.RecordRepository;
 import es.santatecla.record.RecordService;
 
@@ -30,7 +27,6 @@ public class UnitRestController {
 	
 	private UnitRepository unitRepository;
 	private UnitService unitService;
-	private RecordRepository recordRepository;
 	private RecordService recordService;
 	private ImageService imageService;
 	
@@ -44,7 +40,6 @@ public class UnitRestController {
 		) {
 			this.unitRepository = unitRepository;
 			this.unitService = unitService;
-			this.recordRepository = recordRepository;
 			this.recordService = recordService;
 			this.imageService = imageService;
 		}
@@ -62,18 +57,19 @@ public class UnitRestController {
 	}
 	
 	
-	@PostMapping("/add-unit")
+	@PostMapping("/addUnit")
 	@ResponseStatus(HttpStatus.CREATED)
-	public List<Unit> addUnit(Model model, @RequestParam String name) {
-		this.unitService.addUnit(name);
-		return this.showUnits(model);
+	public List<Unit> addUnit(@RequestBody Unit unit) {
+		this.unitService.addUnit(unit.getName());
+		List<Unit> units = this.unitService.getUnits();
+		return units;
 	}
 	
-	@DeleteMapping("/delete-unit/{id}")
-	public List<Unit> deleteUnit(Model model, @PathVariable long id)  {
-		unitService.deleteUnit(id);
-	
-		return this.showUnits(model);
+	@DeleteMapping("/deleteUnit/{id}")
+	public List<Unit> deleteUnit(@PathVariable long id)  {
+		this.unitService.deleteUnit(id);
+		List<Unit> units = this.unitService.getUnits();
+		return units;
 	}
 
 	@PostMapping("/upload-image")
