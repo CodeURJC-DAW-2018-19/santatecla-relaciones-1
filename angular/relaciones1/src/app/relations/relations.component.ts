@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RelationInfo } from '../dtos/relation-info';
 import { UnitInfo } from '../dtos/unit-info';
+import { RelationService } from '../relation.service';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-relations',
@@ -20,13 +22,19 @@ export class RelationsComponent implements OnInit {
   @Input() associatedTo: UnitInfo[];
   @Input() associatedBy: UnitInfo[];
   @Input() parts: UnitInfo[];
+  relation: RelationInfo[];
 
-  
 
-  constructor() {
-  }
+  constructor(
+    private relationService: RelationService,
+    
+    ) { }
 
   ngOnInit() {
   }
+
+
+
+ 
 
 }

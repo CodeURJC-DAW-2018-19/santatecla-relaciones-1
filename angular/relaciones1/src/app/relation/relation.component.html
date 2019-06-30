@@ -11,13 +11,34 @@
           <td>
             <span>{{relatedUnit.name}}</span>            
           </td>
+          <td class="td-actions text-right">
+              <button *ngIf="loginService.isAdmin" type="button" class="btn btn-danger" (click)="deleteRelation(relatedUnit.id)">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </td>
         </tr>
       </tbody>
     </table>
     <div>
-      <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success">
-        <i class="fas fa-plus"></i>
-      </button>
+      <div class="row" *ngIf= "showAddRelationForm === false">
+        <div class="col-12">
+          <button *ngIf="loginService.isAdmin" type="button" class="btn btn-primary btn-fab btn-fab-mini btn-round btn-success"(click)="showAddRelationForm = true">
+          <i class="fas fa-plus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="showAddRelationForm">
+      <form>
+          <div class="form-group">
+            <label for="newRelation">Unit</label>
+            <select class="form-control" id="newRelationOpId" name="newRelationOpId" [(ngModel)]="newRelationOpId">
+                <option *ngFor="let unit of units" value="{{unit.id}}">{{unit.name}}</option>
+            </select>
+          </div>
+            
+          <button type="submit" class="btn btn-success" (click)="addRelation()">Añadir</button>
+        </form>
     </div>
   </div>
 </div>

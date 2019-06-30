@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UnitService } from '../unit.service';
 import { UnitInfo } from '../dtos/unit-info';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-units',
@@ -15,7 +16,8 @@ export class UnitsComponent implements OnInit {
   newUnit: string;
   
   constructor(
-    private unitService: UnitService
+    private unitService: UnitService,
+    public loginService:LoginService
   ) { }
 
   ngOnInit() {

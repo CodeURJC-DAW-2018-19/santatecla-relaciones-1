@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { CommonModule} from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RelationComponent } from './relation/relation.component';
@@ -42,6 +42,7 @@ import { LoginService } from './login.service';
 import { BasicAuthInterceptor } from './login/auth.interceptor';
 import { ErrorInterceptor } from './login/error.interceptor';
 import { LoadingComponent } from './loading/loading.component';
+import { RelationService } from './relation.service';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { LoadingComponent } from './loading/loading.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    CommonModule,
     AppRoutingModule,
     HttpClientModule,
 
@@ -88,7 +90,7 @@ import { LoadingComponent } from './loading/loading.component';
     MatInputModule,
     FormsModule,
   ],
-  providers: [LoginService,
+  providers: [LoginService, RelationService,
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
