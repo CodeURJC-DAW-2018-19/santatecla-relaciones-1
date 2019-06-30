@@ -1,6 +1,6 @@
 <ng-container *ngIf="!loginService.isLogged">
 	<span>
-		<button mat-button (click)='openLoginDialog()'>
+		<button type="button" class="btn btn-info" (click)='openLoginDialog()'>
 			Login
 		</button>
 	</span>
@@ -11,7 +11,7 @@
 		{{loginService.user.name}}
 	</span>
 	<span>
-		<button mat-button (click)='logOut()'>
+		<button type="button" class="btn btn-warning" (click)='logOut()'>
 			Logout
 		</button>
 	</span>
