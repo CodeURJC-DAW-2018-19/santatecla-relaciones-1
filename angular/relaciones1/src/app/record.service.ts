@@ -5,36 +5,35 @@ import { RecordInfo } from './dtos/record-info';
 import { UnitInfo } from './dtos/unit-info'
 import { Injectable } from '@angular/core';
 
-const URL = '/https://localhost:8443';
-const httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      'Authorization': 'my-auth-token'
-    })
-  };
-
 @Injectable({
     providedIn: 'root'
   })
 export class RecordService{
+
+  baseUrl: string = "https://localhost:8443";
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  }
     constructor(private http: HttpClient){}
     
-    addRecord(unitId: number, record: RecordInfo) {
-		if(unitId !== undefined || record.value !== null){
-			return this.http.post<RecordInfo>(URL + '/unit/'+ unitId, record)
-			.pipe(catchError((error) => this.handleError(error)));
-		}
+    addRecord(unitId: number, record: RecordInfo): Observable<UnitInfo> {
+		  if(unitId !== undefined || record.value !== null){
+        let data = {
+          id: unitId,
+          record: record
+        }
+			  return this.http.post<UnitInfo>(this.baseUrl + '/add-record', JSON.stringify(data), this.httpOptions)
+			  .pipe(catchError((error) => this.handleError(error)));
+		  }
     }
 
-    editRecord(unitId: number, value: string): Observable<{}>{
-        this.http.delete(URL + '/unit/' + unitId, httpOptions)
-            .pipe(catchError((error) => this.handleError(error)));
-        return this.http.post(URL + '/unit/' + unitId, value)
+    editRecord(unitId: number, value: string): Observable<RecordInfo[]>{
+        return this.http.put<RecordInfo[]>(this.baseUrl + '/edit-record',JSON.stringify(value), this.httpOptions)
             .pipe(catchError((error) => this.handleError(error)));
     }
     
     private handleError(error: any) {
-		console.error(error);
-		return Observable.throw("Server error (" + error.status + "): " + error.text())
-	}
+		  console.error(error);
+		  return Observable.throw("Server error (" + error.status + "): " + error.text())
+	  }
 }
