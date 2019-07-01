@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { MatDialogRef, MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
+import { Observable } from 'rxjs';
 
 
 
@@ -22,6 +23,7 @@ export class LoginComponent {
     this.loginService.logIn(user,pass).subscribe(
       (u) => {
         console.log(u);
+        localStorage.setItem('currentUser', JSON.stringify(u));
         this.dialogRef.close();
       },
       (error) => alert('Invalid user or password'),

@@ -28,7 +28,8 @@
 			<form #loginForm="ngForm">
 				<div layout="row">
 					<mat-form-field flex>
-						<input matInput #userElement #userControl="ngModel" placeholder="Username" type="text"
+						<label>Usuario</label>
+						<input matInput #userElement #userControl="ngModel" type="text"
 							maxlength="30" name="username" [(ngModel)]="username" required>
 						<mat-hint align="start">
 							<span [hidden]="!userControl.errors?.required || userControl.pristine"
@@ -38,7 +39,8 @@
 				</div>
 				<div layout="row">
 					<mat-form-field flex>
-						<input matInput #passElement #passControl="ngModel" placeholder="Password" type="password"
+						<label>Password</label>
+						<input matInput #passElement #passControl="ngModel" type="password"
 							name="password" [(ngModel)]="password" required>
 						<mat-hint align="start">
 							<span [hidden]="!passControl.errors?.required || passControl.pristine"

@@ -8,7 +8,7 @@
 
 <div class="row" *ngIf="showAddRecordForm === false">
   <div class="col-12">
-    <button type="button" class="btn btn-success" (click)="showAddRecordForm = true">
+    <button *ngIf="loginService.isAdmin" type="button" class="btn btn-success" (click)="showAddRecordForm = true">
       Añadir
     </button>
   </div>

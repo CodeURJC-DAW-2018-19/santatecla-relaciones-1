@@ -22,7 +22,7 @@
         <div class="row">
           <div class="col">
             <ng-container>
-                <button (click)='openRecordDialog()' type="submit" class="btn btn-info" data-toggle="modal" data-target=#addWhy>Editar</button>
+                <button *ngIf="loginService.isAdmin"(click)='openRecordDialog()' type="submit" class="btn btn-info" data-toggle="modal" data-target=#addWhy>Editar</button>
             </ng-container>  
 
             <ng-template #recordDialog let-dialogRef="dialogRef">

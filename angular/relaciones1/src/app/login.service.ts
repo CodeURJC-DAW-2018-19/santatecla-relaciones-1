@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 const URL = 'https://localhost:8443';
 
@@ -31,7 +32,7 @@ export class LoginService {
     }
   }
 
-  logIn(user: string, pass:string) {
+  logIn(user: string, pass:string):Observable<User> {
 
     let auth = window.btoa(user + ':' + pass);
 
