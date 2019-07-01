@@ -67,3 +67,11 @@ Para empaquetar la aplicación en un archivo *.jar* hemos añadido la configurac
 
 **Diagrama de navegación:**
 ![Navegacion](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Navegacion.png)
+
+**Configurar entorno de desarrollo**
+- Descargar e instalar Spring Tools 4 Eclipse: https://spring.io/tools
+- Descargar Github Desktop desde la página oficial de Github: https://desktop.github.com/
+- Descargar MySql  y MySQL Workbench para la base de datos: https://dev.mysql.com/downloads/mysql/ y https://dev.mysql.com/downloads/workbench/
+- Un a vez tenemos Github Desktop instalado en nuestro ordenador, deberemos iniciar sesión en la aplicación, para así de esta manera, poder importar nuestro proyecto directamente a nuestro ordenador. Una vez importado, abriremos la carpeta "relaciones" ubicada "normalmente" en la dirreción "/Documents/Github/santatecla-relaciones-1/backend".
+- Para ejecutar la aplicación, deberemos lanzar la clase App con Sprin Boot App ubicada en "\Documents\GitHub\santatecla-relaciones-1\backend\relaciones\src\main\java\es\santatecla\App.java". Deberemos dirigirnos en nuestro navegador a la siguiente dirección https://localhost:8443
+- Es necesaria la configuración de MySQL Workbench crear un esquema nuevo con el nombre que quieras, configuras las credenciales, normalente el usurio es "root" y la contraseña es "pass". No olvidarse de configurar en el pom.xml los ajustes de MySQL como la contraseña y el usuario además del nombre dado a nuestro esquema.
