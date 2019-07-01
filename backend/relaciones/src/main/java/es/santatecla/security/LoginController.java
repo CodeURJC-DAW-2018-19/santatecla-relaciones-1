@@ -18,7 +18,7 @@ import es.santatecla.user.User;
 import es.santatecla.user.UserComponent;
 
 
-@Controller
+@RestController
 public class LoginController {
 	
 	private static final Logger log = LoggerFactory.getLogger(LoginController.class);
@@ -26,23 +26,26 @@ public class LoginController {
 	@Autowired
 	UserComponent userComponent;
 	
-	@RequestMapping("/login")
-	public String login(Model model, HttpServletRequest request) {
-		model.addAttribute("loginerror",false);
-		
-		model.addAttribute("admin", request.isUserInRole("ADMIN"));
-		model.addAttribute("user", request.isUserInRole("USER"));
-		
-		return"/";
+	@RequestMapping("/api/login")
+		public ResponseEntity<User> login() {
+			
+			if (!userComponent.isLoggedUser()) {
+				log.info("Not user logged");
+				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			} else {
+				User loggedUser = userComponent.getLoggedUser();
+				log.info("Logged as " + loggedUser.getName());
+				return new ResponseEntity<>(loggedUser, HttpStatus.OK);
+			}
 	}
 
-	@RequestMapping("/loginerror")
+	@RequestMapping("/api/loginerror")
 	public String loginErrorController(Model model, HttpServletRequest request) {
 		model.addAttribute("loginerror",true);
 		return "/loginerror";//must see loginerror.html
 	}
 	
-	@RequestMapping("/logout")
+	@RequestMapping("/api/logout")
 	public ResponseEntity<Boolean> logOut(HttpSession session) {
 
 		if (!userComponent.isLoggedUser()) {
