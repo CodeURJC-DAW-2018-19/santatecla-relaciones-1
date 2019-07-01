@@ -31,7 +31,7 @@ public class RecordRestController {
 	 @Autowired 
 	 	private RecordRepository recordRepository;
 
-	    @PostMapping("/add-record")
+	    @PostMapping("/addRecord")
 	    public  Unit addRecord(@RequestBody RecordInfo recordInfo) {
 			Unit u = unitRepository.findById(recordInfo.getId());
 	        this.recordService.addRecord(u,recordInfo.getRecord().getKey(),recordInfo.getRecord().getValue());
@@ -43,13 +43,15 @@ public class RecordRestController {
 	        this.recordService.addImage(unit,type,image);
 	        return this.unitService.getUnit(id);
 	    }
+<<<<<<< HEAD
 
+=======
+>>>>>>> angular
 	    
-	    @PutMapping("/edit-record")
-	    public Unit editRecord(@RequestParam String id, @RequestParam String value) {
-	    	long recordId = Long.parseLong(id);
-	    	this.recordService.editRecord(recordId, value);
-	    	return this.unitService.getUnit(recordId); 	
+	    @PutMapping("/editRecord")
+	    public Unit editRecord(@RequestBody EditInfo recordInfo) {
+	    	this.recordService.editRecord(recordInfo.getId(), recordInfo.getValue());
+	    	return this.unitService.getUnit(recordInfo.getUnitId()); 	
 		}
 		
 		

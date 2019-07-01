@@ -4,6 +4,7 @@ import { catchError } from 'rxjs/operators';
 import { RecordInfo } from './dtos/record-info';
 import { UnitInfo } from './dtos/unit-info'
 import { Injectable } from '@angular/core';
+import { UniqueSelectionDispatcher } from '@angular/cdk/collections';
 
 @Injectable({
     providedIn: 'root'
@@ -22,13 +23,18 @@ export class RecordService{
           id: unitId,
           record: record
         }
-			  return this.http.post<UnitInfo>(this.baseUrl + '/add-record', JSON.stringify(data), this.httpOptions)
+			  return this.http.post<UnitInfo>(this.baseUrl + '/addRecord', JSON.stringify(data), this.httpOptions)
 			  .pipe(catchError((error) => this.handleError(error)));
 		  }
     }
 
-    editRecord(unitId: number, value: string): Observable<RecordInfo[]>{
-        return this.http.put<RecordInfo[]>(this.baseUrl + '/edit-record',JSON.stringify(value), this.httpOptions)
+    editRecord(id: number, unitId: number, value: string): Observable<UnitInfo>{
+      let data = {
+        id: id,
+        unitId: unitId,
+        value: value
+      }
+        return this.http.put<UnitInfo>(this.baseUrl + '/editRecord',JSON.stringify(data), this.httpOptions)
             .pipe(catchError((error) => this.handleError(error)));
     }
     

@@ -39,7 +39,8 @@ public class RecordService
 
 	public Record editRecord(long id, String value){
 	    Record record = recordRepository.getById(id);
-	    record.setValue(value);
+		record.setValue(value);
+		this.recordRepository.save(record);
 	    return record;
     }
 

@@ -13,17 +13,31 @@ import { LoginService } from '../login.service';
 })
 export class RecordComponent {
 
-  @Input() unitId: number;
+  @Input() id: number;
   @Input() key: string;
   @Input() value: string;
+  @Input() unitId: number;
+  newValue: string;
+  showEditRecordForm: boolean;
 
   constructor(
     private recordService: RecordService,
     public loginService: LoginService,
   ) { }
 
-  editRecord(unitId: number, value: string){
-    this.recordService.editRecord(unitId, value);
+  ngOnInit() {
+    this.showEditRecordForm = false;
+  }
+
+  editRecord() {
+    let value: string;
+    value = this.newValue;
+    this.recordService.editRecord(this.id,this.unitId,value)
+      .subscribe(unit => {
+        this.newValue = '';
+        this.value = unit.records.filter(record => record.id === this.id)[0].value;
+        this.showEditRecordForm = false;
+      });
   }
 
 }

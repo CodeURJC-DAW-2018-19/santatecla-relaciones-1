@@ -38,6 +38,12 @@ export class UnitComponent implements OnInit {
     this.children = [];
     this.parents = [];
     this.records = [];
+    this.compositions = [];
+    this.uses = [];
+    this.usedBy = [];
+    this.associatedTo = [];
+    this.associatedBy = [];
+    this.parts = [];
 
     if (id) {
       this.id = parseInt(id);

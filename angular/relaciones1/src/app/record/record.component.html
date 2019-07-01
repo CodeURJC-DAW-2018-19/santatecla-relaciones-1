@@ -21,11 +21,30 @@
       <div class="col-12">
         <div class="row">
           <div class="col">
+            <div class="row" *ngIf="showEditRecordForm === false">
             <ng-container>
-                <button *ngIf="loginService.isAdmin"(click)='openRecordDialog()' type="submit" class="btn btn-info" data-toggle="modal" data-target=#addWhy>Editar</button>
-            </ng-container>  
+                <button (click)='showEditRecordForm = true' class="btn btn-info">Editar</button>
+            </ng-container> 
+            </div>
+            
+            
 
-            <ng-template #recordDialog let-dialogRef="dialogRef">
+
+        
+            <div class="row" *ngIf="showAddRecordForm">
+                <div class="col">
+                  <form>
+                    <div class="form-group">
+                      <label for="newValue">Descripción</label>
+                      <input type="text" class="form-control" id="newValue" name="newValue" [(ngModel)]="newValue" required>
+                    </div>
+                    <button type="submit" class="btn btn-success" (click)="editRecord()">Guardar</button>
+                  </form>
+                </div>
+              </div>
+
+
+            <!--<ng-template *ngIf="showAddRecordForm">
               <mat-dialog-content flex>
                 <form #editForm="ngForm">
                   <div layout="row">
@@ -38,9 +57,9 @@
               </mat-dialog-content>
               <mat-dialog-actions allign="end">
                 <button type="button" mat-button class="text-upper" (click)="dialogRef.close()">Cerrar</button>
-                <button type="button" mat-button color="accent" class="text-upper" (click)="editRecord(record.unitId,record.value)">Guardar</button>
+                <button type="button" mat-button color="accent" class="text-upper" (click)="editRecord(record.id,record.value)">Guardar</button>
               </mat-dialog-actions>
-            </ng-template>
+            </ng-template>-->
           </div>
           <div class="col">
             
@@ -61,3 +80,14 @@
     </div>
   </div>
 </div>
+<div class="row" *ngIf="showEditRecordForm">
+    <div class="col">
+      <form>
+        <div class="form-group">
+          <label for="newValue">Descripción</label>
+          <input type="text" class="form-control" id="newValue" name="newValue" [(ngModel)]="newValue" required>
+        </div>
+        <button type="submit" class="btn btn-success" (click)="editRecord()">Guardar</button>
+      </form>
+    </div>
+  </div>
