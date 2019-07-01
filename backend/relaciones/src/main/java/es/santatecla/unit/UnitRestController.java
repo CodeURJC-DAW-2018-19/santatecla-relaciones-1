@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,6 +27,7 @@ import es.santatecla.relation.RelationService;
 import es.santatecla.user.UserComponent;
 
 @RestController
+@RequestMapping(value = "/api")
 public class UnitRestController {
 	
 	
@@ -50,7 +52,7 @@ public class UnitRestController {
 			this.imageService = imageService;
 		}
 	
-	@GetMapping("/")
+	@GetMapping("/units")
 	public List<Unit> showUnits(Model model) {
 		List<Unit> units = unitService.getUnits();
 		return units;

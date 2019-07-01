@@ -26,7 +26,7 @@ public class LoginController {
 	@Autowired
 	UserComponent userComponent;
 	
-	@RequestMapping("/login")
+	@RequestMapping("/api/login")
 		public ResponseEntity<User> login() {
 			
 			if (!userComponent.isLoggedUser()) {
@@ -39,13 +39,13 @@ public class LoginController {
 			}
 	}
 
-	@RequestMapping("/loginerror")
+	@RequestMapping("/api/loginerror")
 	public String loginErrorController(Model model, HttpServletRequest request) {
 		model.addAttribute("loginerror",true);
 		return "/loginerror";//must see loginerror.html
 	}
 	
-	@RequestMapping("/logout")
+	@RequestMapping("/api/logout")
 	public ResponseEntity<Boolean> logOut(HttpSession session) {
 
 		if (!userComponent.isLoggedUser()) {

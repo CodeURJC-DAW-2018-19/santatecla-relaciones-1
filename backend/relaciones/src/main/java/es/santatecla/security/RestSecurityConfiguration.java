@@ -21,16 +21,16 @@ public class RestSecurityConfiguration extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
-		
 		// Public pages
-				http.authorizeRequests().antMatchers(HttpMethod.GET,"/").permitAll();
-				http.authorizeRequests().antMatchers(HttpMethod.GET,"/login").authenticated();
+				http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/units").permitAll();
+				http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/login").authenticated();
 				
 				
 		// Private pages
-				http.authorizeRequests().antMatchers(HttpMethod.GET, "/unit/**" ).hasAnyRole("USER");
-				http.authorizeRequests().antMatchers(HttpMethod.POST,"/unit/**").hasRole("ADMIN");
-				http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/unit/**").hasAnyRole("ADMIN");
+				http.authorizeRequests().antMatchers(HttpMethod.GET, "api/unit/**" ).hasAnyRole("USER");
+				http.authorizeRequests().antMatchers(HttpMethod.POST,"api/unit/**").hasRole("ADMIN");
+				http.authorizeRequests().antMatchers(HttpMethod.POST,"api/**").hasRole("ADMIN");
+				http.authorizeRequests().antMatchers(HttpMethod.DELETE, "api/**").hasAnyRole("ADMIN");
 				
 		// Disabled csrf in api rest		
 				http.csrf().disable();
