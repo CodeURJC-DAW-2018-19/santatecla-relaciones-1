@@ -23,22 +23,15 @@
           <div class="col">
             <div class="row" *ngIf="showEditRecordForm === false">
             <ng-container>
-                <button (click)='showEditRecordForm = true' class="btn btn-info">Editar</button>
+                <button *ngIf="loginService.isAdmin" (click)='showEditRecordForm = true' class="btn btn-info">Editar</button>
             </ng-container> 
             </div>
             
             
-            <!--<div class="row" *ngIf="showAddRecordForm === false">
-                <div class="col-12">
-                  <button type="button" class="btn btn-success" (click)="showAddRecordForm = true">
-                    Editar
-                  </button>
-                </div>
-              </div>-->
 
 
         
-            <div class="row" *ngIf="showAddRecordForm">
+            <!-- <div class="row" *ngIf="showAddRecordForm">
                 <div class="col">
                   <form>
                     <div class="form-group">
@@ -49,25 +42,7 @@
                   </form>
                 </div>
               </div>
-
-
-            <!--<ng-template *ngIf="showAddRecordForm">
-              <mat-dialog-content flex>
-                <form #editForm="ngForm">
-                  <div layout="row">
-                    <mat-form-field flex>
-                      <input matInput #recordElement="ngModel" type="text"
-                        maxlength="200" name="value" [(ngModel)]="value">
-                    </mat-form-field>
-                  </div>
-                </form>
-              </mat-dialog-content>
-              <mat-dialog-actions allign="end">
-                <button type="button" mat-button class="text-upper" (click)="dialogRef.close()">Cerrar</button>
-                <button type="button" mat-button color="accent" class="text-upper" (click)="editRecord(record.id,record.value)">Guardar</button>
-              </mat-dialog-actions>
-            </ng-template>-->
-          </div>
+          </div> -->
           <div class="col">
             
             <form action="/upload-image" method="POST" enctype="multipart/form-data">

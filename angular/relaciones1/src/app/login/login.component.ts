@@ -5,6 +5,7 @@ import { LoginService } from '../login.service';
 
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -22,6 +23,7 @@ export class LoginComponent {
     this.loginService.logIn(user,pass).subscribe(
       (u) => {
         console.log(u);
+        localStorage.setItem('currentUser', JSON.stringify(u));
         this.dialogRef.close();
       },
       (error) => alert('Invalid user or password'),

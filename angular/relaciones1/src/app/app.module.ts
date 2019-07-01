@@ -43,6 +43,8 @@ import { BasicAuthInterceptor } from './login/auth.interceptor';
 import { ErrorInterceptor } from './login/error.interceptor';
 import { LoadingComponent } from './loading/loading.component';
 import { RelationService } from './relation.service';
+import { UnitService } from './unit.service';
+import { RecordService } from './record.service';
 
 
 @NgModule({
@@ -90,7 +92,7 @@ import { RelationService } from './relation.service';
     MatInputModule,
     FormsModule,
   ],
-  providers: [LoginService, RelationService,
+  providers: [LoginService, RelationService, UnitService, RecordService,
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
