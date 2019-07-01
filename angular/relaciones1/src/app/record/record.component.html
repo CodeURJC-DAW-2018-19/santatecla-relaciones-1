@@ -1,0 +1,75 @@
+<div class="card">
+  <div class="card-header card-header-text card-header-primary">
+    <div class="card-text">
+        <h4 class="card-title">{{key}}</h4>
+    </div>
+  </div>
+  <div class="card-body">
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>{{value}}</td>
+        </tr>
+        <tr>
+          <td>
+            <img src="">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="container text-right">
+      <div class="col-12">
+        <div class="row">
+          <div class="col">
+            <div class="row" *ngIf="showEditRecordForm === false">
+            <ng-container>
+                <button *ngIf="loginService.isAdmin" (click)='showEditRecordForm = true' class="btn btn-info">Editar</button>
+            </ng-container> 
+            </div>
+            
+            
+
+
+        
+            <!-- <div class="row" *ngIf="showAddRecordForm">
+                <div class="col">
+                  <form>
+                    <div class="form-group">
+                      <label for="newValue">Descripción</label>
+                      <input type="text" class="form-control" id="newValue" name="newValue" [(ngModel)]="newValue" required>
+                    </div>
+                    <button type="submit" class="btn btn-success" (click)="editRecord()">Guardar</button>
+                  </form>
+                </div>
+              </div>
+          </div> -->
+          <div class="col">
+            
+            <form action="/upload-image" method="POST" enctype="multipart/form-data">
+              <input type="file" id="" name="file" style="display: none">
+              <input type="hidden" name="recordId" value="">
+              <input type="hidden" name="_csrf" value="" />
+              <button type="button" class="btn btn-warning" >
+                <span>Subir nueva imagen</span>
+              </button>
+              <button type="submit" class="btn btn-success">
+                <span>Guardar foto</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="showEditRecordForm">
+    <div class="col">
+      <form>
+        <div class="form-group">
+          <label for="newValue">Descripción</label>
+          <input type="text" class="form-control" id="newValue" name="newValue" [(ngModel)]="newValue" required>
+        </div>
+        <button type="submit" class="btn btn-success" (click)="editRecord()">Guardar</button>
+      </form>
+    </div>
+  </div>

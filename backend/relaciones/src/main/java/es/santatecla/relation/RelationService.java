@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import es.santatecla.enums.RelationsEnum;
 import es.santatecla.unit.Unit;
 import es.santatecla.unit.UnitRepository;
-import es.santatecla.unit.UnitService;
 
 @Service
 public class RelationService {
@@ -45,6 +44,7 @@ public class RelationService {
 		relationRepository.save(opositeRelation);
 		return relationRepository.save(relation);
 	}
+	
 
 	public void deleteRelation(long idUnit, long idRelatedUnit) {
 		Unit unit = this.unitRepository.findById(idUnit);
@@ -92,5 +92,10 @@ public class RelationService {
 		this.opositeRelation.put(RelationsEnum.CHILD, RelationsEnum.PARENT);
 		this.opositeRelation.put(RelationsEnum.USE, RelationsEnum.USE_BY);
 		this.opositeRelation.put(RelationsEnum.USE_BY, RelationsEnum.USE);
+	}
+	
+	public long getOpositeId(long id) {
+		Relation rel = relationRepository.findById(id);
+		return rel.getOpositeUnitId();
 	}
 }

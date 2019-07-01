@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-sm-12 col-lg-6 col-xl-4">
+    <app-relation [unitId]="unitId" [name]="'Hija'" [type]="'CHILD'" [relatedUnits]="children"></app-relation>
+  </div>
+  <div class="col-sm-12 col-lg-6 col-xl-4">
+    <app-relation [unitId]="unitId" [name]="'Padre'" [type]="'PARENT'" [relatedUnits]="parents"></app-relation>
+  </div>
+  <div class="col-sm-12 col-lg-6 col-xl-4">
+    <app-relation [unitId]="unitId" [name]="'Asociado a'" [type]="'ASSOCIATED_TO'" [relatedUnits]="associatedTo"></app-relation>
+  </div>
+  <div class="col-sm-12 col-lg-6 col-xl-4">
+    <app-relation [unitId]="unitId" [name]="'Asociado por'" [type]="'ASSOCIATED_BY'"[relatedUnits]="associatedBy"></app-relation>
+  </div>
+  <div class="col-sm-12 col-lg-6 col-xl-4">
+    <div class="card">
+      <div class="card-header card-header-text card-header-primary">
+        <div class="card-text">
+            <h4 class="card-title">Unidad</h4>
+        </div>
+      </div>
+      <div class="card-body">
+        <h5>{{unitName}}</h5>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 col-lg-6 col-xl-4">
+    <app-relation [unitId]="unitId" [name]="'Usa'" [type]="'USE'" [relatedUnits]="uses"></app-relation>
+  </div>
+  <div class="col-sm-12 col-lg-6 col-xl-4">
+    <app-relation [unitId]="unitId" [name]="'Usado por'" [type]="'USE_BY'" [relatedUnits]="usedBy"></app-relation>
+  </div>
+  <div class="col-sm-12 col-lg-6 col-xl-4">
+    <app-relation [unitId]="unitId" [name]="'Partes'" [type]="'PART'" [relatedUnits]="parts"></app-relation>
+  </div>
+  <div class="col-sm-12 col-lg-6 col-xl-4">
+      <app-relation [unitId]="unitId" [name]="'Compuesto por'" [type]="'COMPOSITION'" [relatedUnits]="compositions"></app-relation>
+    </div>
+</div>

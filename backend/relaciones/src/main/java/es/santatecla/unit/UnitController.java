@@ -33,6 +33,7 @@ public class UnitController {
 	private RecordService recordService;
 	private ImageService imageService;
 
+	@Autowired
 	public UnitController(
 		UnitRepository unitRepository,
 		UnitService unitService,

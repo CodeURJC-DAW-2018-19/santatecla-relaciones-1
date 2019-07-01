@@ -1,0 +1,60 @@
+<ng-container *ngIf="!loginService.isLogged">
+	<span>
+		<button type="button" class="btn btn-info" (click)='openLoginDialog()'>
+			Login
+		</button>
+	</span>
+</ng-container>
+
+<ng-container *ngIf="loginService.isLogged">
+	<span>
+		{{loginService.user.name}}
+	</span>
+	<span>
+		<button type="button" class="btn btn-warning" (click)='logOut()'>
+			Logout
+		</button>
+	</span>
+</ng-container>
+
+
+<ng-template #loginDialog let-dialogRef="dialogRef">
+
+	<div layout="column" layout-fill>
+		<h2 mat-dialog-title>
+			Login
+		</h2>
+		<mat-dialog-content flex>
+			<form #loginForm="ngForm">
+				<div layout="row">
+					<mat-form-field flex>
+						<label>Usuario</label>
+						<input matInput #userElement #userControl="ngModel" type="text"
+							maxlength="30" name="username" [(ngModel)]="username" required>
+						<mat-hint align="start">
+							<span [hidden]="!userControl.errors?.required || userControl.pristine"
+								class="tc-red-600">Required</span>
+						</mat-hint>
+					</mat-form-field>
+				</div>
+				<div layout="row">
+					<mat-form-field flex>
+						<label>Password</label>
+						<input matInput #passElement #passControl="ngModel" type="password"
+							name="password" [(ngModel)]="password" required>
+						<mat-hint align="start">
+							<span [hidden]="!passControl.errors?.required || passControl.pristine"
+								class="tc-red-600">Required</span>
+						</mat-hint>
+					</mat-form-field>
+				</div>
+			</form>
+		</mat-dialog-content>
+		<mat-divider></mat-divider>
+		<mat-dialog-actions align="end">
+			<button type="button" mat-button class="text-upper" (click)="dialogRef.close()">Close</button>
+			<button type="button" mat-button color="accent" class="text-upper" (click)="logIn($event, userElement.value, passElement.value)">Login</button>
+		</mat-dialog-actions>
+	</div>
+
+</ng-template>

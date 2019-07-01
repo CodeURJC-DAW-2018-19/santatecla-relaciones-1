@@ -16,11 +16,13 @@ import es.santatecla.relation.Relation;
 
 @Entity
 public class Unit{
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
 	private String name;
+	
 	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="unit")
 	private List<Relation> relations;

@@ -1,0 +1,60 @@
+<div class="card">
+  <div class="card-header card-header-text card-header-primary">
+    <div class="card-text">
+      <h3 class="card-title">Unidades</h3>
+    </div>
+  </div>
+  <div class="card-body">
+    <div *ngIf="loading">
+      <app-loading></app-loading>
+    </div>
+    <div class = "text-right">
+      <app-login></app-login>
+    </div>
+    <div *ngIf="loading === false">
+      <div class="row">
+        <div class="col-12">
+          <table class="table">
+            <thead>
+              <th>Nombre</th>
+              <th class="text-right">Acciones</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let unit of units">
+                <td>
+                  <a *ngIf=loginService.isLogged routerLink="/unit/{{unit.id}}">{{unit.name}} </a>
+                </td>
+                <td>
+                    <a *ngIf=!loginService.isLogged >{{unit.name}} </a>
+                </td>
+                <td class="td-actions text-right">
+                  <button *ngIf="loginService.isAdmin" type="button" class="btn btn-danger" (click)="deleteUnit(unit.id)">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row" *ngIf="showAddUnitForm === false">
+        <div class="col-12">
+          <button *ngIf="loginService.isAdmin" type="button" class="btn btn-success" (click)="showAddUnitForm = true">
+            Añadir unidad
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="showAddUnitForm">
+      <div class="col">
+        <form>
+          <div class="form-group">
+            <label for="newUnit">Nombre</label>
+            <input type="text" class="form-control" id="newUnit" name="newUnit" [(ngModel)]="newUnit" required>
+          </div>
+          <button type="submit" class="btn btn-success" (click)="addUnit()">Añadir</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
