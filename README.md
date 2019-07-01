@@ -60,10 +60,10 @@ Para empaquetar la aplicación en un archivo *.jar* hemos añadido la configurac
 
 ## Diagramas
 **Diagrama de clases:**
-![Diagrama de clases](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Diagrama de clases.png)
+![Clases](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Clases.png)
 
 **Diagrama de la base de datos:**
-![Diagrama base de datos](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Diagrama base de datos.png)
+![BaseDatos](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/BaseDatos.PNG)
 
 **Diagrama de navegación:**
-![Diagrama de navegación](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Diagrama de navegación.png)
+![Navegacion](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Navegacion.png)
