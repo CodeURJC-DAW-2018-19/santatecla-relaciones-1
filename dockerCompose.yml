@@ -1,0 +1,29 @@
+version: "2.1"
+
+services:
+    mysql:
+        image: mysql:latest
+        command: --default-authentication-plugin=mysql_native_password
+        healthcheck:
+            test: "/usr/bin/mysql --user=root --password=12345 --execute \"SHOW DATABASES\""
+            interval: 5s
+            timeout: 30s
+            retries: 5
+        environment:
+            MYSQL_ROOT_PASSWORD: 12345
+            MYSQL_DATABASE: relaciones
+
+    relaciones:
+        build: ./backend/relaciones
+        links:
+            - mysql
+        depends_on:
+            mysql:
+                condition: service_healthy
+        ports:
+            - "8443:8443"
+        restart: always
+        environment:
+            SPRING_DATASOURCE_URL: jdbc:mysql://mysql/relaciones?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+            SPRING_DATASOURCE_USERNAME: root
+            SPRING_DATASOURCE_PASSWORD: 12345
