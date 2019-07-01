@@ -43,10 +43,6 @@ public class RecordRestController {
 	        this.recordService.addImage(unit,type,image);
 	        return this.unitService.getUnit(id);
 	    }
-<<<<<<< HEAD
-
-=======
->>>>>>> angular
 	    
 	    @PutMapping("/editRecord")
 	    public Unit editRecord(@RequestBody EditInfo recordInfo) {

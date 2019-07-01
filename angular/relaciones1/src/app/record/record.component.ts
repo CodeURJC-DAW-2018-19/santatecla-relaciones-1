@@ -1,9 +1,8 @@
 import { Component, OnInit, Input, ViewChild, TemplateRef } from '@angular/core';
-import { RecordInfo } from '../dtos/record-info'
 import { RecordService } from '../record.service';
-import { ActivatedRoute } from '@angular/router';
-import { UnitInfo } from '../dtos/unit-info';
-import { MatDialogRef, MatDialog } from '@angular/material';
+
+
+
 import { LoginService } from '../login.service';
 
 @Component({

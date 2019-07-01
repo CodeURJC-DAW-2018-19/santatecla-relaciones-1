@@ -2,11 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { RelationInfo } from '../dtos/relation-info';
 import { UnitInfo } from '../dtos/unit-info';
 import { UnitService } from '../unit.service';
-import { Observable, of } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
 import { LoginService } from '../login.service';
 import { RelationService } from '../relation.service';
-import { UnitsComponent } from '../units/units.component';
+
 
 @Component({
   selector: 'app-relation',

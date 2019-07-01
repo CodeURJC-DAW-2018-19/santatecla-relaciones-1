@@ -1,9 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { UnitComponent } from '../unit/unit.component';
 import { RecordInfo } from '../dtos/record-info';
 import { RecordService } from '../record.service';
 import { UnitInfo } from '../dtos/unit-info';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-records',
@@ -20,7 +19,8 @@ export class RecordsComponent implements OnInit {
   showAddRecordForm: boolean;
 
   constructor(
-    private recordService: RecordService
+    private recordService: RecordService,
+    private loginService: LoginService,
   ) { }
 
   ngOnInit() {
