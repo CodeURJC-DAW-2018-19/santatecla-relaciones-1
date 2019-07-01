@@ -35,35 +35,35 @@ Para empaquetar la aplicación en un archivo *.jar* hemos añadido la configurac
 **Screenshots Fase 2**
 
 **Página de inicio:**
-![Captura1](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Captura1.JPG)
+![Captura1](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Captura1.PNG)
 
 **Logeado:**
-![Captura2](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Captura2.JPG)
+![Captura2](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Captura2.PNG)
 
 **Añadir unidad:**
-![Captura3](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Captura3.JPG)
+![Captura3](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Captura3.PNG)
 
 **Lista de unidades:**
-![Captura5](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Captura5.JPG)
+![Captura5](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Captura5.PNG)
 
 **Añadir relación:**
-![Captura6](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Captura6.JPG)
+![Captura6](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Captura6.PNG)
 
 **Contexto:**
-![Captura7](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Captura7.JPG)
+![Captura7](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Captura7.PNG)
 
 **Detalle:**
-![Captura8](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Captura8.JPG)
+![Captura8](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Captura8.PNG)
 
 **Añadir ficha:**
-![Captura9](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Captura9.JPG)
+![Captura9](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Captura9.PNG)
 
 ## Diagramas
 **Diagrama de clases:**
-![Diagrama de clases](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Diagrama de clases.JPG)
+![Diagrama de clases](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Diagrama de clases.png)
 
 **Diagrama de la base de datos:**
-![Diagrama base de datos](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Diagrama base de datos.JPG)
+![Diagrama base de datos](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Diagrama base de datos.png)
 
 **Diagrama de navegación:**
-![Diagrama de navegación](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Diagrama de navegación.JPG)
+![Diagrama de navegación](https://github.com/CodeURJC-DAW-2018-19/santatecla-relaciones-1/blob/master/screenshots/Diagrama de navegación.png)
